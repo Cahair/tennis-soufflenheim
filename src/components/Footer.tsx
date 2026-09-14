@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { logo } from "@/lib/images";
-import { navLinks } from "@/lib/nav";
+import { footerLinks } from "@/lib/nav";
 import { telHref } from "@/lib/format";
 import type { SiteSettings, Social } from "@/lib/content-types";
 import SocialLinks from "./SocialLinks";
@@ -16,7 +16,7 @@ export default function Footer({
   return (
     <footer className="bg-pine-950 text-white/70">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.2fr]">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.2fr_1.5fr_1fr_1fr]">
           <div>
             <Image
               src={logo}
@@ -36,9 +36,9 @@ export default function Footer({
             <h3 className="display text-sm tracking-[0.2em] text-gold-400">
               Navigation
             </h3>
-            <ul className="mt-5 space-y-3 text-sm">
-              {navLinks.flatMap((link) => link.children ?? [link]).map((link) => (
-                <li key={link.href}>
+            <ul className="mt-5 columns-2 gap-x-6 text-sm">
+              {footerLinks.map((link) => (
+                <li key={link.href} className="mb-3 break-inside-avoid">
                   <Link
                     href={link.href}
                     className="transition-colors hover:text-gold-300"
@@ -89,9 +89,7 @@ export default function Footer({
               Réserver un court
             </h3>
             <p className="mt-5 text-sm leading-relaxed">
-              Licenciés : plateforme officielle Ten&rsquo;up.
-              <br />
-              Non-licenciés : application Anybuddy.
+              Plateforme officielle Ten&rsquo;up, réservation en ligne 7j/7.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
               <a
@@ -101,14 +99,6 @@ export default function Footer({
                 className="btn btn-gold !px-5 !py-2.5 text-sm"
               >
                 Ten&rsquo;up
-              </a>
-              <a
-                href={site.links.anybuddy}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-outline-light !px-5 !py-2.5 text-sm"
-              >
-                Anybuddy
               </a>
             </div>
           </div>

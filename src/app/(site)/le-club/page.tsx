@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   title: "Le club",
   description:
     "Depuis 1979, le Tennis Padel Club Soufflenheim fait vivre le sport de raquette au pays des potiers : histoire, comité, installations.",
+  alternates: { canonical: "/le-club" },
 };
 
 export default async function LeClubPage() {
@@ -154,7 +155,7 @@ export default async function LeClubPage() {
       </section>
 
       {/* Installations */}
-      <section id="installations" className="scroll-mt-24 bg-cream-50 py-24">
+      <section id="installations" className="scroll-mt-20 bg-cream-50 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeader

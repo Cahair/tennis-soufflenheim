@@ -1,13 +1,25 @@
 import Link from "next/link";
 import Accordion from "@/components/Accordion";
+import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
 import { getFaqs } from "@/lib/content";
 
 export default async function FaqSection() {
   const faqs = await getFaqs();
+  const shown = faqs.slice(0, 5);
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: shown.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  };
   return (
-    <section id="faq" className="scroll-mt-24 bg-cream-50 py-24">
+    <section id="faq" className="scroll-mt-20 bg-cream-50 py-24">
+      <JsonLd data={faqJsonLd} />
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeader
@@ -17,7 +29,7 @@ export default async function FaqSection() {
         </Reveal>
         <Reveal delay={120}>
           <div className="mt-12">
-            <Accordion items={faqs.slice(0, 5)} />
+            <Accordion items={shown} />
           </div>
         </Reveal>
         <Reveal delay={180}>

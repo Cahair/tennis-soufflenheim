@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Règlement intérieur",
   description:
     "Membres, cotisations, licence FFT, réservations, discipline : le règlement intérieur du Tennis Padel Club Soufflenheim.",
+  alternates: { canonical: "/reglement-interieur" },
 };
 
 export default async function ReglementPage() {

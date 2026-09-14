@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Mentions légales",
   description:
     "Mentions légales du site du Tennis Padel Club Soufflenheim : éditeur, hébergement, propriété intellectuelle et données personnelles.",
+  alternates: { canonical: "/mentions-legales" },
 };
 
 export default async function MentionsLegalesPage() {

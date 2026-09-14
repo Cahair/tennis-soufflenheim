@@ -26,7 +26,6 @@ export type SiteSettings = {
   links: {
     inscription: string;
     tenup: string;
-    anybuddy: string;
     fftPadel: string;
     itineraire: string;
   };
@@ -132,16 +131,11 @@ export type HomeIntro = {
   points: string[];
 };
 
-export type ReservationPlatform = {
+export type ReservationInfo = {
   tag: string;
   description: string;
   steps: string[];
   cta: string;
-};
-
-export type ReservationInfo = {
-  tenup: ReservationPlatform;
-  anybuddy: ReservationPlatform;
 };
 
 /* Bandeau doré « Prêt à jouer ? » (accueil + page Le club). */

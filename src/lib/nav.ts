@@ -15,12 +15,13 @@ export const navLinks: NavLink[] = [
     href: "/",
     children: [
       { label: "Haut de page", href: "/" },
-      { label: "Nouveau : le padel", href: "/#nouveau-padel" },
+      { label: "Le club en bref", href: "/#club" },
       { label: "Nos disciplines", href: "/#disciplines" },
+      { label: "Nouveau : le padel", href: "/#nouveau-padel" },
       { label: "Réserver un court", href: "/#reservation" },
       { label: "Actualités & agenda", href: "/#actualites" },
       { label: "Galerie", href: "/#galerie" },
-      { label: "FAQ", href: "/#faq" },
+      { label: "FAQ", href: "/contact#faq" },
     ],
   },
   {
@@ -46,13 +47,22 @@ export const navLinks: NavLink[] = [
   { label: "Contact", href: "/contact" },
 ];
 
+/* Pied de page : les pages seulement. Les ancres de l'accueil restent
+   dans le menu, sinon la colonne s'allonge sans rien apporter. */
+export const footerLinks = [
+  { label: "Accueil", href: "/" },
+  ...navLinks
+    .filter((link) => link.href !== "/")
+    .flatMap((link) => link.children ?? [link]),
+];
+
 /* Tracés SVG des icônes de réseaux sociaux (viewBox 24×24,
    currentColor). La clé correspond au champ `icon` du contenu. */
 export const socialIconPaths: Record<string, string> = {
   facebook:
     "M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z",
   instagram:
-    "M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.3.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.3.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.3-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.3-.4 1.2-.1 1.6-.1 4.8-.1Zm0 2A8 8 0 1 0 12 20 8 8 0 0 0 12 4.2Zm0 3.2a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6Zm0 2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6ZM17.8 5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z",
+    "M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm10.5 1.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 1 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 1 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 1 0 0-6Z",
   youtube:
     "M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8ZM9.5 15.6V8.4L15.8 12l-6.3 3.6Z",
   tiktok:

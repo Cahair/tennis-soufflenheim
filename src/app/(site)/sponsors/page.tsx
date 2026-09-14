@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Sponsors",
   description:
     "Commerçants, artisans et entreprises locales soutiennent le Tennis Padel Club Soufflenheim saison après saison. Découvrez nos sponsors et rejoignez-les.",
+  alternates: { canonical: "/sponsors" },
 };
 
 const benefits = [

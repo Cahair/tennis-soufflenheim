@@ -7,7 +7,7 @@ import { getEvents, getNews } from "@/lib/content";
 export default async function NewsAgenda() {
   const [news, events] = await Promise.all([getNews(), getEvents()]);
   return (
-    <section id="actualites" className="scroll-mt-24 bg-cream-50 py-24">
+    <section id="actualites" className="scroll-mt-20 bg-cream-50 py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">

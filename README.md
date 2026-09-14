@@ -2,7 +2,7 @@
 
 Maquette de site vitrine pour le TPCS — Tennis, Padel & Pickleball à Soufflenheim, depuis 1979.
 
-Construit avec **Next.js 16** (App Router), **React 19**, **Tailwind CSS 4** et **sharp** (photos). Tout le reste est fait maison : animations, galerie lightbox, accordéon FAQ, compteurs… et le mini-CMS intégré (`/admin`).
+Construit avec **Next.js 16** (App Router), **React 19**, **Tailwind CSS 4** et **sharp** (photos). Les animations de la page d'accueil reposent sur **GSAP** (ScrollTrigger, SplitText, DrawSVG) et **Lenis** (défilement lissé) ; tout le reste est fait maison : galerie lightbox, accordéon FAQ… et le mini-CMS intégré (`/admin`).
 
 ## Lancer le site
 
@@ -24,7 +24,7 @@ npm start
 
 | URL | Contenu |
 | --- | --- |
-| `/` | Accueil : hero, chiffres clés, le club, disciplines, réservation Ten'up / Anybuddy, actus & agenda, galerie, témoignages, partenaires, FAQ |
+| `/` | Accueil (`src/components/landing/`) : écran d'ouverture, hero, le club & chiffres clés, disciplines, padel couvert, réservation Ten'up, actus & agenda, galerie, témoignages, partenaires — animations désactivées si l'utilisateur préfère un mouvement réduit |
 | `/le-club` | Histoire (frise 1979 → aujourd'hui), mot du président, comité, installations |
 | `/tarifs` | Adhésions, tarifs horaires padel, école de tennis |
 | `/actualites` | Articles + agenda des événements |
@@ -76,6 +76,6 @@ images décoratives (`src/lib/images.ts`) et les couleurs du club
 ## Notes
 
 - Tarifs, événements et articles : contenus **indicatifs** créés pour la maquette, à valider avec le club.
-- Réservations : liens réels vers Ten'up (licenciés) et Anybuddy (non-licenciés).
+- Réservations : lien réel vers Ten'up.
 - Le formulaire de contact enregistre les messages dans l'admin ; l'envoi
   d'une notification e-mail pourra être branché plus tard (SMTP Infomaniak).

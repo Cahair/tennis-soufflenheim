@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Actualités",
   description:
     "Toute la vie du Tennis Padel Club Soufflenheim : tournois, nouveautés padel et pickleball, résultats et coulisses du club.",
+  alternates: { canonical: "/actualites" },
 };
 
 export default async function ActualitesPage() {

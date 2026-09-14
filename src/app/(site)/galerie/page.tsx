@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import GalleryGrid from "@/components/GalleryGrid";
+import GallerySphereSection from "@/components/gallery/GallerySphereSection";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import { getGalleryComplete } from "@/lib/content";
@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Galerie photos",
   description:
     "Le Tennis Padel Club Soufflenheim en images : piste de padel, courts, club house, fêtes du club et jeunes en action.",
+  alternates: { canonical: "/galerie" },
 };
 
 export default async function GaleriePage() {
@@ -22,11 +23,12 @@ export default async function GaleriePage() {
       />
 
       <section className="bg-cream-50 py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <GalleryGrid items={galleryComplete} withFilter />
-          </Reveal>
+        {/* Pleine largeur et hors de <Reveal> : un ancêtre transformé
+            casserait le position:sticky de la sphère et le fixed de la
+            lightbox. */}
+        <GallerySphereSection items={galleryComplete} photoLimit={20} />
 
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal delay={150}>
             <div className="mt-16 rounded-3xl bg-pine-800 p-10 text-center text-white">
               <h2 className="display text-3xl text-white sm:text-4xl">

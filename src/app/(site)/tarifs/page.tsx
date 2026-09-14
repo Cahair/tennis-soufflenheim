@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   title: "Tarifs",
   description:
     "Adhésions tennis, padel et combiné, école de tennis, conditions générales : les tarifs 2024/25 du Tennis Padel Club Soufflenheim.",
+  alternates: { canonical: "/tarifs" },
 };
 
 function Check() {

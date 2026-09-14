@@ -85,7 +85,7 @@ export default function PadelSpotlight() {
     <section
       id="nouveau-padel"
       ref={sectionRef}
-      className="relative scroll-mt-24 bg-pine-950 text-white"
+      className="relative scroll-mt-20 bg-pine-950 text-white"
     >
       {/* Sticker « Pluie ? On joue ! » à cheval sur le bandeau doré */}
       <div className="absolute -top-12 right-8 z-20 hidden lg:block xl:right-16">

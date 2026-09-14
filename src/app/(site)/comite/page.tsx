@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: "Le comité",
   description:
     "Bureau, commissions sportive, entretien, animation et sponsoring : découvrez les bénévoles qui font vivre le Tennis Padel Club Soufflenheim.",
+  alternates: { canonical: "/comite" },
 };
 
 /* Les quatre commissions du club, dans l'ordre d'affichage du

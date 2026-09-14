@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Calendrier",
   description:
     "Tous les prochains rendez-vous du Tennis Padel Club Soufflenheim : tournois, animations padel et pickleball, soirées et événements du club.",
+  alternates: { canonical: "/calendrier" },
 };
 
 export default async function CalendrierPage() {

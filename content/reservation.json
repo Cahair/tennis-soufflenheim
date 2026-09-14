@@ -1,22 +1,10 @@
 {
-  "tenup": {
-    "tag": "Licenciés FFT",
-    "description": "La plateforme officielle de la Fédération Française de Tennis, pour les membres du club.",
-    "steps": [
-      "Créez votre compte Ten'up (gratuit)",
-      "Choisissez votre court et votre créneau",
-      "Validez — votre réservation est confirmée"
-    ],
-    "cta": "Réserver sur Ten'up"
-  },
-  "anybuddy": {
-    "tag": "Sans licence · accès ponctuel",
-    "description": "Pas encore licencié ? Réservez la piste de padel à l'heure, en quelques clics, paiement en ligne sécurisé.",
-    "steps": [
-      "Téléchargez l'application Anybuddy",
-      "Sélectionnez le TPC Soufflenheim",
-      "Payez en ligne et venez jouer !"
-    ],
-    "cta": "Réserver sur Anybuddy"
-  }
+  "tag": "Licenciés FFT",
+  "description": "La plateforme officielle de la Fédération Française de Tennis, pour les membres du club.",
+  "steps": [
+    "Créez votre compte Ten'up (gratuit)",
+    "Choisissez votre court et votre créneau",
+    "Validez — votre réservation est confirmée"
+  ],
+  "cta": "Réserver sur Ten'up"
 }

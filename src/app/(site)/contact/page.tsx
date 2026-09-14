@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Accordion from "@/components/Accordion";
 import ContactForm from "@/components/ContactForm";
+import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Contactez le Tennis Padel Club Soufflenheim : téléphone, e-mail, adresse rue de Koenigsbruck et formulaire en ligne.",
+  alternates: { canonical: "/contact" },
 };
 
 const contactCards = (site: SiteSettings) => [
@@ -73,6 +75,15 @@ export default async function ContactPage() {
     getFaqs(),
   ]);
   const cards = contactCards(site);
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  };
   return (
     <>
       <PageHero
@@ -190,8 +201,9 @@ export default async function ContactPage() {
         </div>
       </section>
 
-      {/* FAQ complète */}
-      <section className="bg-cream-50 py-24">
+      {/* FAQ complète — cible du lien « FAQ » du menu (/contact#faq) */}
+      <section id="faq" className="scroll-mt-20 bg-cream-50 py-24">
+        <JsonLd data={faqJsonLd} />
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeader

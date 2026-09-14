@@ -9,9 +9,9 @@ import { getSocials } from "@/lib/content";
 export default async function Hero() {
   const socials = await getSocials();
   return (
-    <section className="hero relative overflow-hidden bg-pine-950 pb-24 pt-28 sm:pt-36 lg:pt-40">
-      {/* Photo de fond — mobile & tablette */}
-      <div className="absolute inset-0 lg:hidden">
+    <section className="hero relative isolate flex min-h-[100svh] items-center overflow-hidden bg-pine-950 pb-20 pt-24 sm:pt-28">
+      {/* Photo de fond plein écran — zoom d'entrée façon "on pousse la porte" */}
+      <div className="absolute inset-0 -z-10">
         <Image
           src={padelCourt}
           alt=""
@@ -19,24 +19,24 @@ export default async function Hero() {
           priority
           placeholder="blur"
           sizes="100vw"
-          className="object-cover object-center"
+          className="hero-media-enter object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-pine-950/85 via-pine-950/70 to-pine-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-pine-950/85 via-pine-950/60 to-pine-950" />
       </div>
 
       {/* Décors de fond */}
       <div
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
             "radial-gradient(70rem 40rem at 80% -20%, rgba(237,177,17,0.16), transparent 60%), radial-gradient(50rem 30rem at -10% 110%, rgba(63,122,103,0.35), transparent 60%)",
         }}
       />
-      <CourtLines className="absolute -bottom-32 -left-40 hidden h-[36rem] w-auto -rotate-12 text-white/[0.045] lg:block" />
+      <CourtLines className="pointer-events-none absolute -bottom-32 -left-40 -z-10 hidden h-[36rem] w-auto -rotate-12 text-white/[0.045] lg:block" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
+      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Colonne texte */}
-        <div>
+        <div className="max-w-2xl">
           <Reveal>
             <span className="kicker text-[0.65rem] text-gold-400 sm:text-xs">
               Depuis 1979 · Soufflenheim, Alsace du Nord
@@ -109,50 +109,38 @@ export default async function Hero() {
             </div>
           </Reveal>
         </div>
-
-        {/* Colonne image — desktop uniquement (la photo passe en fond sur mobile) */}
-        <Reveal direction="zoom" delay={200} className="relative hidden w-full lg:block">
-          <div className="absolute -inset-3 translate-x-5 translate-y-5 rounded-t-[10rem] rounded-b-[2.5rem] border-2 border-gold-500/40" />
-          <div className="hero-media relative aspect-[3/4] overflow-hidden rounded-t-[10rem] rounded-b-[2.5rem] shadow-2xl shadow-pine-950/60 ring-1 ring-white/15">
-            <Image
-              src={padelCourt}
-              alt="La piste de padel SLAMCOURT du club sous le soleil"
-              fill
-              priority
-              placeholder="blur"
-              sizes="(max-width: 1024px) 90vw, 45vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-pine-950/50 via-transparent to-transparent" />
-          </div>
-
-          {/* Badge flottant : nouveauté padel */}
-          <div className="animate-float absolute -left-6 top-16 hidden items-center gap-3 rounded-2xl bg-white p-3.5 pr-5 shadow-2xl shadow-pine-950/40 sm:flex">
-            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold-500 text-xl">
-              🎾
-            </span>
-            <span>
-              <span className="block text-sm font-bold text-pine-950">
-                Piste de padel
-              </span>
-              <span className="block text-xs text-pine-950/55">
-                Dernière génération — réservable 7j/7
-              </span>
-            </span>
-          </div>
-
-          {/* Vignette terrasse */}
-          <div className="absolute -bottom-8 -right-4 hidden w-40 -rotate-3 overflow-hidden rounded-2xl border-4 border-white shadow-2xl shadow-pine-950/50 transition-transform duration-300 hover:rotate-0 lg:block">
-            <Image
-              src={terrasseClub}
-              alt="La terrasse du club house"
-              placeholder="blur"
-              sizes="10rem"
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </Reveal>
       </div>
+
+      {/* Cartes flottantes — desktop uniquement, posées sur la photo plein écran */}
+      <Reveal
+        direction="fade"
+        delay={600}
+        className="pointer-events-none absolute inset-0 hidden lg:block"
+      >
+        <div className="animate-float pointer-events-auto absolute right-10 top-28 flex items-center gap-3 rounded-2xl bg-white p-3.5 pr-5 shadow-2xl shadow-pine-950/40 xl:right-16">
+          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold-500 text-xl">
+            🎾
+          </span>
+          <span>
+            <span className="block text-sm font-bold text-pine-950">
+              Piste de padel
+            </span>
+            <span className="block text-xs text-pine-950/55">
+              Dernière génération — réservable 7j/7
+            </span>
+          </span>
+        </div>
+
+        <div className="pointer-events-auto absolute bottom-10 right-10 w-40 -rotate-3 overflow-hidden rounded-2xl border-4 border-white shadow-2xl shadow-pine-950/50 transition-transform duration-300 hover:rotate-0 xl:right-16">
+          <Image
+            src={terrasseClub}
+            alt="La terrasse du club house"
+            placeholder="blur"
+            sizes="10rem"
+            className="h-full w-full object-cover"
+          />
+        </div>
+      </Reveal>
 
       {/* Indicateur de scroll */}
       <a

@@ -60,7 +60,8 @@ export default function LogoMark({
     >
       {/* Rotation pilotée par le scroll appliquée au wrapper, pour ne pas
           entrer en conflit avec le transform du hover sur le svg */}
-      <span ref={ballRef} className="inline-flex will-change-transform">
+      {/* data-logo-ball : point d'arrivée de la balle du splash (accueil) */}
+      <span ref={ballRef} data-logo-ball className="inline-flex will-change-transform">
         <BallMark className="h-9 w-9 drop-shadow-md transition-transform duration-300 group-hover:rotate-12" />
       </span>
       <span className="flex flex-col leading-none">
