@@ -1,21 +1,55 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
-import { getEvents } from "@/lib/content";
+import { getEvents, getSettings } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
+import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Calendrier",
+export const metadata: Metadata = pageMetadata({
+  title: "Calendrier des tournois et événements",
   description:
-    "Tous les prochains rendez-vous du Tennis Padel Club Soufflenheim : tournois, animations padel et pickleball, soirées et événements du club.",
-  alternates: { canonical: "/calendrier" },
-};
+    "Tournois de tennis et de padel, initiations, soirées : tous les prochains rendez-vous du Tennis Padel Club Soufflenheim (Bas-Rhin).",
+  path: "/calendrier",
+});
 
 export default async function CalendrierPage() {
-  const events = await getEvents();
+  const [events, site] = await Promise.all([getEvents(), getSettings()]);
+
+  /* Les événements dont la date complète est saisie dans l'admin sont
+     décrits en schema.org (Event) : Google et les assistants IA
+     peuvent alors les annoncer. Sans année, pas de données. */
+  const [postalCode, ...cityParts] = site.address.city.split(" ");
+  const club = { "@type": "SportsOrganization", "@id": `${SITE_URL}/#club`, name: site.name, url: SITE_URL };
+  const eventsJsonLd = events
+    .filter((event) => event.date)
+    .map((event) => ({
+      "@context": "https://schema.org",
+      "@type": "Event",
+      name: event.title,
+      description: event.meta,
+      startDate: event.date,
+      eventStatus: "https://schema.org/EventScheduled",
+      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      location: {
+        "@type": "Place",
+        name: site.name,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: site.address.street,
+          postalCode,
+          addressLocality: cityParts.join(" ") || site.address.city,
+          addressCountry: "FR",
+        },
+      },
+      organizer: club,
+      url: `${SITE_URL}/calendrier`,
+    }));
 
   return (
     <>
+      {eventsJsonLd.length ? <JsonLd data={eventsJsonLd} /> : null}
       <PageHero
         kicker="Calendrier"
         title="Le calendrier du club"

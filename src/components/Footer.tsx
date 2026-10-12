@@ -24,7 +24,8 @@ export default function Footer({
               className="h-20 w-auto rounded-xl bg-white p-2"
             />
             <p className="mt-5 max-w-xs text-sm leading-relaxed">
-              Tennis, padel et pickleball au cœur du pays des potiers, depuis
+              Club de tennis, padel et pickleball à Soufflenheim (Bas-Rhin),
+              au cœur du pays des potiers et de l&rsquo;Alsace du Nord, depuis
               1979. Un club de village, une ambiance de famille.
             </p>
             <div className="mt-6">
@@ -96,6 +97,8 @@ export default function Footer({
                 href={site.links.tenup}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-umami-event="reservation-tenup"
+                data-umami-event-emplacement="pied-de-page"
                 className="btn btn-gold !px-5 !py-2.5 text-sm"
               >
                 Ten&rsquo;up

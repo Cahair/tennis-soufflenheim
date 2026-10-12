@@ -54,6 +54,7 @@ export type NewsItem = {
   date: string;
   category: string;
   excerpt: string;
+  content?: string; // article complet (page /actualites/[slug]) ; à défaut, le résumé
   image: ImageRef;
 };
 
@@ -62,6 +63,7 @@ export type ClubEvent = {
   month: string;
   title: string;
   meta: string;
+  date?: string; // AAAA-MM-JJ, pour schema.org (le jour et le mois affichés restent day/month)
 };
 
 export type PriceCard = {

@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ClubEvent, NewsItem } from "@/lib/content-types";
+import { isoFromFrenchDate } from "@/lib/format";
 import { ArrowRight } from "./Arrow";
 import { gsap, MQ, SplitText, useGSAP } from "./gsap";
 
@@ -143,7 +144,7 @@ export default function ClubLife({
               <li key={item.slug} className="life-row relative">
                 <span className="life-rule absolute inset-x-0 top-0 h-px bg-pine-950/15" />
                 <Link
-                  href="/actualites"
+                  href={item.slug ? `/actualites/${item.slug}` : "/actualites"}
                   data-cursor="Lire"
                   className="life-item group grid grid-cols-[4.5rem_1fr] items-center gap-5 py-7 sm:grid-cols-[9rem_1fr_auto] sm:gap-8 lg:py-10"
                 >
@@ -157,11 +158,11 @@ export default function ClubLife({
                       className="object-cover"
                     />
                   </div>
-                  <time className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-clay-500 sm:block">
+                  <time dateTime={isoFromFrenchDate(item.date)} className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-clay-500 sm:block">
                     {item.date}
                   </time>
                   <div>
-                    <time className="text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-clay-500 sm:hidden">
+                    <time dateTime={isoFromFrenchDate(item.date)} className="text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-clay-500 sm:hidden">
                       {item.date}
                     </time>
                     <h3 className="font-display text-[1.45rem] font-light leading-tight text-pine-950 transition-[translate] duration-500 group-hover:translate-x-3 sm:text-3xl lg:text-[2.6rem]">

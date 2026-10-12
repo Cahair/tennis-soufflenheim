@@ -101,19 +101,24 @@ export default function Hero() {
       </div>
 
       <div className="hero-content relative z-10 flex h-full flex-col items-center justify-center px-4 pb-16 pt-28 text-center sm:px-6">
-        <p
-          data-intro-hide
-          className="hero-fade text-[0.65rem] font-semibold uppercase tracking-[0.38em] text-gold-300 sm:text-xs"
-        >
-          Soufflenheim · Alsace du Nord
-        </p>
-        <h1
-          data-intro-hide
-          className="hero-title display mt-6 text-[clamp(3.1rem,12.5vw,10.5rem)] leading-[0.9] text-white"
-        >
-          Tennis, padel
-          <br />
-          <span className="text-gold-400">&amp; pickleball</span>
+        {/* Le lieu fait partie du titre principal : c'est lui qui
+            rattache l'accueil aux recherches locales (« tennis
+            Soufflenheim », « padel Alsace du Nord »). */}
+        <h1>
+          <span
+            data-intro-hide
+            className="hero-fade block text-[0.65rem] font-semibold uppercase tracking-[0.38em] text-gold-300 sm:text-xs"
+          >
+            Soufflenheim · Alsace du Nord
+          </span>
+          <span
+            data-intro-hide
+            className="hero-title display mt-6 block text-[clamp(3.1rem,12.5vw,10.5rem)] leading-[0.9] text-white"
+          >
+            Tennis, padel
+            <br />
+            <span className="text-gold-400">&amp; pickleball</span>
+          </span>
         </h1>
         <p
           data-intro-hide

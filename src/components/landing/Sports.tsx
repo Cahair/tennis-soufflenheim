@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { Discipline } from "@/lib/content-types";
+import { sportOrder } from "@/lib/sports";
 import { ArrowRight, ArrowUpRight } from "./Arrow";
 import { gsap, MQ, SplitText, useGSAP } from "./gsap";
 import { getLenis } from "./intro";
@@ -163,6 +164,9 @@ export default function Sports({ disciplines }: { disciplines: Discipline[] }) {
 
         {disciplines.map((d, i) => {
           const external = d.cta.href.startsWith("http");
+          // Page dédiée du sport (/tennis, /padel…), si elle existe
+          const slug = d.name.toLowerCase();
+          const page = (sportOrder as string[]).includes(slug) ? `/${slug}` : null;
           return (
             <article
               key={d.name}
@@ -206,14 +210,22 @@ export default function Sports({ disciplines }: { disciplines: Discipline[] }) {
                     ))}
                   </ul>
                 ) : null}
-                <Link
-                  href={d.cta.href}
-                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="sport-fade link-arrow mt-8 text-pine-900"
-                >
-                  {d.cta.label}
-                  {external ? <ArrowUpRight /> : <ArrowRight />}
-                </Link>
+                <div className="sport-fade mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
+                  <Link
+                    href={d.cta.href}
+                    {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className="link-arrow text-pine-900"
+                  >
+                    {d.cta.label}
+                    {external ? <ArrowUpRight /> : <ArrowRight />}
+                  </Link>
+                  {page ? (
+                    <Link href={page} className="link-arrow text-clay-500">
+                      Tout sur le {d.name.toLowerCase()}
+                      <ArrowRight />
+                    </Link>
+                  ) : null}
+                </div>
               </div>
             </article>
           );

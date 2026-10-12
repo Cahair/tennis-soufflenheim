@@ -26,6 +26,7 @@ npm start
 | --- | --- |
 | `/` | Accueil (`src/components/landing/`) : écran d'ouverture, hero, le club & chiffres clés, disciplines, padel couvert, réservation Ten'up, actus & agenda, galerie, témoignages, partenaires — animations désactivées si l'utilisateur préfère un mouvement réduit |
 | `/le-club` | Histoire (frise 1979 → aujourd'hui), mot du président, comité, installations |
+| `/tennis`, `/padel`, `/pickleball` | Pages sports pour la recherche locale (Soufflenheim, Haguenau, Bas-Rhin) : présentation, atouts, adhésions, accès, FAQ — voir [PLAN-SEO.md](PLAN-SEO.md) |
 | `/tarifs` | Adhésions, tarifs horaires padel, école de tennis |
 | `/actualites` | Articles + agenda des événements |
 | `/galerie` | Galerie photos filtrable avec visionneuse plein écran |
@@ -57,16 +58,22 @@ Configuration (fichier `.env.local`, voir `.env.example`) :
 | `ADMIN_PASSWORD` | mot de passe de l'administration |
 | `SESSION_SECRET` | clé de signature des sessions (hex aléatoire) |
 | `TPCS_DATA_DIR` | dossier persistant du contenu (défaut : `./data`) |
+| `SITE_URL` | URL publique du site, sans `/` final (défaut : `https://tpc-soufflenheim.fr`) — canonical, sitemap, robots.txt, JSON-LD. **À définir avant `npm run build`** |
+| `GOOGLE_SITE_VERIFICATION` | facultatif : code de la balise de validation Google Search Console (inutile si validation DNS) |
+| `BING_SITE_VERIFICATION` | facultatif : code `msvalidate.01` de Bing Webmaster Tools |
 
 Ce qui reste dans le code (volontairement hors CMS) : la navigation
-(`src/lib/nav.ts`), le règlement intérieur (`src/lib/reglement.ts`), les
+(`src/lib/nav.ts`), les textes des pages sports et les communes du bloc
+« Venir au club » (`src/lib/sports.ts`, `src/lib/site.ts`), le
+règlement intérieur (`src/lib/reglement.ts`), les
 images décoratives (`src/lib/images.ts`) et les couleurs du club
 (`src/app/globals.css`).
 
 ## Déploiement (Infomaniak, hébergement Node.js)
 
 1. Déployer le dépôt et installer : `npm install` (Node ≥ 20).
-2. Créer `.env.local` avec `ADMIN_PASSWORD`, `SESSION_SECRET` et, recommandé,
+2. Créer `.env.local` avec `ADMIN_PASSWORD`, `SESSION_SECRET`, `SITE_URL`
+   (le domaine définitif, sinon Google indexe de mauvaises URLs) et, recommandé,
    `TPCS_DATA_DIR` pointant vers un dossier **hors du dépôt** (ex.
    `/srv/tpcs-data`) pour que le contenu survive aux redéploiements.
 3. `npm run build` puis démarrer avec `npm start -- --port $PORT`.

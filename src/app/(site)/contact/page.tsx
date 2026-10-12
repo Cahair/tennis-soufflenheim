@@ -9,13 +9,14 @@ import { getFaqs, getSettings, getSocials } from "@/lib/content";
 import { socialIconPaths } from "@/lib/nav";
 import { telHref } from "@/lib/format";
 import type { SiteSettings } from "@/lib/content-types";
+import { faqJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact",
+export const metadata: Metadata = pageMetadata({
+  title: "Contact et accès",
   description:
-    "Contactez le Tennis Padel Club Soufflenheim : téléphone, e-mail, adresse rue de Koenigsbruck et formulaire en ligne.",
-  alternates: { canonical: "/contact" },
-};
+    "Téléphone, e-mail, formulaire et plan d'accès du Tennis Padel Club Soufflenheim, 1 rue de Koenigsbruck à Soufflenheim (Bas-Rhin), à 20 min de Haguenau.",
+  path: "/contact",
+});
 
 const contactCards = (site: SiteSettings) => [
   {
@@ -75,15 +76,6 @@ export default async function ContactPage() {
     getFaqs(),
   ]);
   const cards = contactCards(site);
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.q,
-      acceptedAnswer: { "@type": "Answer", text: faq.a },
-    })),
-  };
   return (
     <>
       <PageHero
@@ -203,7 +195,7 @@ export default async function ContactPage() {
 
       {/* FAQ complète — cible du lien « FAQ » du menu (/contact#faq) */}
       <section id="faq" className="scroll-mt-20 bg-cream-50 py-24">
-        <JsonLd data={faqJsonLd} />
+        <JsonLd data={faqJsonLd(faqs)} />
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeader

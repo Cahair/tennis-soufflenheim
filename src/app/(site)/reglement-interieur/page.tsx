@@ -5,13 +5,14 @@ import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
 import { getSettings } from "@/lib/content";
 import { bureau, reglementArticles, reglementMeta } from "@/lib/reglement";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Règlement intérieur",
   description:
     "Membres, cotisations, licence FFT, réservations, discipline : le règlement intérieur du Tennis Padel Club Soufflenheim.",
-  alternates: { canonical: "/reglement-interieur" },
-};
+  path: "/reglement-interieur",
+});
 
 export default async function ReglementPage() {
   const site = await getSettings();

@@ -16,13 +16,14 @@ import {
 } from "@/lib/content";
 import { telHref } from "@/lib/format";
 import { logoHistorique } from "@/lib/images";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Le club",
+export const metadata: Metadata = pageMetadata({
+  title: "Le club : histoire et installations",
   description:
-    "Depuis 1979, le Tennis Padel Club Soufflenheim fait vivre le sport de raquette au pays des potiers : histoire, comité, installations.",
-  alternates: { canonical: "/le-club" },
-};
+    "Depuis 1979, le Tennis Padel Club Soufflenheim fait vivre le tennis et le padel en Alsace du Nord (Bas-Rhin) : histoire, comité, courts, padel couvert et club house.",
+  path: "/le-club",
+});
 
 export default async function LeClubPage() {
   const [site, committee, facilities, histoireChapitres, histoireInfos] =

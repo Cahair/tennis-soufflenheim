@@ -14,6 +14,7 @@ export type FieldDef = {
     | "textarea"
     | "lines" // string[] — une entrée par ligne
     | "number"
+    | "date" // AAAA-MM-JJ, facultatif sauf si required
     | "checkbox"
     | "select"
     | "image" // ImageRef
@@ -61,9 +62,10 @@ export const sections: Section[] = [
       { path: "title", label: "Titre", type: "text", required: true },
       { path: "date", label: "Date affichée", type: "text", required: true, help: "Exemple : 12 juin 2026" },
       { path: "category", label: "Catégorie", type: "text", required: true, help: "Exemple : Padel, Vie du club, École de tennis…" },
-      { path: "excerpt", label: "Texte", type: "textarea", rows: 5, required: true },
+      { path: "excerpt", label: "Résumé", type: "textarea", rows: 5, required: true, help: "Deux ou trois phrases, affichées sur les cartes d'actualités." },
+      { path: "content", label: "Article complet (facultatif)", type: "textarea", rows: 14, help: "Affiché sur la page de l'article, sous le résumé. Laissez une ligne vide entre deux paragraphes. Donnez les faits utiles : dates, lieux, prix, résultats." },
       { path: "image", label: "Photo", type: "image", required: true },
-      { path: "slug", label: "Identifiant technique", type: "text", help: "Lettres minuscules et tirets, unique par article (ex. fete-du-club)." },
+      { path: "slug", label: "Identifiant technique", type: "text", help: "Lettres minuscules et tirets, unique par article (ex. fete-du-club). Il forme l'adresse de la page de l'article : sans lui, l'article n'a pas de page." },
     ],
   },
   {
@@ -80,6 +82,7 @@ export const sections: Section[] = [
       { path: "month", label: "Mois (abrégé)", type: "text", required: true, help: "Exemple : Juil." },
       { path: "title", label: "Titre", type: "text", required: true },
       { path: "meta", label: "Lieu et horaire", type: "text", required: true, help: "Exemple : Courts extérieurs · dès 9h" },
+      { path: "date", label: "Date complète (facultatif)", type: "date", help: "Avec l'année : permet à Google et aux assistants IA d'annoncer l'événement. Le jour et le mois affichés restent ceux saisis plus haut." },
     ],
   },
   {

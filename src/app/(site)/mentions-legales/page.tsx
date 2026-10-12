@@ -3,13 +3,15 @@ import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import { getSettings } from "@/lib/content";
 import { telHref } from "@/lib/format";
+import { UMAMI_WEBSITE_ID } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Mentions légales",
   description:
     "Mentions légales du site du Tennis Padel Club Soufflenheim : éditeur, hébergement, propriété intellectuelle et données personnelles.",
-  alternates: { canonical: "/mentions-legales" },
-};
+  path: "/mentions-legales",
+});
 
 export default async function MentionsLegalesPage() {
   const site = await getSettings();
@@ -156,10 +158,20 @@ export default async function MentionsLegalesPage() {
                     </a>
                     .
                   </p>
-                  <p>
-                    Ce site n&rsquo;utilise pas de cookies de suivi ni
-                    d&rsquo;outils de mesure d&rsquo;audience tiers.
-                  </p>
+                  {UMAMI_WEBSITE_ID ? (
+                    <p>
+                      Ce site n&rsquo;utilise pas de cookies. Sa fréquentation
+                      est mesurée avec <strong>Umami</strong>, un outil de
+                      mesure d&rsquo;audience qui ne dépose aucun cookie et ne
+                      conserve aucune donnée permettant de vous identifier :
+                      les statistiques sont anonymes et agrégées.
+                    </p>
+                  ) : (
+                    <p>
+                      Ce site n&rsquo;utilise pas de cookies de suivi ni
+                      d&rsquo;outils de mesure d&rsquo;audience tiers.
+                    </p>
+                  )}
                 </div>
               </article>
             </Reveal>

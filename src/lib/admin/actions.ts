@@ -77,6 +77,17 @@ async function parseFields(
         setPath(item, field.path, value);
         break;
       }
+      case "date": {
+        const value = String(formData.get(key) ?? "").trim();
+        if (field.required && !value) {
+          throw new Error(`Le champ « ${field.label} » est obligatoire.`);
+        }
+        if (value && !/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+          throw new Error(`« ${field.label} » doit être une date (AAAA-MM-JJ).`);
+        }
+        setPath(item, field.path, value);
+        break;
+      }
       case "select": {
         const value = String(formData.get(key) ?? "");
         if (!field.options?.some((o) => o.value === value)) {

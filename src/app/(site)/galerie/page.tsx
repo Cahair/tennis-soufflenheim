@@ -4,13 +4,14 @@ import GallerySphereSection from "@/components/gallery/GallerySphereSection";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import { getGalleryComplete } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Galerie photos",
   description:
-    "Le Tennis Padel Club Soufflenheim en images : piste de padel, courts, club house, fêtes du club et jeunes en action.",
-  alternates: { canonical: "/galerie" },
-};
+    "Le Tennis Padel Club Soufflenheim en images : piste de padel, courts de tennis, club house, fêtes du club et jeunes en action, en Alsace du Nord.",
+  path: "/galerie",
+});
 
 export default async function GaleriePage() {
   const galleryComplete = await getGalleryComplete();

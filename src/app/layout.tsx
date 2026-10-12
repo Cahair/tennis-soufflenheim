@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Oswald } from "next/font/google";
+import { openGraphDefaults, SITE_NAME } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -15,30 +16,46 @@ const oswald = Oswald({
   display: "swap",
 });
 
+/* Titre et description de l'accueil, repris par défaut ailleurs : ce
+   sont eux qui s'affichent dans Google pour « club tennis Bas-Rhin »,
+   « padel Alsace du Nord »… d'où les mots-clés géographiques. */
+const defaultTitle = `${SITE_NAME} · Tennis & padel dans le Bas-Rhin (67)`;
+const defaultDescription =
+  "Club de tennis, padel et pickleball à Soufflenheim (Bas-Rhin), à 20 min de Haguenau : padel couvert, école de tennis dès 5 ans, réservation en ligne 7j/7.";
+
+/* Codes de validation Search Console / Bing Webmaster Tools, fournis
+   par variables d'environnement (inutile si la validation se fait
+   par DNS chez l'hébergeur). */
+const bingVerification = process.env.BING_SITE_VERIFICATION;
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default:
-      "Tennis Padel Club Soufflenheim — Tennis, padel & pickleball en Alsace du Nord",
-    template: "%s · Tennis Padel Club Soufflenheim",
+    default: defaultTitle,
+    template: `%s · ${SITE_NAME}`,
   },
-  description:
-    "Le TPCS vous accueille depuis 1979 à Soufflenheim : courts de tennis, piste de padel dernière génération et pickleball. Réservation en ligne 7j/7 via Ten'up.",
+  description: defaultDescription,
+  applicationName: SITE_NAME,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+    ...(bingVerification ? { other: { "msvalidate.01": bingVerification } } : {}),
+  },
   openGraph: {
-    title: "Tennis Padel Club Soufflenheim",
-    description:
-      "Tennis, padel & pickleball au cœur du pays des potiers, depuis 1979. Réservez votre court en ligne.",
-    locale: "fr_FR",
-    type: "website",
-    siteName: "Tennis Padel Club Soufflenheim",
-    images: [
-      {
-        url: "/images/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Tennis Padel Club Soufflenheim — la piste de padel du club",
-      },
-    ],
+    ...openGraphDefaults,
+    title: defaultTitle,
+    description: defaultDescription,
+    url: "/",
   },
   twitter: {
     card: "summary_large_image",

@@ -51,6 +51,21 @@ export default function FieldInput({
         </div>
       );
 
+    case "date":
+      return (
+        <div>
+          <Label field={field} />
+          <input
+            id={name}
+            name={name}
+            type="date"
+            defaultValue={typeof current === "string" ? current : ""}
+            className={inputClass}
+          />
+          <Help field={field} />
+        </div>
+      );
+
     case "textarea":
     case "lines": {
       const text =

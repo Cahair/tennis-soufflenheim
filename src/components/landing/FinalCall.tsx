@@ -92,7 +92,14 @@ export default function FinalCall({
         </p>
         <div className="final-fade mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
           <Magnetic>
-            <a href={tenup} target="_blank" rel="noopener noreferrer" className="btn btn-gold">
+            <a
+              href={tenup}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-umami-event="reservation-tenup"
+              data-umami-event-emplacement="appel-final"
+              className="btn btn-gold"
+            >
               {cta}
               <ArrowUpRight />
             </a>

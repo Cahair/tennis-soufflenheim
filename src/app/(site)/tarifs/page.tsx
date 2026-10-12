@@ -12,13 +12,14 @@ import {
   getTennisSchool,
 } from "@/lib/content";
 import { telHref } from "@/lib/format";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Tarifs",
+export const metadata: Metadata = pageMetadata({
+  title: "Tarifs et adhésions tennis & padel",
   description:
-    "Adhésions tennis, padel et combiné, école de tennis, conditions générales : les tarifs 2024/25 du Tennis Padel Club Soufflenheim.",
-  alternates: { canonical: "/tarifs" },
-};
+    "Adhésions tennis, padel et combiné, licence FFT comprise, école de tennis dès 5 ans : tous les tarifs du Tennis Padel Club Soufflenheim (Bas-Rhin).",
+  path: "/tarifs",
+});
 
 function Check() {
   return (

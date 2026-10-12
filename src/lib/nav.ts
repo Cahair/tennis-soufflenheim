@@ -27,8 +27,13 @@ export const navLinks: NavLink[] = [
   {
     label: "Le club",
     href: "/le-club",
+    /* Les pages sports sont dans le menu (et donc dans le pied de
+       page) : c'est ce maillage qui les signale à Google. */
     children: [
       { label: "Histoire & installations", href: "/le-club" },
+      { label: "Le tennis", href: "/tennis" },
+      { label: "Le padel", href: "/padel" },
+      { label: "Le pickleball", href: "/pickleball" },
       { label: "Le comité", href: "/comite" },
     ],
   },

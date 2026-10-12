@@ -8,13 +8,14 @@ import CtaBand from "@/components/home/CtaBand";
 import { getCommittee } from "@/lib/content";
 import type { CommitteeMember } from "@/lib/content-types";
 import { telHref } from "@/lib/format";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Le comité",
   description:
     "Bureau, commissions sportive, entretien, animation et sponsoring : découvrez les bénévoles qui font vivre le Tennis Padel Club Soufflenheim.",
-  alternates: { canonical: "/comite" },
-};
+  path: "/comite",
+});
 
 /* Les quatre commissions du club, dans l'ordre d'affichage du
    récapitulatif. Les membres sont déduits du champ `commissions`. */

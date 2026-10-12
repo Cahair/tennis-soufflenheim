@@ -131,6 +131,8 @@ export default function Booking({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${reservation.cta} (nouvel onglet)`}
+                data-umami-event="reservation-tenup"
+                data-umami-event-emplacement="bloc-reservation"
                 className="booking-cta group relative flex h-52 w-52 items-center justify-center rounded-full bg-pine-950 text-gold-400 shadow-2xl shadow-pine-950/30 ring-0 ring-pine-950/10 transition-[scale,box-shadow] duration-500 hover:scale-105 hover:ring-8 sm:h-60 sm:w-60"
               >
                 <svg

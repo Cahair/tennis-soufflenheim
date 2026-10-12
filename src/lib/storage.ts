@@ -39,6 +39,19 @@ export function readJson<T>(name: string): T {
   return JSON.parse(fs.readFileSync(file, "utf8")) as T;
 }
 
+/* Date de dernière modification d'un ensemble de contenus (fichier
+   modifié via l'admin, sinon seed) : sert de lastmod au sitemap. */
+export function contentUpdatedAt(names: string[]): Date | undefined {
+  let latest = 0;
+  for (const name of names) {
+    safeName(name);
+    const live = path.join(CONTENT_DIR, `${name}.json`);
+    const file = fs.existsSync(live) ? live : path.join(SEED_DIR, `${name}.json`);
+    if (fs.existsSync(file)) latest = Math.max(latest, fs.statSync(file).mtimeMs);
+  }
+  return latest ? new Date(latest) : undefined;
+}
+
 export function writeJson(name: string, value: unknown): void {
   safeName(name);
   fs.mkdirSync(CONTENT_DIR, { recursive: true });

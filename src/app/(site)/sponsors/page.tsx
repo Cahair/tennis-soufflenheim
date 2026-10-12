@@ -6,13 +6,14 @@ import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
 import { getSettings, getSponsors } from "@/lib/content";
 import { telHref } from "@/lib/format";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Sponsors",
+export const metadata: Metadata = pageMetadata({
+  title: "Sponsors et partenaires",
   description:
-    "Commerçants, artisans et entreprises locales soutiennent le Tennis Padel Club Soufflenheim saison après saison. Découvrez nos sponsors et rejoignez-les.",
-  alternates: { canonical: "/sponsors" },
-};
+    "Commerçants, artisans et entreprises d'Alsace du Nord soutiennent le Tennis Padel Club Soufflenheim saison après saison. Découvrez nos sponsors et rejoignez-les.",
+  path: "/sponsors",
+});
 
 const benefits = [
   {
