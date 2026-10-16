@@ -42,3 +42,4 @@ next-env.d.ts
 
 # contenu modifiable via l'admin (JSON + photos + sauvegardes)
 /data
+package-lock.json
