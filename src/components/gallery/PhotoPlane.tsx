@@ -4,8 +4,8 @@ import { memo, useEffect, useRef } from "react";
 import { useThree, type ThreeEvent } from "@react-three/fiber";
 import type * as THREE from "three";
 
-/* Un plan texturé de la sphère. Position, orientation (billboard) et
-   opacité sont pilotées chaque frame par SphereScene ; ici on ne gère
+/* Une photo de la galerie 3D. Position, orientation (billboard) et
+   opacité sont pilotées chaque frame par TennisBallScene ; ici on ne gère
    que la géométrie, le matériau et le clic. */
 const PhotoPlane = memo(function PhotoPlane({
   index,

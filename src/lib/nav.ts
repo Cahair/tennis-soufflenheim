@@ -20,7 +20,6 @@ export const navLinks: NavLink[] = [
       { label: "Nouveau : le padel", href: "/#nouveau-padel" },
       { label: "Réserver un court", href: "/#reservation" },
       { label: "Actualités & agenda", href: "/#actualites" },
-      { label: "Galerie", href: "/#galerie" },
       { label: "FAQ", href: "/contact#faq" },
     ],
   },

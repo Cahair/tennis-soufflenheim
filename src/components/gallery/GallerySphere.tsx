@@ -1,17 +1,19 @@
 "use client";
 
 import {
+  useCallback,
   useEffect,
   useRef,
+  useState,
   type PointerEvent as ReactPointerEvent,
 } from "react";
 import { Canvas } from "@react-three/fiber";
 import type { GalleryItem } from "@/lib/content-types";
-import SphereScene from "./SphereScene";
+import TennisBallScene from "./TennisBallScene";
 
 /* Étage 3D de la galerie : un wrapper de 300vh dont l'intérieur reste
    collé à l'écran (sticky). Les ~200vh de course pilotent exactement un
-   tour de sphère ; avant et après, la page défile normalement — aucun
+   tour de balle ; avant et après, la page défile normalement — aucun
    détournement de la molette, la section reste toujours quittable. */
 export default function GallerySphere({
   items,
@@ -24,7 +26,11 @@ export default function GallerySphere({
   const progressRef = useRef(0);
   const dragRef = useRef(0);
   const inViewRef = useRef(true);
+  const [inView, setInView] = useState(true);
   const invalidateRef = useRef<(() => void) | null>(null);
+  const captionRef = useRef<HTMLParagraphElement>(null);
+  const categoryRef = useRef<HTMLSpanElement>(null);
+  const countRef = useRef<HTMLParagraphElement>(null);
   const gestureRef = useRef<{
     id: number;
     x: number;
@@ -55,17 +61,15 @@ export default function GallerySphere({
       invalidateRef.current?.();
     };
 
-    /* Hors écran, on ne recalcule rien : combiné à frameloop="demand",
+    /* Hors écran, la boucle d'animation est coupée (frameloop="never") :
        le canvas ne consomme ni rAF ni GPU quand la section est passée. */
     let io: IntersectionObserver | null = null;
     if (typeof IntersectionObserver !== "undefined") {
       io = new IntersectionObserver(
         ([entry]) => {
           inViewRef.current = entry.isIntersecting;
-          if (entry.isIntersecting) {
-            update();
-            invalidateRef.current?.();
-          }
+          setInView(entry.isIntersecting);
+          if (entry.isIntersecting) update();
         },
         { rootMargin: "200px 0px" }
       );
@@ -81,6 +85,20 @@ export default function GallerySphere({
       window.removeEventListener("resize", onResize);
     };
   }, []);
+
+  /* Photo au premier plan : mise à jour directe du DOM, sans re-rendu. */
+  const onFront = useCallback(
+    (i: number) => {
+      const item = items[i];
+      if (!item) return;
+      if (captionRef.current) captionRef.current.textContent = item.caption;
+      if (categoryRef.current) categoryRef.current.textContent = item.category;
+      if (countRef.current) {
+        countRef.current.textContent = `${String(i + 1).padStart(2, "0")} / ${String(items.length).padStart(2, "0")}`;
+      }
+    },
+    [items]
+  );
 
   const onPointerDown = (e: ReactPointerEvent<HTMLDivElement>) => {
     gestureRef.current = {
@@ -134,21 +152,51 @@ export default function GallerySphere({
         onPointerUp={endGesture}
         onPointerCancel={endGesture}
       >
+        {/* Halo rose et violet derrière la balle */}
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[min(110vw,62rem)] w-[min(110vw,62rem)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-radial from-rose-500/35 via-ultra-500/15 to-transparent to-70%" />
+
         <Canvas
-          frameloop="demand"
+          frameloop={inView ? "always" : "never"}
           flat
           dpr={[1, 1.75]}
           camera={{ position: [0, 0, 10], fov: 50 }}
           gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
         >
-          <SphereScene
+          <TennisBallScene
             items={items}
             progressRef={progressRef}
             dragRef={dragRef}
             invalidateRef={invalidateRef}
             onSelect={onSelect}
+            onFront={onFront}
           />
         </Canvas>
+
+        {/* Tableau de bord : photo au premier plan, compteur, consigne */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 px-4 pb-8 sm:px-8">
+          <div className="mx-auto flex max-w-7xl items-end justify-between gap-6">
+            <div className="max-w-sm">
+              <span
+                ref={categoryRef}
+                className="inline-block rounded-full bg-rose-500 px-2.5 py-1 text-[0.58rem] font-bold uppercase tracking-[0.16em] text-night-950"
+              >
+                {items[0]?.category}
+              </span>
+              <p ref={captionRef} className="mt-3 text-sm text-white/80 sm:text-base">
+                {items[0]?.caption}
+              </p>
+            </div>
+            <p
+              ref={countRef}
+              className="shrink-0 whitespace-nowrap font-display text-3xl tabular-nums text-rose-400 sm:text-4xl"
+            >
+              01 / {String(items.length).padStart(2, "0")}
+            </p>
+          </div>
+          <p className="mx-auto mt-5 max-w-7xl text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-white/45">
+            Faites défiler ou attrapez la balle · cliquez une photo pour l&rsquo;agrandir
+          </p>
+        </div>
       </div>
     </div>
   );

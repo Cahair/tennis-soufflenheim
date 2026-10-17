@@ -24,6 +24,38 @@ function heroImageReady(): Promise<void> {
   });
 }
 
+/* Pendant le splash, le réseau est libre : on passe en « eager » les
+   images paresseuses des premiers écrans sous le hero. Le navigateur
+   choisit lui-même la bonne variante du srcset. */
+function warmNextImages() {
+  const limit = window.innerHeight * 3;
+  document
+    .querySelectorAll<HTMLImageElement>('main img[loading="lazy"]')
+    .forEach((img) => {
+      if (img.getBoundingClientRect().top < limit) img.loading = "eager";
+    });
+}
+
+/* Une fois le hero ouvert, au premier temps mort : le code de la
+   galerie 3D (three.js), pour que /galerie s'ouvre sans attente.
+   Seulement si WebGL est là et que la connexion n'est ni économe ni
+   lente : sinon la page galerie le chargera à la demande, comme avant. */
+function warmGalleryChunk() {
+  const conn = (
+    navigator as Navigator & {
+      connection?: { saveData?: boolean; effectiveType?: string };
+    }
+  ).connection;
+  if (conn?.saveData || /2g|3g/.test(conn?.effectiveType ?? "")) return;
+  const run = () => {
+    void import("@/components/gallery/detect").then(({ canUseWebGL }) => {
+      if (canUseWebGL()) void import("@/components/gallery/GallerySphere");
+    });
+  };
+  if ("requestIdleCallback" in window) requestIdleCallback(run, { timeout: 4000 });
+  else setTimeout(run, 2000);
+}
+
 /* ------------------------------------------------------------------ */
 /*  Écran d'ouverture — une fois par session, au premier chargement   */
 /*  de l'accueil. La balle tombe et rebondit sur le filet, le         */
@@ -62,6 +94,7 @@ export default function Splash({ baseline }: { baseline: string }) {
         html.style.overflow = "";
         getLenis()?.start();
         setDone(true);
+        warmGalleryChunk();
       };
 
       gsap
@@ -108,6 +141,10 @@ export default function Splash({ baseline }: { baseline: string }) {
       });
 
       let cancelled = false;
+      // La photo du hero d'abord, le reste ensuite : pas de concurrence.
+      void heroImageReady().then(() => {
+        if (!cancelled) warmNextImages();
+      });
       Promise.race([
         Promise.all([document.fonts.ready, heroImageReady(), wait(1300)]),
         wait(3000),

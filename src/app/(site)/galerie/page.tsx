@@ -23,7 +23,7 @@ export default async function GaleriePage() {
         text="Piste de padel flambant neuve, courts au cœur du village, terrasse au soleil, fêtes mémorables — et plus de 45 ans d'archives : bienvenue chez nous."
       />
 
-      <section className="bg-night-50 py-24">
+      <section className="relative bg-night-950 py-24">
         {/* Pleine largeur et hors de <Reveal> : un ancêtre transformé
             casserait le position:sticky de la sphère et le fixed de la
             lightbox. */}

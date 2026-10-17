@@ -55,6 +55,7 @@ export type NewsItem = {
   category: string;
   excerpt: string;
   content?: string; // article complet (page /actualites/[slug]) ; à défaut, le résumé
+  popup?: boolean; // annoncée en pop-up sur tout le site (la première cochée)
   image: ImageRef;
 };
 

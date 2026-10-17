@@ -109,15 +109,18 @@ export default function FieldInput({
 
     case "checkbox":
       return (
-        <label className="flex items-center gap-3 text-sm font-semibold text-night-950">
-          <input
-            name={name}
-            type="checkbox"
-            defaultChecked={current === true}
-            className="h-5 w-5 rounded border-night-300 accent-night-800"
-          />
-          {field.label}
-        </label>
+        <div>
+          <label className="flex items-center gap-3 text-sm font-semibold text-night-950">
+            <input
+              name={name}
+              type="checkbox"
+              defaultChecked={current === true}
+              className="h-5 w-5 rounded border-night-300 accent-night-800"
+            />
+            {field.label}
+          </label>
+          <Help field={field} />
+        </div>
       );
 
     case "select":

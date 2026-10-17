@@ -3,9 +3,11 @@
 import { useEffect, useRef, type RefObject } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Calque d'effets du hero : un canvas plein cadre qui dessine des   */
-/*  étincelles (traînée, explosions) et des balles de padel soumises  */
-/*  à la gravité, qui rebondissent sur le sol et les bords.           */
+/*  Calque d'effets « balles de padel » : un canvas plein cadre qui   */
+/*  dessine des étincelles (traînée, explosions) et des balles        */
+/*  soumises à la gravité, qui rebondissent sur le sol et les bords.  */
+/*  Utilisé par le hero, la réservation, l'appel final et la 404.     */
+/*  À placer dans un parent positionné (relative/absolute).           */
 /*  La boucle d'animation ne tourne que tant qu'il reste quelque      */
 /*  chose à dessiner. Coordonnées d'entrée : celles de la fenêtre.    */
 /* ------------------------------------------------------------------ */
@@ -17,9 +19,14 @@ export type FxApi = {
   trail: (x: number, y: number) => void;
   /** Lance une balle qui rebondit. */
   ball: (x: number, y: number, vx?: number, vy?: number) => void;
+  /** Pluie de balles depuis le haut du calque, étalée dans le temps. */
+  rain: (count?: number) => void;
 };
 
-const COLORS = ["#fc6898", "#ea336f", "#fda4c1", "#a35cff", "#8a2be2", "#ffffff", "#ffd1e6"];
+/* Étincelles : rose et violet du logo sur fond sombre (par défaut),
+   nuit, blanc et violet sur fond rose. */
+export const SPARKS_ON_DARK = ["#fc6898", "#ea336f", "#fda4c1", "#a35cff", "#8a2be2", "#ffffff", "#ffd1e6"];
+export const SPARKS_ON_ROSE = ["#0a0610", "#150b1d", "#ffffff", "#ffffff", "#4e2178", "#6a1fbf", "#fda4c1"];
 const MAX_BALLS = 14;
 const MAX_SPARKS = 900;
 
@@ -49,17 +56,30 @@ type Ball = {
 
 const pick = <T,>(arr: T[]) => arr[Math.floor(Math.random() * arr.length)];
 
-function drawBall(ctx: CanvasRenderingContext2D, b: Ball, alpha: number) {
+/* Balle rose (fonds sombres) ou balle nuit à coutures roses (fond rose). */
+const BALL_THEMES = {
+  rose: { glow: "rgba(234,51,111,0.7)", stops: ["#ffb3d4", "#ea336f", "#6a1fbf"], seam: "#fff" },
+  night: { glow: "rgba(10,6,16,0.45)", stops: ["#4e2178", "#150b1d", "#0a0610"], seam: "#fc6898" },
+} as const;
+export type BallTheme = keyof typeof BALL_THEMES;
+
+export function drawBall(
+  ctx: CanvasRenderingContext2D,
+  b: { x: number; y: number; r: number; rot: number },
+  alpha: number,
+  theme: BallTheme
+) {
+  const t = BALL_THEMES[theme];
   ctx.save();
   ctx.globalAlpha = alpha;
   ctx.translate(b.x, b.y);
   ctx.rotate(b.rot);
-  ctx.shadowColor = "rgba(234,51,111,0.7)";
+  ctx.shadowColor = t.glow;
   ctx.shadowBlur = b.r * 1.2;
   const g = ctx.createRadialGradient(-b.r * 0.3, -b.r * 0.4, b.r * 0.1, 0, 0, b.r);
-  g.addColorStop(0, "#ffb3d4");
-  g.addColorStop(0.45, "#ea336f");
-  g.addColorStop(1, "#6a1fbf");
+  g.addColorStop(0, t.stops[0]);
+  g.addColorStop(0.45, t.stops[1]);
+  g.addColorStop(1, t.stops[2]);
   ctx.fillStyle = g;
   ctx.beginPath();
   ctx.arc(0, 0, b.r, 0, Math.PI * 2);
@@ -67,7 +87,7 @@ function drawBall(ctx: CanvasRenderingContext2D, b: Ball, alpha: number) {
   // Coutures (même tracé que la balle SVG, ramené au rayon)
   ctx.shadowBlur = 0;
   const s = b.r / 19;
-  ctx.strokeStyle = "#fff";
+  ctx.strokeStyle = t.seam;
   ctx.lineWidth = 2 * s;
   ctx.lineCap = "round";
   for (const dir of [1, -1]) {
@@ -79,7 +99,17 @@ function drawBall(ctx: CanvasRenderingContext2D, b: Ball, alpha: number) {
   ctx.restore();
 }
 
-export default function HeroFx({ apiRef }: { apiRef: RefObject<FxApi | null> }) {
+export default function BallFx({
+  apiRef,
+  sparks: palette = SPARKS_ON_DARK,
+  ball: theme = "rose",
+  className = "z-30",
+}: {
+  apiRef: RefObject<FxApi | null>;
+  sparks?: string[];
+  ball?: BallTheme;
+  className?: string;
+}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -123,7 +153,7 @@ export default function HeroFx({ apiRef }: { apiRef: RefObject<FxApi | null> }) 
         life,
         max: life,
         size: 2 + Math.random() * 5,
-        color: pick(COLORS),
+        color: pick(palette),
         rot: Math.random() * Math.PI,
         vr: (Math.random() - 0.5) * 0.4,
         round: Math.random() < 0.4,
@@ -186,7 +216,7 @@ export default function HeroFx({ apiRef }: { apiRef: RefObject<FxApi | null> }) 
           balls.splice(i, 1);
           continue;
         }
-        drawBall(ctx, b, Math.min(1, b.life / 50));
+        drawBall(ctx, b, Math.min(1, b.life / 50), theme);
       }
 
       if (sparks.length || balls.length) raf = requestAnimationFrame(step);
@@ -200,7 +230,8 @@ export default function HeroFx({ apiRef }: { apiRef: RefObject<FxApi | null> }) 
       if (!raf) raf = requestAnimationFrame(step);
     };
 
-    apiRef.current = {
+    const timers: number[] = [];
+    const api: FxApi = {
       burst(x, y, count = 60, power = 12) {
         const [lx, ly] = local(x, y);
         for (let i = 0; i < count; i++) addSpark(lx, ly, power, 50 + Math.random() * 40, power * 0.35);
@@ -218,20 +249,37 @@ export default function HeroFx({ apiRef }: { apiRef: RefObject<FxApi | null> }) 
         for (let i = 0; i < 26; i++) addSpark(lx, ly, 9, 40 + Math.random() * 25, 2);
         wake();
       },
+      rain(count = 16) {
+        for (let i = 0; i < count; i++) {
+          timers.push(
+            window.setTimeout(() => {
+              const r = canvas.getBoundingClientRect();
+              api.ball(
+                r.left + 30 + Math.random() * (r.width - 60),
+                r.top - 30,
+                (Math.random() - 0.5) * 6,
+                Math.random() * 4
+              );
+            }, i * 140 + Math.random() * 120)
+          );
+        }
+      },
     };
+    apiRef.current = api;
 
     return () => {
+      timers.forEach(clearTimeout);
       cancelAnimationFrame(raf);
       ro.disconnect();
       apiRef.current = null;
     };
-  }, [apiRef]);
+  }, [apiRef, palette, theme]);
 
   return (
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 z-30 h-full w-full"
+      className={`pointer-events-none absolute inset-0 h-full w-full ${className}`}
     />
   );
 }

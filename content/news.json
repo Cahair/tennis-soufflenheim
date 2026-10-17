@@ -1,5 +1,20 @@
 [
   {
+    "slug": "tournoi-padel-11-novembre",
+    "title": "11 novembre : un tournoi de padel avec des joueurs d’exception",
+    "date": "17 octobre 2026",
+    "category": "Padel",
+    "popup": true,
+    "excerpt": "Le mercredi 11 novembre, la piste couverte accueille un tournoi exhibition avec des joueurs classés parmi les meilleurs de France. Matchs, démonstrations et initiations : venez voir le padel à son plus haut niveau.",
+    "content": "Pour le jour férié du 11 novembre, le club organise son premier grand rendez-vous padel de la saison. Des joueurs d’exception, classés parmi les meilleurs de France, s’affrontent sur notre piste couverte tout au long de la journée.\n\nAu programme : phases de poules dès 10 h, demi-finales l’après-midi et finale vers 17 h. Entre deux matchs, les joueurs proposent des démonstrations et des conseils aux membres.\n\nL’entrée est libre pour les spectateurs. Buvette et petite restauration au club house. Les places au bord de la piste étant limitées, venez tôt !",
+    "image": {
+      "src": "/images/padel-court.webp",
+      "width": 765,
+      "height": 1020,
+      "blurDataURL": "data:image/webp;base64,UklGRgYBAABXRUJQVlA4TPkAAAAvBcABAM1VICICHghADgIAAABrpc4/CEpAmQEMAAAAAAAAIAAAAAgAAAAAAAIAABIIgKGE4AsGqhYAAAAPBMAGAQAA4Pz3XW74VJhQhAAAAQAAAAAAAAAAAAAAAAAAAAAAAA4AAJAD3MPY+TwQABsEAACA86dVwQscAAAAAAAAHAAAAAAAAAAAAAAAAAAQgR8A4Pnx3Yp+hPST3C9yKOLR5bNRAdzXMb5bplPqJcqZbIGsVXUuMev14hy7w7hH9kz7betzt7tvc8CAvPNV3Ebvgm2COofsPTVzYOugUPzsp3Lw9wL6RQsp4TVEfaUIQMzn9D7gT+02HwEA"
+    }
+  },
+  {
     "slug": "pickleball-decouverte",
     "title": "Le pickleball débarque au TPCS !",
     "date": "12 juin 2026",

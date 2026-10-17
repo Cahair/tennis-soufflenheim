@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { padelCourt } from "@/lib/images";
 import { ArrowRight } from "./Arrow";
-import HeroFx, { type FxApi } from "./HeroFx";
+import BallFx, { type FxApi } from "./BallFx";
 import Magnetic from "./Magnetic";
 import { gsap, MQ, useGSAP } from "./gsap";
 import { markIntroReady, onIntro } from "./intro";
@@ -61,7 +61,7 @@ function PadelBall({ className = "" }: { className?: string }) {
 /*  Ensuite : ola régulière des lettres, néon qui grésille, balles    */
 /*  qui flottent, halo et parallaxe qui suivent la souris, reflet     */
 /*  holographique sur la photo, lettres en gelée au survol, et un     */
-/*  clic n'importe où lance une balle qui rebondit (HeroFx).          */
+/*  clic n'importe où lance une balle qui rebondit (BallFx).          */
 /*                                                                    */
 /*  Rien n'est animé en mouvement réduit. Les éléments               */
 /*  data-intro-hide sont masqués en CSS jusqu'à l'entrée              */
@@ -596,7 +596,7 @@ export default function Hero() {
         aria-hidden="true"
         className="hero-flash pointer-events-none invisible absolute inset-0 z-30 bg-[radial-gradient(circle_at_30%_45%,#fff_0%,rgba(253,164,193,0.8)_30%,rgba(234,51,111,0)_70%)] mix-blend-screen"
       />
-      <HeroFx apiRef={fx} />
+      <BallFx apiRef={fx} />
     </section>
   );
 }

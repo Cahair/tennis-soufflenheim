@@ -4,7 +4,6 @@ import ClubLife from "@/components/landing/ClubLife";
 import ClubStory from "@/components/landing/ClubStory";
 import Cursor from "@/components/landing/Cursor";
 import FinalCall from "@/components/landing/FinalCall";
-import GalleryMosaic from "@/components/landing/GalleryMosaic";
 import Hero from "@/components/landing/Hero";
 import PadelReveal from "@/components/landing/PadelReveal";
 import Partners from "@/components/landing/Partners";
@@ -16,7 +15,6 @@ import {
   getCtaBand,
   getDisciplines,
   getEvents,
-  getGallery,
   getHomeIntro,
   getNews,
   getReservation,
@@ -42,7 +40,6 @@ export default async function Home() {
     reservation,
     news,
     events,
-    gallery,
     testimonials,
     sponsors,
     ctaBand,
@@ -54,7 +51,6 @@ export default async function Home() {
     getReservation(),
     getNews(),
     getEvents(),
-    getGallery(),
     getTestimonials(),
     getSponsors(),
     getCtaBand(),
@@ -71,7 +67,6 @@ export default async function Home() {
       <PadelReveal />
       <Booking reservation={reservation} tenup={site.links.tenup} phone={site.phoneClub} />
       <ClubLife news={news.slice(0, 3)} events={events.slice(0, 4)} />
-      <GalleryMosaic items={gallery.slice(0, 6)} />
       <Voices testimonials={testimonials} />
       <Partners sponsors={sponsors} />
       <FinalCall

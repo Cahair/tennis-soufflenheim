@@ -2,7 +2,8 @@ import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
-import { getFacilities, getSettings, getSocials } from "@/lib/content";
+import NewsFlash from "@/components/NewsFlash";
+import { getFacilities, getNews, getSettings, getSocials } from "@/lib/content";
 import { telHref } from "@/lib/format";
 import { SITE_NAME } from "@/lib/seo";
 import {
@@ -18,10 +19,11 @@ import {
 export default async function SiteLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const [site, socials, facilities] = await Promise.all([
+  const [site, socials, facilities, news] = await Promise.all([
     getSettings(),
     getSocials(),
     getFacilities(),
+    getNews(),
   ]);
 
   /* Fiche du club pour Google (recherche locale, Knowledge Graph) :
@@ -102,6 +104,8 @@ export default async function SiteLayout({
           et non sur <body>, dont l'overflow serait propagé au viewport. */}
       <main className="flex-1 overflow-x-clip">{children}</main>
       <Footer site={site} socials={socials} />
+      {/* Annonce de l'actualité cochée « pop-up » dans l'admin. */}
+      <NewsFlash item={news.find((n) => n.popup) ?? null} />
       {/* Statistiques Umami, posées ici et non dans le layout racine pour
           ne pas compter l'administration. data-domains limite le suivi au
           domaine de production : rien n'est remonté depuis localhost. */}

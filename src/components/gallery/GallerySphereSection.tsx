@@ -27,7 +27,7 @@ function StageShell() {
   return (
     <div className="relative h-[300vh]">
       <div className="sticky top-0 flex h-svh items-center justify-center">
-        <p className="text-sm font-medium text-night-800/50">
+        <p className="text-sm font-medium text-white/50">
           Chargement de la galerie…
         </p>
       </div>

@@ -4,13 +4,35 @@ import { useRef } from "react";
 import type { ReservationInfo } from "@/lib/content-types";
 import { telHref } from "@/lib/format";
 import { ArrowUpRight } from "./Arrow";
+import BallFx, { SPARKS_ON_ROSE, type FxApi } from "./BallFx";
 import Magnetic from "./Magnetic";
-import { gsap, MQ, SplitText, useGSAP } from "./gsap";
+import { gsap, MQ, ScrollTrigger, SplitText, useGSAP } from "./gsap";
 
 /* ------------------------------------------------------------------ */
-/*  Réservation — le moment fort de la page : fond or, titre géant,   */
+/*  Réservation — le moment fort de la page : fond rose, titre géant, */
 /*  trois étapes et un grand bouton rond aimanté vers Ten'up.         */
+/*                                                                    */
+/*  La folie, au service du clic : à l'arrivée, une balle rebondit de */
+/*  mot en mot sur le titre puis plonge dans le bouton, pendant qu'un */
+/*  chrono file jusqu'à 02:00. Le bouton crépite au survol et         */
+/*  explose en confettis au clic ; un clic ailleurs lance une balle.  */
 /* ------------------------------------------------------------------ */
+
+/* Balle nuit à coutures roses : lisible sur le fond rose. */
+function NightBall({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 40 40" className={className} aria-hidden="true">
+      <circle cx="20" cy="20" r="19" fill="var(--color-night-950)" />
+      <path d="M7 4.5 C 16 12, 16 28, 7 35.5" stroke="var(--color-rose-400)" strokeWidth="2.2" fill="none" strokeLinecap="round" />
+      <path d="M33 4.5 C 24 12, 24 28, 33 35.5" stroke="var(--color-rose-400)" strokeWidth="2.2" fill="none" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+const centerOf = (el: Element) => {
+  const r = el.getBoundingClientRect();
+  return [r.left + r.width / 2, r.top + r.height / 2] as const;
+};
 export default function Booking({
   reservation,
   tenup,
@@ -21,12 +43,14 @@ export default function Booking({
   phone: string;
 }) {
   const root = useRef<HTMLElement>(null);
+  const fx = useRef<FxApi | null>(null);
 
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
       mm.add(MQ.motion, () => {
         const q = gsap.utils.selector(root);
+        const section = root.current!;
         const [title] = q(".booking-title");
         const split = SplitText.create(title, {
           type: "words",
@@ -75,6 +99,106 @@ export default function Booking({
           ease: "expo.out",
           scrollTrigger: { trigger: cta, start: "top 92%" },
         });
+
+        // Chrono : de 00:00 à 02:00 en deux secondes, puis « ding ».
+        const [chrono] = q(".booking-chrono") as HTMLElement[];
+        const clock = { s: 0 };
+        const renderClock = () => {
+          const total = Math.round(clock.s);
+          const mins = String(Math.floor(total / 60)).padStart(2, "0");
+          const secs = String(total % 60).padStart(2, "0");
+          chrono.textContent = mins + ":" + secs;
+        };
+        gsap.fromTo(
+          clock,
+          { s: 0 },
+          {
+            s: 120,
+            duration: 2.2,
+            delay: 0.4,
+            ease: "power1.in",
+            onStart: renderClock,
+            onUpdate: renderClock,
+            onComplete: () => {
+              gsap.fromTo(chrono, { scale: 1.5, rotate: -8 }, { scale: 1, rotate: 0, duration: 0.9, ease: "elastic.out(1.2, 0.35)" });
+              fx.current?.burst(...centerOf(chrono), 50, 10);
+            },
+            scrollTrigger: { trigger: title, start: "top 75%" },
+          }
+        );
+
+        // Le rallye : la balle saute de mot en mot, puis plonge dans le
+        // bouton, qui encaisse et crépite.
+        renderClock();
+        const [ball] = q(".booking-ball") as HTMLElement[];
+        const rally = () => {
+          const sr = section.getBoundingClientRect();
+          const local = (el: Element, dy = 0) => {
+            const r = el.getBoundingClientRect();
+            return { x: r.left + r.width / 2 - sr.left, y: r.top - sr.top + dy };
+          };
+          const half = ball.offsetWidth / 2;
+          const hops = split.words.map((w) => ({ el: w as HTMLElement, ...local(w, -half) }));
+          const target = local(cta, cta.offsetHeight / 2);
+          let from = { x: hops[0].x - 160, y: hops[0].y - 260 };
+
+          const tl = gsap.timeline({ onComplete: () => void gsap.set(ball, { autoAlpha: 0 }) });
+          tl.set(ball, { x: from.x, y: from.y, autoAlpha: 1, scale: 1, rotate: 0 });
+          let t = 0;
+          const hop = (to: { x: number; y: number }, d: number, onLand: () => void) => {
+            const peak = Math.min(from.y, to.y) - 110;
+            tl.to(ball, { x: to.x, rotate: "+=200", duration: d, ease: "none" }, t)
+              .to(ball, { y: peak, duration: d / 2, ease: "power2.out" }, t)
+              .to(ball, { y: to.y, duration: d / 2, ease: "power2.in" }, t + d / 2)
+              .call(onLand, [], t + d);
+            from = to;
+            t += d;
+          };
+          for (const h of hops) {
+            hop(h, 0.42, () => {
+              gsap.fromTo(
+                h.el,
+                { scaleY: 0.8, scaleX: 1.08, transformOrigin: "50% 100%" },
+                { scaleY: 1, scaleX: 1, duration: 0.7, ease: "elastic.out(1.2, 0.35)" }
+              );
+              fx.current?.burst(h.x + sr.left, h.y + half + sr.top, 12, 6);
+            });
+          }
+          hop(target, 0.7, () => {
+            fx.current?.burst(...centerOf(cta), 110, 15);
+            gsap.fromTo(cta, { scale: 1.18 }, { scale: 1, duration: 1.1, ease: "elastic.out(1.2, 0.3)" });
+          });
+          tl.to(ball, { scale: 0, duration: 0.15, ease: "power2.in" }, t - 0.1);
+        };
+        ScrollTrigger.create({
+          trigger: title,
+          start: "top 65%",
+          once: true,
+          onEnter: () => void gsap.delayedCall(1.1, rally),
+        });
+
+        // Bouton : crépite au survol, explose au clic.
+        const onCtaEnter = () => fx.current?.burst(...centerOf(cta), 30, 9);
+        const onCtaClick = () => {
+          const [x, y] = centerOf(cta);
+          fx.current?.burst(x, y, 140, 16);
+          for (let i = 0; i < 5; i++) fx.current?.ball(x, y);
+        };
+        cta.addEventListener("pointerenter", onCtaEnter);
+        cta.addEventListener("click", onCtaClick);
+
+        // Un clic ailleurs dans la section lance une balle.
+        const onClick = (e: MouseEvent) => {
+          if ((e.target as Element).closest("a, button")) return;
+          fx.current?.ball(e.clientX, e.clientY);
+        };
+        section.addEventListener("click", onClick);
+
+        return () => {
+          cta.removeEventListener("pointerenter", onCtaEnter);
+          cta.removeEventListener("click", onCtaClick);
+          section.removeEventListener("click", onClick);
+        };
       });
     },
     { scope: root }
@@ -88,8 +212,30 @@ export default function Booking({
       id="reservation"
       className="relative scroll-mt-20 overflow-clip bg-rose-500 px-4 py-28 text-night-950 sm:px-6 lg:px-8 lg:py-40"
     >
+      <BallFx apiRef={fx} sparks={SPARKS_ON_ROSE} ball="night" className="z-20" />
+      {/* La balle du rallye (positionnée par GSAP, invisible au repos) */}
+      <div
+        aria-hidden="true"
+        className="booking-ball pointer-events-none invisible absolute left-0 top-0 z-30 -ml-6 -mt-6 h-12 w-12 drop-shadow-[0_12px_18px_rgba(10,6,16,0.35)]"
+      >
+        <NightBall className="h-full w-full" />
+      </div>
+
       <div className="mx-auto max-w-7xl">
-        <p className="kicker text-night-950/90">Réservation · {reservation.tag}</p>
+        <div className="flex items-center justify-between gap-6">
+          <p className="kicker text-night-950/90">Réservation · {reservation.tag}</p>
+          {/* Chrono décoratif : file jusqu'à 02:00 à l'arrivée */}
+          <p
+            aria-hidden="true"
+            className="flex shrink-0 items-center gap-2 rounded-full bg-night-950 px-4 py-2 font-display text-xl tabular-nums text-rose-300 shadow-lg shadow-night-950/25 sm:text-2xl"
+          >
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+              <circle cx="12" cy="13" r="8" />
+              <path d="M12 9v4l2.5 2M9.5 2.5h5" />
+            </svg>
+            <span className="booking-chrono inline-block">02:00</span>
+          </p>
+        </div>
 
         {/* Titre et bouton ensemble : côte à côte dès lg (le bouton, rond
             comme un chrono, se loge à côté du dernier mot), empilés en
