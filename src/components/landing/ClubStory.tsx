@@ -106,13 +106,13 @@ export default function ClubStory({
     <section
       ref={root}
       id="club"
-      className="scroll-mt-20 bg-cream-50 px-4 pb-32 pt-32 sm:px-6 lg:px-8 lg:pb-48 lg:pt-48"
+      className="scroll-mt-20 bg-night-50 px-4 pb-32 pt-32 sm:px-6 lg:px-8 lg:pb-48 lg:pt-48"
     >
       <div className="mx-auto max-w-6xl text-center">
-        <p className="kicker kicker-center text-clay-500">
+        <p className="kicker kicker-center text-rose-600">
           Un club de village, une ambiance de famille
         </p>
-        <p className="story-statement mt-10 font-display text-[clamp(1.85rem,4.4vw,4rem)] font-light leading-[1.14] text-pine-950 lg:mt-14">
+        <p className="story-statement mt-10 font-display text-[clamp(1.85rem,4.4vw,4rem)] font-light leading-[1.14] text-night-950 lg:mt-14">
           {intro.paragraph}
         </p>
       </div>
@@ -148,18 +148,18 @@ export default function ClubStory({
           <ul className="story-points mt-14">
             {intro.points.map((point, i) => (
               <li key={point} className="relative flex items-baseline gap-6 py-5">
-                <span className="story-rule absolute inset-x-0 top-0 h-px bg-pine-950/15" />
-                <span className="story-point-text font-display text-sm text-clay-500">
+                <span className="story-rule absolute inset-x-0 top-0 h-px bg-night-950/15" />
+                <span className="story-point-text font-display text-sm text-rose-600">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="story-point-text text-base text-pine-950/80 sm:text-lg">
+                <span className="story-point-text text-base text-night-950/80 sm:text-lg">
                   {point}
                 </span>
               </li>
             ))}
           </ul>
 
-          <Link href="/le-club" className="link-arrow mt-10 self-start text-pine-900">
+          <Link href="/le-club" className="link-arrow mt-10 self-start text-night-900">
             Découvrir notre histoire
             <ArrowRight />
           </Link>
@@ -169,13 +169,13 @@ export default function ClubStory({
       <dl className="story-stats mx-auto mt-28 grid max-w-7xl grid-cols-2 gap-x-6 gap-y-14 lg:mt-44 lg:grid-cols-4 lg:gap-x-8">
         {stats.map((stat) => (
           <div key={stat.label} className="relative flex flex-col gap-3 pt-6">
-            <span className="story-stat-rule absolute inset-x-0 top-0 h-px bg-pine-950/15" />
-            <dt className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-pine-950/55">
+            <span className="story-stat-rule absolute inset-x-0 top-0 h-px bg-night-950/15" />
+            <dt className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-night-950/55">
               {stat.label}
             </dt>
-            <dd className="order-first font-display text-[clamp(3.4rem,7.5vw,6.8rem)] font-light leading-none text-pine-950">
+            <dd className="order-first font-display text-[clamp(3.4rem,7.5vw,6.8rem)] font-light leading-none text-night-950">
               <span className="story-num">{stat.value}</span>
-              <span className="text-gold-500">{stat.suffix}</span>
+              <span className="text-rose-500">{stat.suffix}</span>
             </dd>
           </div>
         ))}

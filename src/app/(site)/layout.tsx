@@ -41,7 +41,7 @@ export default async function SiteLayout({
         alternateName: [site.shortName, "TPC Soufflenheim", "Tennis Club de Soufflenheim"],
         description: `Club de tennis, padel et pickleball fondé en 1979 à Soufflenheim, dans le Bas-Rhin (${site.address.region}).`,
         url: SITE_URL,
-        logo: `${SITE_URL}/images/logo.webp`,
+        logo: `${SITE_URL}/images/logo-carre.jpg`,
         image: [
           `${SITE_URL}/images/og-image.jpg`,
           `${SITE_URL}/images/padel-court.webp`,

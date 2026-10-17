@@ -23,7 +23,7 @@ export const metadata: Metadata = pageMetadata({
 
 function Check() {
   return (
-    <svg viewBox="0 0 24 24" className="mt-0.5 h-4 w-4 shrink-0 text-clay-500" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+    <svg viewBox="0 0 24 24" className="mt-0.5 h-4 w-4 shrink-0 text-rose-600" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
       <path d="m5 13 4 4L19 7" />
     </svg>
   );
@@ -48,7 +48,7 @@ export default async function TarifsPage() {
       />
 
       {/* Adhésions */}
-      <section className="bg-cream-50 py-24">
+      <section className="bg-night-50 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeader
@@ -63,18 +63,18 @@ export default async function TarifsPage() {
                 <article
                   className={`card-lift relative flex h-full flex-col rounded-3xl p-8 ${
                     m.featured
-                      ? "bg-pine-800 text-white shadow-2xl shadow-pine-800/30 ring-4 ring-gold-500"
-                      : "border border-pine-100 bg-white"
+                      ? "bg-night-800 text-white shadow-2xl shadow-night-800/30 ring-4 ring-rose-500"
+                      : "border border-night-200 bg-white"
                   }`}
                 >
                   {m.featured ? (
-                    <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gold-500 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-pine-950 shadow-lg">
+                    <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-rose-500 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-night-950 shadow-lg">
                       Le plus complet
                     </span>
                   ) : null}
                   <h3
                     className={`display text-2xl ${
-                      m.featured ? "text-white" : "text-pine-950"
+                      m.featured ? "text-white" : "text-night-950"
                     }`}
                   >
                     {m.name}
@@ -82,14 +82,14 @@ export default async function TarifsPage() {
                   <div className="mt-4 flex items-baseline gap-1.5">
                     <span
                       className={`display text-5xl ${
-                        m.featured ? "text-gold-400" : "text-pine-950"
+                        m.featured ? "text-rose-400" : "text-night-950"
                       }`}
                     >
                       {m.price}
                     </span>
                     <span
                       className={`text-sm ${
-                        m.featured ? "text-white/60" : "text-pine-950/50"
+                        m.featured ? "text-white/60" : "text-night-950/50"
                       }`}
                     >
                       {m.period}
@@ -97,13 +97,13 @@ export default async function TarifsPage() {
                   </div>
                   <ul
                     className={`mt-6 space-y-3 text-sm ${
-                      m.featured ? "text-white/85" : "text-pine-950/75"
+                      m.featured ? "text-white/85" : "text-night-950/75"
                     }`}
                   >
                     {m.features.map((f) => (
                       <li key={f} className="flex items-start gap-2.5">
                         {m.featured ? (
-                          <svg viewBox="0 0 24 24" className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <svg viewBox="0 0 24 24" className="mt-0.5 h-4 w-4 shrink-0 text-rose-400" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                             <path d="m5 13 4 4L19 7" />
                           </svg>
                         ) : (
@@ -119,7 +119,7 @@ export default async function TarifsPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`btn w-full ${
-                        m.featured ? "btn-gold" : "btn-outline-pine"
+                        m.featured ? "btn-rose" : "btn-outline-night"
                       }`}
                     >
                       S&rsquo;inscrire
@@ -130,11 +130,11 @@ export default async function TarifsPage() {
             ))}
           </div>
           <Reveal delay={150}>
-            <p className="mt-10 text-center text-sm font-semibold text-clay-500">
+            <p className="mt-10 text-center text-sm font-semibold text-rose-600">
               Un réajustement du tarif sera effectif à la fin de la construction
               des pistes de padel couvertes.
             </p>
-            <p className="mt-2 text-center text-sm text-pine-950/50">
+            <p className="mt-2 text-center text-sm text-night-950/50">
               Paiement en ligne possible par Ten&rsquo;up, avec possibilité
               d&rsquo;étalement — renseignez-vous au club.
             </p>
@@ -155,17 +155,17 @@ export default async function TarifsPage() {
           <div className="mt-14 grid gap-6 sm:grid-cols-3">
             {cotisationParts.map((part, i) => (
               <Reveal key={part.name} delay={i * 100} className="h-full">
-                <div className="card-lift flex h-full flex-col rounded-3xl border border-pine-100 bg-cream-50 p-7">
-                  <span className="display text-4xl text-gold-500">{i + 1}</span>
-                  <h3 className="mt-3 font-bold text-pine-950">{part.name}</h3>
-                  <p className="mt-2 text-sm text-pine-950/70">{part.text}</p>
+                <div className="card-lift flex h-full flex-col rounded-3xl border border-night-200 bg-night-50 p-7">
+                  <span className="display text-4xl text-rose-500">{i + 1}</span>
+                  <h3 className="mt-3 font-bold text-night-950">{part.name}</h3>
+                  <p className="mt-2 text-sm text-night-950/70">{part.text}</p>
                 </div>
               </Reveal>
             ))}
           </div>
           <Reveal delay={150}>
-            <div className="mx-auto mt-12 max-w-3xl rounded-3xl bg-pine-800 p-8 text-center text-white sm:p-10">
-              <p className="display text-3xl text-gold-400">
+            <div className="mx-auto mt-12 max-w-3xl rounded-3xl bg-night-800 p-8 text-center text-white sm:p-10">
+              <p className="display text-3xl text-rose-400">
                 66 % de réduction d&rsquo;impôt
               </p>
               <p className="mt-3 text-sm text-white/80">
@@ -182,7 +182,7 @@ export default async function TarifsPage() {
       </section>
 
       {/* École de tennis & cours */}
-      <section className="bg-pine-900 py-24">
+      <section className="bg-night-900 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeader
@@ -204,7 +204,7 @@ export default async function TarifsPage() {
                     <h3 className="font-bold text-white">{course.name}</h3>
                     <p className="mt-1 text-sm text-white/55">{course.detail}</p>
                   </div>
-                  <span className="display text-3xl text-gold-400">{course.price}</span>
+                  <span className="display text-3xl text-rose-400">{course.price}</span>
                 </div>
               </Reveal>
             ))}
@@ -219,7 +219,7 @@ export default async function TarifsPage() {
       </section>
 
       {/* Bon à savoir */}
-      <section className="bg-cream-50 py-24">
+      <section className="bg-night-50 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeader
@@ -231,13 +231,13 @@ export default async function TarifsPage() {
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {extras.map((extra, i) => (
               <Reveal key={extra.name} delay={i * 100} className="h-full">
-                <div className="card-lift flex h-full flex-col rounded-3xl border border-pine-100 bg-white p-7">
-                  <h3 className="font-bold text-pine-950">{extra.name}</h3>
+                <div className="card-lift flex h-full flex-col rounded-3xl border border-night-200 bg-white p-7">
+                  <h3 className="font-bold text-night-950">{extra.name}</h3>
                   <div className="mt-3 flex items-baseline gap-1.5">
-                    <span className="display text-4xl text-pine-950">{extra.price}</span>
-                    <span className="text-xs text-pine-950/50">{extra.unit}</span>
+                    <span className="display text-4xl text-night-950">{extra.price}</span>
+                    <span className="text-xs text-night-950/50">{extra.unit}</span>
                   </div>
-                  <p className="mt-auto pt-4 text-xs font-semibold uppercase tracking-[0.12em] text-clay-500">
+                  <p className="mt-auto pt-4 text-xs font-semibold uppercase tracking-[0.12em] text-rose-600">
                     {extra.note}
                   </p>
                 </div>
@@ -245,11 +245,11 @@ export default async function TarifsPage() {
             ))}
           </div>
           <Reveal delay={150}>
-            <div className="mt-14 rounded-3xl border border-pine-100 bg-white p-8 sm:p-10">
-              <h3 className="display text-2xl text-pine-950">
+            <div className="mt-14 rounded-3xl border border-night-200 bg-white p-8 sm:p-10">
+              <h3 className="display text-2xl text-night-950">
                 Conditions générales de l&rsquo;année
               </h3>
-              <ul className="mt-6 grid gap-x-10 gap-y-4 text-sm text-pine-950/75 md:grid-cols-2">
+              <ul className="mt-6 grid gap-x-10 gap-y-4 text-sm text-night-950/75 md:grid-cols-2">
                 {infosPratiques.map((info) => (
                   <li key={info} className="flex items-start gap-2.5">
                     <Check />
@@ -266,26 +266,26 @@ export default async function TarifsPage() {
       <section className="bg-white py-20">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
           <Reveal>
-            <h2 className="display text-4xl text-pine-950 sm:text-5xl">
+            <h2 className="display text-4xl text-night-950 sm:text-5xl">
               Un doute sur la bonne formule ?
             </h2>
-            <p className="mt-4 text-lg text-pine-950/65">
+            <p className="mt-4 text-lg text-night-950/65">
               Passez nous voir au Club House pendant les heures de permanence,
               appelez le{" "}
-              <a href={telHref(site.phonePresident)} className="font-bold text-clay-500 hover:underline">
+              <a href={telHref(site.phonePresident)} className="font-bold text-rose-600 hover:underline">
                 {site.phonePresident}
               </a>{" "}
               ou écrivez à{" "}
               <a
                 href={`mailto:${site.emails.president}`}
-                className="font-bold text-clay-500 hover:underline"
+                className="font-bold text-rose-600 hover:underline"
               >
                 {site.emails.president}
               </a>
               &nbsp;: on vous aiguille en deux minutes.
             </p>
             <div className="mt-8">
-              <Link href="/contact" className="btn btn-pine">
+              <Link href="/contact" className="btn btn-night">
                 Nous contacter
               </Link>
             </div>

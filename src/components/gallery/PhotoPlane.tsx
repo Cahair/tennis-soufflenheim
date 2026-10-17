@@ -60,7 +60,7 @@ const PhotoPlane = memo(function PhotoPlane({
       <meshBasicMaterial
         ref={materialRef}
         map={texture ?? undefined}
-        color={texture ? "#ffffff" : "#ddd5c2"}
+        color={texture ? "#ffffff" : "#d2cbda"}
         transparent
         depthWrite={false}
         toneMapped={false}

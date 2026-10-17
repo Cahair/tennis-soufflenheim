@@ -1,30 +1,48 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useId, useRef } from "react";
+import { logo } from "@/lib/images";
 
+/* Balle du logo, redessinée en vectoriel : dégradé rose → violet et
+   coutures blanches relevés sur le logo officiel. Elle sert aussi de
+   balle à l'écran d'ouverture de l'accueil, qui vient se poser sur
+   celle du logo. Le favicon (app/icon.svg) reprend le même dessin. */
 export function BallMark({ className = "" }: { className?: string }) {
+  // Identifiants uniques : la balle peut apparaître plusieurs fois par page.
+  const id = useId();
+  const gradient = `${id}-g`;
+  const clip = `${id}-c`;
   return (
-    <svg viewBox="0 0 40 40" className={className} aria-hidden="true">
-      <circle cx="20" cy="20" r="19" fill="var(--color-gold-500)" />
-      <path
-        d="M7 4.5 C 16 12, 16 28, 7 35.5"
-        stroke="var(--color-pine-950)"
-        strokeWidth="2.4"
+    <svg viewBox="0 0 128 128" className={className} aria-hidden="true">
+      <defs>
+        <linearGradient id={gradient} x1="0" y1="0.6" x2="1" y2="0.4">
+          <stop offset="0" stopColor="#ea336f" />
+          <stop offset="0.5" stopColor="#a52c73" />
+          <stop offset="1" stopColor="#5c1c6e" />
+        </linearGradient>
+        <clipPath id={clip}>
+          <circle cx="64" cy="64" r="64" />
+        </clipPath>
+      </defs>
+      <circle cx="64" cy="64" r="64" fill={`url(#${gradient})`} />
+      <g
+        clipPath={`url(#${clip})`}
         fill="none"
+        stroke="#fff"
+        strokeWidth="7"
         strokeLinecap="round"
-      />
-      <path
-        d="M33 4.5 C 24 12, 24 28, 33 35.5"
-        stroke="var(--color-pine-950)"
-        strokeWidth="2.4"
-        fill="none"
-        strokeLinecap="round"
-      />
+      >
+        <path d="M3 39 C 30 52, 48 84, 35 124" />
+        <path d="M96 5 C 86 40, 96 74, 125 93" />
+      </g>
     </svg>
   );
 }
 
+/* Logo officiel du club (fond noir rendu transparent), pour les fonds
+   sombres : barre de navigation, menu mobile, connexion admin. */
 export default function LogoMark({
   onNavigate,
 }: {
@@ -55,21 +73,28 @@ export default function LogoMark({
     <Link
       href="/"
       onClick={onNavigate}
-      className="group flex items-center gap-3"
-      aria-label="Tennis Padel Club Soufflenheim — accueil"
+      className="group relative block shrink-0"
+      aria-label="Tennis Padel Garden Club Soufflenheim, accueil"
     >
-      {/* Rotation pilotée par le scroll appliquée au wrapper, pour ne pas
-          entrer en conflit avec le transform du hover sur le svg */}
-      {/* data-logo-ball : point d'arrivée de la balle du splash (accueil) */}
-      <span ref={ballRef} data-logo-ball className="inline-flex will-change-transform">
-        <BallMark className="h-9 w-9 drop-shadow-md transition-transform duration-300 group-hover:rotate-12" />
-      </span>
-      <span className="flex flex-col leading-none">
-        <span className="display text-lg tracking-wide text-white">
-          Tennis <span className="text-gold-400">Padel</span>
-        </span>
-        <span className="mt-1 text-[0.6rem] uppercase tracking-[0.3em] text-white/70">
-          Club Soufflenheim
+      <Image
+        src={logo}
+        alt=""
+        loading="eager"
+        sizes="92px"
+        className="block h-16 w-auto"
+      />
+      {/* La balle du logo, redessinée par-dessus l'image : elle tourne au
+          défilement et au survol, et celle de l'écran d'ouverture vient
+          s'y poser (data-logo-ball). Position relevée sur l'image :
+          centre à 51,8 % de la largeur et 45,7 % de la hauteur, diamètre
+          de 7,4 % de la largeur, un peu agrandi pour couvrir le bord. */}
+      <span
+        data-logo-ball
+        className="pointer-events-none absolute aspect-square -translate-x-1/2 -translate-y-1/2"
+        style={{ left: "51.8%", top: "45.7%", width: "8%" }}
+      >
+        <span ref={ballRef} className="block h-full w-full will-change-transform">
+          <BallMark className="h-full w-full transition-transform duration-300 group-hover:rotate-12" />
         </span>
       </span>
     </Link>

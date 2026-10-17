@@ -43,7 +43,7 @@ export default async function LeClubPage() {
       />
 
       {/* Histoire du club, en ordre chronologique */}
-      <section className="bg-cream-50 py-24">
+      <section className="bg-night-50 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeader
@@ -61,11 +61,11 @@ export default async function LeClubPage() {
           {/* Remerciements & bénévoles de l'histoire */}
           <Reveal>
             <div className="mt-20 grid gap-8 lg:grid-cols-[1fr_1.1fr]">
-              <div className="relative overflow-hidden rounded-3xl bg-pine-800 p-8 text-white shadow-xl shadow-pine-800/25 sm:p-10">
+              <div className="relative overflow-hidden rounded-3xl bg-night-800 p-8 text-white shadow-xl shadow-night-800/25 sm:p-10">
                 <span className="display absolute -top-4 right-6 text-[7rem] leading-none text-white/10">
                   &ldquo;
                 </span>
-                <span className="kicker text-gold-400">Merci à eux</span>
+                <span className="kicker text-rose-400">Merci à eux</span>
                 <p className="relative mt-5 leading-relaxed text-white/90">
                   {histoireInfos.remerciements}
                 </p>
@@ -90,7 +90,7 @@ export default async function LeClubPage() {
           {/* Souvenir & mot du président */}
           <div className="mt-8 grid items-start gap-8 lg:grid-cols-2">
             <Reveal>
-              <figure className="overflow-hidden rounded-3xl border border-pine-100 bg-white p-4 shadow-xl shadow-pine-950/5">
+              <figure className="overflow-hidden rounded-3xl border border-night-200 bg-white p-4 shadow-xl shadow-night-950/5">
                 <Image
                   src={logoHistorique}
                   alt="L'ancien logo du Tennis Club Soufflenheim, sur terre battue"
@@ -98,7 +98,7 @@ export default async function LeClubPage() {
                   sizes="(max-width: 1024px) 90vw, 45vw"
                   className="h-auto w-full rounded-2xl"
                 />
-                <figcaption className="px-2 pb-1 pt-4 text-xs text-pine-950/50">
+                <figcaption className="px-2 pb-1 pt-4 text-xs text-night-950/50">
                   Souvenir : la bannière historique du Tennis Club, avant
                   l&rsquo;arrivée du padel.
                 </figcaption>
@@ -107,23 +107,23 @@ export default async function LeClubPage() {
 
             {/* Mot du président */}
             <Reveal direction="right" delay={120}>
-              <div className="relative overflow-hidden rounded-3xl bg-pine-800 p-8 text-white shadow-xl shadow-pine-800/25 sm:p-10">
+              <div className="relative overflow-hidden rounded-3xl bg-night-800 p-8 text-white shadow-xl shadow-night-800/25 sm:p-10">
                 <span className="display absolute -top-4 right-6 text-[7rem] leading-none text-white/10">
                   &ldquo;
                 </span>
-                <span className="kicker text-gold-400">Le mot du président</span>
+                <span className="kicker text-rose-400">Le mot du président</span>
                 <blockquote className="relative mt-5 text-lg leading-relaxed text-white/90">
                   {site.motPresident}
                 </blockquote>
                 <div className="mt-7 flex items-center gap-4">
-                  <span className="display flex h-12 w-12 items-center justify-center rounded-full bg-gold-500 text-xl text-pine-950">
+                  <span className="display flex h-12 w-12 items-center justify-center rounded-full bg-rose-500 text-xl text-night-950">
                     {site.president.charAt(0)}
                   </span>
                   <div>
                     <p className="font-bold">{site.president}</p>
                     <p className="text-xs text-white/60">
                       Président ·{" "}
-                      <a href={telHref(site.phonePresident)} className="hover:text-gold-300">
+                      <a href={telHref(site.phonePresident)} className="hover:text-rose-300">
                         {site.phonePresident}
                       </a>
                     </p>
@@ -147,7 +147,7 @@ export default async function LeClubPage() {
           </Reveal>
           <Reveal delay={100}>
             <div className="mt-10 text-center">
-              <Link href="/comite" className="btn btn-pine">
+              <Link href="/comite" className="btn btn-night">
                 Découvrir le comité
               </Link>
             </div>
@@ -156,7 +156,7 @@ export default async function LeClubPage() {
       </section>
 
       {/* Installations */}
-      <section id="installations" className="scroll-mt-20 bg-cream-50 py-24">
+      <section id="installations" className="scroll-mt-20 bg-night-50 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeader
@@ -168,7 +168,7 @@ export default async function LeClubPage() {
           <div className="mt-14 grid gap-8 sm:grid-cols-2">
             {facilities.map((facility, i) => (
               <Reveal key={facility.title} delay={i * 100} className="h-full">
-                <article className="card-lift group flex h-full flex-col overflow-hidden rounded-3xl border border-pine-100 bg-white">
+                <article className="card-lift group flex h-full flex-col overflow-hidden rounded-3xl border border-night-200 bg-white">
                   <div className="relative h-64 overflow-hidden">
                     <Image
                       src={facility.image}
@@ -178,13 +178,13 @@ export default async function LeClubPage() {
                       sizes="(max-width: 640px) 90vw, 45vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <span className="absolute left-4 top-4 rounded-full bg-gold-500 px-3.5 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-pine-950 shadow-lg">
+                    <span className="absolute left-4 top-4 rounded-full bg-rose-500 px-3.5 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-night-950 shadow-lg">
                       {facility.tag}
                     </span>
                   </div>
                   <div className="p-7">
-                    <h3 className="display text-2xl text-pine-950">{facility.title}</h3>
-                    <p className="mt-2.5 text-sm leading-relaxed text-pine-950/65">
+                    <h3 className="display text-2xl text-night-950">{facility.title}</h3>
+                    <p className="mt-2.5 text-sm leading-relaxed text-night-950/65">
                       {facility.detail}
                     </p>
                   </div>
@@ -198,7 +198,7 @@ export default async function LeClubPage() {
               {["Terrain de pétanque", "Espace vert", "Parking gratuit illimité", "Terrasse ombragée", "Cuisine équipée"].map((extra) => (
                 <span
                   key={extra}
-                  className="rounded-full border border-pine-200 bg-white px-5 py-2.5 text-sm font-semibold text-pine-800"
+                  className="rounded-full border border-night-300 bg-white px-5 py-2.5 text-sm font-semibold text-night-800"
                 >
                   {extra}
                 </span>
@@ -208,7 +208,7 @@ export default async function LeClubPage() {
 
           <Reveal delay={200}>
             <div className="mt-14 text-center">
-              <Link href="/tarifs" className="btn btn-pine">
+              <Link href="/tarifs" className="btn btn-night">
                 Voir les formules d&rsquo;adhésion
               </Link>
             </div>

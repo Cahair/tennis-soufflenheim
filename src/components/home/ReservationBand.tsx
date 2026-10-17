@@ -10,7 +10,7 @@ export default async function ReservationBand() {
   return (
     <section
       id="reservation"
-      className="reservation-band relative isolate flex min-h-[100svh] scroll-mt-20 items-center overflow-hidden bg-pine-950 py-16 text-white"
+      className="reservation-band relative isolate flex min-h-[100svh] scroll-mt-20 items-center overflow-hidden bg-night-950 py-16 text-white"
     >
       {/* Arrière-plan : photo d'un court, dérive Ken Burns, voile doré */}
       <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
@@ -22,12 +22,12 @@ export default async function ReservationBand() {
           sizes="100vw"
           className="animate-kenburns object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-pine-950/92 via-pine-950/75 to-pine-950/95" />
+        <div className="absolute inset-0 bg-gradient-to-b from-night-950/92 via-night-950/75 to-night-950/95" />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(55rem 30rem at 50% 0%, rgba(237,177,17,0.18), transparent 60%)",
+              "radial-gradient(55rem 30rem at 50% 0%, rgba(234,51,111,0.18), transparent 60%)",
           }}
         />
       </div>
@@ -37,14 +37,14 @@ export default async function ReservationBand() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-6 hidden select-none justify-center lg:flex"
       >
-        <span className="display text-stroke-gold text-[9rem] leading-none xl:text-[11rem]">
+        <span className="display text-stroke-rose text-[9rem] leading-none xl:text-[11rem]">
           TEN&rsquo;UP
         </span>
       </div>
 
       <div className="relative mx-auto flex max-w-3xl flex-col items-center px-4 text-center sm:px-6">
         <Reveal>
-          <span className="kicker kicker-center text-[0.65rem] text-gold-400 sm:text-xs">
+          <span className="kicker kicker-center text-[0.65rem] text-rose-400 sm:text-xs">
             Réservation
           </span>
         </Reveal>
@@ -52,7 +52,7 @@ export default async function ReservationBand() {
         <Reveal delay={100}>
           <h2 className="reservation-title display mt-5 text-4xl text-white sm:text-5xl lg:text-6xl">
             Votre court en{" "}
-            <span className="gold-sheen bg-gradient-to-r from-gold-300 via-gold-500 to-gold-300 bg-clip-text text-transparent">
+            <span className="animate-sheen bg-gradient-to-r from-rose-300 via-rose-500 to-rose-300 bg-clip-text text-transparent">
               2 minutes
             </span>
             , chrono
@@ -72,14 +72,14 @@ export default async function ReservationBand() {
               href={site.links.tenup}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-gold !px-10 !py-5 text-base sm:text-lg"
+              className="btn btn-rose !px-10 !py-5 text-base sm:text-lg"
             >
               {reservation.cta}
               <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 17 17 7m0 0H8m9 0v9" />
               </svg>
             </a>
-            <span className="text-xs uppercase tracking-[0.16em] text-gold-300/90">
+            <span className="text-xs uppercase tracking-[0.16em] text-rose-300/90">
               {reservation.tag} · Gratuit · Confirmation immédiate
             </span>
           </div>
@@ -88,7 +88,7 @@ export default async function ReservationBand() {
         <Reveal delay={400}>
           <p className="mt-9 text-sm text-white/50">
             Besoin d&rsquo;aide pour votre première réservation ? Appelez le club au{" "}
-            <a href={telHref(site.phoneClub)} className="font-semibold text-gold-300 hover:underline">
+            <a href={telHref(site.phoneClub)} className="font-semibold text-rose-300 hover:underline">
               {site.phoneClub}
             </a>
             .

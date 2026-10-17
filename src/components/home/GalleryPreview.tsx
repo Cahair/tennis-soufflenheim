@@ -23,7 +23,7 @@ export default async function GalleryPreview() {
         </Reveal>
         <Reveal delay={200}>
           <div className="mt-10 text-center">
-            <Link href="/galerie" className="btn btn-pine">
+            <Link href="/galerie" className="btn btn-night">
               Voir toute la galerie
             </Link>
           </div>

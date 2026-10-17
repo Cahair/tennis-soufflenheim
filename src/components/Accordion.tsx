@@ -19,7 +19,7 @@ export default function Accordion({
           <div
             key={item.q}
             className={`overflow-hidden rounded-2xl border bg-white transition-colors ${
-              open ? "border-gold-400 shadow-lg shadow-gold-500/10" : "border-pine-100"
+              open ? "border-rose-400 shadow-lg shadow-rose-500/10" : "border-night-200"
             }`}
           >
             <button
@@ -28,12 +28,12 @@ export default function Accordion({
               aria-expanded={open}
               className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left sm:px-6"
             >
-              <span className="font-semibold text-pine-950">{item.q}</span>
+              <span className="font-semibold text-night-950">{item.q}</span>
               <span
                 className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
                   open
-                    ? "rotate-180 bg-gold-500 text-pine-950"
-                    : "bg-pine-50 text-pine-700"
+                    ? "rotate-180 bg-rose-500 text-night-950"
+                    : "bg-night-100 text-night-700"
                 }`}
               >
                 <svg
@@ -55,7 +55,7 @@ export default function Accordion({
               }`}
             >
               <div className="overflow-hidden">
-                <p className="whitespace-pre-line px-5 pb-5 text-sm leading-relaxed text-pine-950/70 sm:px-6 sm:text-base">
+                <p className="whitespace-pre-line px-5 pb-5 text-sm leading-relaxed text-night-950/70 sm:px-6 sm:text-base">
                   {item.a}
                 </p>
               </div>

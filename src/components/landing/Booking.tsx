@@ -86,10 +86,10 @@ export default function Booking({
     <section
       ref={root}
       id="reservation"
-      className="relative scroll-mt-20 overflow-clip bg-gold-500 px-4 py-28 text-pine-950 sm:px-6 lg:px-8 lg:py-40"
+      className="relative scroll-mt-20 overflow-clip bg-rose-500 px-4 py-28 text-night-950 sm:px-6 lg:px-8 lg:py-40"
     >
       <div className="mx-auto max-w-7xl">
-        <p className="kicker text-pine-950/70">Réservation · {reservation.tag}</p>
+        <p className="kicker text-night-950/90">Réservation · {reservation.tag}</p>
 
         {/* Titre et bouton ensemble : côte à côte dès lg (le bouton, rond
             comme un chrono, se loge à côté du dernier mot), empilés en
@@ -133,7 +133,7 @@ export default function Booking({
                 aria-label={`${reservation.cta} (nouvel onglet)`}
                 data-umami-event="reservation-tenup"
                 data-umami-event-emplacement="bloc-reservation"
-                className="booking-cta group relative flex h-52 w-52 items-center justify-center rounded-full bg-pine-950 text-gold-400 shadow-2xl shadow-pine-950/30 ring-0 ring-pine-950/10 transition-[scale,box-shadow] duration-500 hover:scale-105 hover:ring-8 sm:h-60 sm:w-60"
+                className="booking-cta group relative flex h-52 w-52 items-center justify-center rounded-full bg-night-950 text-rose-400 shadow-2xl shadow-night-950/30 ring-0 ring-night-950/10 transition-[scale,box-shadow] duration-500 hover:scale-105 hover:ring-8 sm:h-60 sm:w-60"
               >
                 <svg
                   aria-hidden="true"
@@ -153,7 +153,7 @@ export default function Booking({
                   </text>
                 </svg>
                 {/* Pastille centrale : c’est elle qui dit « ceci est un bouton » */}
-                <span className="relative flex h-24 w-24 flex-col items-center justify-center gap-1 rounded-full bg-cream-50 text-pine-950 shadow-lg shadow-pine-950/25 transition-transform duration-500 group-hover:scale-110 sm:h-28 sm:w-28">
+                <span className="relative flex h-24 w-24 flex-col items-center justify-center gap-1 rounded-full bg-night-50 text-night-950 shadow-lg shadow-night-950/25 transition-transform duration-500 group-hover:scale-110 sm:h-28 sm:w-28">
                   <ArrowUpRight className="h-6 w-6 transition-transform duration-500 group-hover:rotate-45 sm:h-7 sm:w-7" />
                   <span className="text-[0.58rem] font-bold uppercase tracking-[0.16em] sm:text-[0.64rem]">
                     Réserver
@@ -161,14 +161,14 @@ export default function Booking({
                 </span>
               </a>
             </Magnetic>
-            <p className="max-w-60 text-balance text-center text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-pine-950/70">
+            <p className="max-w-60 text-balance text-center text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-night-950/90">
               {reservation.tag} · Gratuit · Confirmation immédiate
             </p>
           </div>
         </div>
 
         <div className="mt-16 lg:mt-24 lg:grid lg:grid-cols-12 lg:gap-10">
-          <p className="max-w-xl text-lg leading-relaxed text-pine-950/80 lg:col-span-4">
+          <p className="max-w-xl text-lg leading-relaxed text-night-950/90 lg:col-span-4">
             {reservation.description}{" "}
             Choisissez votre créneau et venez jouer, 7&nbsp;jours sur&nbsp;7.
           </p>
@@ -176,12 +176,12 @@ export default function Booking({
             <ol className="booking-steps mt-12 grid gap-8 sm:grid-cols-3 lg:col-span-7 lg:col-start-6 lg:mt-0">
               {reservation.steps.map((step, i) => (
                 <li key={step} className="relative pt-6">
-                  <span className="booking-rule absolute inset-x-0 top-0 h-px bg-pine-950/25" />
+                  <span className="booking-rule absolute inset-x-0 top-0 h-px bg-night-950/25" />
                   <div className="booking-step-body">
                     <span className="font-display text-4xl font-light">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <p className="mt-3 text-sm leading-relaxed text-pine-950/80">{step}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-night-950/90">{step}</p>
                   </div>
                 </li>
               ))}
@@ -189,11 +189,11 @@ export default function Booking({
           ) : null}
         </div>
 
-        <p className="mt-20 text-sm text-pine-950/75">
+        <p className="mt-20 text-sm text-night-950/90">
           Besoin d&rsquo;aide pour votre première réservation&nbsp;? Appelez le club au{" "}
           <a
             href={telHref(phone)}
-            className="font-bold underline decoration-pine-950/30 underline-offset-4 transition-colors hover:decoration-pine-950"
+            className="font-bold underline decoration-night-950/30 underline-offset-4 transition-colors hover:decoration-night-950"
           >
             {phone}
           </a>

@@ -14,14 +14,15 @@ export default function Footer({
   socials: Social[];
 }) {
   return (
-    <footer className="bg-pine-950 text-white/70">
+    <footer className="bg-night-950 text-white/70">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.2fr_1.5fr_1fr_1fr]">
           <div>
             <Image
               src={logo}
-              alt="Logo du Tennis Padel Club Soufflenheim"
-              className="h-20 w-auto rounded-xl bg-white p-2"
+              alt="Logo du Tennis Padel Garden Club Soufflenheim"
+              sizes="160px"
+              className="h-28 w-auto"
             />
             <p className="mt-5 max-w-xs text-sm leading-relaxed">
               Club de tennis, padel et pickleball à Soufflenheim (Bas-Rhin),
@@ -34,7 +35,7 @@ export default function Footer({
           </div>
 
           <div>
-            <h3 className="display text-sm tracking-[0.2em] text-gold-400">
+            <h3 className="display text-sm tracking-[0.2em] text-rose-400">
               Navigation
             </h3>
             <ul className="mt-5 columns-2 gap-x-6 text-sm">
@@ -42,7 +43,7 @@ export default function Footer({
                 <li key={link.href} className="mb-3 break-inside-avoid">
                   <Link
                     href={link.href}
-                    className="transition-colors hover:text-gold-300"
+                    className="transition-colors hover:text-rose-300"
                   >
                     {link.label}
                   </Link>
@@ -52,7 +53,7 @@ export default function Footer({
           </div>
 
           <div>
-            <h3 className="display text-sm tracking-[0.2em] text-gold-400">
+            <h3 className="display text-sm tracking-[0.2em] text-rose-400">
               Contact
             </h3>
             <ul className="mt-5 space-y-3 text-sm">
@@ -62,14 +63,14 @@ export default function Footer({
                 {site.address.city}
               </li>
               <li>
-                <a href={telHref(site.phoneClub)} className="hover:text-gold-300">
+                <a href={telHref(site.phoneClub)} className="hover:text-rose-300">
                   {site.phoneClub}
                 </a>
               </li>
               <li>
                 <a
                   href={`mailto:${site.emails.president}`}
-                  className="hover:text-gold-300"
+                  className="hover:text-rose-300"
                 >
                   {site.emails.president}
                 </a>
@@ -77,7 +78,7 @@ export default function Footer({
               <li>
                 <a
                   href={`mailto:${site.emails.secretariat}`}
-                  className="hover:text-gold-300"
+                  className="hover:text-rose-300"
                 >
                   {site.emails.secretariat}
                 </a>
@@ -86,7 +87,7 @@ export default function Footer({
           </div>
 
           <div>
-            <h3 className="display text-sm tracking-[0.2em] text-gold-400">
+            <h3 className="display text-sm tracking-[0.2em] text-rose-400">
               Réserver un court
             </h3>
             <p className="mt-5 text-sm leading-relaxed">
@@ -99,7 +100,7 @@ export default function Footer({
                 rel="noopener noreferrer"
                 data-umami-event="reservation-tenup"
                 data-umami-event-emplacement="pied-de-page"
-                className="btn btn-gold !px-5 !py-2.5 text-sm"
+                className="btn btn-rose !px-5 !py-2.5 text-sm"
               >
                 Ten&rsquo;up
               </a>
@@ -118,7 +119,7 @@ export default function Footer({
             <span aria-hidden="true">·</span>
             <Link
               href="/mentions-legales"
-              className="transition-colors hover:text-gold-300"
+              className="transition-colors hover:text-rose-300"
             >
               Mentions légales
             </Link>
@@ -129,7 +130,7 @@ export default function Footer({
                 href="https://romain-kantzer.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors hover:text-gold-300"
+                className="transition-colors hover:text-rose-300"
               >
                 RK.ai — romain-kantzer.com
               </a>

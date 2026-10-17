@@ -122,16 +122,16 @@ export default function ClubLife({
     <section
       ref={root}
       id="actualites"
-      className="scroll-mt-20 bg-cream-50 px-4 py-32 sm:px-6 lg:px-8 lg:py-48"
+      className="scroll-mt-20 bg-night-50 px-4 py-32 sm:px-6 lg:px-8 lg:py-48"
     >
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <h2 className="life-title display text-[clamp(3.2rem,9vw,8.5rem)] leading-[0.88] text-pine-950">
+          <h2 className="life-title display text-[clamp(3.2rem,9vw,8.5rem)] leading-[0.88] text-night-950">
             La vie
             <br />
             du club
           </h2>
-          <Link href="/actualites" className="link-arrow shrink-0 self-start text-pine-900 md:self-auto">
+          <Link href="/actualites" className="link-arrow shrink-0 self-start text-night-900 md:self-auto">
             Toutes les actualités
             <ArrowRight />
           </Link>
@@ -142,7 +142,7 @@ export default function ClubLife({
           <ul>
             {news.map((item) => (
               <li key={item.slug} className="life-row relative">
-                <span className="life-rule absolute inset-x-0 top-0 h-px bg-pine-950/15" />
+                <span className="life-rule absolute inset-x-0 top-0 h-px bg-night-950/15" />
                 <Link
                   href={item.slug ? `/actualites/${item.slug}` : "/actualites"}
                   data-cursor="Lire"
@@ -158,31 +158,31 @@ export default function ClubLife({
                       className="object-cover"
                     />
                   </div>
-                  <time dateTime={isoFromFrenchDate(item.date)} className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-clay-500 sm:block">
+                  <time dateTime={isoFromFrenchDate(item.date)} className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-rose-600 sm:block">
                     {item.date}
                   </time>
                   <div>
-                    <time dateTime={isoFromFrenchDate(item.date)} className="text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-clay-500 sm:hidden">
+                    <time dateTime={isoFromFrenchDate(item.date)} className="text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-rose-600 sm:hidden">
                       {item.date}
                     </time>
-                    <h3 className="font-display text-[1.45rem] font-light leading-tight text-pine-950 transition-[translate] duration-500 group-hover:translate-x-3 sm:text-3xl lg:text-[2.6rem]">
+                    <h3 className="font-display text-[1.45rem] font-light leading-tight text-night-950 transition-[translate] duration-500 group-hover:translate-x-3 sm:text-3xl lg:text-[2.6rem]">
                       {item.title}
                     </h3>
                   </div>
-                  <span className="hidden rounded-full border border-pine-950/20 px-3.5 py-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-pine-950/70 transition-colors duration-300 group-hover:border-pine-950 group-hover:bg-pine-950 group-hover:text-cream-50 sm:inline-flex">
+                  <span className="hidden rounded-full border border-night-950/20 px-3.5 py-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-night-950/70 transition-colors duration-300 group-hover:border-night-950 group-hover:bg-night-950 group-hover:text-night-50 sm:inline-flex">
                     {item.category}
                   </span>
                 </Link>
               </li>
             ))}
           </ul>
-          <span className="life-rule block h-px bg-pine-950/15" />
+          <span className="life-rule block h-px bg-night-950/15" />
         </div>
 
         {/* Aperçu flottant (grand écran, souris) */}
         <div
           aria-hidden="true"
-          className="life-preview pointer-events-none invisible fixed left-0 top-0 z-40 hidden aspect-[4/5] w-60 overflow-hidden rounded-2xl opacity-0 shadow-2xl shadow-pine-950/30 lg:block"
+          className="life-preview pointer-events-none invisible fixed left-0 top-0 z-40 hidden aspect-[4/5] w-60 overflow-hidden rounded-2xl opacity-0 shadow-2xl shadow-night-950/30 lg:block"
         >
           {news.map((item) => (
             <div key={item.slug} className="life-preview-img absolute inset-0 opacity-0">
@@ -194,8 +194,8 @@ export default function ClubLife({
         {/* Agenda */}
         <div className="mt-28 lg:mt-40">
           <div className="flex items-end justify-between gap-6">
-            <p className="kicker text-clay-500">Agenda</p>
-            <Link href="/calendrier" className="link-arrow text-sm text-pine-900">
+            <p className="kicker text-rose-600">Agenda</p>
+            <Link href="/calendrier" className="link-arrow text-sm text-night-900">
               Tout le calendrier
               <ArrowRight />
             </Link>
@@ -203,20 +203,20 @@ export default function ClubLife({
           <ol className="life-list mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
             {events.map((event) => (
               <li key={`${event.day}-${event.month}-${event.title}`} className="relative pt-6">
-                <span className="life-rule absolute inset-x-0 top-0 h-px bg-pine-950/15" />
+                <span className="life-rule absolute inset-x-0 top-0 h-px bg-night-950/15" />
                 <div className="life-item">
                   <p className="flex items-baseline gap-3">
-                    <span className="font-display text-7xl font-light leading-none text-pine-950">
+                    <span className="font-display text-7xl font-light leading-none text-night-950">
                       {event.day}
                     </span>
-                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-clay-500">
+                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-600">
                       {event.month}
                     </span>
                   </p>
-                  <p className="mt-5 text-lg font-semibold leading-snug text-pine-950">
+                  <p className="mt-5 text-lg font-semibold leading-snug text-night-950">
                     {event.title}
                   </p>
-                  <p className="mt-1.5 text-sm text-pine-950/60">{event.meta}</p>
+                  <p className="mt-1.5 text-sm text-night-950/60">{event.meta}</p>
                 </div>
               </li>
             ))}

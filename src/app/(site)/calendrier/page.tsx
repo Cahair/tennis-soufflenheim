@@ -68,18 +68,18 @@ export default async function CalendrierPage() {
           <div className="mt-14 space-y-4">
             {events.map((event, i) => (
               <Reveal key={event.title} delay={i * 80}>
-                <div className="card-lift flex items-center gap-5 rounded-2xl border border-pine-100 bg-cream-50 p-5 sm:gap-7 sm:p-6">
-                  <div className="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-2xl bg-pine-800 leading-none text-white shadow-lg shadow-pine-800/20">
-                    <span className="display text-2xl text-gold-400">{event.day}</span>
+                <div className="card-lift flex items-center gap-5 rounded-2xl border border-night-200 bg-night-50 p-5 sm:gap-7 sm:p-6">
+                  <div className="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-2xl bg-night-800 leading-none text-white shadow-lg shadow-night-800/20">
+                    <span className="display text-2xl text-rose-400">{event.day}</span>
                     <span className="mt-0.5 text-[0.6rem] font-bold uppercase text-white/70">
                       {event.month}
                     </span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-pine-950">{event.title}</h3>
-                    <p className="mt-0.5 text-sm text-pine-950/55">{event.meta}</p>
+                    <h3 className="text-lg font-bold text-night-950">{event.title}</h3>
+                    <p className="mt-0.5 text-sm text-night-950/55">{event.meta}</p>
                   </div>
-                  <svg viewBox="0 0 24 24" className="hidden h-5 w-5 text-pine-950/25 sm:block" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg viewBox="0 0 24 24" className="hidden h-5 w-5 text-night-950/25 sm:block" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="m9 6 6 6-6 6" />
                   </svg>
                 </div>

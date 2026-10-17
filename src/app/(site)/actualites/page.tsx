@@ -46,12 +46,12 @@ export default async function ActualitesPage() {
         text="Résultats, nouveautés, coulisses et rendez-vous : suivez tout ce qui se passe rue de Koenigsbruck."
       />
 
-      <section className="bg-cream-50 py-24">
+      <section className="bg-night-50 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* À la une */}
           <Reveal>
             <ArticleLink item={featured} className="block">
-              <article className="card-lift group grid overflow-hidden rounded-3xl border border-pine-100 bg-white lg:grid-cols-2">
+              <article className="card-lift group grid overflow-hidden rounded-3xl border border-night-200 bg-white lg:grid-cols-2">
                 <div className="relative h-72 overflow-hidden lg:h-auto">
                   <Image
                     src={featured.image}
@@ -61,23 +61,23 @@ export default async function ActualitesPage() {
                     sizes="(max-width: 1024px) 90vw, 50vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <span className="absolute left-5 top-5 rounded-full bg-gold-500 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-pine-950 shadow-lg">
+                  <span className="absolute left-5 top-5 rounded-full bg-rose-500 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-night-950 shadow-lg">
                     À la une
                   </span>
                 </div>
                 <div className="flex flex-col justify-center p-8 lg:p-12">
                   <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em]">
-                    <span className="text-clay-500">{featured.date}</span>
-                    <span className="h-1 w-1 rounded-full bg-pine-950/25" />
-                    <span className="text-pine-950/50">{featured.category}</span>
+                    <span className="text-rose-600">{featured.date}</span>
+                    <span className="h-1 w-1 rounded-full bg-night-950/25" />
+                    <span className="text-night-950/50">{featured.category}</span>
                   </div>
-                  <h2 className="display mt-4 text-3xl text-pine-950 sm:text-4xl">
+                  <h2 className="display mt-4 text-3xl text-night-950 sm:text-4xl">
                     {featured.title}
                   </h2>
-                  <p className="mt-4 leading-relaxed text-pine-950/65">
+                  <p className="mt-4 leading-relaxed text-night-950/65">
                     {featured.excerpt}
                   </p>
-                  <span className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-pine-800">
+                  <span className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-night-800">
                     Lire l&rsquo;article complet
                     <svg viewBox="0 0 24 24" className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M5 12h14m0 0-6-6m6 6-6 6" />
@@ -93,7 +93,7 @@ export default async function ActualitesPage() {
             {rest.map((item, i) => (
               <Reveal key={item.slug} delay={(i % 3) * 100} className="h-full">
                 <ArticleLink item={item} className="block h-full">
-                  <article className="card-lift group flex h-full flex-col overflow-hidden rounded-3xl border border-pine-100 bg-white">
+                  <article className="card-lift group flex h-full flex-col overflow-hidden rounded-3xl border border-night-200 bg-white">
                     <div className="relative h-52 overflow-hidden">
                       <Image
                         src={item.image}
@@ -103,21 +103,21 @@ export default async function ActualitesPage() {
                         sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                       />
-                      <span className="absolute left-4 top-4 rounded-full bg-pine-950/80 px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-gold-300 backdrop-blur">
+                      <span className="absolute left-4 top-4 rounded-full bg-night-950/80 px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-rose-300 backdrop-blur">
                         {item.category}
                       </span>
                     </div>
                     <div className="flex flex-1 flex-col p-6">
-                      <time dateTime={isoFromFrenchDate(item.date)} className="text-xs font-semibold uppercase tracking-[0.14em] text-clay-500">
+                      <time dateTime={isoFromFrenchDate(item.date)} className="text-xs font-semibold uppercase tracking-[0.14em] text-rose-600">
                         {item.date}
                       </time>
-                      <h3 className="mt-2.5 text-lg font-bold leading-snug text-pine-950">
+                      <h3 className="mt-2.5 text-lg font-bold leading-snug text-night-950">
                         {item.title}
                       </h3>
-                      <p className="mt-2.5 line-clamp-3 text-sm leading-relaxed text-pine-950/60">
+                      <p className="mt-2.5 line-clamp-3 text-sm leading-relaxed text-night-950/60">
                         {item.excerpt}
                       </p>
-                      <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-pine-800">
+                      <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-night-800">
                         Lire la suite
                         <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                           <path d="M5 12h14m0 0-6-6m6 6-6 6" />

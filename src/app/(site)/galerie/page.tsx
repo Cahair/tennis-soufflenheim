@@ -23,7 +23,7 @@ export default async function GaleriePage() {
         text="Piste de padel flambant neuve, courts au cœur du village, terrasse au soleil, fêtes mémorables — et plus de 45 ans d'archives : bienvenue chez nous."
       />
 
-      <section className="bg-cream-50 py-24">
+      <section className="bg-night-50 py-24">
         {/* Pleine largeur et hors de <Reveal> : un ancêtre transformé
             casserait le position:sticky de la sphère et le fixed de la
             lightbox. */}
@@ -31,7 +31,7 @@ export default async function GaleriePage() {
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal delay={150}>
-            <div className="mt-16 rounded-3xl bg-pine-800 p-10 text-center text-white">
+            <div className="mt-16 rounded-3xl bg-night-800 p-10 text-center text-white">
               <h2 className="display text-3xl text-white sm:text-4xl">
                 Vous avez de belles photos du club ?
               </h2>
@@ -40,7 +40,7 @@ export default async function GaleriePage() {
                 envoyez-nous vos clichés, les plus beaux rejoindront la galerie.
               </p>
               <div className="mt-7">
-                <Link href="/contact" className="btn btn-gold">
+                <Link href="/contact" className="btn btn-rose">
                   Envoyer mes photos
                 </Link>
               </div>

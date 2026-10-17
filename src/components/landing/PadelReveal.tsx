@@ -32,14 +32,14 @@ function RainBadge() {
             d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"
           />
         </defs>
-        <circle cx="100" cy="100" r="99" className="fill-gold-400" />
-        <text className="fill-pine-950 font-display text-[21px] font-semibold uppercase">
+        <circle cx="100" cy="100" r="99" className="fill-rose-400" />
+        <text className="fill-night-950 font-display text-[21px] font-semibold uppercase">
           <textPath href="#padel-badge-circle" textLength="464" lengthAdjust="spacing">
             {"Pluie ? On joue ! ✦ Pluie ? On joue ! ✦ "}
           </textPath>
         </text>
       </svg>
-      <span className="absolute inset-0 flex items-center justify-center text-pine-950">
+      <span className="absolute inset-0 flex items-center justify-center text-night-950">
         <svg viewBox="0 0 24 24" className="h-10 w-10" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <path d="M22 12a10 10 0 0 0-20 0Z" />
           <path d="M12 12v7a2 2 0 0 0 4 0" />
@@ -157,17 +157,17 @@ export default function PadelReveal() {
   );
 
   return (
-    <section ref={root} id="nouveau-padel" className="relative scroll-mt-20 bg-cream-50">
+    <section ref={root} id="nouveau-padel" className="relative scroll-mt-20 bg-night-50">
       <div className="padel-stage relative h-[100svh] min-h-[40rem] overflow-clip">
         {/* Filigrane visible autour de la carte, avant l'ouverture */}
         <div
           aria-hidden="true"
           className="padel-ghost pointer-events-none absolute inset-0 hidden select-none items-center justify-center lg:flex"
         >
-          <span className="display text-stroke-pine text-[26vw] leading-none opacity-25">Padel</span>
+          <span className="display text-stroke-night text-[26vw] leading-none opacity-25">Padel</span>
         </div>
 
-        <div className="padel-frame absolute inset-0 overflow-hidden bg-pine-950">
+        <div className="padel-frame absolute inset-0 overflow-hidden bg-night-950">
           <div className="padel-zoom absolute inset-0">
             <Image
               src={padelCourt}
@@ -178,12 +178,12 @@ export default function PadelReveal() {
               className="animate-kenburns object-cover object-center"
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-pine-950/80 via-pine-950/45 to-pine-950/85" />
+          <div className="absolute inset-0 bg-gradient-to-b from-night-950/80 via-night-950/45 to-night-950/85" />
           <div className="grain absolute inset-0" />
         </div>
 
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center text-white sm:px-6">
-          <p className="padel-fade kicker kicker-center text-[0.65rem] text-gold-400 sm:text-xs">
+          <p className="padel-fade kicker kicker-center text-[0.65rem] text-rose-400 sm:text-xs">
             Nouveau au club
           </p>
           <h2 className="padel-title display mt-6 text-[clamp(2.8rem,8.5vw,8rem)] leading-[0.92]">
@@ -191,7 +191,7 @@ export default function PadelReveal() {
             <br />
             {/* SplitText coupe aussi sur l'espace insécable : nowrap garde
                 « couvert ! » d'un seul tenant */}
-            <span className="text-gold-400">
+            <span className="text-rose-400">
               et il est <span className="whitespace-nowrap">couvert&nbsp;!</span>
             </span>
           </h2>
@@ -205,14 +205,14 @@ export default function PadelReveal() {
                 key={a}
                 className="padel-fade flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-white/85"
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-gold-400" />
+                <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
                 {a}
               </li>
             ))}
           </ul>
           <div className="padel-fade mt-10 flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
             <Magnetic>
-              <a href="#reservation" className="btn btn-gold">
+              <a href="#reservation" className="btn btn-rose">
                 Réserver la piste
                 <ArrowRight />
               </a>
@@ -234,7 +234,7 @@ export default function PadelReveal() {
         <RainBadge />
       </div>
 
-      <div className="padel-marquee overflow-hidden border-t border-white/10 bg-pine-950 py-6 sm:py-8">
+      <div className="padel-marquee overflow-hidden border-t border-white/10 bg-night-950 py-6 sm:py-8">
         <div className="padel-marquee-track flex w-max items-center">
           {[0, 1].map((copy) => (
             <div
@@ -246,7 +246,7 @@ export default function PadelReveal() {
                 <span key={item} className="flex items-center gap-10">
                   <span
                     className={`display whitespace-nowrap text-4xl sm:text-6xl ${
-                      i % 2 === 0 ? "text-gold-400" : "text-stroke-gold"
+                      i % 2 === 0 ? "text-rose-400" : "text-stroke-rose"
                     }`}
                   >
                     {item}

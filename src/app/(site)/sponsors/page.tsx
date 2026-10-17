@@ -58,7 +58,7 @@ export default async function SponsorsPage() {
       />
 
       {/* Grille des sponsors */}
-      <section className="bg-cream-50 py-24">
+      <section className="bg-night-50 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeader
@@ -71,7 +71,7 @@ export default async function SponsorsPage() {
           <div className="mt-14 grid grid-cols-2 gap-5 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
             {sponsors.map((sponsor, i) => (
               <Reveal key={sponsor.name} delay={(i % 4) * 80} className="h-full">
-                <div className="card-lift flex h-full flex-col items-center rounded-3xl border border-pine-100 bg-white p-5 text-center sm:p-6">
+                <div className="card-lift flex h-full flex-col items-center rounded-3xl border border-night-200 bg-white p-5 text-center sm:p-6">
                   <div className="relative aspect-square w-full overflow-hidden rounded-2xl">
                     <Image
                       src={sponsor.logo}
@@ -81,11 +81,11 @@ export default async function SponsorsPage() {
                       className="object-contain"
                     />
                   </div>
-                  <h3 className="display mt-4 text-lg leading-snug text-pine-950">
+                  <h3 className="display mt-4 text-lg leading-snug text-night-950">
                     {sponsor.name}
                   </h3>
                   {sponsor.detail ? (
-                    <p className="mt-1.5 text-xs leading-relaxed text-pine-950/55">
+                    <p className="mt-1.5 text-xs leading-relaxed text-night-950/55">
                       {sponsor.detail}
                     </p>
                   ) : null}
@@ -110,14 +110,14 @@ export default async function SponsorsPage() {
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {benefits.map((benefit, i) => (
               <Reveal key={benefit.title} delay={i * 100} className="h-full">
-                <div className="card-lift flex h-full flex-col items-center rounded-3xl border border-pine-100 bg-cream-50 p-8 text-center">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-pine-800 text-gold-400">
+                <div className="card-lift flex h-full flex-col items-center rounded-3xl border border-night-200 bg-night-50 p-8 text-center">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-night-800 text-rose-400">
                     {benefit.icon}
                   </span>
-                  <h3 className="display mt-5 text-xl text-pine-950">
+                  <h3 className="display mt-5 text-xl text-night-950">
                     {benefit.title}
                   </h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-pine-950/65">
+                  <p className="mt-2.5 text-sm leading-relaxed text-night-950/65">
                     {benefit.text}
                   </p>
                 </div>
@@ -128,17 +128,11 @@ export default async function SponsorsPage() {
       </section>
 
       {/* CTA partenariat */}
-      <section className="relative overflow-hidden bg-pine-950 py-24">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(50rem 25rem at 15% 110%, rgba(237,177,17,0.12), transparent 60%)",
-          }}
-        />
+      <section className="relative overflow-hidden bg-night-950 py-24">
+        <div className="brand-glow absolute inset-0 mask-b-from-50%" />
         <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <Reveal>
-            <span className="kicker text-gold-400">Rejoignez-les</span>
+            <span className="kicker text-rose-400">Rejoignez-les</span>
             <h2 className="display mt-4 text-4xl text-white sm:text-5xl">
               Devenez sponsor du TPCS
             </h2>
@@ -148,7 +142,7 @@ export default async function SponsorsPage() {
               partenariat.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Link href="/contact" className="btn btn-gold">
+              <Link href="/contact" className="btn btn-rose">
                 Demander le dossier de partenariat
               </Link>
               <a href={telHref(site.phonePresident)} className="btn btn-outline-light">

@@ -108,12 +108,12 @@ export default function GalleryMosaic({ items }: { items: GalleryItem[] }) {
     <section
       ref={root}
       id="galerie"
-      className="scroll-mt-20 overflow-clip bg-cream-50 px-4 pb-32 pt-8 sm:px-6 lg:px-8 lg:pb-48"
+      className="scroll-mt-20 overflow-clip bg-night-50 px-4 pb-32 pt-8 sm:px-6 lg:px-8 lg:pb-48"
     >
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col items-center text-center">
-          <p className="kicker kicker-center text-clay-500">Galerie</p>
-          <h2 className="gallery-title display mt-6 text-[clamp(3.2rem,9vw,8.5rem)] leading-[0.88] text-pine-950">
+          <p className="kicker kicker-center text-rose-600">Galerie</p>
+          <h2 className="gallery-title display mt-6 text-[clamp(3.2rem,9vw,8.5rem)] leading-[0.88] text-night-950">
             Le club
             <br />
             en images
@@ -134,7 +134,7 @@ export default function GalleryMosaic({ items }: { items: GalleryItem[] }) {
                   onClick={() => setLightbox(i)}
                   data-cursor="Agrandir"
                   aria-label={`Agrandir la photo : ${item.caption}`}
-                  className={`gallery-media group relative block w-full overflow-hidden rounded-[1.25rem] bg-pine-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-500 lg:rounded-[1.75rem] ${slot.ratio}`}
+                  className={`gallery-media group relative block w-full overflow-hidden rounded-[1.25rem] bg-night-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rose-500 lg:rounded-[1.75rem] ${slot.ratio}`}
                 >
                   <div className="gallery-img absolute inset-0">
                     <Image
@@ -148,8 +148,8 @@ export default function GalleryMosaic({ items }: { items: GalleryItem[] }) {
                   </div>
                 </button>
                 <figcaption className="mt-4 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                  <span className="text-sm text-pine-950/75">{item.caption}</span>
-                  <span className="text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-clay-500">
+                  <span className="text-sm text-night-950/75">{item.caption}</span>
+                  <span className="text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-rose-600">
                     {item.category}
                   </span>
                 </figcaption>
@@ -159,7 +159,7 @@ export default function GalleryMosaic({ items }: { items: GalleryItem[] }) {
         </div>
 
         <div className="mt-20 flex justify-center lg:mt-32">
-          <Link href="/galerie" className="btn btn-pine">
+          <Link href="/galerie" className="btn btn-night">
             Voir toute la galerie
             <ArrowRight />
           </Link>

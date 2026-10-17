@@ -13,9 +13,9 @@ export default function SectionHeader({
 }) {
   const alignClass =
     align === "center" ? "mx-auto text-center items-center" : "items-start";
-  const kickerColor = tone === "dark" ? "text-clay-500" : "text-gold-400";
-  const titleColor = tone === "dark" ? "text-pine-950" : "text-white";
-  const textColor = tone === "dark" ? "text-pine-950/65" : "text-white/70";
+  const kickerColor = tone === "dark" ? "text-rose-600" : "text-rose-400";
+  const titleColor = tone === "dark" ? "text-night-950" : "text-white";
+  const textColor = tone === "dark" ? "text-night-950/65" : "text-white/70";
 
   return (
     <div className={`flex max-w-2xl flex-col gap-4 ${alignClass}`}>

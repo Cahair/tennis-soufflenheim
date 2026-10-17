@@ -76,15 +76,17 @@ export default function FinalCall({
   return (
     <section
       ref={root}
-      className="relative overflow-clip bg-pine-950 px-4 pb-28 pt-32 text-white sm:px-6 lg:px-8 lg:pb-36 lg:pt-44"
+      className="relative overflow-clip bg-night-950 px-4 pb-28 pt-32 text-white sm:px-6 lg:px-8 lg:pb-36 lg:pt-44"
     >
+      {/* Halo rose et violet du logo, centré derrière le titre */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[42rem] w-[min(70rem,140%)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-radial from-rose-500/25 via-ultra-500/10 to-transparent to-70%" />
       <CourtLines className="final-court pointer-events-none absolute left-1/2 top-1/2 h-auto w-[150%] max-w-none -translate-x-1/2 -translate-y-1/2 text-white/[0.07] lg:w-[88rem]" />
 
       <div className="relative mx-auto max-w-7xl text-center">
-        <p className="final-fade kicker kicker-center text-[0.65rem] text-gold-400 sm:text-xs">
+        <p className="final-fade kicker kicker-center text-[0.65rem] text-rose-400 sm:text-xs">
           Tennis Padel Club Soufflenheim
         </p>
-        <h2 className="final-title display mt-8 text-[clamp(3.4rem,13vw,13rem)] leading-[0.86] text-gold-400">
+        <h2 className="final-title display mt-8 text-[clamp(3.4rem,13vw,13rem)] leading-[0.86] text-rose-400">
           <KeepLastWord text={frenchSpacing(title)} />
         </h2>
         <p className="final-fade mx-auto mt-10 max-w-xl text-lg leading-relaxed text-white/70">
@@ -98,7 +100,7 @@ export default function FinalCall({
               rel="noopener noreferrer"
               data-umami-event="reservation-tenup"
               data-umami-event-emplacement="appel-final"
-              className="btn btn-gold"
+              className="btn btn-rose"
             >
               {cta}
               <ArrowUpRight />

@@ -54,7 +54,7 @@ function initials(name: string): string {
 function MemberCard({ member, delay }: { member: CommitteeMember; delay: number }) {
   return (
     <Reveal delay={delay} className="h-full">
-      <div className="card-lift flex h-full flex-col overflow-hidden rounded-3xl border border-pine-100 bg-white">
+      <div className="card-lift flex h-full flex-col overflow-hidden rounded-3xl border border-night-200 bg-white">
         <div className="relative aspect-square overflow-hidden">
           {member.photo ? (
             <Image
@@ -66,8 +66,8 @@ function MemberCard({ member, delay }: { member: CommitteeMember; delay: number 
               className="object-cover"
             />
           ) : (
-            <div className="flex h-full flex-col items-center justify-center gap-4 bg-pine-800">
-              <span className="display text-6xl text-gold-400">
+            <div className="flex h-full flex-col items-center justify-center gap-4 bg-night-800">
+              <span className="display text-6xl text-rose-400">
                 {initials(member.name)}
               </span>
               <CommitteeIcon icon={member.icon} className="h-6 w-6 text-white/40" />
@@ -75,12 +75,12 @@ function MemberCard({ member, delay }: { member: CommitteeMember; delay: number 
           )}
         </div>
         <div className="flex flex-1 flex-col items-center p-6 text-center">
-          <h3 className="display text-xl text-pine-950">{member.name}</h3>
-          <p className="mt-1 text-sm font-semibold text-pine-950/70">{member.role}</p>
+          <h3 className="display text-xl text-night-950">{member.name}</h3>
+          <p className="mt-1 text-sm font-semibold text-night-950/70">{member.role}</p>
           {member.contact ? (
             <a
               href={telHref(member.contact)}
-              className="mt-2 text-xs text-pine-950/50 transition-colors hover:text-pine-800"
+              className="mt-2 text-xs text-night-950/50 transition-colors hover:text-night-800"
             >
               {member.contact}
             </a>
@@ -108,7 +108,7 @@ export default async function ComitePage() {
       />
 
       {/* Le bureau */}
-      <section className="bg-cream-50 py-24">
+      <section className="bg-night-50 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeader
@@ -150,16 +150,16 @@ export default async function ComitePage() {
               if (!members.length) return null;
               return (
                 <Reveal key={commission.name} delay={(i % 2) * 100} className="h-full">
-                  <div className="flex h-full flex-col rounded-3xl border border-pine-100 bg-cream-50 p-7">
+                  <div className="flex h-full flex-col rounded-3xl border border-night-200 bg-night-50 p-7">
                     <div className="flex items-center gap-4">
-                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-pine-800 text-gold-400">
+                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-night-800 text-rose-400">
                         <CommitteeIcon icon={commission.icon} />
                       </span>
                       <div>
-                        <h3 className="display text-xl text-pine-950">
+                        <h3 className="display text-xl text-night-950">
                           {commission.name}
                         </h3>
-                        <p className="mt-0.5 text-xs text-pine-950/55">
+                        <p className="mt-0.5 text-xs text-night-950/55">
                           {commission.text}
                         </p>
                       </div>
@@ -168,7 +168,7 @@ export default async function ComitePage() {
                       {members.map((member) => (
                         <span
                           key={member.name}
-                          className="rounded-full border border-pine-200 bg-white px-3.5 py-1.5 text-xs font-semibold text-pine-800"
+                          className="rounded-full border border-night-300 bg-white px-3.5 py-1.5 text-xs font-semibold text-night-800"
                         >
                           {member.name}
                         </span>

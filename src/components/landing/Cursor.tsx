@@ -78,10 +78,10 @@ export default function Cursor() {
       aria-hidden="true"
       className="pointer-events-none invisible fixed left-0 top-0 z-[90] flex h-24 w-24 items-center justify-center opacity-0"
     >
-      <span ref={disc} className="absolute inset-0 rounded-full bg-gold-400" />
+      <span ref={disc} className="absolute inset-0 rounded-full bg-rose-400" />
       <span
         ref={label}
-        className="invisible relative text-[0.68rem] font-bold uppercase tracking-[0.2em] text-pine-950 opacity-0"
+        className="invisible relative text-[0.68rem] font-bold uppercase tracking-[0.2em] text-night-950 opacity-0"
       />
     </div>
   );

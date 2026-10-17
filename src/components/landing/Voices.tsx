@@ -102,10 +102,10 @@ export default function Voices({ testimonials }: { testimonials: Testimonial[] }
     <section
       ref={root}
       aria-label="Témoignages de membres"
-      className="bg-cream-50 px-4 pb-32 sm:px-6 lg:px-8 lg:pb-48"
+      className="bg-night-50 px-4 pb-32 sm:px-6 lg:px-8 lg:pb-48"
     >
       <div className="mx-auto max-w-5xl text-center">
-        <p className="kicker kicker-center text-clay-500">Ils en parlent</p>
+        <p className="kicker kicker-center text-rose-600">Ils en parlent</p>
 
         <div className="mt-12 grid">
           {testimonials.map((t, i) => (
@@ -116,12 +116,12 @@ export default function Voices({ testimonials }: { testimonials: Testimonial[] }
                 i === active ? "visible opacity-100" : "invisible opacity-0"
               }`}
             >
-              <blockquote className="voice-quote font-display text-[clamp(1.7rem,3.6vw,3.1rem)] font-light leading-[1.18] text-pine-950">
+              <blockquote className="voice-quote font-display text-[clamp(1.7rem,3.6vw,3.1rem)] font-light leading-[1.18] text-night-950">
                 «&nbsp;{t.quote}&nbsp;»
               </blockquote>
               <figcaption className="voice-author mt-10 flex flex-col items-center gap-1">
-                <span className="font-semibold text-pine-950">{t.name}</span>
-                <span className="text-sm text-pine-950/55">{t.role}</span>
+                <span className="font-semibold text-night-950">{t.name}</span>
+                <span className="text-sm text-night-950/55">{t.role}</span>
               </figcaption>
             </figure>
           ))}
@@ -139,9 +139,9 @@ export default function Voices({ testimonials }: { testimonials: Testimonial[] }
                 aria-current={i === active ? "true" : undefined}
                 className="voice-bar relative h-8 w-14"
               >
-                <span className="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 overflow-hidden rounded-full bg-pine-950/15">
+                <span className="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 overflow-hidden rounded-full bg-night-950/15">
                   <span
-                    className={`voice-bar-fill absolute inset-0 origin-left bg-pine-950 ${
+                    className={`voice-bar-fill absolute inset-0 origin-left bg-night-950 ${
                       i > active ? "scale-x-0" : ""
                     }`}
                   />

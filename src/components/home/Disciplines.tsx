@@ -20,7 +20,7 @@ export default async function Disciplines() {
         <div className="mt-16 grid gap-8 lg:grid-cols-3">
           {disciplines.map((d, i) => (
             <Reveal key={d.name} delay={i * 120} className="h-full">
-              <article className="card-lift group flex h-full flex-col overflow-hidden rounded-3xl border border-pine-100 bg-cream-50">
+              <article className="card-lift group flex h-full flex-col overflow-hidden rounded-3xl border border-night-200 bg-night-50">
                 <div className="relative h-60 overflow-hidden">
                   <Image
                     src={d.image}
@@ -30,19 +30,19 @@ export default async function Disciplines() {
                     sizes="(max-width: 1024px) 90vw, 30vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <span className="absolute left-4 top-4 rounded-full bg-gold-500 px-3.5 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-pine-950 shadow-lg">
+                  <span className="absolute left-4 top-4 rounded-full bg-rose-500 px-3.5 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-night-950 shadow-lg">
                     {d.badge}
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col p-7">
-                  <h3 className="display text-3xl text-pine-950">{d.name}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-pine-950/65">
+                  <h3 className="display text-3xl text-night-950">{d.name}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-night-950/65">
                     {d.description}
                   </p>
                   <ul className="mt-5 space-y-2.5">
                     {d.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-sm text-pine-950/80">
-                        <svg viewBox="0 0 24 24" className="mt-0.5 h-4 w-4 shrink-0 text-clay-500" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <li key={f} className="flex items-start gap-2.5 text-sm text-night-950/80">
+                        <svg viewBox="0 0 24 24" className="mt-0.5 h-4 w-4 shrink-0 text-rose-600" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                           <path d="m5 13 4 4L19 7" />
                         </svg>
                         {f}
@@ -54,7 +54,7 @@ export default async function Disciplines() {
                     {...(d.cta.href.startsWith("http")
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
-                    className="group/link mt-auto inline-flex items-center gap-2 pt-7 text-sm font-bold text-pine-800 transition-colors hover:text-clay-500"
+                    className="group/link mt-auto inline-flex items-center gap-2 pt-7 text-sm font-bold text-night-800 transition-colors hover:text-rose-600"
                   >
                     {d.cta.label}
                     <svg viewBox="0 0 24 24" className="h-4 w-4 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Oswald } from "next/font/google";
 import { openGraphDefaults, SITE_NAME } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
@@ -60,6 +60,11 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
+};
+
+/* Couleur de la barre du navigateur sur mobile : le noir du logo. */
+export const viewport: Viewport = {
+  themeColor: "#0a0610",
 };
 
 /* Séquence d'ouverture de la page d'accueil, décidée avant le premier

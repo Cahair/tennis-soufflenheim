@@ -1,5 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <circle cx="32" cy="32" r="30" fill="#EDB111"/>
-  <path d="M11 8c13 12 13 36 0 48" stroke="#12312a" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-  <path d="M53 8c-13 12-13 36 0 48" stroke="#12312a" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><defs><linearGradient id="g" x1="0" y1="0.6" x2="1" y2="0.4"><stop offset="0" stop-color="#ea336f"/><stop offset="0.5" stop-color="#a52c73"/><stop offset="1" stop-color="#5c1c6e"/></linearGradient><clipPath id="c"><circle cx="64" cy="64" r="64"/></clipPath></defs><circle cx="64" cy="64" r="64" fill="url(#g)"/><g clip-path="url(#c)" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"><path d="M3 39 C 30 52, 48 84, 35 124"/><path d="M96 5 C 86 40, 96 74, 125 93"/></g></svg>

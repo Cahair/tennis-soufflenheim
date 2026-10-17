@@ -48,7 +48,7 @@ export default function GalleryLightbox({
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-pine-950/95 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-night-950/95 p-4 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
       aria-label={item.caption}

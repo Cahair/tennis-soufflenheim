@@ -10,20 +10,20 @@ import type { HistoirePhoto, ImageRef } from "@/lib/content-types";
 /* ------------------------------------------------------------------ */
 
 const inputClass =
-  "w-full rounded-xl border border-pine-200 bg-white px-4 py-3 text-sm text-pine-950 outline-none transition-all focus:border-gold-500 focus:ring-4 focus:ring-gold-500/15";
+  "w-full rounded-xl border border-night-300 bg-white px-4 py-3 text-sm text-night-950 outline-none transition-all focus:border-rose-500 focus:ring-4 focus:ring-rose-500/15";
 
 function Label({ field }: { field: FieldDef }) {
   return (
-    <label htmlFor={`f:${field.path}`} className="mb-1.5 block text-sm font-semibold text-pine-950">
+    <label htmlFor={`f:${field.path}`} className="mb-1.5 block text-sm font-semibold text-night-950">
       {field.label}
-      {field.required ? <span className="text-clay-500"> *</span> : null}
+      {field.required ? <span className="text-rose-600"> *</span> : null}
     </label>
   );
 }
 
 function Help({ field }: { field: FieldDef }) {
   if (!field.help) return null;
-  return <p className="mt-1.5 text-xs text-pine-950/50">{field.help}</p>;
+  return <p className="mt-1.5 text-xs text-night-950/50">{field.help}</p>;
 }
 
 export default function FieldInput({
@@ -109,12 +109,12 @@ export default function FieldInput({
 
     case "checkbox":
       return (
-        <label className="flex items-center gap-3 text-sm font-semibold text-pine-950">
+        <label className="flex items-center gap-3 text-sm font-semibold text-night-950">
           <input
             name={name}
             type="checkbox"
             defaultChecked={current === true}
-            className="h-5 w-5 rounded border-pine-200 accent-pine-800"
+            className="h-5 w-5 rounded border-night-300 accent-night-800"
           />
           {field.label}
         </label>
@@ -150,10 +150,10 @@ export default function FieldInput({
               <img
                 src={image.src}
                 alt=""
-                className="h-24 w-32 rounded-xl border border-pine-100 object-cover"
+                className="h-24 w-32 rounded-xl border border-night-200 object-cover"
               />
             ) : (
-              <div className="flex h-24 w-32 items-center justify-center rounded-xl border border-dashed border-pine-200 text-xs text-pine-950/40">
+              <div className="flex h-24 w-32 items-center justify-center rounded-xl border border-dashed border-night-300 text-xs text-night-950/40">
                 Aucune photo
               </div>
             )}
@@ -162,9 +162,9 @@ export default function FieldInput({
                 type="file"
                 name={`${name}__file`}
                 accept="image/*"
-                className="block w-full text-sm text-pine-950/70 file:mr-3 file:rounded-full file:border-0 file:bg-pine-800 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-pine-700"
+                className="block w-full text-sm text-night-950/70 file:mr-3 file:rounded-full file:border-0 file:bg-night-800 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-night-700"
               />
-              <p className="mt-1.5 text-xs text-pine-950/50">
+              <p className="mt-1.5 text-xs text-night-950/50">
                 {image?.src
                   ? "Choisissez un fichier pour remplacer la photo actuelle."
                   : "JPG, PNG ou WebP — 15 Mo maximum."}
@@ -192,7 +192,7 @@ export default function FieldInput({
               {photos.map((photo, i) => (
                 <li
                   key={photo.src.src}
-                  className="flex gap-3 rounded-xl border border-pine-100 bg-white p-3"
+                  className="flex gap-3 rounded-xl border border-night-200 bg-white p-3"
                 >
                   <img
                     src={photo.src.src}
@@ -204,13 +204,13 @@ export default function FieldInput({
                       name={`${name}__alt_${i}`}
                       defaultValue={photo.alt}
                       aria-label="Description de la photo"
-                      className="w-full rounded-lg border border-pine-200 px-2.5 py-1.5 text-xs"
+                      className="w-full rounded-lg border border-night-300 px-2.5 py-1.5 text-xs"
                     />
-                    <label className="flex items-center gap-2 text-xs font-semibold text-clay-500">
+                    <label className="flex items-center gap-2 text-xs font-semibold text-rose-600">
                       <input
                         type="checkbox"
                         name={`${name}__del_${i}`}
-                        className="h-4 w-4 accent-clay-500"
+                        className="h-4 w-4 accent-rose-600"
                       />
                       Supprimer cette photo
                     </label>
@@ -219,7 +219,7 @@ export default function FieldInput({
               ))}
             </ul>
           ) : (
-            <p className="text-sm text-pine-950/50">Aucune photo pour l&rsquo;instant.</p>
+            <p className="text-sm text-night-950/50">Aucune photo pour l&rsquo;instant.</p>
           )}
           <div className="mt-3">
             <input
@@ -227,9 +227,9 @@ export default function FieldInput({
               name={`${name}__new`}
               accept="image/*"
               multiple
-              className="block w-full text-sm text-pine-950/70 file:mr-3 file:rounded-full file:border-0 file:bg-pine-800 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-pine-700"
+              className="block w-full text-sm text-night-950/70 file:mr-3 file:rounded-full file:border-0 file:bg-night-800 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-night-700"
             />
-            <p className="mt-1.5 text-xs text-pine-950/50">
+            <p className="mt-1.5 text-xs text-night-950/50">
               Ajoutez une ou plusieurs photos (elles arrivent en fin de liste).
             </p>
           </div>

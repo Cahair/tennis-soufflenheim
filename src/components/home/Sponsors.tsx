@@ -27,7 +27,7 @@ export default async function Sponsors() {
             {loop.map((sponsor, i) => (
               <div
                 key={`${sponsor.name}-${i}`}
-                className="flex h-28 w-40 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-pine-100 bg-cream-50 p-3"
+                className="flex h-28 w-40 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-night-200 bg-night-50 p-3"
                 title={sponsor.name}
               >
                 <Image
@@ -44,12 +44,12 @@ export default async function Sponsors() {
 
       <Reveal delay={200}>
         <div className="mx-auto mt-12 flex max-w-7xl flex-wrap items-center justify-center gap-4 px-4 sm:px-6 lg:px-8">
-          <Link href="/sponsors" className="btn btn-pine">
+          <Link href="/sponsors" className="btn btn-night">
             Découvrir tous nos sponsors
           </Link>
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-3 rounded-full border-2 border-dashed border-pine-300 px-7 py-4 font-semibold text-pine-700 transition-colors hover:border-gold-500 hover:text-gold-600"
+            className="group inline-flex items-center gap-3 rounded-full border-2 border-dashed border-night-300 px-7 py-4 font-semibold text-night-700 transition-colors hover:border-rose-500 hover:text-rose-600"
           >
             Votre entreprise ici ? Devenez partenaire
             <svg viewBox="0 0 24 24" className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

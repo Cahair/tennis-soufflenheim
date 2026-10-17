@@ -23,15 +23,15 @@ export default async function MentionsLegalesPage() {
         text="Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN), voici les informations relatives à l'éditeur et à l'hébergeur de ce site."
       />
 
-      <section className="bg-cream-50 py-24">
+      <section className="bg-night-50 py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="space-y-6">
             <Reveal>
-              <article className="rounded-3xl border border-pine-100 bg-white p-8 sm:p-10">
-                <h2 className="display text-2xl text-pine-950">
+              <article className="rounded-3xl border border-night-200 bg-white p-8 sm:p-10">
+                <h2 className="display text-2xl text-night-950">
                   Éditeur du site
                 </h2>
-                <div className="mt-6 space-y-3 text-sm leading-relaxed text-pine-950/75">
+                <div className="mt-6 space-y-3 text-sm leading-relaxed text-night-950/75">
                   <p>
                     Le présent site est édité par l&rsquo;association{" "}
                     <strong>{site.name}</strong>, association de droit local
@@ -45,7 +45,7 @@ export default async function MentionsLegalesPage() {
                     Téléphone :{" "}
                     <a
                       href={telHref(site.phoneClub)}
-                      className="font-medium text-clay-500 hover:underline"
+                      className="font-medium text-rose-600 hover:underline"
                     >
                       {site.phoneClub}
                     </a>
@@ -53,7 +53,7 @@ export default async function MentionsLegalesPage() {
                     Courriel :{" "}
                     <a
                       href={`mailto:${site.emails.president}`}
-                      className="font-medium text-clay-500 hover:underline"
+                      className="font-medium text-rose-600 hover:underline"
                     >
                       {site.emails.president}
                     </a>
@@ -67,9 +67,9 @@ export default async function MentionsLegalesPage() {
             </Reveal>
 
             <Reveal delay={80}>
-              <article className="rounded-3xl border border-pine-100 bg-white p-8 sm:p-10">
-                <h2 className="display text-2xl text-pine-950">Hébergement</h2>
-                <div className="mt-6 space-y-3 text-sm leading-relaxed text-pine-950/75">
+              <article className="rounded-3xl border border-night-200 bg-white p-8 sm:p-10">
+                <h2 className="display text-2xl text-night-950">Hébergement</h2>
+                <div className="mt-6 space-y-3 text-sm leading-relaxed text-night-950/75">
                   <p>
                     Le site est hébergé par <strong>Infomaniak Network SA</strong>
                     <br />
@@ -80,7 +80,7 @@ export default async function MentionsLegalesPage() {
                       href="https://www.infomaniak.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-medium text-clay-500 hover:underline"
+                      className="font-medium text-rose-600 hover:underline"
                     >
                       www.infomaniak.com
                     </a>
@@ -90,18 +90,18 @@ export default async function MentionsLegalesPage() {
             </Reveal>
 
             <Reveal delay={160}>
-              <article className="rounded-3xl border border-pine-100 bg-white p-8 sm:p-10">
-                <h2 className="display text-2xl text-pine-950">
+              <article className="rounded-3xl border border-night-200 bg-white p-8 sm:p-10">
+                <h2 className="display text-2xl text-night-950">
                   Conception et réalisation
                 </h2>
-                <div className="mt-6 space-y-3 text-sm leading-relaxed text-pine-950/75">
+                <div className="mt-6 space-y-3 text-sm leading-relaxed text-night-950/75">
                   <p>
                     Site web conçu et réalisé par <strong>RK.ai</strong> —{" "}
                     <a
                       href="https://romain-kantzer.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-medium text-clay-500 hover:underline"
+                      className="font-medium text-rose-600 hover:underline"
                     >
                       romain-kantzer.com
                     </a>
@@ -111,11 +111,11 @@ export default async function MentionsLegalesPage() {
             </Reveal>
 
             <Reveal delay={240}>
-              <article className="rounded-3xl border border-pine-100 bg-white p-8 sm:p-10">
-                <h2 className="display text-2xl text-pine-950">
+              <article className="rounded-3xl border border-night-200 bg-white p-8 sm:p-10">
+                <h2 className="display text-2xl text-night-950">
                   Propriété intellectuelle
                 </h2>
-                <div className="mt-6 space-y-3 text-sm leading-relaxed text-pine-950/75">
+                <div className="mt-6 space-y-3 text-sm leading-relaxed text-night-950/75">
                   <p>
                     L&rsquo;ensemble des contenus présents sur ce site (textes,
                     photographies, logos, éléments graphiques) est la propriété
@@ -133,11 +133,11 @@ export default async function MentionsLegalesPage() {
             </Reveal>
 
             <Reveal delay={320}>
-              <article className="rounded-3xl border border-pine-100 bg-white p-8 sm:p-10">
-                <h2 className="display text-2xl text-pine-950">
+              <article className="rounded-3xl border border-night-200 bg-white p-8 sm:p-10">
+                <h2 className="display text-2xl text-night-950">
                   Données personnelles
                 </h2>
-                <div className="mt-6 space-y-3 text-sm leading-relaxed text-pine-950/75">
+                <div className="mt-6 space-y-3 text-sm leading-relaxed text-night-950/75">
                   <p>
                     Les informations transmises via le formulaire de contact
                     (nom, adresse e-mail, message) sont utilisées uniquement
@@ -152,7 +152,7 @@ export default async function MentionsLegalesPage() {
                     droit, contactez-nous à l&rsquo;adresse{" "}
                     <a
                       href={`mailto:${site.emails.secretariat}`}
-                      className="font-medium text-clay-500 hover:underline"
+                      className="font-medium text-rose-600 hover:underline"
                     >
                       {site.emails.secretariat}
                     </a>

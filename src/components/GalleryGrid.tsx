@@ -80,8 +80,8 @@ export default function GalleryGrid({
               }}
               className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all ${
                 category === cat
-                  ? "bg-pine-800 text-white shadow-lg shadow-pine-800/25"
-                  : "border border-pine-200 bg-white text-pine-800 hover:border-pine-400"
+                  ? "bg-night-800 text-white shadow-lg shadow-night-800/25"
+                  : "border border-night-300 bg-white text-night-800 hover:border-night-400"
               }`}
             >
               {cat}
@@ -96,7 +96,7 @@ export default function GalleryGrid({
             key={item.alt}
             type="button"
             onClick={() => setLightbox(i)}
-            className="group relative block w-full overflow-hidden rounded-2xl text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+            className="group relative block w-full overflow-hidden rounded-2xl text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500"
           >
             <Image
               src={item.src}
@@ -105,12 +105,12 @@ export default function GalleryGrid({
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="h-auto w-full transition-transform duration-500 group-hover:scale-105"
             />
-            <span className="absolute inset-0 bg-gradient-to-t from-pine-950/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <span className="absolute inset-0 bg-gradient-to-t from-night-950/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             <span className="absolute inset-x-0 bottom-0 flex translate-y-2 items-end justify-between gap-2 p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
               <span className="text-sm font-semibold text-white">
                 {item.caption}
               </span>
-              <span className="rounded-full bg-gold-500 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-pine-950">
+              <span className="rounded-full bg-rose-500 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-night-950">
                 {item.category}
               </span>
             </span>
@@ -123,7 +123,7 @@ export default function GalleryGrid({
           <button
             type="button"
             onClick={() => setVisibleCount((c) => c + PAGE_SIZE)}
-            className="btn btn-pine"
+            className="btn btn-night"
           >
             Afficher plus de photos ({filtered.length - visible.length}{" "}
             restantes)
@@ -133,7 +133,7 @@ export default function GalleryGrid({
 
       {lightbox !== null && visible[lightbox] ? (
         <div
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-pine-950/95 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-night-950/95 p-4 backdrop-blur-sm"
           role="dialog"
           aria-modal="true"
           aria-label={visible[lightbox].caption}

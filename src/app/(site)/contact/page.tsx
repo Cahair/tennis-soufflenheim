@@ -84,7 +84,7 @@ export default async function ContactPage() {
         text="Une question sur les adhésions, l'école de tennis ou une réservation ? Appelez, écrivez ou passez directement au club house."
       />
 
-      <section className="bg-cream-50 py-24">
+      <section className="bg-night-50 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr]">
             {/* Coordonnées */}
@@ -99,14 +99,14 @@ export default async function ContactPage() {
               <div className="mt-10 grid gap-5 sm:grid-cols-2">
                 {cards.map((card, i) => (
                   <Reveal key={card.title} delay={i * 80} className="h-full">
-                    <div className="card-lift flex h-full flex-col rounded-3xl border border-pine-100 bg-white p-6">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-pine-800 text-gold-400">
+                    <div className="card-lift flex h-full flex-col rounded-3xl border border-night-200 bg-white p-6">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-night-800 text-rose-400">
                         {card.icon}
                       </span>
-                      <h3 className="mt-4 font-bold text-pine-950">{card.title}</h3>
+                      <h3 className="mt-4 font-bold text-night-950">{card.title}</h3>
                       <div className="mt-1.5 space-y-0.5">
                         {card.lines.map((line) => (
-                          <p key={line} className="break-all text-sm text-pine-950/65">
+                          <p key={line} className="break-all text-sm text-night-950/65">
                             {line}
                           </p>
                         ))}
@@ -116,7 +116,7 @@ export default async function ContactPage() {
                         {...(card.external
                           ? { target: "_blank", rel: "noopener noreferrer" }
                           : {})}
-                        className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-bold text-clay-500 hover:underline"
+                        className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-bold text-rose-600 hover:underline"
                       >
                         {card.action}
                         <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -129,11 +129,11 @@ export default async function ContactPage() {
 
                 {/* Réseaux sociaux */}
                 <Reveal delay={cards.length * 80} className="sm:col-span-2">
-                  <div className="card-lift rounded-3xl border border-pine-100 bg-white p-6">
-                    <h3 className="font-bold text-pine-950">
+                  <div className="card-lift rounded-3xl border border-night-200 bg-white p-6">
+                    <h3 className="font-bold text-night-950">
                       Suivez la vie du club
                     </h3>
-                    <p className="mt-1.5 text-sm text-pine-950/65">
+                    <p className="mt-1.5 text-sm text-night-950/65">
                       Résultats, événements, coulisses : le TPCS est aussi sur
                       les réseaux.
                     </p>
@@ -144,7 +144,7 @@ export default async function ContactPage() {
                           href={social.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-full border border-pine-100 px-4 py-2 text-sm font-medium text-pine-950/80 transition-colors hover:border-gold-400 hover:text-clay-500"
+                          className="inline-flex items-center gap-2 rounded-full border border-night-200 px-4 py-2 text-sm font-medium text-night-950/80 transition-colors hover:border-rose-400 hover:text-rose-600"
                         >
                           <svg
                             viewBox="0 0 24 24"
@@ -181,7 +181,7 @@ export default async function ContactPage() {
             />
           </Reveal>
           <Reveal delay={120}>
-            <div className="mt-12 overflow-hidden rounded-3xl border border-pine-100 shadow-xl shadow-pine-950/5">
+            <div className="mt-12 overflow-hidden rounded-3xl border border-night-200 shadow-xl shadow-night-950/5">
               <iframe
                 title="Carte — Tennis Padel Club Soufflenheim"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=7.9414%2C48.8203%2C7.9914%2C48.8443&layer=mapnik&marker=48.8323%2C7.9664"
@@ -194,7 +194,7 @@ export default async function ContactPage() {
       </section>
 
       {/* FAQ complète — cible du lien « FAQ » du menu (/contact#faq) */}
-      <section id="faq" className="scroll-mt-20 bg-cream-50 py-24">
+      <section id="faq" className="scroll-mt-20 bg-night-50 py-24">
         <JsonLd data={faqJsonLd(faqs)} />
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Reveal>

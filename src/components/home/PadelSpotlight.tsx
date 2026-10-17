@@ -85,20 +85,20 @@ export default function PadelSpotlight() {
     <section
       id="nouveau-padel"
       ref={sectionRef}
-      className="relative scroll-mt-20 bg-pine-950 text-white"
+      className="relative scroll-mt-20 bg-night-950 text-white"
     >
       {/* Sticker « Pluie ? On joue ! » à cheval sur le bandeau doré */}
       <div className="absolute -top-12 right-8 z-20 hidden lg:block xl:right-16">
         <div className="relative flex h-28 w-28 items-center justify-center">
           <div className="animate-spin-slow absolute inset-0" aria-hidden="true">
-            <div className="absolute inset-0 rounded-[1.4rem] bg-white shadow-xl shadow-pine-950/40" />
-            <div className="absolute inset-0 rotate-45 rounded-[1.4rem] bg-white shadow-xl shadow-pine-950/40" />
+            <div className="absolute inset-0 rounded-[1.4rem] bg-white shadow-xl shadow-night-950/40" />
+            <div className="absolute inset-0 rotate-45 rounded-[1.4rem] bg-white shadow-xl shadow-night-950/40" />
           </div>
           <p className="relative -rotate-6 text-center leading-tight">
-            <span className="block text-[0.7rem] font-black uppercase tracking-widest text-clay-500">
+            <span className="block text-[0.7rem] font-black uppercase tracking-widest text-rose-600">
               Pluie ?
             </span>
-            <span className="display block text-xl text-pine-950">
+            <span className="display block text-xl text-night-950">
               On joue !
             </span>
           </p>
@@ -135,12 +135,12 @@ export default function PadelSpotlight() {
               }}
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-b from-pine-950/90 via-pine-950/55 to-pine-950/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-night-950/90 via-night-950/55 to-night-950/90" />
           <div
             className="absolute inset-0"
             style={{
               background:
-                "radial-gradient(60rem 30rem at 15% 15%, rgba(237,177,17,0.16), transparent 60%), radial-gradient(45rem 25rem at 90% 90%, rgba(192,90,51,0.18), transparent 60%)",
+                "radial-gradient(60rem 30rem at 15% 15%, rgba(234,51,111,0.16), transparent 60%), radial-gradient(45rem 25rem at 90% 90%, rgba(138,43,226,0.18), transparent 60%)",
             }}
           />
         </div>
@@ -158,7 +158,7 @@ export default function PadelSpotlight() {
         {/* Contenu */}
         <div className="relative mx-auto flex max-w-5xl flex-col items-center px-4 py-24 text-center sm:px-6 lg:py-36">
           <Reveal>
-            <span className="kicker kicker-center text-[0.65rem] text-gold-400 sm:text-xs">
+            <span className="kicker kicker-center text-[0.65rem] text-rose-400 sm:text-xs">
               Nouveau au club
             </span>
           </Reveal>
@@ -167,7 +167,7 @@ export default function PadelSpotlight() {
             <h2 className="display mt-6 text-5xl text-white sm:text-7xl lg:text-[5.5rem]">
               Le padel est arrivé…
               <br />
-              <span className="gold-sheen bg-gradient-to-r from-gold-300 via-gold-500 to-gold-300 bg-clip-text text-transparent">
+              <span className="animate-sheen bg-gradient-to-r from-rose-300 via-rose-500 to-rose-300 bg-clip-text text-transparent">
                 et il est couvert !
               </span>
             </h2>
@@ -185,8 +185,8 @@ export default function PadelSpotlight() {
           <div className="mt-12 grid w-full max-w-3xl gap-4 sm:grid-cols-3">
             {atouts.map((a, i) => (
               <Reveal key={a.title} delay={250 + i * 120} className="h-full">
-                <div className="group flex h-full flex-col items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.07] p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1.5 hover:border-gold-400/50 hover:bg-white/[0.12]">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold-500/15 text-gold-300 ring-1 ring-gold-400/30 transition-transform duration-300 group-hover:scale-110">
+                <div className="group flex h-full flex-col items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.07] p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1.5 hover:border-rose-400/50 hover:bg-white/[0.12]">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-rose-500/15 text-rose-300 ring-1 ring-rose-400/30 transition-transform duration-300 group-hover:scale-110">
                     {a.icon}
                   </span>
                   <span className="text-sm font-bold uppercase tracking-wide text-white">
@@ -202,7 +202,7 @@ export default function PadelSpotlight() {
 
           <Reveal delay={650}>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-              <Link href="/#reservation" className="btn btn-gold">
+              <Link href="/#reservation" className="btn btn-rose">
                 Réserver la piste
                 <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14m0 0-6-6m6 6-6 6" />
@@ -224,7 +224,7 @@ export default function PadelSpotlight() {
         </div>
 
         {/* Ruban défilant */}
-        <div className="marquee relative overflow-hidden border-t border-white/10 bg-pine-950/50 backdrop-blur-sm">
+        <div className="marquee relative overflow-hidden border-t border-white/10 bg-night-950/50 backdrop-blur-sm">
           <div className="marquee-track flex items-center gap-8 py-4 pr-8">
             {[0, 1].map((copy) => (
               <div key={copy} className="flex items-center gap-8">
@@ -232,7 +232,7 @@ export default function PadelSpotlight() {
                   <span key={item} className="flex items-center gap-8">
                     <span
                       className={`display whitespace-nowrap text-2xl sm:text-3xl ${
-                        i % 2 === 0 ? "text-gold-400" : "text-stroke-gold"
+                        i % 2 === 0 ? "text-rose-400" : "text-stroke-rose"
                       }`}
                     >
                       {item}

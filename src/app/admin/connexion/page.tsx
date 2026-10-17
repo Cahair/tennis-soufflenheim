@@ -12,7 +12,7 @@ export default function ConnexionPage() {
   );
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-pine-950 px-4">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-night-950 px-4">
       <div className="w-full max-w-sm rounded-3xl border border-white/10 bg-white/[0.06] p-8 backdrop-blur-sm">
         <div className="flex justify-center">
           <LogoMark />
@@ -33,19 +33,19 @@ export default function ConnexionPage() {
             type="password"
             required
             autoFocus
-            className="w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white outline-none transition-all focus:border-gold-400 focus:ring-4 focus:ring-gold-500/20"
+            className="w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white outline-none transition-all focus:border-rose-400 focus:ring-4 focus:ring-rose-500/20"
           />
           {state.error ? (
-            <p className="mt-3 rounded-xl bg-clay-500/15 px-4 py-2.5 text-sm text-clay-300" role="alert">
+            <p className="mt-3 rounded-xl bg-rose-600/15 px-4 py-2.5 text-sm text-rose-300" role="alert">
               {state.error}
             </p>
           ) : null}
-          <button type="submit" disabled={pending} className="btn btn-gold mt-6 w-full disabled:opacity-60">
+          <button type="submit" disabled={pending} className="btn btn-rose mt-6 w-full disabled:opacity-60">
             {pending ? "Connexion…" : "Se connecter"}
           </button>
         </form>
       </div>
-      <Link href="/" className="mt-8 text-sm text-white/50 hover:text-gold-300">
+      <Link href="/" className="mt-8 text-sm text-white/50 hover:text-rose-300">
         ← Retour au site
       </Link>
     </div>

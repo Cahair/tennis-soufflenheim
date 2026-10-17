@@ -102,18 +102,18 @@ export default async function ArticlePage({ params }: Props) {
       <JsonLd data={jsonLd} />
       <PageHero kicker="Actualités" title={article.title} text={article.excerpt} />
 
-      <section className="bg-cream-50 py-24">
+      <section className="bg-night-50 py-24">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <article>
               <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em]">
-                <time dateTime={published} className="text-clay-500">
+                <time dateTime={published} className="text-rose-600">
                   {article.date}
                 </time>
-                <span className="h-1 w-1 rounded-full bg-pine-950/25" />
-                <span className="text-pine-950/50">{article.category}</span>
+                <span className="h-1 w-1 rounded-full bg-night-950/25" />
+                <span className="text-night-950/50">{article.category}</span>
               </div>
-              <div className="relative mt-6 aspect-[4/3] overflow-hidden rounded-3xl border border-pine-100 bg-white">
+              <div className="relative mt-6 aspect-[4/3] overflow-hidden rounded-3xl border border-night-200 bg-white">
                 <Image
                   src={article.image}
                   alt={article.title}
@@ -125,7 +125,7 @@ export default async function ArticlePage({ params }: Props) {
                 />
               </div>
               {body.length ? (
-                <div className="mt-10 space-y-5 text-lg leading-relaxed text-pine-950/80">
+                <div className="mt-10 space-y-5 text-lg leading-relaxed text-night-950/80">
                   {body.map((p, i) => (
                     <p key={i} className="whitespace-pre-line">
                       {p}
@@ -138,8 +138,8 @@ export default async function ArticlePage({ params }: Props) {
 
           {others.length ? (
             <Reveal delay={100}>
-              <aside className="mt-16 border-t border-pine-950/10 pt-10">
-                <h2 className="display text-2xl text-pine-950">À lire aussi</h2>
+              <aside className="mt-16 border-t border-night-950/10 pt-10">
+                <h2 className="display text-2xl text-night-950">À lire aussi</h2>
                 <ul className="mt-6 space-y-4">
                   {others.map((item) => (
                     <li key={item.slug}>
@@ -147,10 +147,10 @@ export default async function ArticlePage({ params }: Props) {
                         href={`/actualites/${item.slug}`}
                         className="group flex items-baseline justify-between gap-6"
                       >
-                        <span className="font-bold text-pine-950 transition-colors group-hover:text-clay-500">
+                        <span className="font-bold text-night-950 transition-colors group-hover:text-rose-600">
                           {item.title}
                         </span>
-                        <span className="shrink-0 text-xs font-semibold uppercase tracking-[0.14em] text-pine-950/45">
+                        <span className="shrink-0 text-xs font-semibold uppercase tracking-[0.14em] text-night-950/45">
                           {item.date}
                         </span>
                       </Link>
@@ -161,7 +161,7 @@ export default async function ArticlePage({ params }: Props) {
             </Reveal>
           ) : null}
 
-          <Link href="/actualites" className="link-arrow mt-12 inline-flex text-sm text-pine-900">
+          <Link href="/actualites" className="link-arrow mt-12 inline-flex text-sm text-night-900">
             Toutes les actualités
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14m0 0-6-6m6 6-6 6" />

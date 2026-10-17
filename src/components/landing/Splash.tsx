@@ -125,20 +125,20 @@ export default function Splash({ baseline }: { baseline: string }) {
 
   return (
     <div ref={root} className="splash fixed inset-0 z-[120]" aria-hidden="true">
-      <div className="splash-top absolute inset-x-0 top-0 flex h-1/2 flex-col items-center justify-end bg-pine-950 pb-[5.5rem] sm:pb-24">
+      <div className="splash-top absolute inset-x-0 top-0 flex h-1/2 flex-col items-center justify-end bg-night-950 pb-[5.5rem] sm:pb-24">
         <p
           data-splash-el
           className="flex overflow-hidden font-display text-[clamp(4.5rem,17vw,11rem)] font-semibold uppercase leading-[0.88] tracking-tight text-white"
         >
           {"TPCS".split("").map((letter, i) => (
-            <span key={i} className={`splash-letter inline-block ${i === 1 ? "text-gold-400" : ""}`}>
+            <span key={i} className={`splash-letter inline-block ${i === 1 ? "text-rose-500" : ""}`}>
               {letter}
             </span>
           ))}
         </p>
       </div>
 
-      <div className="splash-bottom absolute inset-x-0 bottom-0 h-1/2 bg-pine-950">
+      <div className="splash-bottom absolute inset-x-0 bottom-0 h-1/2 bg-night-950">
         <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 px-5 pb-6 sm:px-10 sm:pb-9">
           <p
             data-splash-el
@@ -148,7 +148,7 @@ export default function Splash({ baseline }: { baseline: string }) {
           </p>
           <p
             data-splash-el
-            className="splash-meta splash-count font-display text-5xl font-light tabular-nums text-gold-400 sm:text-7xl"
+            className="splash-meta splash-count font-display text-5xl font-light tabular-nums text-rose-500 sm:text-7xl"
           >
             000
           </p>
@@ -156,7 +156,7 @@ export default function Splash({ baseline }: { baseline: string }) {
       </div>
 
       {/* Le filet, puis la balle posée dessus */}
-      <div data-splash-el className="splash-line absolute inset-x-0 top-1/2 h-px bg-gold-400/60" />
+      <div data-splash-el className="splash-line absolute inset-x-0 top-1/2 h-px bg-rose-500/60" />
       <div
         data-splash-el
         className="splash-ball absolute left-[calc(50%-1.75rem)] top-[calc(50%-3.5rem)] h-14 w-14"

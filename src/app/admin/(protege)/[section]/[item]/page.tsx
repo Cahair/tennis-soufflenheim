@@ -33,28 +33,28 @@ export default async function SectionItemPage({
 
   return (
     <div>
-      <Link href={`/admin/${section.slug}`} className="text-sm font-semibold text-pine-800 hover:text-clay-500">
+      <Link href={`/admin/${section.slug}`} className="text-sm font-semibold text-night-800 hover:text-rose-600">
         ← {section.title}
       </Link>
-      <h1 className="display mt-3 text-3xl text-pine-950">
+      <h1 className="display mt-3 text-3xl text-night-950">
         {isNew ? `Ajouter ${section.itemName}` : `Modifier ${section.itemName}`}
       </h1>
 
       {erreur ? (
-        <p className="mt-6 rounded-2xl border border-clay-500/30 bg-clay-500/10 px-5 py-3.5 text-sm font-semibold text-clay-500" role="alert">
+        <p className="mt-6 rounded-2xl border border-rose-600/30 bg-rose-600/10 px-5 py-3.5 text-sm font-semibold text-rose-600" role="alert">
           {erreur}
         </p>
       ) : null}
 
-      <form action={action} className="mt-8 space-y-6 rounded-3xl border border-pine-100 bg-white p-6 sm:p-8">
+      <form action={action} className="mt-8 space-y-6 rounded-3xl border border-night-200 bg-white p-6 sm:p-8">
         {section.fields.map((field) => (
           <FieldInput key={field.path} field={field} value={value} />
         ))}
         <div className="flex items-center gap-3 pt-2">
-          <button type="submit" className="btn btn-pine">
+          <button type="submit" className="btn btn-night">
             Enregistrer
           </button>
-          <Link href={`/admin/${section.slug}`} className="btn btn-outline-pine">
+          <Link href={`/admin/${section.slug}`} className="btn btn-outline-night">
             Annuler
           </Link>
         </div>

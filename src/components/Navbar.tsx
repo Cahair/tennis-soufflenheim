@@ -52,8 +52,8 @@ export default function Navbar({
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-white/10 bg-pine-950/90 shadow-lg shadow-pine-950/20 backdrop-blur-md"
-          : "bg-gradient-to-b from-pine-950/80 to-transparent"
+          ? "border-b border-white/10 bg-night-950/90 shadow-lg shadow-night-950/20 backdrop-blur-md"
+          : "bg-gradient-to-b from-night-950/80 to-transparent"
       }`}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -71,7 +71,7 @@ export default function Navbar({
                 : hrefs.some((h) => pathname.startsWith(h));
             const itemClass = `rounded-full px-4 py-2 text-sm font-medium transition-colors ${
               active
-                ? "bg-white/10 text-gold-300"
+                ? "bg-white/10 text-rose-300"
                 : "text-white/80 hover:bg-white/5 hover:text-white"
             }`;
             if (!link.children) {
@@ -94,14 +94,14 @@ export default function Navbar({
                 </Link>
                 {/* pt-2 : pont invisible pour garder le survol entre le lien et le panneau */}
                 <div className="invisible absolute left-0 top-full pt-2 opacity-0 transition-all duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
-                  <div className="min-w-[13rem] rounded-2xl border border-white/10 bg-pine-950/95 p-2 shadow-xl shadow-pine-950/40 backdrop-blur-md">
+                  <div className="min-w-[13rem] rounded-2xl border border-white/10 bg-night-950/95 p-2 shadow-xl shadow-night-950/40 backdrop-blur-md">
                     {link.children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
                         className={`block rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
                           (child.href === "/" ? pathname === "/" : pathname.startsWith(child.href))
-                            ? "bg-white/10 text-gold-300"
+                            ? "bg-white/10 text-rose-300"
                             : "text-white/80 hover:bg-white/5 hover:text-white"
                         }`}
                       >
@@ -113,7 +113,7 @@ export default function Navbar({
               </div>
             );
           })}
-          <Link href="/#reservation" className="btn btn-gold ml-3 !px-5 !py-2.5 text-sm">
+          <Link href="/#reservation" className="btn btn-rose ml-3 !px-5 !py-2.5 text-sm">
             Réserver un court
           </Link>
         </nav>
@@ -134,7 +134,7 @@ export default function Navbar({
     {/* Menu mobile plein écran — hors du <header> : son backdrop-blur
         ferait sinon office de containing block pour ce position:fixed */}
     <div
-      className={`fixed inset-0 z-50 flex flex-col bg-pine-950 transition-all duration-300 lg:hidden ${
+      className={`fixed inset-0 z-50 flex flex-col bg-night-950 transition-all duration-300 lg:hidden ${
         open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
       }`}
     >
@@ -168,7 +168,7 @@ export default function Navbar({
                   href={link.href}
                   onClick={closeMenu}
                   style={{ transitionDelay: `${i * 40}ms` }}
-                  className={`display py-1 text-3xl text-white/90 hover:text-gold-400 ${revealClass}`}
+                  className={`display py-1 text-3xl text-white/90 hover:text-rose-400 ${revealClass}`}
                 >
                   {link.label}
                 </Link>
@@ -188,7 +188,7 @@ export default function Navbar({
                   }
                   aria-expanded={expanded}
                   className={`display flex w-full items-center justify-between py-1 text-left text-3xl transition-colors ${
-                    expanded ? "text-gold-400" : "text-white/90"
+                    expanded ? "text-rose-400" : "text-white/90"
                   }`}
                 >
                   {link.label}
@@ -219,7 +219,7 @@ export default function Navbar({
                           href={child.href}
                           onClick={closeMenu}
                           tabIndex={expanded ? undefined : -1}
-                          className="display py-1.5 text-xl text-white/80 hover:text-gold-400"
+                          className="display py-1.5 text-xl text-white/80 hover:text-rose-400"
                         >
                           {child.label}
                         </Link>
@@ -238,7 +238,7 @@ export default function Navbar({
           <Link
             href="/#reservation"
             onClick={closeMenu}
-            className="btn btn-gold w-full"
+            className="btn btn-rose w-full"
           >
             Réserver un court
           </Link>
