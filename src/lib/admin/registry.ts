@@ -60,7 +60,8 @@ export const sections: Section[] = [
     subtitlePath: "date",
     fields: [
       { path: "title", label: "Titre", type: "text", required: true },
-      { path: "date", label: "Date affichée", type: "text", required: true, help: "Exemple : 12 juin 2026" },
+      { path: "date", label: "Date de publication", type: "text", required: true, help: "Exemple : 12 juin 2026" },
+      { path: "eventDate", label: "Date de l'événement (facultatif)", type: "date", help: "Pour un tournoi, une fête… : affichée en rose sur la page Actualités à la place de la date de publication." },
       { path: "category", label: "Catégorie", type: "text", required: true, help: "Exemple : Padel, Vie du club, École de tennis…" },
       { path: "excerpt", label: "Résumé", type: "textarea", rows: 5, required: true, help: "Deux ou trois phrases, affichées sur les cartes d'actualités." },
       { path: "content", label: "Article complet (facultatif)", type: "textarea", rows: 14, help: "Affiché sur la page de l'article, sous le résumé. Laissez une ligne vide entre deux paragraphes. Donnez les faits utiles : dates, lieux, prix, résultats." },

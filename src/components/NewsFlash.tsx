@@ -41,10 +41,12 @@ export default function NewsFlash({ item }: { item: NewsItem | null }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const href = item?.slug ? `/actualites/${item.slug}` : "/actualites";
+  const onNewsPage = pathname === "/actualites";
 
   useEffect(() => {
     if (!item || pathname === href || pathname.startsWith("/admin")) return;
-    if (alreadySeen(item.slug || item.title)) return;
+    // Sur la page Actualités, l'annonce revient à chaque passage, même déjà vue.
+    if (!onNewsPage && alreadySeen(item.slug || item.title)) return;
     let timer: number | undefined;
     const off = onIntro(() => {
       timer = window.setTimeout(() => setOpen(true), DELAY);
@@ -53,9 +55,9 @@ export default function NewsFlash({ item }: { item: NewsItem | null }) {
       off();
       window.clearTimeout(timer);
     };
-    // Une seule tentative par chargement : pas de relance à chaque navigation.
+    // Une tentative par chargement, plus une à chaque arrivée sur Actualités.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [item]);
+  }, [item, onNewsPage]);
 
   const close = useCallback(() => {
     if (item) markSeen(item.slug || item.title);

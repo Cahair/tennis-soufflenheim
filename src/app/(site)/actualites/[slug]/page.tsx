@@ -4,7 +4,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
-import Reveal from "@/components/Reveal";
+import CursorList from "@/components/fx/CursorList";
+import ReadProgress from "@/components/fx/ReadProgress";
+import { ArrowRight } from "@/components/landing/Arrow";
+import NightFx from "@/components/landing/NightFx";
 import { getNews, getSettings } from "@/lib/content";
 import { isoFromFrenchDate, paragraphs } from "@/lib/format";
 import { OG_IMAGE, pageMetadata } from "@/lib/seo";
@@ -100,20 +103,28 @@ export default async function ArticlePage({ params }: Props) {
   return (
     <>
       <JsonLd data={jsonLd} />
-      <PageHero kicker="Actualités" title={article.title} text={article.excerpt} />
+      <ReadProgress />
+      <PageHero
+        kicker={`Actualités · ${article.category}`}
+        title={article.title}
+        text={article.excerpt}
+        effect="drop"
+        tape={[article.category, "La Gazette du club", "Soufflenheim", "Padel", "Exclusif"]}
+      />
 
-      <section className="bg-night-50 py-24">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <article>
-              <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em]">
-                <time dateTime={published} className="text-rose-600">
-                  {article.date}
-                </time>
-                <span className="h-1 w-1 rounded-full bg-night-950/25" />
-                <span className="text-night-950/50">{article.category}</span>
-              </div>
-              <div className="relative mt-6 aspect-[4/3] overflow-hidden rounded-3xl border border-night-200 bg-white">
+      <section className="relative overflow-clip bg-night-950 py-24 text-white">
+        <NightFx glow="right" floaters={[]} />
+        <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <article>
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em]">
+              <time dateTime={published} className="text-rose-300">
+                {article.date}
+              </time>
+              <span className="h-1 w-1 rounded-full bg-white/30" />
+              <span className="text-white/60">{article.category}</span>
+            </div>
+            <div data-tilt className="holo-frame relative mt-8 -rotate-1 rounded-[2rem] p-[3px] shadow-[0_40px_90px_-30px_rgba(234,51,111,0.85)]">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[calc(2rem-3px)]">
                 <Image
                   src={article.image}
                   alt={article.title}
@@ -123,52 +134,53 @@ export default async function ArticlePage({ params }: Props) {
                   sizes="(max-width: 768px) 92vw, 48rem"
                   className="object-cover"
                 />
+                <div className="nfx-shine" />
               </div>
-              {body.length ? (
-                <div className="mt-10 space-y-5 text-lg leading-relaxed text-night-950/80">
-                  {body.map((p, i) => (
-                    <p key={i} className="whitespace-pre-line">
-                      {p}
-                    </p>
-                  ))}
-                </div>
-              ) : null}
-            </article>
-          </Reveal>
+            </div>
+            {body.length ? (
+              <div className="mt-14 space-y-6 text-lg leading-relaxed text-white/80">
+                {body.map((p, i) => (
+                  <p
+                    key={i}
+                    className={`whitespace-pre-line ${
+                      i === 0
+                        ? "text-xl text-white first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-display first-letter:text-[5.5rem] first-letter:leading-[0.75] first-letter:text-rose-400 first-letter:[text-shadow:0_0_30px_rgba(234,51,111,0.9)]"
+                        : ""
+                    }`}
+                  >
+                    {p}
+                  </p>
+                ))}
+              </div>
+            ) : null}
+          </article>
 
-          {others.length ? (
-            <Reveal delay={100}>
-              <aside className="mt-16 border-t border-night-950/10 pt-10">
-                <h2 className="display text-2xl text-night-950">À lire aussi</h2>
-                <ul className="mt-6 space-y-4">
-                  {others.map((item) => (
-                    <li key={item.slug}>
-                      <Link
-                        href={`/actualites/${item.slug}`}
-                        className="group flex items-baseline justify-between gap-6"
-                      >
-                        <span className="font-bold text-night-950 transition-colors group-hover:text-rose-600">
-                          {item.title}
-                        </span>
-                        <span className="shrink-0 text-xs font-semibold uppercase tracking-[0.14em] text-night-950/45">
-                          {item.date}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </aside>
-            </Reveal>
-          ) : null}
-
-          <Link href="/actualites" className="link-arrow mt-12 inline-flex text-sm text-night-900">
+          <Link href="/actualites" className="link-arrow mt-14 inline-flex text-rose-300 hover:text-white">
             Toutes les actualités
-            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 12h14m0 0-6-6m6 6-6 6" />
-            </svg>
+            <ArrowRight />
           </Link>
         </div>
       </section>
+
+      {others.length ? (
+        <section className="relative bg-night-950 pb-28 text-white">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="kicker text-rose-300">À lire aussi</h2>
+            <div className="mt-10">
+              <CursorList
+                compact
+                items={others.map((item) => ({
+                  href: `/actualites/${item.slug}`,
+                  label: item.title,
+                  sub: item.date,
+                  meta: item.category,
+                  image: item.image,
+                }))}
+              />
+            </div>
+          </div>
+        </section>
+      ) : null}
     </>
   );
 }

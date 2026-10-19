@@ -641,3 +641,401 @@ html.lenis {
     transform: scale(0.9) translateY(-1rem) rotate(-3deg);
   }
 }
+
+/* ================================================================== */
+/*  Accueil « soirée padel » — décor des sections sous le hero        */
+/*  (components/landing/NightFx.tsx, ClubStory, Sports, Booking,      */
+/*  Partners…)                                                         */
+/* ================================================================== */
+
+/* Cadre holographique : bordure en dégradé conique qui tourne */
+@property --holo-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.holo-frame {
+  background: conic-gradient(
+    from var(--holo-angle),
+    var(--color-rose-400),
+    var(--color-ultra-500),
+    var(--color-rose-300),
+    var(--color-ultra-400),
+    var(--color-rose-500),
+    var(--color-rose-400)
+  );
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .holo-frame {
+    animation: holo-spin 6s linear infinite;
+  }
+}
+
+@keyframes holo-spin {
+  to {
+    --holo-angle: 360deg;
+  }
+}
+
+/* Reflet qui suit le pointeur sur les cartes [data-tilt] (NightFx) */
+.nfx-shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  background: radial-gradient(
+    circle at var(--shine-x, 50%) var(--shine-y, 50%),
+    rgba(255, 255, 255, 0.45),
+    color-mix(in srgb, var(--color-rose-300) 25%, transparent) 25%,
+    transparent 55%
+  );
+  mix-blend-mode: overlay;
+}
+
+/* Réservation : rayures de piste qui défilent sur le fond rose */
+.booking-stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    color-mix(in srgb, var(--color-night-950) 7%, transparent) 0 22px,
+    transparent 22px 44px
+  );
+  background-size: 62.2254px 62.2254px;
+  mask-image: radial-gradient(ellipse at 50% 50%, #000 30%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, #000 30%, transparent 85%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .booking-stripes {
+    animation: booking-stripes 2.5s linear infinite;
+  }
+
+  /* Bouton de réservation : pulsation lumineuse continue */
+  .booking-cta-glow {
+    animation: booking-pulse 2.4s ease-out infinite;
+  }
+}
+
+@keyframes booking-stripes {
+  to {
+    background-position: 62.2254px 0;
+  }
+}
+
+@keyframes booking-pulse {
+  0% {
+    box-shadow:
+      0 25px 50px -12px color-mix(in srgb, var(--color-night-950) 30%, transparent),
+      0 0 0 0 color-mix(in srgb, var(--color-night-950) 45%, transparent);
+  }
+  100% {
+    box-shadow:
+      0 25px 50px -12px color-mix(in srgb, var(--color-night-950) 30%, transparent),
+      0 0 0 36px transparent;
+  }
+}
+
+/* Partenaires : second ruban en sens inverse */
+.marquee-reverse {
+  animation-direction: reverse;
+}
+
+/* ================================================================== */
+/*  Pages intérieures « soirée padel » (components/PageHero.tsx,      */
+/*  components/fx/*, pages de app/(site)/ hors accueil)               */
+/* ================================================================== */
+
+/* Titre d'en-tête masqué jusqu'à son entrée animée (classe ph-ready
+   posée par PageHero). Filet de sécurité : il réapparaît seul au bout
+   de 2,5 s si le script ne s'exécute pas. */
+@media (prefers-reduced-motion: no-preference) {
+  .ph-title:not(.ph-ready) {
+    opacity: 0;
+    animation: ph-failsafe 0s linear 2.5s forwards;
+  }
+}
+
+@keyframes ph-failsafe {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Afficheur à palettes : pliure horizontale au milieu de chaque case */
+.ix-flap {
+  backface-visibility: hidden;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.35);
+}
+
+.ix-flap::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 50%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* Radar des communes : faisceau qui balaie, points qui s'allument */
+.ix-radar-sweep {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg 285deg,
+    color-mix(in srgb, var(--color-rose-500) 6%, transparent) 300deg,
+    color-mix(in srgb, var(--color-rose-400) 55%, transparent) 359deg,
+    transparent 360deg
+  );
+  animation: spin-slow 6s linear infinite;
+}
+
+.ix-blip {
+  opacity: 0.4;
+  box-shadow: 0 0 12px color-mix(in srgb, var(--color-rose-500) 90%, transparent);
+  animation: ix-blip 6s linear infinite;
+}
+
+@keyframes ix-blip {
+  0% {
+    opacity: 1;
+    transform: scale(2);
+  }
+  25%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+}
+
+/* Cartes à collectionner : inclinaison pilotée par --rx/--ry et
+   pellicule holographique centrée sur le pointeur (--mx/--my) */
+.ix-card-tilt {
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 0.35s ease-out;
+}
+
+.ix-foil {
+  background:
+    radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.35), transparent 40%),
+    conic-gradient(
+      from 0deg at var(--mx, 50%) var(--my, 50%),
+      rgba(252, 104, 152, 0.3),
+      rgba(163, 92, 255, 0.3),
+      rgba(120, 220, 255, 0.22),
+      rgba(255, 240, 150, 0.22),
+      rgba(252, 104, 152, 0.3)
+    );
+  mix-blend-mode: color-dodge;
+  opacity: 0.25;
+  transition: opacity 0.4s ease;
+}
+
+.ix-card:hover .ix-foil {
+  opacity: 0.85;
+}
+
+/* Billets : encoches découpées à la jonction du talon (7rem) */
+.ix-ticket {
+  border-radius: 1.1rem;
+  -webkit-mask:
+    radial-gradient(circle at calc(100% - 7rem) 0, transparent 0.75rem, #000 0.78rem) top / 100% 51% no-repeat,
+    radial-gradient(circle at calc(100% - 7rem) 100%, transparent 0.75rem, #000 0.78rem) bottom / 100% 51% no-repeat;
+  mask:
+    radial-gradient(circle at calc(100% - 7rem) 0, transparent 0.75rem, #000 0.78rem) top / 100% 51% no-repeat,
+    radial-gradient(circle at calc(100% - 7rem) 100%, transparent 0.75rem, #000 0.78rem) bottom / 100% 51% no-repeat;
+}
+
+.ix-ticket-stub {
+  border-left: 2px dashed rgba(255, 255, 255, 0.35);
+  transform-origin: 0 100%;
+}
+
+/* Panneaux LED : trame de points posée sur le texte lumineux */
+.ix-led-dots {
+  background-image: radial-gradient(circle, transparent 1.1px, rgba(7, 4, 11, 0.6) 1.7px);
+  background-size: 4px 4px;
+}
+
+.ix-led-text {
+  text-shadow:
+    0 0 10px currentColor,
+    0 0 30px color-mix(in srgb, currentColor 60%, transparent);
+}
+
+/* Coupon fiscal : pointillés de découpe et ciseaux qui les suivent */
+.ix-coupon {
+  outline: 3px dashed rgba(255, 255, 255, 0.85);
+  outline-offset: -14px;
+  box-shadow: 0 40px 90px -30px color-mix(in srgb, var(--color-rose-500) 90%, transparent);
+}
+
+.ix-scissors {
+  top: calc(14px - 0.75em);
+  left: 6%;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Case « votre logo ici » */
+.ix-dash {
+  border: 2px dashed color-mix(in srgb, var(--color-rose-400) 70%, transparent);
+  background: color-mix(in srgb, var(--color-rose-500) 6%, transparent);
+}
+
+/* Dossiers des mentions légales : onglet numéroté */
+.ix-folder {
+  counter-increment: ix-folder;
+}
+
+.ix-folder::before {
+  content: "Dossier " counter(ix-folder, decimal-leading-zero);
+  position: absolute;
+  left: -1px;
+  bottom: 100%;
+  padding: 0.4rem 1.1rem;
+  border-radius: 0.9rem 0.9rem 0 0;
+  background: var(--color-rose-500);
+  color: var(--color-night-950);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Carte de la page Contact en mode nuit */
+.ix-map {
+  filter: invert(0.92) hue-rotate(180deg) saturate(0.7) brightness(0.9) contrast(1.15);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ix-blink {
+    animation: ix-blink 1.4s steps(1, end) infinite;
+  }
+
+  .group:hover .ix-ring {
+    animation: ix-ring 0.6s ease-in-out;
+  }
+
+  .ix-ping {
+    animation: ix-ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  .ix-scissors {
+    animation: ix-cut 7s linear infinite;
+  }
+
+  .ix-dash {
+    animation: ix-dash-glow 2.2s ease-in-out infinite;
+  }
+
+  @supports (animation-timeline: view()) {
+    .ix-gauge {
+      transform-origin: left center;
+      animation: ix-grow linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 40%;
+    }
+  }
+}
+
+@keyframes ix-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes ix-ring {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20%,
+  60% {
+    transform: rotate(-14deg);
+  }
+  40%,
+  80% {
+    transform: rotate(14deg);
+  }
+}
+
+@keyframes ix-ping {
+  from {
+    transform: scale(0.15);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes ix-cut {
+  from {
+    left: 4%;
+  }
+  to {
+    left: 94%;
+  }
+}
+
+@keyframes ix-dash-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  50% {
+    box-shadow: 0 0 40px -5px color-mix(in srgb, var(--color-rose-500) 70%, transparent);
+  }
+}
+
+@keyframes ix-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ix-radar-sweep,
+  .ix-blip {
+    animation: none;
+  }
+
+  .ix-blip {
+    opacity: 1;
+  }
+
+  .ix-card-tilt {
+    transition: none;
+  }
+}
+
+/* Page padel, « Le padel en six coups » (components/fx/PadelRally.tsx) :
+   parois latérales vitrées aux extrémités et grillagées au milieu,
+   filet en maille. */
+.pr-side {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(186, 160, 255, 0.12) 0 10%,
+      transparent 10% 90%,
+      rgba(186, 160, 255, 0.12) 90%
+    ),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px 7px);
+}
+
+.pr-net {
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.35) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.35) 0 1px, transparent 1px 5px);
+}

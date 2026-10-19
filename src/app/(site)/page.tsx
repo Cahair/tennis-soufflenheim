@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Booking from "@/components/landing/Booking";
-import ClubLife from "@/components/landing/ClubLife";
 import ClubStory from "@/components/landing/ClubStory";
 import Cursor from "@/components/landing/Cursor";
 import FinalCall from "@/components/landing/FinalCall";
@@ -14,9 +13,7 @@ import Voices from "@/components/landing/Voices";
 import {
   getCtaBand,
   getDisciplines,
-  getEvents,
   getHomeIntro,
-  getNews,
   getReservation,
   getSettings,
   getSponsors,
@@ -38,8 +35,6 @@ export default async function Home() {
     stats,
     disciplines,
     reservation,
-    news,
-    events,
     testimonials,
     sponsors,
     ctaBand,
@@ -49,8 +44,6 @@ export default async function Home() {
     getStats(),
     getDisciplines(),
     getReservation(),
-    getNews(),
-    getEvents(),
     getTestimonials(),
     getSponsors(),
     getCtaBand(),
@@ -66,7 +59,6 @@ export default async function Home() {
       <Sports disciplines={disciplines} />
       <PadelReveal />
       <Booking reservation={reservation} tenup={site.links.tenup} phone={site.phoneClub} />
-      <ClubLife news={news.slice(0, 3)} events={events.slice(0, 4)} />
       <Voices testimonials={testimonials} />
       <Partners sponsors={sponsors} />
       <FinalCall

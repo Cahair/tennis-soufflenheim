@@ -4,15 +4,17 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { Discipline } from "@/lib/content-types";
-import { sportOrder } from "@/lib/sports";
+import { sportHref, sportOrder, type SportSlug } from "@/lib/sports";
 import { ArrowRight, ArrowUpRight } from "./Arrow";
 import { gsap, MQ, SplitText, useGSAP } from "./gsap";
 import { getLenis } from "./intro";
+import NightFx from "./NightFx";
 
 /* ------------------------------------------------------------------ */
 /*  Nos sports — sur grand écran, la section s'épingle et les trois   */
-/*  disciplines défilent à l'horizontale (parallaxe dans les photos). */
-/*  Sur mobile, simple pile verticale avec dévoilements.              */
+/*  disciplines défilent à l'horizontale sur un sol de piste lumineux */
+/*  (parallaxe dans les photos, numéros géants en contour, cadres     */
+/*  holographiques inclinables). Sur mobile, pile verticale.          */
 /* ------------------------------------------------------------------ */
 export default function Sports({ disciplines }: { disciplines: Discipline[] }) {
   const root = useRef<HTMLElement>(null);
@@ -88,6 +90,11 @@ export default function Sports({ disciplines }: { disciplines: Discipline[] }) {
             { xPercent: -10, ease: "none", scrollTrigger: { ...along } }
           );
           gsap.fromTo(
+            panel.querySelector(".sport-index"),
+            { xPercent: 60, rotate: 8 },
+            { xPercent: -40, rotate: -6, ease: "none", scrollTrigger: { ...along } }
+          );
+          gsap.fromTo(
             panel.querySelector(".sport-media"),
             { clipPath: "inset(14% 14% 14% 14% round 2rem)" },
             {
@@ -148,15 +155,16 @@ export default function Sports({ disciplines }: { disciplines: Discipline[] }) {
       id="disciplines"
       /* Défilement horizontal réservé à motion-safe : en mouvement réduit,
          les disciplines s'empilent (sinon, hors champ et inaccessibles). */
-      className="relative scroll-mt-20 bg-night-50 pb-28 lg:motion-safe:h-[100svh] lg:motion-safe:overflow-clip lg:motion-safe:pb-0"
+      className="relative scroll-mt-20 overflow-clip bg-night-950 pb-28 text-white lg:motion-safe:h-[100svh] lg:motion-safe:overflow-clip lg:motion-safe:pb-0"
     >
-      <div className="sports-track flex flex-col gap-24 px-4 sm:px-6 lg:mx-auto lg:max-w-7xl lg:px-8 lg:motion-safe:mx-0 lg:motion-safe:h-full lg:motion-safe:w-max lg:motion-safe:max-w-none lg:motion-safe:flex-row lg:motion-safe:items-center lg:motion-safe:gap-[7vw] lg:motion-safe:pl-[max(2rem,calc((100vw-80rem)/2+2rem))] lg:motion-safe:pr-[10vw]">
+      <NightFx floor beams glow="right" />
+      <div className="sports-track relative flex flex-col gap-24 px-4 sm:px-6 lg:mx-auto lg:max-w-7xl lg:px-8 lg:motion-safe:mx-0 lg:motion-safe:h-full lg:motion-safe:w-max lg:motion-safe:max-w-none lg:motion-safe:flex-row lg:motion-safe:items-center lg:motion-safe:gap-[7vw] lg:motion-safe:pl-[max(2rem,calc((100vw-80rem)/2+2rem))] lg:motion-safe:pr-[10vw]">
         <header className="lg:w-[30rem] lg:shrink-0">
-          <p className="kicker text-rose-600">Nos sports</p>
-          <h2 className="sports-title display mt-6 text-[clamp(2.8rem,4.4vw,4.4rem)] text-night-950">
+          <p className="kicker text-rose-300">Nos sports</p>
+          <h2 className="sports-title display mt-6 text-[clamp(2.8rem,4.4vw,4.4rem)] text-white">
             Trois façons de faire vibrer la raquette
           </h2>
-          <p className="mt-10 hidden items-center gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-night-950/45 lg:motion-safe:flex">
+          <p className="mt-10 hidden items-center gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-rose-300/80 lg:motion-safe:flex">
             Continuez de défiler
             <ArrowRight />
           </p>
@@ -164,15 +172,28 @@ export default function Sports({ disciplines }: { disciplines: Discipline[] }) {
 
         {disciplines.map((d, i) => {
           const external = d.cta.href.startsWith("http");
-          // Page dédiée du sport (/tennis, /padel…), si elle existe
-          const slug = d.name.toLowerCase();
-          const page = (sportOrder as string[]).includes(slug) ? `/${slug}` : null;
+          // Page du sport (/padel, /padel#tennis…), si elle existe
+          const slug = d.name.toLowerCase() as SportSlug;
+          const page = sportOrder.includes(slug) ? sportHref(slug) : null;
           return (
             <article
               key={d.name}
-              className="sport-panel flex flex-col gap-8 lg:w-[min(66rem,78vw)] lg:shrink-0 lg:flex-row lg:items-center lg:gap-14"
+              className="sport-panel relative flex flex-col gap-8 lg:w-[min(66rem,78vw)] lg:shrink-0 lg:flex-row lg:items-center lg:gap-14"
             >
-              <div className="sport-media relative aspect-[4/5] w-full overflow-hidden rounded-[1.5rem] bg-night-200 lg:h-[66svh] lg:w-auto lg:shrink-0 lg:rounded-[2rem]">
+              {/* Numéro géant en contour, derrière le panneau */}
+              <span
+                aria-hidden="true"
+                className="sport-index hero-outline display pointer-events-none absolute -top-16 right-0 select-none text-[clamp(10rem,28vw,26rem)] leading-none lg:-top-[12svh] lg:right-[-4rem]"
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div
+                data-tilt
+                className={`holo-frame relative w-full rounded-[1.5rem] p-[3px] lg:w-auto lg:shrink-0 lg:rounded-[2rem] ${
+                  i % 2 ? "rotate-2 shadow-[0_40px_90px_-30px_rgba(138,43,226,0.8)]" : "-rotate-2 shadow-[0_40px_90px_-30px_rgba(234,51,111,0.8)]"
+                }`}
+              >
+              <div className="sport-media relative aspect-[4/5] w-full overflow-hidden rounded-[calc(1.5rem-3px)] bg-night-900 lg:h-[66svh] lg:w-auto lg:rounded-[calc(2rem-3px)]">
                 <div className="sport-img absolute inset-y-0 -inset-x-[14%]">
                   <Image
                     src={d.image}
@@ -183,19 +204,23 @@ export default function Sports({ disciplines }: { disciplines: Discipline[] }) {
                     className="object-cover"
                   />
                 </div>
-                <span className="absolute left-5 top-5 rounded-full bg-night-50/90 px-3.5 py-1.5 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-night-950 backdrop-blur">
+                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-rose-600/45 to-transparent" />
+                <span className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full border border-rose-400/50 bg-night-950/75 px-3.5 py-1.5 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-rose-200 shadow-[0_0_25px_rgba(234,51,111,0.45)] backdrop-blur">
+                  <span className="h-1.5 w-1.5 animate-ping rounded-full bg-rose-400" />
                   {d.badge}
                 </span>
+                <div className="nfx-shine" />
+              </div>
               </div>
 
-              <div className="sport-body lg:max-w-[26rem]">
-                <p className="sport-fade font-display text-sm tracking-widest text-rose-600">
+              <div className="sport-body relative lg:max-w-[26rem]">
+                <p className="sport-fade font-display text-sm tracking-widest text-rose-300">
                   {String(i + 1).padStart(2, "0")} / {total}
                 </p>
-                <h3 className="sport-name sport-fade display mt-3 text-[clamp(3.6rem,9vw,8.5rem)] leading-[0.85] text-night-950">
-                  {d.name}
+                <h3 className="sport-name sport-fade display mt-3 text-[clamp(3.6rem,9vw,8.5rem)] leading-[0.85]">
+                  <span className="brand-gradient-text">{d.name}</span>
                 </h3>
-                <p className="sport-fade mt-6 text-base leading-relaxed text-night-950/70 lg:text-lg">
+                <p className="sport-fade mt-6 text-base leading-relaxed text-white/75 lg:text-lg">
                   {d.description}
                 </p>
                 {d.features.length > 0 ? (
@@ -203,7 +228,7 @@ export default function Sports({ disciplines }: { disciplines: Discipline[] }) {
                     {d.features.map((f) => (
                       <li
                         key={f}
-                        className="rounded-full border border-night-950/15 px-3.5 py-1.5 text-xs text-night-950/70"
+                        className="rounded-full border border-rose-400/30 bg-rose-500/10 px-3.5 py-1.5 text-xs text-rose-100 transition-colors duration-300 hover:border-rose-300 hover:bg-rose-500/25"
                       >
                         {f}
                       </li>
@@ -214,13 +239,13 @@ export default function Sports({ disciplines }: { disciplines: Discipline[] }) {
                   <Link
                     href={d.cta.href}
                     {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="link-arrow text-night-900"
+                    className="link-arrow text-white"
                   >
                     {d.cta.label}
                     {external ? <ArrowUpRight /> : <ArrowRight />}
                   </Link>
                   {page ? (
-                    <Link href={page} className="link-arrow text-rose-600">
+                    <Link href={page} className="link-arrow text-rose-300">
                       Tout sur le {d.name.toLowerCase()}
                       <ArrowRight />
                     </Link>
@@ -233,8 +258,8 @@ export default function Sports({ disciplines }: { disciplines: Discipline[] }) {
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-10 hidden px-8 lg:motion-safe:block">
-        <div className="mx-auto h-px max-w-7xl bg-night-950/10">
-          <div className="sports-progress h-full origin-left bg-night-950" />
+        <div className="mx-auto h-[3px] max-w-7xl rounded-full bg-white/10">
+          <div className="sports-progress h-full origin-left rounded-full bg-gradient-to-r from-rose-400 to-ultra-500 shadow-[0_0_18px_rgba(234,51,111,0.9)]" />
         </div>
       </div>
     </section>

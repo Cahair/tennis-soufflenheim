@@ -1,17 +1,48 @@
 [
   {
-    "slug": "tournoi-padel-11-novembre",
-    "title": "11 novembre : un tournoi de padel avec des joueurs d’exception",
+    "slug": "tournoi-padel-mixte-1er-novembre",
+    "title": "Tournoi de padel Mixte P50 le dimanche 1er novembre",
     "date": "17 octobre 2026",
+    "eventDate": "2026-11-01",
+    "category": "Padel",
+    "excerpt": "Le dimanche 1er novembre, de 9 h à 16 h, le club organise un tournoi de padel P50 Mixte. Une raclette est proposée sur réservation pour prolonger la journée en toute convivialité.",
+    "content": "Le dimanche 1er novembre, le Tennis Padel Garden Club de Soufflenheim accueille un tournoi de padel P50 Mixte, de 9 h à 16 h. Homologué par la Fédération Française de Tennis, ce format accessible se joue en binôme mixte et compte pour le classement padel.\n\nCôté restauration, une raclette est proposée sur réservation : pensez à réserver votre part auprès du club.",
+    "image": {
+      "src": "/images/padel-couvert.webp",
+      "width": 480,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACwAQCdASoGAAgAA4BaJQBOgCHVW89AAP6yL4z5D7+oz/3asDq68kbTtCWpdFqjJukLlaBY6UAAAA=="
+    }
+  },
+  {
+    "slug": "tournoi-padel-11-novembre",
+    "title": "Tournoi de padel P250 Hommes le mercredi 11 novembre",
+    "date": "17 octobre 2026",
+    "eventDate": "2026-11-11",
     "category": "Padel",
     "popup": true,
-    "excerpt": "Le mercredi 11 novembre, la piste couverte accueille un tournoi exhibition avec des joueurs classés parmi les meilleurs de France. Matchs, démonstrations et initiations : venez voir le padel à son plus haut niveau.",
-    "content": "Pour le jour férié du 11 novembre, le club organise son premier grand rendez-vous padel de la saison. Des joueurs d’exception, classés parmi les meilleurs de France, s’affrontent sur notre piste couverte tout au long de la journée.\n\nAu programme : phases de poules dès 10 h, demi-finales l’après-midi et finale vers 17 h. Entre deux matchs, les joueurs proposent des démonstrations et des conseils aux membres.\n\nL’entrée est libre pour les spectateurs. Buvette et petite restauration au club house. Les places au bord de la piste étant limitées, venez tôt !",
+    "excerpt": "Le club organise un tournoi de padel P250 Hommes le mercredi 11 novembre. Les inscriptions sont ouvertes sur Ten’up : compétition, convivialité et padel au programme !",
+    "content": "Le mercredi 11 novembre, le Tennis Padel Garden Club de Soufflenheim accueille un tournoi de padel P250 Hommes. Homologué par la Fédération Française de Tennis, il compte pour le classement padel : l’occasion de prendre des points à domicile, face à des joueurs de bon niveau.\n\nLes inscriptions sont ouvertes sur Ten’up, l’application de la FFT. Inscrivez-vous en binôme directement sur le tournoi du club.\n\nCompétition, convivialité et padel : venez jouer, ou simplement encourager les équipes depuis le bord de la piste.",
     "image": {
-      "src": "/images/padel-court.webp",
-      "width": 765,
-      "height": 1020,
-      "blurDataURL": "data:image/webp;base64,UklGRgYBAABXRUJQVlA4TPkAAAAvBcABAM1VICICHghADgIAAABrpc4/CEpAmQEMAAAAAAAAIAAAAAgAAAAAAAIAABIIgKGE4AsGqhYAAAAPBMAGAQAA4Pz3XW74VJhQhAAAAQAAAAAAAAAAAAAAAAAAAAAAAA4AAJAD3MPY+TwQABsEAACA86dVwQscAAAAAAAAHAAAAAAAAAAAAAAAAAAQgR8A4Pnx3Yp+hPST3C9yKOLR5bNRAdzXMb5bplPqJcqZbIGsVXUuMev14hy7w7hH9kz7betzt7tvc8CAvPNV3Ebvgm2COofsPTVzYOugUPzsp3Lw9wL6RQsp4TVEfaUIQMzn9D7gT+02HwEA"
+      "src": "/images/affiche-p250-hommes.webp",
+      "width": 1123,
+      "height": 1600,
+      "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoGAAgAA4BaJZACdEf/gbajKIdAAP7t6xumF+EaSqNy+6sAwFVfrodUVGz+8zoy5unn/sPn/+GFEaB72FGDwKAA"
+    }
+  },
+  {
+    "slug": "tournoi-padel-dames-22-novembre",
+    "title": "Tournoi de padel Dames P100 le dimanche 22 novembre",
+    "date": "17 octobre 2026",
+    "eventDate": "2026-11-22",
+    "category": "Padel",
+    "excerpt": "Place aux joueuses ! Le dimanche 22 novembre, le club accueille un tournoi de padel P100 Dames, toute la journée. Inscriptions sur Ten’up, restauration sur place et raclette sur réservation.",
+    "content": "Le dimanche 22 novembre 2026, le Tennis Padel Garden Club de Soufflenheim organise un tournoi de padel P100 Dames. Les matchs se jouent en journée. Homologué par la Fédération Française de Tennis, le tournoi compte pour le classement padel.\n\nLes inscriptions se font en binôme sur Ten’up, l’application de la FFT.\n\nRestauration sur place toute la journée. Une raclette est proposée sur réservation : pensez à réserver votre part auprès du club.",
+    "image": {
+      "src": "/images/affiche-p100-dames.webp",
+      "width": 1148,
+      "height": 1600,
+      "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoGAAgAA4BaJZACdAEPAbFZoAD+wHcEDRiNDURl9f73Xb6LDjTcGHU+pVHafQGYTL/8ID0KvHqXoVMKAAA="
     }
   },
   {
@@ -21,10 +52,10 @@
     "category": "Nouveauté",
     "excerpt": "Proche du tennis de plage, ludique et accessible dès le plus jeune âge : le club vous invite à découvrir le pickleball lors de sessions d'initiation gratuites, matériel fourni.",
     "image": {
-      "src": "/images/pickleball-jeunes.webp",
-      "width": 765,
-      "height": 1020,
-      "blurDataURL": "data:image/webp;base64,UklGRvQAAABXRUJQVlA4TOcAAAAvBcABAM1VICICHgiACQMAAACp5VXoQI4IDgAAAAAAAAAAAAAAIAAAQAD8AAAQACCAwPFz/AeLYwQAAOCBANswAAAAnH+StNM7HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwWOOBAKQwAAAAnP/f/4wAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABtPWp/L5i0x/9TB+ySq8zgszSGVf3mf1z7hHoum7pj21hvdcMx4/vlZnlI799K3fzBEER+NCr+tmOX3bpQ5NUlCmRnwOOCWpRQXCJl0SBIFvFYOfilEA"
+      "src": "/images/joueurs-club.webp",
+      "width": 1600,
+      "height": 900,
+      "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACwAQCdASoIAAQAA4BaJZACdADdA68AAP1refg3PGU6T1k6mCjd+6hQeghFlpSR3HExIvQRUuwAAA=="
     }
   },
   {
@@ -34,10 +65,10 @@
     "category": "Padel",
     "excerpt": "Le succès ne se dément pas : les créneaux du soir partent en quelques heures. Réservez votre piste sur Ten'up pour ne pas rester au bord du grillage.",
     "image": {
-      "src": "/images/padel-court.webp",
-      "width": 765,
-      "height": 1020,
-      "blurDataURL": "data:image/webp;base64,UklGRgYBAABXRUJQVlA4TPkAAAAvBcABAM1VICICHghADgIAAABrpc4/CEpAmQEMAAAAAAAAIAAAAAgAAAAAAAIAABIIgKGE4AsGqhYAAAAPBMAGAQAA4Pz3XW74VJhQhAAAAQAAAAAAAAAAAAAAAAAAAAAAAA4AAJAD3MPY+TwQABsEAACA86dVwQscAAAAAAAAHAAAAAAAAAAAAAAAAAAQgR8A4Pnx3Yp+hPST3C9yKOLR5bNRAdzXMb5bplPqJcqZbIGsVXUuMev14hy7w7hH9kz7betzt7tvc8CAvPNV3Ebvgm2COofsPTVzYOugUPzsp3Lw9wL6RQsp4TVEfaUIQMzn9D7gT+02HwEA"
+      "src": "/images/halle-padel.webp",
+      "width": 1180,
+      "height": 614,
+      "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoIAAQAA4BaJYgCdAEO/gOOAAD+ih3gQutiAqI8wqeb17nWgkjJKxO4dhKwAA=="
     }
   },
   {
@@ -47,10 +78,10 @@
     "category": "Vie du club",
     "excerpt": "Soleil, grillades, doubles endiablés et tournoi des familles : merci aux bénévoles et aux nombreux membres présents pour cette magnifique journée au bord des courts.",
     "image": {
-      "src": "/images/fete-club.webp",
-      "width": 1360,
-      "height": 910,
-      "blurDataURL": "data:image/webp;base64,UklGRuwAAABXRUJQVlA4TOAAAAAvBwABAM1VICICHgiACQMAAIDeqxKCA4YTMAAAAAAAAAAAAAAAAAAcIPECACDgHAAABw5wCnFOXAIAAOCBAJgwAAAAnP/WQkBaUwQEHAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAACATds8EAATBgAAgPMvHAIAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDAgcdmWH1sNUmAIs8/83I5hAnDh2vEw176M9aj1/ffV545Ci/KKsQJz62bJ98bhw7HkCQWF7kNGIhKq5KNd7GSDV+t2r9mvbvO6Yq2rAeQAZpJAw=="
+      "src": "/images/brasero.webp",
+      "width": 480,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoGAAgAA4BaJYwCdAD0udJDLgAAzEUM83L9WHjpNxjx8lcWFpGeaq1po9/9QAAA"
     }
   },
   {
@@ -60,10 +91,10 @@
     "category": "École de tennis",
     "excerpt": "Mini-tennis dès 5 ans, groupes jeunes et cours adultes : les inscriptions pour la saison prochaine sont ouvertes. Places limitées, ne tardez pas !",
     "image": {
-      "src": "/images/courts-exterieurs.webp",
-      "width": 1021,
-      "height": 1020,
-      "blurDataURL": "data:image/webp;base64,UklGRigBAABXRUJQVlA4TBsBAAAvB8ABAM1VICICHggACAIAAIB3PJkfeoBhbwAADAAAAAAAAAAAAADAAAAABoABY2HdOh4Y/L5zSwMAAHggQDmoAAAA579l3XYb0wAAAECKgSIAAAAAAAAAAAAAAAAAAAAABAAAAACAgv91r7bzQABsEAAAAM6ff3WR+DsAAAAAAACAAAAAAAAAAAAAAAAAAACdI0gQcYCo0laR1Echsj4r9clXQXdhNwBdGmIdn2TckCfkMUwIE5oyPnlx3dksfTt3rHqyu/6o2ea72tC1vQvBabLCGri55FCEUHFI8+BZPuSef3G8/+WK6r//IOchYDimN4tXzkdE32cTqUpoNsHwVm4m3wd1KZyqpAphwG+8vimGwWIHWArNURDRAA=="
+      "src": "/images/halle-exterieur.webp",
+      "width": 1284,
+      "height": 831,
+      "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoIAAUAA4BaJQBOgCIClYZYAADifOXjPr5pyYei8xZ3uN8yX7noCgsg/mC/yOcBE7AAAA=="
     }
   },
   {
@@ -73,10 +104,10 @@
     "category": "Vie du club",
     "excerpt": "Salons en palettes, voiles d'ombrage et fleurs : la nouvelle terrasse vous accueille pour la troisième mi-temps, avec vue directe sur la piste de padel.",
     "image": {
-      "src": "/images/terrasse-club.webp",
-      "width": 765,
-      "height": 1020,
-      "blurDataURL": "data:image/webp;base64,UklGRv4AAABXRUJQVlA4TPEAAAAvBcABAM1VICICHgiADQIAAIAqgWY/AyE45JwLAOAAAAAAAAAHAAAAAAAAAAAAAA7wEwTwgkzqAnIAAAAPBOAIAQAA4Px3v/mNKegBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQCAELPStlgcCkMIAAABw/t/fWEsjADMAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQYICgxF99JKoJH3bS6y/b6skXLEhx0joSjnLtn6m+JsXNeLzpfMKLISpMSRGPGtz6w2wt5MXylu5VpW1d8/dCF/YvvsjFsQ2vz6lwqcT4H9jDZPxwn4JZHWU3pMQKAA=="
+      "src": "/images/transats.webp",
+      "width": 480,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoGAAgAA4BaJagCdAD0Zj+qdAAAzJlpzpYsjEJxgPggwadeFpcgVV2M9mT/4ZG/5TX7JK+Z+mHW/yVwAAA="
     }
   },
   {
@@ -86,10 +117,10 @@
     "category": "Projet",
     "excerpt": "Le comité travaille sur une structure padel supplémentaire. Créativité, flexibilité et gestion rigoureuse : découvrez le projet en modèle 3D et les prochaines étapes.",
     "image": {
-      "src": "/images/club-house.webp",
-      "width": 765,
-      "height": 1020,
-      "blurDataURL": "data:image/webp;base64,UklGRgYBAABXRUJQVlA4TPoAAAAvBcABAM1VICICHgiADQIAAIB3PZAA3QGQAuQABACAAwAAAAAAAAAAAAB+wAEHABziQgj0A36DPyUHAADAAwEwYQAAADj/Na+5AwUEABziQAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgx1tTb7sHAmCDAAAAcP56e7lsPMURAADAAQAAAAAAAAAAAAAAAAAAgDjgcOAAACEBIlOPVD2ResLz9vEeymPa3jT0ZHfxHLfT8TJ+V3DVW6iuUBz7a1La4/z+W6ZJDS25ha+uA4DVaozXT2Utbe/wI8c5qWWGYlML3Eh5nIs32WsJvpuJ/pUHORKKCnCrPJGCQ4ca"
+      "src": "/images/halle-exterieur.webp",
+      "width": 1284,
+      "height": 831,
+      "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoIAAUAA4BaJQBOgCIClYZYAADifOXjPr5pyYei8xZ3uN8yX7noCgsg/mC/yOcBE7AAAA=="
     }
   }
 ]

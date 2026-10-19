@@ -134,7 +134,7 @@ export default async function Hero() {
         <div className="pointer-events-auto absolute bottom-10 right-10 w-40 -rotate-3 overflow-hidden rounded-2xl border-4 border-white shadow-2xl shadow-night-950/50 transition-transform duration-300 hover:rotate-0 xl:right-16">
           <Image
             src={terrasseClub}
-            alt="La terrasse du club house"
+            alt="Un joueur se détend au bord des pistes de padel"
             placeholder="blur"
             sizes="10rem"
             className="h-full w-full object-cover"

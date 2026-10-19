@@ -3,8 +3,9 @@ import Accordion from "@/components/Accordion";
 import ContactForm from "@/components/ContactForm";
 import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
-import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
+import { ArrowUpRight } from "@/components/landing/Arrow";
+import NightFx, { PadelBall } from "@/components/landing/NightFx";
 import { getFaqs, getSettings, getSocials } from "@/lib/content";
 import { socialIconPaths } from "@/lib/nav";
 import { telHref } from "@/lib/format";
@@ -25,7 +26,7 @@ const contactCards = (site: SiteSettings) => [
     href: telHref(site.phoneClub),
     action: "Appeler le club",
     icon: (
-      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c1 .3 2 .6 3 .7a2 2 0 0 1 1.6 2Z" />
       </svg>
     ),
@@ -36,7 +37,7 @@ const contactCards = (site: SiteSettings) => [
     href: telHref(site.phonePresident),
     action: "Appeler le président",
     icon: (
-      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="8" r="4" />
         <path d="M4 21c0-4 3.6-6 8-6s8 2 8 6" />
       </svg>
@@ -48,7 +49,7 @@ const contactCards = (site: SiteSettings) => [
     href: `mailto:${site.emails.president}`,
     action: "Écrire un e-mail",
     icon: (
-      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="4" width="20" height="16" rx="3" />
         <path d="m4 7 8 6 8-6" />
       </svg>
@@ -61,7 +62,7 @@ const contactCards = (site: SiteSettings) => [
     action: "Voir l'itinéraire",
     external: true,
     icon: (
-      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z" />
         <circle cx="12" cy="10" r="3" />
       </svg>
@@ -69,6 +70,11 @@ const contactCards = (site: SiteSettings) => [
   },
 ];
 
+/* ------------------------------------------------------------------ */
+/*  Contact : standard téléphonique néon (l'icône sonne au survol),   */
+/*  formulaire qui « smashe » à l'envoi, carte en mode nuit avec      */
+/*  balise radar sur le club, FAQ complète.                           */
+/* ------------------------------------------------------------------ */
 export default async function ContactPage() {
   const [site, socials, faqs] = await Promise.all([
     getSettings(),
@@ -82,133 +88,137 @@ export default async function ContactPage() {
         kicker="Contact"
         title="On vous répond vite, promis"
         text="Une question sur les adhésions, l'école de tennis ou une réservation ? Appelez, écrivez ou passez directement au club house."
+        echo="Allô ?"
+        effect="slam"
+        tape={["Allô le club", "On répond vite", "Padel", "Club house", "Soufflenheim", "Écrivez-nous"]}
       />
 
-      <section className="bg-night-50 py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr]">
+      <section className="relative overflow-clip bg-night-950 py-28 text-white">
+        <NightFx glow="left" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-14 lg:grid-cols-[1fr_1.1fr]">
             {/* Coordonnées */}
             <div>
-              <Reveal>
-                <SectionHeader
-                  align="left"
-                  kicker="Coordonnées"
-                  title="Toutes les portes d'entrée"
-                />
-              </Reveal>
+              <SectionHeader align="left" kicker="Coordonnées" title="Toutes les portes d'entrée" />
               <div className="mt-10 grid gap-5 sm:grid-cols-2">
-                {cards.map((card, i) => (
-                  <Reveal key={card.title} delay={i * 80} className="h-full">
-                    <div className="card-lift flex h-full flex-col rounded-3xl border border-night-200 bg-white p-6">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-night-800 text-rose-400">
-                        {card.icon}
-                      </span>
-                      <h3 className="mt-4 font-bold text-night-950">{card.title}</h3>
-                      <div className="mt-1.5 space-y-0.5">
-                        {card.lines.map((line) => (
-                          <p key={line} className="break-all text-sm text-night-950/65">
-                            {line}
-                          </p>
-                        ))}
-                      </div>
-                      <a
-                        href={card.href}
-                        {...(card.external
-                          ? { target: "_blank", rel: "noopener noreferrer" }
-                          : {})}
-                        className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-bold text-rose-600 hover:underline"
-                      >
-                        {card.action}
-                        <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M7 17 17 7m0 0H8m9 0v9" />
-                        </svg>
-                      </a>
+                {cards.map((card) => (
+                  <a
+                    key={card.title}
+                    href={card.href}
+                    data-tilt
+                    {...(card.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className="group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition-[border-color,box-shadow] duration-500 hover:border-rose-400/70 hover:shadow-[0_30px_70px_-30px_rgba(234,51,111,0.9)]"
+                  >
+                    <span aria-hidden="true" className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-rose-500/20 blur-2xl transition-transform duration-700 group-hover:scale-[2.5]" />
+                    <span className="ix-ring relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-400 to-ultra-500 text-white shadow-[0_0_30px_rgba(234,51,111,0.5)]">
+                      {card.icon}
+                    </span>
+                    <h3 className="relative mt-5 font-bold text-white">{card.title}</h3>
+                    <div className="relative mt-1.5 space-y-0.5">
+                      {card.lines.map((line) => (
+                        <p key={line} className="break-all text-sm text-white/70">
+                          {line}
+                        </p>
+                      ))}
                     </div>
-                  </Reveal>
+                    <span className="relative mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-rose-300 transition-colors group-hover:text-white">
+                      {card.action}
+                      <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </span>
+                    <span className="nfx-shine" />
+                  </a>
                 ))}
 
                 {/* Réseaux sociaux */}
-                <Reveal delay={cards.length * 80} className="sm:col-span-2">
-                  <div className="card-lift rounded-3xl border border-night-200 bg-white p-6">
-                    <h3 className="font-bold text-night-950">
-                      Suivez la vie du club
-                    </h3>
-                    <p className="mt-1.5 text-sm text-night-950/65">
-                      Résultats, événements, coulisses : le TPCS est aussi sur
-                      les réseaux.
-                    </p>
-                    <div className="mt-4 flex flex-wrap gap-3">
-                      {socials.map((social) => (
-                        <a
-                          key={social.label}
-                          href={social.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-full border border-night-200 px-4 py-2 text-sm font-medium text-night-950/80 transition-colors hover:border-rose-400 hover:text-rose-600"
-                        >
-                          <svg
-                            viewBox="0 0 24 24"
-                            className="h-4 w-4"
-                            fill="currentColor"
-                          >
-                            <path d={socialIconPaths[social.icon] ?? socialIconPaths.globe} />
-                          </svg>
-                          {social.label}
-                        </a>
-                      ))}
-                    </div>
+                <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur sm:col-span-2">
+                  <h3 className="font-bold text-white">Suivez la vie du club</h3>
+                  <p className="mt-1.5 text-sm text-white/70">
+                    Résultats, événements, coulisses : le TPCS est aussi sur les réseaux.
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    {socials.map((social) => (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-white/85 transition-all hover:-translate-y-1 hover:border-rose-400 hover:bg-rose-500 hover:text-night-950"
+                      >
+                        <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
+                          <path d={socialIconPaths[social.icon] ?? socialIconPaths.globe} />
+                        </svg>
+                        {social.label}
+                      </a>
+                    ))}
                   </div>
-                </Reveal>
+                </div>
               </div>
             </div>
 
             {/* Formulaire */}
-            <Reveal direction="right" delay={100}>
+            <div>
               <ContactForm />
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Carte */}
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionHeader
-              kicker="Nous trouver"
-              title="Rue de Koenigsbruck, Soufflenheim"
-              text="À deux pas du centre du village des potiers — parking gratuit et illimité sur place."
-            />
-          </Reveal>
-          <Reveal delay={120}>
-            <div className="mt-12 overflow-hidden rounded-3xl border border-night-200 shadow-xl shadow-night-950/5">
+      {/* Carte en mode nuit, balise radar sur le club */}
+      <section className="relative overflow-clip bg-night-950 py-28 text-white">
+        <NightFx glow="right" floaters={[]} />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            kicker="Nous trouver"
+            title="Rue de Koenigsbruck, Soufflenheim"
+            text="À deux pas du centre du village des potiers — parking gratuit et illimité sur place."
+          />
+          <div className="holo-frame relative mt-14 rounded-[2rem] p-[3px] shadow-[0_40px_90px_-30px_rgba(234,51,111,0.8)]">
+            <div className="relative overflow-hidden rounded-[calc(2rem-3px)]">
               <iframe
                 title="Carte — Tennis Padel Club Soufflenheim"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=7.9414%2C48.8203%2C7.9914%2C48.8443&layer=mapnik&marker=48.8323%2C7.9664"
-                className="h-[420px] w-full border-0"
+                className="ix-map h-[460px] w-full border-0"
                 loading="lazy"
               />
+              {/* Teinte rose/violet par-dessus le plan inversé */}
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-br from-rose-600/25 via-transparent to-ultra-600/30 mix-blend-color" />
+              <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 h-0 w-0">
+                {[0, 1, 2].map((i) => (
+                  <span
+                    key={i}
+                    className="ix-ping absolute -left-24 -top-24 h-48 w-48 rounded-full border-2 border-rose-400"
+                    style={{ animationDelay: `${i * 0.8}s` }}
+                  />
+                ))}
+                <PadelBall className="absolute -left-5 -top-5 h-10 w-10 drop-shadow-[0_0_20px_rgba(234,51,111,1)]" />
+              </div>
+              <a
+                href={site.links.itineraire}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-rose absolute bottom-5 left-5"
+              >
+                Y aller
+                <ArrowUpRight />
+              </a>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
       {/* FAQ complète — cible du lien « FAQ » du menu (/contact#faq) */}
-      <section id="faq" className="scroll-mt-20 bg-night-50 py-24">
+      <section id="faq" className="relative scroll-mt-20 overflow-clip bg-night-950 py-28 text-white">
         <JsonLd data={faqJsonLd(faqs)} />
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionHeader
-              kicker="FAQ"
-              title="Foire aux questions"
-              text="Réservations, licences, matériel, sponsoring : les réponses aux questions les plus fréquentes."
-            />
-          </Reveal>
-          <Reveal delay={120}>
-            <div className="mt-12">
-              <Accordion items={faqs} />
-            </div>
-          </Reveal>
+        <NightFx glow="left" beams floaters={[]} />
+        <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            kicker="FAQ"
+            title="Foire aux questions"
+            text="Réservations, licences, matériel, sponsoring : les réponses aux questions les plus fréquentes."
+          />
+          <div className="mt-14">
+            <Accordion items={faqs} />
+          </div>
         </div>
       </section>
     </>

@@ -1,14 +1,10 @@
 [
   {
-    "name": "La licence",
-    "text": "Due intégralement à la Fédération Française de Tennis. L'adhésion à la FFT est obligatoire pour pratiquer le tennis et le padel."
+    "name": "La cotisation au club",
+    "text": "Le montant affiché sur chaque formule : il couvre la pratique du tennis et du padel au club pour la saison 2026 / 27."
   },
   {
-    "name": "La part abonnement",
-    "text": "Dédiée à la pratique du tennis et du padel : entretien des courts, éclairage des courts intérieurs et de la piste de padel compris."
-  },
-  {
-    "name": "La part cotisation",
-    "text": "Donne lieu à la délivrance d'un reçu « Cerfa » au titre des dons à certains organismes d'intérêt général — déductible de vos impôts."
+    "name": "La licence FFT",
+    "text": "Due intégralement à la Fédération Française de Tennis et réglée en plus de la cotisation : 33 € pour un adulte, 23 € pour un jeune."
   }
 ]

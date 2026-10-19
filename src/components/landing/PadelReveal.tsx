@@ -2,14 +2,16 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { padelCourt } from "@/lib/images";
+import { padelHalle } from "@/lib/images";
 import { ArrowRight } from "./Arrow";
 import Magnetic from "./Magnetic";
+import NightFx from "./NightFx";
 import { gsap, MQ, ScrollTrigger, SplitText, useGSAP } from "./gsap";
 
 const VIDEO_URL = "https://www.youtube.com/watch?v=Ds8nB-zO1pQ";
 
 const atouts = ["100 % couvert", "Éclairage LED", "365 jours par an"];
+const backItems = ["Vibora", "Bandeja", "Smash", "Chiquita", "Bajada", "Par 3"];
 const marqueeItems = [
   "Padel",
   "Nouveau au club",
@@ -54,7 +56,10 @@ function RainBadge() {
 /*  Le padel couvert — sur grand écran, la scène s'épingle : la photo */
 /*  grandit d'une carte jusqu'au plein écran, le titre apparaît. Un   */
 /*  ruban défilant réagit à la vitesse du défilement (sens et         */
-/*  inclinaison). La vidéo du club s'ouvre sur YouTube, à la demande. */
+/*  inclinaison), croisé en X avec un second ruban en contour. Avant  */
+/*  l'ouverture, la carte flotte dans le décor de nuit du hero        */
+/*  (projecteurs, sol de piste, balles). La vidéo du club s'ouvre sur */
+/*  YouTube, à la demande.                                            */
 /* ------------------------------------------------------------------ */
 export default function PadelReveal() {
   const root = useRef<HTMLElement>(null);
@@ -86,6 +91,7 @@ export default function PadelReveal() {
           )
           .fromTo(q(".padel-zoom"), { scale: 1.4 }, { scale: 1, ease: "power2.inOut", duration: 1 }, 0)
           .fromTo(q(".padel-ghost"), { scale: 1 }, { scale: 1.5, autoAlpha: 0, ease: "power2.in", duration: 0.7 }, 0)
+          .fromTo(q(".padel-frame-glow"), { autoAlpha: 1 }, { autoAlpha: 0, ease: "power2.in", duration: 0.8 }, 0)
           .from(split.words, { yPercent: 115, stagger: 0.05, duration: 0.45, ease: "power3.out" }, 0.6)
           .from(q(".padel-fade"), { y: 30, autoAlpha: 0, stagger: 0.06, duration: 0.4, ease: "power2.out" }, 0.75)
           .to({}, { duration: 0.35 });
@@ -127,6 +133,7 @@ export default function PadelReveal() {
       mm.add(MQ.motion, () => {
         const [band] = q(".padel-marquee");
         const [track] = q(".padel-marquee-track");
+        gsap.fromTo(q(".padel-back-track"), { xPercent: -50 }, { xPercent: 0, ease: "none", duration: 36, repeat: -1 });
         const loop = gsap.to(track, { xPercent: -50, ease: "none", duration: 28, repeat: -1 });
         loop.totalTime(loop.duration() * 200); // marge pour la lecture à rebours
         const skewTo = gsap.quickTo(track, "skewX", { duration: 0.5, ease: "power3" });
@@ -157,20 +164,26 @@ export default function PadelReveal() {
   );
 
   return (
-    <section ref={root} id="nouveau-padel" className="relative scroll-mt-20 bg-night-50">
+    <section ref={root} id="nouveau-padel" className="relative scroll-mt-20 bg-night-950">
       <div className="padel-stage relative h-[100svh] min-h-[40rem] overflow-clip">
+        <NightFx floor beams fx={false} />
+        {/* Halo autour de la carte fermée, éteint à l'ouverture */}
+        <div
+          aria-hidden="true"
+          className="padel-frame-glow pointer-events-none absolute left-1/2 top-1/2 hidden h-[70%] w-[48%] -translate-x-1/2 -translate-y-1/2 rounded-[3rem] bg-gradient-to-br from-rose-500/60 to-ultra-500/60 blur-3xl lg:block"
+        />
         {/* Filigrane visible autour de la carte, avant l'ouverture */}
         <div
           aria-hidden="true"
           className="padel-ghost pointer-events-none absolute inset-0 hidden select-none items-center justify-center lg:flex"
         >
-          <span className="display text-stroke-night text-[26vw] leading-none opacity-25">Padel</span>
+          <span className="display hero-outline text-[26vw] leading-none">Padel</span>
         </div>
 
         <div className="padel-frame absolute inset-0 overflow-hidden bg-night-950">
           <div className="padel-zoom absolute inset-0">
             <Image
-              src={padelCourt}
+              src={padelHalle}
               alt=""
               fill
               placeholder="blur"
@@ -234,7 +247,23 @@ export default function PadelReveal() {
         <RainBadge />
       </div>
 
-      <div className="padel-marquee overflow-hidden border-t border-white/10 bg-night-950 py-6 sm:py-8">
+      {/* Deux rubans croisés en X, comme dans le hero */}
+      <div className="padel-marquee relative overflow-hidden bg-night-950 py-16 sm:py-20">
+        <div aria-hidden="true" className="absolute inset-x-[-5%] top-1/2 -translate-y-1/2 rotate-[3deg] border-y border-rose-500/40 bg-night-900 py-3">
+          <div className="padel-back-track flex w-max">
+            {[0, 1].map((copy) => (
+              <div key={copy} className="flex shrink-0 items-center">
+                {[...backItems, ...backItems].map((t, i) => (
+                  <span key={i} className="hero-outline display flex items-center gap-8 pr-8 text-3xl sm:text-5xl">
+                    {t}
+                    <span className="text-rose-500">✦</span>
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="relative -mx-[5%] -rotate-[2deg] bg-gradient-to-r from-rose-500 via-rose-600 to-ultra-500 py-4 shadow-[0_20px_60px_-15px_rgba(234,51,111,0.8)] sm:py-5">
         <div className="padel-marquee-track flex w-max items-center">
           {[0, 1].map((copy) => (
             <div
@@ -246,16 +275,17 @@ export default function PadelReveal() {
                 <span key={item} className="flex items-center gap-10">
                   <span
                     className={`display whitespace-nowrap text-4xl sm:text-6xl ${
-                      i % 2 === 0 ? "text-rose-400" : "text-stroke-rose"
+                      i % 2 === 0 ? "text-white" : "text-night-950"
                     }`}
                   >
                     {item}
                   </span>
-                  <span className="text-xl text-white/30">✦</span>
+                  <span className="text-xl text-night-950">✦</span>
                 </span>
               ))}
             </div>
           ))}
+        </div>
         </div>
       </div>
     </section>

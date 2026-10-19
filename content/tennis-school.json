@@ -1,12 +1,7 @@
 [
   {
-    "name": "École de tennis",
-    "detail": "5 à 17 ans · 30 séances de 1h",
-    "price": "120 €"
-  },
-  {
-    "name": "Cours privés tennis & padel",
-    "detail": "Jeunes et adultes · contactez le président",
-    "price": "Sur demande"
+    "name": "Entraînement adultes padel",
+    "detail": "Avec Julien · pack de 25 séances, présence 4 fois sur 5",
+    "price": "300 €"
   }
 ]

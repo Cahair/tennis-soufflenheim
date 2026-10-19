@@ -14,7 +14,7 @@ export default async function ClubIntro() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl shadow-night-950/20">
             <Image
               src={terrasseClub}
-              alt="La terrasse fleurie du club house, face à la piste de padel"
+              alt="Un joueur se détend sur un transat au bord des pistes de padel"
               fill
               placeholder="blur"
               sizes="(max-width: 1024px) 90vw, 45vw"
@@ -24,7 +24,7 @@ export default async function ClubIntro() {
           <div className="absolute -bottom-10 -left-6 w-52 rotate-[-4deg] overflow-hidden rounded-2xl border-[6px] border-white shadow-2xl shadow-night-950/30 transition-transform duration-300 hover:rotate-0 sm:w-64">
             <Image
               src={feteClub}
-              alt="La fête du club sur l'espace vert"
+              alt="Des joueurs du club réunis au bord des pistes de padel"
               placeholder="blur"
               sizes="16rem"
               className="h-full w-full object-cover"

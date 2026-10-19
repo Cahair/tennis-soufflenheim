@@ -6,6 +6,7 @@ import CourtLines from "@/components/CourtLines";
 import { ArrowUpRight } from "./Arrow";
 import BallFx, { type FxApi } from "./BallFx";
 import Magnetic from "./Magnetic";
+import NightFx from "./NightFx";
 import { frenchSpacing, gsap, MQ, ScrollTrigger, SplitText, useGSAP } from "./gsap";
 
 /* Garde le dernier mot et sa ponctuation d'un seul tenant : SplitText
@@ -26,7 +27,8 @@ function KeepLastWord({ text }: { text: string }) {
 /*  Final — « Prêt à jouer ? » en très grand, lettres qui basculent,  */
 /*  tracé d'un court qui se dessine en fond. Se fond dans le footer.  */
 /*  Le bouquet final : une pluie de balles tombe derrière le titre à  */
-/*  l'arrivée, et chaque clic dans la section en relance une.         */
+/*  l'arrivée, et chaque clic dans la section en relance une. Décor   */
+/*  de nuit du hero : projecteurs, sol de piste, balles qui flottent. */
 /* ------------------------------------------------------------------ */
 export default function FinalCall({
   title,
@@ -97,6 +99,7 @@ export default function FinalCall({
       ref={root}
       className="relative overflow-clip bg-night-950 px-4 pb-28 pt-32 text-white sm:px-6 lg:px-8 lg:pb-36 lg:pt-44"
     >
+      <NightFx floor beams fx={false} />
       {/* Halo rose et violet du logo, centré derrière le titre */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[42rem] w-[min(70rem,140%)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-radial from-rose-500/25 via-ultra-500/10 to-transparent to-70%" />
       <CourtLines className="final-court pointer-events-none absolute left-1/2 top-1/2 h-auto w-[150%] max-w-none -translate-x-1/2 -translate-y-1/2 text-white/[0.07] lg:w-[88rem]" />

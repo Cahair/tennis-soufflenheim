@@ -1,68 +1,167 @@
 [
   {
     "src": {
-      "src": "/images/padel-court.webp",
-      "width": 765,
-      "height": 1020,
-      "blurDataURL": "data:image/webp;base64,UklGRgYBAABXRUJQVlA4TPkAAAAvBcABAM1VICICHghADgIAAABrpc4/CEpAmQEMAAAAAAAAIAAAAAgAAAAAAAIAABIIgKGE4AsGqhYAAAAPBMAGAQAA4Pz3XW74VJhQhAAAAQAAAAAAAAAAAAAAAAAAAAAAAA4AAJAD3MPY+TwQABsEAACA86dVwQscAAAAAAAAHAAAAAAAAAAAAAAAAAAQgR8A4Pnx3Yp+hPST3C9yKOLR5bNRAdzXMb5bplPqJcqZbIGsVXUuMev14hy7w7hH9kz7betzt7tvc8CAvPNV3Ebvgm2COofsPTVzYOugUPzsp3Lw9wL6RQsp4TVEfaUIQMzn9D7gT+02HwEA"
+      "src": "/images/padel-couvert.webp",
+      "width": 480,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACwAQCdASoGAAgAA4BaJQBOgCHVW89AAP6yL4z5D7+oz/3asDq68kbTtCWpdFqjJukLlaBY6UAAAA=="
     },
-    "alt": "La piste de padel SLAMCOURT du club",
+    "alt": "Les pistes de padel couvertes du club",
     "category": "Padel",
-    "caption": "La piste SLAMCOURT, dernière génération"
+    "caption": "Les pistes couvertes, prêtes à jouer"
   },
   {
     "src": {
-      "src": "/images/terrasse-club.webp",
-      "width": 765,
-      "height": 1020,
-      "blurDataURL": "data:image/webp;base64,UklGRv4AAABXRUJQVlA4TPEAAAAvBcABAM1VICICHgiADQIAAIAqgWY/AyE45JwLAOAAAAAAAAAHAAAAAAAAAAAAAA7wEwTwgkzqAnIAAAAPBOAIAQAA4Px3v/mNKegBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQCAELPStlgcCkMIAAABw/t/fWEsjADMAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQYICgxF99JKoJH3bS6y/b6skXLEhx0joSjnLtn6m+JsXNeLzpfMKLISpMSRGPGtz6w2wt5MXylu5VpW1d8/dCF/YvvsjFsQ2vz6lwqcT4H9jDZPxwn4JZHWU3pMQKAA=="
+      "src": "/images/halle-padel.webp",
+      "width": 1180,
+      "height": 614,
+      "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoIAAQAA4BaJYgCdAEO/gOOAAD+ih3gQutiAqI8wqeb17nWgkjJKxO4dhKwAA=="
     },
-    "alt": "La terrasse fleurie du club house face à la piste de padel",
+    "alt": "La halle de padel vue depuis l'espace vert et le terrain de pétanque",
+    "category": "Padel",
+    "caption": "La halle de padel et son espace vert"
+  },
+  {
+    "src": {
+      "src": "/images/halle-exterieur.webp",
+      "width": 1284,
+      "height": 831,
+      "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoIAAUAA4BaJQBOgCIClYZYAADifOXjPr5pyYei8xZ3uN8yX7noCgsg/mC/yOcBE7AAAA=="
+    },
+    "alt": "La halle couverte aux couleurs du Tennis Padel Garden Club",
+    "category": "Padel",
+    "caption": "La halle aux couleurs du club"
+  },
+  {
+    "src": {
+      "src": "/images/detente-padel.webp",
+      "width": 480,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoGAAgAA4BaJaACdAD0unC7poAA+QgSAcbifr3nm4kUq8nuE/DghGXhritGFAcChITf/fAdn34AAA=="
+    },
+    "alt": "Un joueur se détend sur un transat au bord des pistes de padel",
+    "category": "Padel",
+    "caption": "Pause transat entre deux matchs"
+  },
+  {
+    "src": {
+      "src": "/images/transats.webp",
+      "width": 480,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoGAAgAA4BaJagCdAD0Zj+qdAAAzJlpzpYsjEJxgPggwadeFpcgVV2M9mT/4ZG/5TX7JK+Z+mHW/yVwAAA="
+    },
+    "alt": "Des transats installés le long des pistes",
     "category": "Club house",
-    "caption": "La terrasse, aux premières loges du padel"
+    "caption": "Transats au bord des pistes"
   },
   {
     "src": {
-      "src": "/images/courts-exterieurs.webp",
-      "width": 1021,
-      "height": 1020,
-      "blurDataURL": "data:image/webp;base64,UklGRigBAABXRUJQVlA4TBsBAAAvB8ABAM1VICICHggACAIAAIB3PJkfeoBhbwAADAAAAAAAAAAAAADAAAAABoABY2HdOh4Y/L5zSwMAAHggQDmoAAAA579l3XYb0wAAAECKgSIAAAAAAAAAAAAAAAAAAAAABAAAAACAgv91r7bzQABsEAAAAM6ff3WR+DsAAAAAAACAAAAAAAAAAAAAAAAAAACdI0gQcYCo0laR1Echsj4r9clXQXdhNwBdGmIdn2TckCfkMUwIE5oyPnlx3dksfTt3rHqyu/6o2ea72tC1vQvBabLCGri55FCEUHFI8+BZPuSef3G8/+WK6r//IOchYDimN4tXzkdE32cTqUpoNsHwVm4m3wd1KZyqpAphwG+8vimGwWIHWArNURDRAA=="
+      "src": "/images/club-house-bar.webp",
+      "width": 1284,
+      "height": 988,
+      "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoIAAYAA4BaJZwAAu177TYy7mAA/u5k77tQmP4/v+XV1EHtVso3KjT4Q5WmFYAA"
     },
-    "alt": "Les courts de tennis extérieurs de Soufflenheim",
-    "category": "Tennis",
-    "caption": "Les courts extérieurs, au cœur du village"
+    "alt": "Le bar du club house",
+    "category": "Club house",
+    "caption": "Le bar du club house"
   },
   {
     "src": {
-      "src": "/images/fete-club.webp",
-      "width": 1360,
-      "height": 910,
-      "blurDataURL": "data:image/webp;base64,UklGRuwAAABXRUJQVlA4TOAAAAAvBwABAM1VICICHgiACQMAAIDeqxKCA4YTMAAAAAAAAAAAAAAAAAAcIPECACDgHAAABw5wCnFOXAIAAOCBAJgwAAAAnP/WQkBaUwQEHAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAACATds8EAATBgAAgPMvHAIAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDAgcdmWH1sNUmAIs8/83I5hAnDh2vEw176M9aj1/ffV545Ci/KKsQJz62bJ98bhw7HkCQWF7kNGIhKq5KNd7GSDV+t2r9mvbvO6Yq2rAeQAZpJAw=="
+      "src": "/images/club-house-accueil.webp",
+      "width": 1284,
+      "height": 925,
+      "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoIAAYAA4BaJZQCdAD0eqnsAP7QckQRzLcgNNj2DCYESV0X4wp6uEJ4IuAAAA=="
     },
-    "alt": "La fête du club sur l'espace vert",
+    "alt": "Des membres réunis au club house",
+    "category": "Club house",
+    "caption": "Rencontres au club house"
+  },
+  {
+    "src": {
+      "src": "/images/joueurs-club.webp",
+      "width": 1600,
+      "height": 900,
+      "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACwAQCdASoIAAQAA4BaJZACdADdA68AAP1refg3PGU6T1k6mCjd+6hQeghFlpSR3HExIvQRUuwAAA=="
+    },
+    "alt": "Des joueurs du club réunis au bord des pistes de padel",
+    "category": "Vie du club",
+    "caption": "Les joueurs du club"
+  },
+  {
+    "src": {
+      "src": "/images/petanque.webp",
+      "width": 288,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoEAAgAA4BaJZQCdAEOu3FwAAD+Bab1P8YGAr2mHzyFZ1jbQAuUAA=="
+    },
+    "alt": "Une partie de pétanque à côté des pistes de padel",
+    "category": "Vie du club",
+    "caption": "Pétanque à l'ombre des parasols"
+  },
+  {
+    "src": {
+      "src": "/images/soiree-ete.webp",
+      "width": 480,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoGAAgAA4BaJZgCdEuAAarQpHqAAPvsYedk+P2PweWuqmYZaMl7n+qRf0XHFubI5I0oMO8L3Id78XNHkVo6AAAA"
+    },
+    "alt": "Une soirée d'été à la tombée de la nuit",
     "category": "Événements",
-    "caption": "Fête du club sur l'espace vert"
+    "caption": "Soirée d'été"
   },
   {
     "src": {
-      "src": "/images/club-house.webp",
-      "width": 765,
-      "height": 1020,
-      "blurDataURL": "data:image/webp;base64,UklGRgYBAABXRUJQVlA4TPoAAAAvBcABAM1VICICHgiADQIAAIB3PZAA3QGQAuQABACAAwAAAAAAAAAAAAB+wAEHABziQgj0A36DPyUHAADAAwEwYQAAADj/Na+5AwUEABziQAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgx1tTb7sHAmCDAAAAcP56e7lsPMURAADAAQAAAAAAAAAAAAAAAAAAgDjgcOAAACEBIlOPVD2ResLz9vEeymPa3jT0ZHfxHLfT8TJ+V3DVW6iuUBz7a1La4/z+W6ZJDS25ha+uA4DVaozXT2Utbe/wI8c5qWWGYlML3Eh5nIs32WsJvpuJ/pUHORKKCnCrPJGCQ4ca"
+      "src": "/images/brasero.webp",
+      "width": 480,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoGAAgAA4BaJYwCdAD0udJDLgAAzEUM83L9WHjpNxjx8lcWFpGeaq1po9/9QAAA"
     },
-    "alt": "Le club house et son salon d'été sous voile d'ombrage",
-    "category": "Club house",
-    "caption": "Le salon d'été du club house"
+    "alt": "Des pièces de viande grillées sur le brasero",
+    "category": "Événements",
+    "caption": "Grillades au brasero"
   },
   {
     "src": {
-      "src": "/images/pickleball-jeunes.webp",
-      "width": 765,
-      "height": 1020,
-      "blurDataURL": "data:image/webp;base64,UklGRvQAAABXRUJQVlA4TOcAAAAvBcABAM1VICICHgiACQMAAACp5VXoQI4IDgAAAAAAAAAAAAAAIAAAQAD8AAAQACCAwPFz/AeLYwQAAOCBANswAAAAnH+StNM7HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwWOOBAKQwAAAAnP/f/4wAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABtPWp/L5i0x/9TB+ySq8zgszSGVf3mf1z7hHoum7pj21hvdcMx4/vlZnlI799K3fzBEER+NCr+tmOX3bpQ5NUlCmRnwOOCWpRQXCJl0SBIFvFYOfilEA"
+      "src": "/images/grillade.webp",
+      "width": 480,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoGAAgAA4BaJQBWAB57baFQAADiMmKbmv/su5/R5upc1eeddD+8Ak99mEIpzOAA+UAAAA=="
     },
-    "alt": "Des jeunes découvrent le pickleball devant le court couvert",
-    "category": "Jeunes",
-    "caption": "Découverte du pickleball pour les jeunes"
+    "alt": "Les grillades du club en préparation",
+    "category": "Événements",
+    "caption": "Aux fourneaux pour les membres"
+  },
+  {
+    "src": {
+      "src": "/images/cuisiniers.webp",
+      "width": 480,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoGAAgAA4BaJQBOgCHNAle+AAD2sXd6nRuGwlfmXvLd3XCyjqpA2x2u8xAT3MgKIjAGHvAA"
+    },
+    "alt": "Deux bénévoles derrière le stand de grillades",
+    "category": "Événements",
+    "caption": "Les bénévoles aux grillades"
+  },
+  {
+    "src": {
+      "src": "/images/repas-club.webp",
+      "width": 480,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACwAQCdASoGAAgAA4BaJQBOgB6GMVdAAP6f5ictA9HzsczdTUKNM9r4g1rC8JigMjmMz1gTcNa4wAAA"
+    },
+    "alt": "Le service d'un repas convivial au club",
+    "category": "Événements",
+    "caption": "Repas convivial au club"
+  },
+  {
+    "src": {
+      "src": "/images/buvette.webp",
+      "width": 640,
+      "height": 480,
+      "blurDataURL": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAACwAQCdASoIAAYAA4BaJYgCdADydRaAAP4xIkFFNtujyhM91zJmY5vExo2x/ChNpXKp1djIwAA="
+    },
+    "alt": "La buvette du club et sa grande poêle",
+    "category": "Événements",
+    "caption": "La buvette du club"
   }
 ]

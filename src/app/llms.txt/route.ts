@@ -12,10 +12,8 @@ import { SITE_URL } from "@/lib/site";
 export const revalidate = 3600;
 
 const pages: { path: string; title: string; text: string }[] = [
-  { path: "/tennis", title: "Tennis", text: "courts, école de tennis, adhésions tennis" },
-  { path: "/padel", title: "Padel", text: "pistes de padel, réservation, adhésions padel" },
-  { path: "/pickleball", title: "Pickleball", text: "découverte et pratique du pickleball au club" },
-  { path: "/tarifs", title: "Tarifs", text: "adhésions annuelles, école de tennis, conditions de la saison" },
+  { path: "/padel", title: "Padel, tennis et pickleball", text: "règles du padel, réservation, adhésions padel ; tennis et pickleball en bref" },
+  { path: "/tarifs", title: "Tarifs", text: "adhésions annuelles, entraînements padel, conditions de la saison" },
   { path: "/contact", title: "Contact et FAQ", text: "téléphone, e-mails, accès, horaires de permanence du club house, entraînements" },
   { path: "/le-club", title: "Le club", text: "histoire depuis 1979, installations, mot du président" },
   { path: "/calendrier", title: "Calendrier", text: "tournois, initiations et événements à venir" },

@@ -46,9 +46,9 @@ export default async function SiteLayout({
         logo: `${SITE_URL}/images/logo-carre.jpg`,
         image: [
           `${SITE_URL}/images/og-image.jpg`,
-          `${SITE_URL}/images/padel-court.webp`,
-          `${SITE_URL}/images/courts-exterieurs.webp`,
-          `${SITE_URL}/images/club-house.webp`,
+          `${SITE_URL}/images/padel-couvert.webp`,
+          `${SITE_URL}/images/halle-exterieur.webp`,
+          `${SITE_URL}/images/club-house-bar.webp`,
         ],
         telephone: telHref(site.phoneClub).replace("tel:", ""),
         email: site.emails.secretariat,

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
-import Reveal from "@/components/Reveal";
+import NightFx from "@/components/landing/NightFx";
 import { getSettings } from "@/lib/content";
 import { telHref } from "@/lib/format";
 import { UMAMI_WEBSITE_ID } from "@/lib/site";
@@ -20,18 +20,22 @@ export default async function MentionsLegalesPage() {
       <PageHero
         kicker="Informations légales"
         title="Mentions légales"
+        effect="neon"
+        echo="Légal"
+        tape={["Mentions légales", "RGPD", "Sans cookies", "Hébergement", "Éditeur"]}
         text="Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN), voici les informations relatives à l'éditeur et à l'hébergeur de ce site."
       />
 
-      <section className="bg-night-50 py-24">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="space-y-6">
-            <Reveal>
-              <article className="rounded-3xl border border-night-200 bg-white p-8 sm:p-10">
-                <h2 className="display text-2xl text-night-950">
+      <section className="relative overflow-clip bg-night-950 py-28 text-white">
+        <NightFx glow="right" floaters={[]} />
+        <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="space-y-12">
+            <div>
+              <article data-tilt className="ix-folder relative rounded-[1.75rem] rounded-tl-none border border-white/10 bg-white/[0.04] p-8 backdrop-blur transition-colors duration-500 hover:border-rose-400/60 sm:p-10">
+                <h2 className="display text-3xl text-white">
                   Éditeur du site
                 </h2>
-                <div className="mt-6 space-y-3 text-sm leading-relaxed text-night-950/75">
+                <div className="mt-6 space-y-3 text-sm leading-relaxed text-white/75">
                   <p>
                     Le présent site est édité par l&rsquo;association{" "}
                     <strong>{site.name}</strong>, association de droit local
@@ -45,7 +49,7 @@ export default async function MentionsLegalesPage() {
                     Téléphone :{" "}
                     <a
                       href={telHref(site.phoneClub)}
-                      className="font-medium text-rose-600 hover:underline"
+                      className="font-medium text-rose-300 hover:underline"
                     >
                       {site.phoneClub}
                     </a>
@@ -53,7 +57,7 @@ export default async function MentionsLegalesPage() {
                     Courriel :{" "}
                     <a
                       href={`mailto:${site.emails.president}`}
-                      className="font-medium text-rose-600 hover:underline"
+                      className="font-medium text-rose-300 hover:underline"
                     >
                       {site.emails.president}
                     </a>
@@ -64,12 +68,12 @@ export default async function MentionsLegalesPage() {
                   </p>
                 </div>
               </article>
-            </Reveal>
+            </div>
 
-            <Reveal delay={80}>
-              <article className="rounded-3xl border border-night-200 bg-white p-8 sm:p-10">
-                <h2 className="display text-2xl text-night-950">Hébergement</h2>
-                <div className="mt-6 space-y-3 text-sm leading-relaxed text-night-950/75">
+            <div>
+              <article data-tilt className="ix-folder relative rounded-[1.75rem] rounded-tl-none border border-white/10 bg-white/[0.04] p-8 backdrop-blur transition-colors duration-500 hover:border-rose-400/60 sm:p-10">
+                <h2 className="display text-3xl text-white">Hébergement</h2>
+                <div className="mt-6 space-y-3 text-sm leading-relaxed text-white/75">
                   <p>
                     Le site est hébergé par <strong>Infomaniak Network SA</strong>
                     <br />
@@ -80,42 +84,42 @@ export default async function MentionsLegalesPage() {
                       href="https://www.infomaniak.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-medium text-rose-600 hover:underline"
+                      className="font-medium text-rose-300 hover:underline"
                     >
                       www.infomaniak.com
                     </a>
                   </p>
                 </div>
               </article>
-            </Reveal>
+            </div>
 
-            <Reveal delay={160}>
-              <article className="rounded-3xl border border-night-200 bg-white p-8 sm:p-10">
-                <h2 className="display text-2xl text-night-950">
+            <div>
+              <article data-tilt className="ix-folder relative rounded-[1.75rem] rounded-tl-none border border-white/10 bg-white/[0.04] p-8 backdrop-blur transition-colors duration-500 hover:border-rose-400/60 sm:p-10">
+                <h2 className="display text-3xl text-white">
                   Conception et réalisation
                 </h2>
-                <div className="mt-6 space-y-3 text-sm leading-relaxed text-night-950/75">
+                <div className="mt-6 space-y-3 text-sm leading-relaxed text-white/75">
                   <p>
                     Site web conçu et réalisé par <strong>RK.ai</strong> —{" "}
                     <a
                       href="https://romain-kantzer.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-medium text-rose-600 hover:underline"
+                      className="font-medium text-rose-300 hover:underline"
                     >
                       romain-kantzer.com
                     </a>
                   </p>
                 </div>
               </article>
-            </Reveal>
+            </div>
 
-            <Reveal delay={240}>
-              <article className="rounded-3xl border border-night-200 bg-white p-8 sm:p-10">
-                <h2 className="display text-2xl text-night-950">
+            <div>
+              <article data-tilt className="ix-folder relative rounded-[1.75rem] rounded-tl-none border border-white/10 bg-white/[0.04] p-8 backdrop-blur transition-colors duration-500 hover:border-rose-400/60 sm:p-10">
+                <h2 className="display text-3xl text-white">
                   Propriété intellectuelle
                 </h2>
-                <div className="mt-6 space-y-3 text-sm leading-relaxed text-night-950/75">
+                <div className="mt-6 space-y-3 text-sm leading-relaxed text-white/75">
                   <p>
                     L&rsquo;ensemble des contenus présents sur ce site (textes,
                     photographies, logos, éléments graphiques) est la propriété
@@ -130,14 +134,14 @@ export default async function MentionsLegalesPage() {
                   </p>
                 </div>
               </article>
-            </Reveal>
+            </div>
 
-            <Reveal delay={320}>
-              <article className="rounded-3xl border border-night-200 bg-white p-8 sm:p-10">
-                <h2 className="display text-2xl text-night-950">
+            <div>
+              <article data-tilt className="ix-folder relative rounded-[1.75rem] rounded-tl-none border border-white/10 bg-white/[0.04] p-8 backdrop-blur transition-colors duration-500 hover:border-rose-400/60 sm:p-10">
+                <h2 className="display text-3xl text-white">
                   Données personnelles
                 </h2>
-                <div className="mt-6 space-y-3 text-sm leading-relaxed text-night-950/75">
+                <div className="mt-6 space-y-3 text-sm leading-relaxed text-white/75">
                   <p>
                     Les informations transmises via le formulaire de contact
                     (nom, adresse e-mail, message) sont utilisées uniquement
@@ -152,7 +156,7 @@ export default async function MentionsLegalesPage() {
                     droit, contactez-nous à l&rsquo;adresse{" "}
                     <a
                       href={`mailto:${site.emails.secretariat}`}
-                      className="font-medium text-rose-600 hover:underline"
+                      className="font-medium text-rose-300 hover:underline"
                     >
                       {site.emails.secretariat}
                     </a>
@@ -174,7 +178,7 @@ export default async function MentionsLegalesPage() {
                   )}
                 </div>
               </article>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>

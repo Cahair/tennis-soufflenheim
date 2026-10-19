@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import CommitteeIcon from "@/components/CommitteeIcon";
 import PageHero from "@/components/PageHero";
-import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
+import TradingCard from "@/components/fx/TradingCard";
 import CtaBand from "@/components/home/CtaBand";
+import NightFx from "@/components/landing/NightFx";
 import { getCommittee } from "@/lib/content";
-import type { CommitteeMember } from "@/lib/content-types";
-import { telHref } from "@/lib/format";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -42,55 +40,12 @@ const commissionsMeta = [
   },
 ];
 
-function initials(name: string): string {
-  return name
-    .split(/\s+/)
-    .map((part) => part.charAt(0))
-    .slice(0, 2)
-    .join("")
-    .toUpperCase();
-}
-
-function MemberCard({ member, delay }: { member: CommitteeMember; delay: number }) {
-  return (
-    <Reveal delay={delay} className="h-full">
-      <div className="card-lift flex h-full flex-col overflow-hidden rounded-3xl border border-night-200 bg-white">
-        <div className="relative aspect-square overflow-hidden">
-          {member.photo ? (
-            <Image
-              src={member.photo}
-              alt={`Portrait de ${member.name}`}
-              fill
-              placeholder={member.photo.blurDataURL ? "blur" : "empty"}
-              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
-              className="object-cover"
-            />
-          ) : (
-            <div className="flex h-full flex-col items-center justify-center gap-4 bg-night-800">
-              <span className="display text-6xl text-rose-400">
-                {initials(member.name)}
-              </span>
-              <CommitteeIcon icon={member.icon} className="h-6 w-6 text-white/40" />
-            </div>
-          )}
-        </div>
-        <div className="flex flex-1 flex-col items-center p-6 text-center">
-          <h3 className="display text-xl text-night-950">{member.name}</h3>
-          <p className="mt-1 text-sm font-semibold text-night-950/70">{member.role}</p>
-          {member.contact ? (
-            <a
-              href={telHref(member.contact)}
-              className="mt-2 text-xs text-night-950/50 transition-colors hover:text-night-800"
-            >
-              {member.contact}
-            </a>
-          ) : null}
-        </div>
-      </div>
-    </Reveal>
-  );
-}
-
+/* ------------------------------------------------------------------ */
+/*  Le comité en cartes à collectionner : pellicule holographique qui */
+/*  suit la souris, carte rare pour le président, retournement au     */
+/*  clic pour lire le contact. Les commissions en maillots d'équipe   */
+/*  avec numéro géant.                                                */
+/* ------------------------------------------------------------------ */
 export default async function ComitePage() {
   const committee = await getCommittee();
 
@@ -104,78 +59,85 @@ export default async function ComitePage() {
       <PageHero
         kicker="Le club"
         title="Le comité"
-        text="Ils donnent de leur temps toute l'année pour que chacun n'ait plus qu'à penser à jouer : voici les bénévoles qui font tourner le TPCS."
+        text="Ils donnent de leur temps toute l'année pour que chacun n'ait plus qu'à penser à jouer : voici les bénévoles qui font tourner le TPCS. Collectionnez-les tous !"
+        echo="Équipe"
+        effect="drop"
+        tape={["Bénévoles", "Bureau", "Commissions", "Collection 2026", "Cartes rares", "TPCS"]}
       />
 
       {/* Le bureau */}
-      <section className="bg-night-50 py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionHeader
-              kicker="Le bureau"
-              title="Ceux qui tiennent la barre"
-              text="Présidence, trésorerie, secrétariat : l'équipe qui pilote le club au quotidien et répond à toutes vos questions."
-            />
-          </Reveal>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="relative overflow-clip bg-night-950 py-28 text-white">
+        <NightFx glow="left" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            kicker="Le bureau"
+            title="Ceux qui tiennent la barre"
+            text="Présidence, trésorerie, secrétariat : l'équipe qui pilote le club au quotidien. Cliquez sur une carte pour la retourner."
+          />
+          <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
             {bureau.map((member, i) => (
-              <MemberCard key={member.name} member={member} delay={(i % 3) * 100} />
+              <div key={member.name} className={i % 3 === 1 ? "lg:mt-12" : ""}>
+                <TradingCard member={member} index={i} total={committee.length} />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Les commissions */}
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionHeader
-              kicker="Les commissions"
-              title="Des équipes pour chaque mission"
-              text="Sport, entretien, animation, sponsoring : chaque commission réunit des bénévoles du comité autour d'une mission précise."
-            />
-          </Reveal>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="relative overflow-clip bg-night-950 py-28 text-white">
+        <NightFx glow="right" beams floaters={[]} />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            kicker="Les commissions"
+            title="Des équipes pour chaque mission"
+            text="Sport, entretien, animation, sponsoring : chaque commission réunit des bénévoles du comité autour d'une mission précise."
+          />
+          <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {commissionMembers.map((member, i) => (
-              <MemberCard key={member.name} member={member} delay={(i % 3) * 100} />
+              <TradingCard key={member.name} member={member} index={bureau.length + i} total={committee.length} />
             ))}
           </div>
 
-          {/* Récapitulatif : qui siège où */}
-          <div className="mt-20 grid gap-6 sm:grid-cols-2">
+          {/* Récapitulatif : qui siège où, en maillots d'équipe */}
+          <div className="mt-28 grid gap-6 sm:grid-cols-2">
             {commissionsMeta.map((commission, i) => {
-              const members = committee.filter((m) =>
-                m.commissions?.includes(commission.name)
-              );
+              const members = committee.filter((m) => m.commissions?.includes(commission.name));
               if (!members.length) return null;
               return (
-                <Reveal key={commission.name} delay={(i % 2) * 100} className="h-full">
-                  <div className="flex h-full flex-col rounded-3xl border border-night-200 bg-night-50 p-7">
-                    <div className="flex items-center gap-4">
-                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-night-800 text-rose-400">
-                        <CommitteeIcon icon={commission.icon} />
-                      </span>
-                      <div>
-                        <h3 className="display text-xl text-night-950">
-                          {commission.name}
-                        </h3>
-                        <p className="mt-0.5 text-xs text-night-950/55">
-                          {commission.text}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="mt-5 flex flex-wrap gap-2">
-                      {members.map((member) => (
-                        <span
-                          key={member.name}
-                          className="rounded-full border border-night-300 bg-white px-3.5 py-1.5 text-xs font-semibold text-night-800"
-                        >
-                          {member.name}
-                        </span>
-                      ))}
+                <div
+                  key={commission.name}
+                  data-tilt
+                  className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-night-900 to-night-950 p-8 transition-colors duration-500 hover:border-rose-400/60"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="display pointer-events-none absolute -right-4 -top-10 text-[11rem] leading-none text-white/[0.04] transition-colors duration-500 group-hover:text-rose-500/20"
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span aria-hidden="true" className="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-rose-400 to-ultra-500" />
+                  <div className="relative flex items-center gap-4">
+                    <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-rose-500 text-night-950 shadow-[0_0_30px_rgba(234,51,111,0.6)] transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110">
+                      <CommitteeIcon icon={commission.icon} />
+                    </span>
+                    <div>
+                      <h3 className="display text-2xl text-white">{commission.name}</h3>
+                      <p className="mt-1 text-sm text-white/65">{commission.text}</p>
                     </div>
                   </div>
-                </Reveal>
+                  <ul className="relative mt-6 flex flex-wrap gap-2">
+                    {members.map((member) => (
+                      <li
+                        key={member.name}
+                        className="rounded-full border border-rose-400/30 bg-rose-500/10 px-3.5 py-1.5 text-xs font-semibold text-rose-100"
+                      >
+                        {member.name}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="nfx-shine" />
+                </div>
               );
             })}
           </div>

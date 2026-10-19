@@ -379,7 +379,7 @@ export default function Hero() {
                   <div data-hero-media className="relative h-full w-full overflow-hidden lg:rounded-[calc(2rem-3px)]">
                     <Image
                       src={padelCourt}
-                      alt="La piste de padel SLAMCOURT du club de Soufflenheim"
+                      alt="Les pistes de padel couvertes du club de Soufflenheim"
                       fill
                       preload
                       placeholder="blur"

@@ -1,9 +1,10 @@
 /* ------------------------------------------------------------------ */
-/*  Pages sports (/tennis, /padel, /pickleball) : textes de référence */
-/*  pour la recherche locale (« club de padel Bas-Rhin », « école de  */
-/*  tennis Haguenau »…). Volontairement hors CMS, comme le règlement  */
-/*  intérieur : photo, atouts et tarifs viennent eux du contenu géré  */
-/*  dans l'admin (disciplines, adhésions).                            */
+/*  Page sports (/padel, avec le tennis et le pickleball en version   */
+/*  courte sous les ancres #tennis et #pickleball) : textes de        */
+/*  référence pour la recherche locale (« club de padel Bas-Rhin »,   */
+/*  « école de tennis Haguenau »…). Volontairement hors CMS, comme le */
+/*  règlement intérieur : photo, atouts et tarifs viennent eux du     */
+/*  contenu géré dans l'admin (disciplines, adhésions).               */
 /*  Pas de nombre de courts ni de prix ici : ils vivent dans l'admin  */
 /*  et ne doivent être mis à jour qu'à un seul endroit.               */
 /* ------------------------------------------------------------------ */
@@ -33,7 +34,7 @@ export const sportPages: Record<SportSlug, SportPage> = {
     label: "Padel",
     metaTitle: "Padel à Soufflenheim, près de Haguenau (Bas-Rhin)",
     metaDescription:
-      "Padel couvert en Alsace du Nord, à 20 min de Haguenau et 40 min de Strasbourg : tournois, cours et réservation en ligne 7j/7 au Tennis Padel Club Soufflenheim.",
+      "Padel couvert en Alsace du Nord, à 20 min de Haguenau : tournois, cours et réservation en ligne 7j/7. Tennis et pickleball aussi au Tennis Padel Club Soufflenheim.",
     hero: {
       kicker: "Padel · Soufflenheim, Bas-Rhin",
       title: "Le padel en Alsace du Nord, à l'abri de la pluie",
@@ -66,7 +67,7 @@ export const sportPages: Record<SportSlug, SportPage> = {
     faqs: [
       {
         q: "Comment jouer au padel au TPCS ?",
-        a: "Le plus simple est d'adhérer au club : l'adhésion annuelle (padel seul ou combiné tennis + padel) comprend la licence FFT et l'accès à la piste, réservable sur Ten'up 7 jours sur 7. Une formule existe aussi pour les joueurs qui ne prennent pas leur licence au club. Pour une première découverte, contactez-nous : des initiations sont organisées régulièrement.",
+        a: "Le plus simple est d'adhérer au club : l'adhésion annuelle tennis + padel (cotisation au club + licence FFT) donne accès à la piste, réservable sur Ten'up 7 jours sur 7. Une formule existe aussi pour les joueurs qui ne prennent pas leur licence au club. Pour une première découverte, contactez-nous : des initiations sont organisées régulièrement.",
       },
       {
         q: "Faut-il savoir jouer au tennis pour se mettre au padel ?",
@@ -114,8 +115,8 @@ export const sportPages: Record<SportSlug, SportPage> = {
         text: "Pour continuer à jouer l'hiver, quand il pleut ou quand la nuit tombe tôt.",
       },
       {
-        title: "Licence FFT comprise",
-        text: "L'adhésion inclut la licence de la Fédération Française de Tennis : assurance, tournois et classement.",
+        title: "Licence FFT",
+        text: "La licence de la Fédération Française de Tennis accompagne l'adhésion : assurance, tournois et classement.",
       },
     ],
     memberships: /tennis|jeunes|famille/i,
@@ -191,5 +192,8 @@ export const sportPages: Record<SportSlug, SportPage> = {
   },
 };
 
-/* Ordre d'affichage (menu, liens croisés) */
-export const sportOrder: SportSlug[] = ["tennis", "padel", "pickleball"];
+/* Ordre d'affichage : le padel d'abord */
+export const sportOrder: SportSlug[] = ["padel", "tennis", "pickleball"];
+
+/* Adresse d'un sport : le padel a la page, les autres une ancre dessous. */
+export const sportHref = (slug: SportSlug) => (slug === "padel" ? "/padel" : `/padel#${slug}`);

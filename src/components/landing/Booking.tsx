@@ -16,6 +16,8 @@ import { gsap, MQ, ScrollTrigger, SplitText, useGSAP } from "./gsap";
 /*  mot en mot sur le titre puis plonge dans le bouton, pendant qu'un */
 /*  chrono file jusqu'à 02:00. Le bouton crépite au survol et         */
 /*  explose en confettis au clic ; un clic ailleurs lance une balle.  */
+/*  En fond : rayures de piste qui défilent, halos violet et blanc,   */
+/*  un « 02:00 » géant en contour qui glisse au défilement.           */
 /* ------------------------------------------------------------------ */
 
 /* Balle nuit à coutures roses : lisible sur le fond rose. */
@@ -71,6 +73,19 @@ export default function Booking({
           ease: "power2.inOut",
           scrollTrigger: { trigger: title, start: "top 80%" },
         });
+
+        gsap.fromTo(
+          q(".booking-giant"),
+          { xPercent: 12, rotate: -4 },
+          {
+            xPercent: -18,
+            rotate: 3,
+            ease: "none",
+            scrollTrigger: { trigger: section, start: "top bottom", end: "bottom top", scrub: true },
+          }
+        );
+        gsap.to(q(".booking-halo-a"), { xPercent: 20, yPercent: 15, scale: 1.25, duration: 7, ease: "sine.inOut", yoyo: true, repeat: -1 });
+        gsap.to(q(".booking-halo-b"), { xPercent: -15, yPercent: -10, scale: 0.85, duration: 9, ease: "sine.inOut", yoyo: true, repeat: -1 });
 
         const [steps] = q(".booking-steps");
         gsap.from(q(".booking-rule"), {
@@ -212,6 +227,16 @@ export default function Booking({
       id="reservation"
       className="relative scroll-mt-20 overflow-clip bg-rose-500 px-4 py-28 text-night-950 sm:px-6 lg:px-8 lg:py-40"
     >
+      {/* Décor : rayures qui défilent, halos, chrono géant */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="booking-stripes absolute inset-0" />
+        <div className="booking-halo-a absolute -left-[15%] -top-[25%] h-[60vmax] w-[60vmax] rounded-full bg-[radial-gradient(circle,rgba(138,43,226,0.32)_0%,rgba(138,43,226,0)_60%)]" />
+        <div className="booking-halo-b absolute -bottom-[30%] -right-[10%] h-[55vmax] w-[55vmax] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.35)_0%,rgba(255,255,255,0)_60%)]" />
+        <span className="booking-giant display text-stroke-night absolute left-[2%] top-1/2 -translate-y-1/2 select-none whitespace-nowrap text-[clamp(14rem,40vw,40rem)] leading-none opacity-[0.13]">
+          02:00
+        </span>
+        <div className="grain absolute inset-0" />
+      </div>
       <BallFx apiRef={fx} sparks={SPARKS_ON_ROSE} ball="night" className="z-20" />
       {/* La balle du rallye (positionnée par GSAP, invisible au repos) */}
       <div
@@ -221,7 +246,7 @@ export default function Booking({
         <NightBall className="h-full w-full" />
       </div>
 
-      <div className="mx-auto max-w-7xl">
+      <div className="relative mx-auto max-w-7xl">
         <div className="flex items-center justify-between gap-6">
           <p className="kicker text-night-950/90">Réservation · {reservation.tag}</p>
           {/* Chrono décoratif : file jusqu'à 02:00 à l'arrivée */}
@@ -279,7 +304,7 @@ export default function Booking({
                 aria-label={`${reservation.cta} (nouvel onglet)`}
                 data-umami-event="reservation-tenup"
                 data-umami-event-emplacement="bloc-reservation"
-                className="booking-cta group relative flex h-52 w-52 items-center justify-center rounded-full bg-night-950 text-rose-400 shadow-2xl shadow-night-950/30 ring-0 ring-night-950/10 transition-[scale,box-shadow] duration-500 hover:scale-105 hover:ring-8 sm:h-60 sm:w-60"
+                className="booking-cta booking-cta-glow group relative flex h-52 w-52 items-center justify-center rounded-full bg-night-950 text-rose-400 shadow-2xl shadow-night-950/30 ring-0 ring-night-950/10 transition-[scale,box-shadow] duration-500 hover:scale-105 hover:ring-8 sm:h-60 sm:w-60"
               >
                 <svg
                   aria-hidden="true"

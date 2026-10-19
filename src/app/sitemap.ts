@@ -24,8 +24,6 @@ const routes: { path: string; priority: number; content: string[] }[] = [
     ],
   },
   { path: "/padel", priority: 0.9, content: ["disciplines", "memberships", "facilities", "settings"] },
-  { path: "/tennis", priority: 0.9, content: ["disciplines", "memberships", "tennis-school", "facilities", "settings"] },
-  { path: "/pickleball", priority: 0.8, content: ["disciplines", "facilities", "settings"] },
   { path: "/tarifs", priority: 0.9, content: ["memberships", "cotisation", "tennis-school", "extras", "infos-pratiques", "settings"] },
   { path: "/le-club", priority: 0.8, content: ["settings", "committee", "facilities", "histoire-chapitres", "histoire-infos"] },
   { path: "/contact", priority: 0.8, content: ["settings", "socials", "faqs"] },

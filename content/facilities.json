@@ -4,10 +4,10 @@
     "detail": "Deux courts en plein air au cœur du village, éclairés pour les fins de journée d'été.",
     "tag": "2 courts",
     "image": {
-      "src": "/images/courts-exterieurs.webp",
-      "width": 1021,
-      "height": 1020,
-      "blurDataURL": "data:image/webp;base64,UklGRigBAABXRUJQVlA4TBsBAAAvB8ABAM1VICICHggACAIAAIB3PJkfeoBhbwAADAAAAAAAAAAAAADAAAAABoABY2HdOh4Y/L5zSwMAAHggQDmoAAAA579l3XYb0wAAAECKgSIAAAAAAAAAAAAAAAAAAAAABAAAAACAgv91r7bzQABsEAAAAM6ff3WR+DsAAAAAAACAAAAAAAAAAAAAAAAAAACdI0gQcYCo0laR1Echsj4r9clXQXdhNwBdGmIdn2TckCfkMUwIE5oyPnlx3dksfTt3rHqyu/6o2ea72tC1vQvBabLCGri55FCEUHFI8+BZPuSef3G8/+WK6r//IOchYDimN4tXzkdE32cTqUpoNsHwVm4m3wd1KZyqpAphwG+8vimGwWIHWArNURDRAA=="
+      "src": "/images/halle-exterieur.webp",
+      "width": 1284,
+      "height": 831,
+      "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoIAAUAA4BaJQBOgCIClYZYAADifOXjPr5pyYei8xZ3uN8yX7noCgsg/mC/yOcBE7AAAA=="
     }
   },
   {
@@ -15,10 +15,10 @@
     "detail": "Un court sous halle pour jouer toute l'année, réservable comme les courts extérieurs.",
     "tag": "Ouvert à l'année",
     "image": {
-      "src": "/images/pickleball-jeunes.webp",
-      "width": 765,
-      "height": 1020,
-      "blurDataURL": "data:image/webp;base64,UklGRvQAAABXRUJQVlA4TOcAAAAvBcABAM1VICICHgiACQMAAACp5VXoQI4IDgAAAAAAAAAAAAAAIAAAQAD8AAAQACCAwPFz/AeLYwQAAOCBANswAAAAnH+StNM7HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwWOOBAKQwAAAAnP/f/4wAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABtPWp/L5i0x/9TB+ySq8zgszSGVf3mf1z7hHoum7pj21hvdcMx4/vlZnlI799K3fzBEER+NCr+tmOX3bpQ5NUlCmRnwOOCWpRQXCJl0SBIFvFYOfilEA"
+      "src": "/images/halle-padel.webp",
+      "width": 1180,
+      "height": 614,
+      "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoIAAQAA4BaJYgCdAEO/gOOAAD+ih3gQutiAqI8wqeb17nWgkjJKxO4dhKwAA=="
     }
   },
   {
@@ -26,10 +26,10 @@
     "detail": "Structure SLAMCOURT panoramique dernière génération, éclairée, réservable en ligne 7j/7.",
     "tag": "Nouveau",
     "image": {
-      "src": "/images/padel-court.webp",
-      "width": 765,
-      "height": 1020,
-      "blurDataURL": "data:image/webp;base64,UklGRgYBAABXRUJQVlA4TPkAAAAvBcABAM1VICICHghADgIAAABrpc4/CEpAmQEMAAAAAAAAIAAAAAgAAAAAAAIAABIIgKGE4AsGqhYAAAAPBMAGAQAA4Pz3XW74VJhQhAAAAQAAAAAAAAAAAAAAAAAAAAAAAA4AAJAD3MPY+TwQABsEAACA86dVwQscAAAAAAAAHAAAAAAAAAAAAAAAAAAQgR8A4Pnx3Yp+hPST3C9yKOLR5bNRAdzXMb5bplPqJcqZbIGsVXUuMev14hy7w7hH9kz7betzt7tvc8CAvPNV3Ebvgm2COofsPTVzYOugUPzsp3Lw9wL6RQsp4TVEfaUIQMzn9D7gT+02HwEA"
+      "src": "/images/padel-couvert.webp",
+      "width": 480,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACwAQCdASoGAAgAA4BaJQBOgCHVW89AAP6yL4z5D7+oz/3asDq68kbTtCWpdFqjJukLlaBY6UAAAA=="
     }
   },
   {
@@ -37,10 +37,10 @@
     "detail": "150 m² avec cuisine équipée, terrasse ombragée, pétanque, espace vert et parking gratuit.",
     "tag": "150 m²",
     "image": {
-      "src": "/images/club-house.webp",
-      "width": 765,
-      "height": 1020,
-      "blurDataURL": "data:image/webp;base64,UklGRgYBAABXRUJQVlA4TPoAAAAvBcABAM1VICICHgiADQIAAIB3PZAA3QGQAuQABACAAwAAAAAAAAAAAAB+wAEHABziQgj0A36DPyUHAADAAwEwYQAAADj/Na+5AwUEABziQAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgx1tTb7sHAmCDAAAAcP56e7lsPMURAADAAQAAAAAAAAAAAAAAAAAAgDjgcOAAACEBIlOPVD2ResLz9vEeymPa3jT0ZHfxHLfT8TJ+V3DVW6iuUBz7a1La4/z+W6ZJDS25ha+uA4DVaozXT2Utbe/wI8c5qWWGYlML3Eh5nIs32WsJvpuJ/pUHORKKCnCrPJGCQ4ca"
+      "src": "/images/club-house-bar.webp",
+      "width": 1284,
+      "height": 988,
+      "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoIAAYAA4BaJZwAAu177TYy7mAA/u5k77tQmP4/v+XV1EHtVso3KjT4Q5WmFYAA"
     }
   }
 ]

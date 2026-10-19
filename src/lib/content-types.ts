@@ -52,6 +52,7 @@ export type NewsItem = {
   slug: string;
   title: string;
   date: string;
+  eventDate?: string; // AAAA-MM-JJ : jour de l'événement annoncé, affiché à la place de `date` sur la page Actualités
   category: string;
   excerpt: string;
   content?: string; // article complet (page /actualites/[slug]) ; à défaut, le résumé

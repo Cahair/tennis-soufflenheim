@@ -4,9 +4,10 @@ import Link from "next/link";
 import Accordion from "@/components/Accordion";
 import HistoireChrono from "@/components/HistoireChrono";
 import PageHero from "@/components/PageHero";
-import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
 import CtaBand from "@/components/home/CtaBand";
+import { ArrowRight } from "@/components/landing/Arrow";
+import NightFx from "@/components/landing/NightFx";
 import {
   getCommittee,
   getFacilities,
@@ -25,6 +26,16 @@ export const metadata: Metadata = pageMetadata({
   path: "/le-club",
 });
 
+/* Les petits plus, en autocollants inclinés (une rotation par position). */
+const EXTRAS = ["Terrain de pétanque", "Espace vert", "Parking gratuit illimité", "Terrasse ombragée", "Cuisine équipée"];
+const TILTS = ["-rotate-6", "rotate-3", "-rotate-2", "rotate-6", "-rotate-3"];
+
+/* ------------------------------------------------------------------ */
+/*  Le club : frise néon de l'histoire, mot du président en enseigne, */
+/*  souvenir en polaroïd scotché, mur des bénévoles qui défile en     */
+/*  trois rubans, installations en cartes qui s'empilent au           */
+/*  défilement (position sticky), petits plus en autocollants.        */
+/* ------------------------------------------------------------------ */
 export default async function LeClubPage() {
   const [site, committee, facilities, histoireChapitres, histoireInfos] =
     await Promise.all([
@@ -34,185 +45,207 @@ export default async function LeClubPage() {
       getHistoireChapitres(),
       getHistoireInfos(),
     ]);
+  const names = committee.map((m) => m.name);
+  const wall = [...names, ...names];
+
   return (
     <>
       <PageHero
         kicker="Le club"
         title="Une histoire de famille depuis 1979"
         text="Du premier échange rue de Koenigsbruck à la piste de padel dernière génération : presque un demi-siècle de passion, porté par des bénévoles qui ne lâchent rien."
+        echo="1979"
+        effect="neon"
+        tape={["Depuis 1979", "Bénévoles", "Famille", "Padel", "Tennis", "Fêtes du club", "Soufflenheim"]}
       />
 
       {/* Histoire du club, en ordre chronologique */}
-      <section className="bg-night-50 py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionHeader
-              align="left"
-              kicker="Notre histoire"
-              title="Presque 50 ans de petites et grandes victoires"
-              text="De la fondation en 1979 à l'arrivée du padel : replongez dans les archives du club, année après année. Cliquez sur une photo pour l'agrandir et feuilleter l'album."
-            />
-          </Reveal>
-
-          <div className="mt-14">
+      <section className="relative overflow-clip bg-night-950 py-28 text-white">
+        <NightFx glow="right" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            align="left"
+            kicker="Notre histoire"
+            title="Presque 50 ans de petites et grandes victoires"
+            text="De la fondation en 1979 à l'arrivée du padel : replongez dans les archives du club, année après année. Cliquez sur une photo pour l'agrandir et feuilleter l'album."
+          />
+          <div className="mt-20">
             <HistoireChrono chapitres={histoireChapitres} />
           </div>
+        </div>
+      </section>
 
-          {/* Remerciements & bénévoles de l'histoire */}
-          <Reveal>
-            <div className="mt-20 grid gap-8 lg:grid-cols-[1fr_1.1fr]">
-              <div className="relative overflow-hidden rounded-3xl bg-night-800 p-8 text-white shadow-xl shadow-night-800/25 sm:p-10">
-                <span className="display absolute -top-4 right-6 text-[7rem] leading-none text-white/10">
-                  &ldquo;
-                </span>
-                <span className="kicker text-rose-400">Merci à eux</span>
-                <p className="relative mt-5 leading-relaxed text-white/90">
-                  {histoireInfos.remerciements}
-                </p>
-              </div>
-              <div>
-                <Accordion
-                  defaultOpen={null}
-                  items={[
-                    {
-                      q: `Les membres du comité au fil des années (${histoireInfos.membresComite.length})`,
-                      a: histoireInfos.membresComite.join(" · "),
-                    },
-                    {
-                      q: `Les éducateurs et animateurs sportifs (${histoireInfos.educateurs.length})`,
-                      a: histoireInfos.educateurs.join(" · "),
-                    },
-                  ]}
-                />
-              </div>
-            </div>
-          </Reveal>
-          {/* Souvenir & mot du président */}
-          <div className="mt-8 grid items-start gap-8 lg:grid-cols-2">
-            <Reveal>
-              <figure className="overflow-hidden rounded-3xl border border-night-200 bg-white p-4 shadow-xl shadow-night-950/5">
-                <Image
-                  src={logoHistorique}
-                  alt="L'ancien logo du Tennis Club Soufflenheim, sur terre battue"
-                  placeholder="blur"
-                  sizes="(max-width: 1024px) 90vw, 45vw"
-                  className="h-auto w-full rounded-2xl"
-                />
-                <figcaption className="px-2 pb-1 pt-4 text-xs text-night-950/50">
-                  Souvenir : la bannière historique du Tennis Club, avant
-                  l&rsquo;arrivée du padel.
-                </figcaption>
-              </figure>
-            </Reveal>
-
-            {/* Mot du président */}
-            <Reveal direction="right" delay={120}>
-              <div className="relative overflow-hidden rounded-3xl bg-night-800 p-8 text-white shadow-xl shadow-night-800/25 sm:p-10">
-                <span className="display absolute -top-4 right-6 text-[7rem] leading-none text-white/10">
-                  &ldquo;
-                </span>
-                <span className="kicker text-rose-400">Le mot du président</span>
-                <blockquote className="relative mt-5 text-lg leading-relaxed text-white/90">
-                  {site.motPresident}
-                </blockquote>
-                <div className="mt-7 flex items-center gap-4">
-                  <span className="display flex h-12 w-12 items-center justify-center rounded-full bg-rose-500 text-xl text-night-950">
-                    {site.president.charAt(0)}
-                  </span>
-                  <div>
-                    <p className="font-bold">{site.president}</p>
-                    <p className="text-xs text-white/60">
-                      Président ·{" "}
-                      <a href={telHref(site.phonePresident)} className="hover:text-rose-300">
-                        {site.phonePresident}
-                      </a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
+      {/* Le mot du président, en enseigne néon */}
+      <section className="relative overflow-clip bg-night-950 py-28 text-white">
+        <NightFx beams floaters={[]} />
+        <div className="relative mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+          <span aria-hidden="true" className="hero-neon display block text-[10rem] leading-[0.6] text-rose-400">
+            &ldquo;
+          </span>
+          <p className="kicker kicker-center mt-6 text-rose-300">Le mot du président</p>
+          <blockquote className="mt-8 font-display text-[clamp(1.5rem,3.2vw,2.6rem)] font-light leading-snug text-white">
+            {site.motPresident}
+          </blockquote>
+          <div className="mt-10 inline-flex items-center gap-4 rounded-full border border-rose-400/40 bg-rose-500/10 py-2 pl-2 pr-6 text-left backdrop-blur">
+            <span className="display flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-rose-400 to-ultra-500 text-xl text-white">
+              {site.president.charAt(0)}
+            </span>
+            <span>
+              <span className="block font-bold">{site.president}</span>
+              <span className="block text-xs text-white/70">
+                Président ·{" "}
+                <a href={telHref(site.phonePresident)} className="hover:text-rose-300">
+                  {site.phonePresident}
+                </a>
+              </span>
+            </span>
           </div>
         </div>
       </section>
 
-      {/* Comité — présenté en détail sur sa page dédiée */}
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionHeader
-              kicker="Le comité"
-              title="Une équipe de bénévoles engagés"
-              text={`Derrière chaque tournoi, chaque soirée et chaque court entretenu, il y a des mains bénévoles : ${committee.length} membres répartis entre le bureau et quatre commissions.`}
+      {/* Remerciements, souvenir et bénévoles de l'histoire */}
+      <section className="relative overflow-clip bg-night-950 py-28 text-white">
+        <NightFx glow="left" />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <figure data-tilt className="relative mx-auto max-w-lg -rotate-3 bg-white p-3 pb-12 shadow-[0_40px_80px_-25px_rgba(0,0,0,0.9)]">
+            <span aria-hidden="true" className="absolute -top-4 left-1/2 z-10 h-8 w-32 -translate-x-1/2 rotate-2 bg-rose-300/70" />
+            <Image
+              src={logoHistorique}
+              alt="L'ancien logo du Tennis Club Soufflenheim, sur terre battue"
+              placeholder="blur"
+              sizes="(max-width: 1024px) 90vw, 32rem"
+              className="h-auto w-full"
             />
-          </Reveal>
-          <Reveal delay={100}>
-            <div className="mt-10 text-center">
-              <Link href="/comite" className="btn btn-night">
-                Découvrir le comité
-              </Link>
+            <figcaption className="absolute inset-x-3 bottom-3 text-center font-display text-sm text-night-900">
+              Souvenir : la bannière historique du Tennis Club
+            </figcaption>
+            <div className="nfx-shine" />
+          </figure>
+          <div>
+            <p className="kicker text-rose-300">Merci à eux</p>
+            <p className="mt-6 text-xl leading-relaxed text-white/85">{histoireInfos.remerciements}</p>
+            <div className="mt-10">
+              <Accordion
+                defaultOpen={null}
+                items={[
+                  {
+                    q: `Les membres du comité au fil des années (${histoireInfos.membresComite.length})`,
+                    a: histoireInfos.membresComite.join(" · "),
+                  },
+                  {
+                    q: `Les éducateurs et animateurs sportifs (${histoireInfos.educateurs.length})`,
+                    a: histoireInfos.educateurs.join(" · "),
+                  },
+                ]}
+              />
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
-      {/* Installations */}
-      <section id="installations" className="scroll-mt-20 bg-night-50 py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionHeader
-              kicker="Les installations"
-              title="Tout pour jouer, tout pour rester"
-              text="Courts, piste de padel, club house avec cuisine, pétanque et espace vert : le TPCS est pensé pour les sportifs comme pour les supporters."
-            />
-          </Reveal>
-          <div className="mt-14 grid gap-8 sm:grid-cols-2">
+      {/* Comité : le mur des bénévoles qui défile */}
+      <section className="relative overflow-clip bg-night-950 py-28 text-white">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            kicker="Le comité"
+            title="Une équipe de bénévoles engagés"
+            text={`Derrière chaque tournoi, chaque soirée et chaque court entretenu, il y a des mains bénévoles : ${committee.length} membres répartis entre le bureau et quatre commissions.`}
+          />
+        </div>
+        <div aria-hidden="true" className="marquee mt-16 -rotate-2 space-y-3">
+          {[0, 1, 2].map((row) => (
+            <div key={row} className="overflow-hidden">
+              <div
+                className={`marquee-track flex ${row % 2 ? "marquee-reverse" : ""}`}
+                style={{ animationDuration: `${30 + row * 8}s` }}
+              >
+                {wall.map((n, i) => (
+                  <span
+                    key={i}
+                    className={`display flex items-center gap-6 pr-6 text-[clamp(2.5rem,6vw,5rem)] leading-none ${
+                      (i + row) % 3 === 0 ? "text-rose-400" : (i + row) % 3 === 1 ? "hero-outline" : "text-white"
+                    }`}
+                  >
+                    {n}
+                    <span className="text-2xl text-ultra-400">✦</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="relative mt-16 text-center">
+          <Link href="/comite" className="btn btn-rose">
+            Découvrir le comité
+            <ArrowRight />
+          </Link>
+        </div>
+      </section>
+
+      {/* Installations : cartes qui s'empilent au défilement */}
+      <section id="installations" className="relative scroll-mt-20 bg-night-950 py-28 text-white">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            kicker="Les installations"
+            title="Tout pour jouer, tout pour rester"
+            text="Courts, piste de padel, club house avec cuisine, pétanque et espace vert : le TPCS est pensé pour les sportifs comme pour les supporters."
+          />
+          <div className="mt-16">
             {facilities.map((facility, i) => (
-              <Reveal key={facility.title} delay={i * 100} className="h-full">
-                <article className="card-lift group flex h-full flex-col overflow-hidden rounded-3xl border border-night-200 bg-white">
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src={facility.image}
-                      alt={facility.title}
-                      fill
-                      placeholder={facility.image.blurDataURL ? "blur" : "empty"}
-                      sizes="(max-width: 640px) 90vw, 45vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <span className="absolute left-4 top-4 rounded-full bg-rose-500 px-3.5 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-night-950 shadow-lg">
-                      {facility.tag}
-                    </span>
+              <article
+                key={facility.title}
+                className="sticky mb-10 last:mb-0"
+                style={{ top: `${6 + i * 1.5}rem` }}
+              >
+                <div
+                  className={`holo-frame rounded-[2rem] p-[2px] shadow-[0_-30px_80px_-30px_rgba(10,6,16,1),0_40px_90px_-40px_rgba(234,51,111,0.8)] ${
+                    i % 2 ? "rotate-1" : "-rotate-1"
+                  }`}
+                >
+                  <div className="grid overflow-hidden rounded-[calc(2rem-2px)] bg-night-900 md:grid-cols-2">
+                    <div className={`relative h-64 md:h-[26rem] ${i % 2 ? "md:order-2" : ""}`}>
+                      <Image
+                        src={facility.image}
+                        alt={facility.title}
+                        fill
+                        placeholder={facility.image.blurDataURL ? "blur" : "empty"}
+                        sizes="(max-width: 768px) 92vw, 45vw"
+                        className="object-cover"
+                      />
+                      <span className="absolute left-5 top-5 rounded-full bg-rose-500 px-3.5 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-night-950 shadow-lg">
+                        {facility.tag}
+                      </span>
+                    </div>
+                    <div className="relative flex flex-col justify-center p-8 sm:p-12">
+                      <span aria-hidden="true" className="hero-outline display absolute right-6 top-4 text-[6rem] leading-none">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="display relative text-4xl text-white sm:text-5xl">{facility.title}</h3>
+                      <p className="relative mt-4 leading-relaxed text-white/70">{facility.detail}</p>
+                    </div>
                   </div>
-                  <div className="p-7">
-                    <h3 className="display text-2xl text-night-950">{facility.title}</h3>
-                    <p className="mt-2.5 text-sm leading-relaxed text-night-950/65">
-                      {facility.detail}
-                    </p>
-                  </div>
-                </article>
-              </Reveal>
+                </div>
+              </article>
             ))}
           </div>
 
-          <Reveal delay={150}>
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
-              {["Terrain de pétanque", "Espace vert", "Parking gratuit illimité", "Terrasse ombragée", "Cuisine équipée"].map((extra) => (
-                <span
-                  key={extra}
-                  className="rounded-full border border-night-300 bg-white px-5 py-2.5 text-sm font-semibold text-night-800"
-                >
-                  {extra}
-                </span>
-              ))}
-            </div>
-          </Reveal>
+          <ul className="mt-20 flex flex-wrap items-center justify-center gap-4">
+            {EXTRAS.map((extra, i) => (
+              <li
+                key={extra}
+                className={`${TILTS[i % TILTS.length]} cursor-default rounded-2xl border-2 border-dashed border-night-950/40 bg-rose-400 px-5 py-3 font-display text-lg uppercase text-night-950 shadow-[0_15px_30px_-10px_rgba(234,51,111,0.8)] transition-transform duration-300 hover:rotate-0 hover:scale-110`}
+              >
+                {extra}
+              </li>
+            ))}
+          </ul>
 
-          <Reveal delay={200}>
-            <div className="mt-14 text-center">
-              <Link href="/tarifs" className="btn btn-night">
-                Voir les formules d&rsquo;adhésion
-              </Link>
-            </div>
-          </Reveal>
+          <div className="mt-16 text-center">
+            <Link href="/tarifs" className="link-arrow text-rose-300 hover:text-white">
+              Voir les formules d&rsquo;adhésion
+              <ArrowRight />
+            </Link>
+          </div>
         </div>
       </section>
 

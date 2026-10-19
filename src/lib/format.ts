@@ -10,6 +10,19 @@ const frenchMonths = [
   "juillet", "août", "septembre", "octobre", "novembre", "décembre",
 ];
 
+/* Date ISO (« 2026-11-01 ») → « dimanche 1er novembre 2026 ».
+   Renvoie undefined si la valeur n'est pas une date valide. */
+export function frenchLongDate(iso: string): string | undefined {
+  const match = iso.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return undefined;
+  const date = new Date(Date.UTC(+match[1], +match[2] - 1, +match[3]));
+  const month = frenchMonths[date.getUTCMonth()];
+  if (!month || date.getUTCDate() !== +match[3]) return undefined;
+  const weekday = date.toLocaleDateString("fr-FR", { weekday: "long", timeZone: "UTC" });
+  const day = date.getUTCDate() === 1 ? "1er" : String(date.getUTCDate());
+  return `${weekday} ${day} ${month} ${match[1]}`;
+}
+
 /* Convertit une date affichée (« 12 juin 2026 », « 1er mai 2026 ») en
    date ISO (« 2026-06-12 ») pour schema.org et le sitemap. Renvoie
    undefined si le texte saisi dans l'admin ne suit pas ce format. */
