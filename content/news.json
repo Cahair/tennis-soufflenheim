@@ -1,5 +1,20 @@
 [
   {
+    "slug": "soiree-moules-frites-28-novembre",
+    "title": "Soirée moules-frites le samedi 28 novembre",
+    "date": "21 octobre 2026",
+    "eventDate": "2026-11-28",
+    "category": "Vie du club",
+    "excerpt": "Le samedi 28 novembre à partir de 19 h 30, le club house vous attend pour une soirée moules-frites : 15 € avec dessert et café. Pensez à réserver !",
+    "content": "Le samedi 28 novembre, à partir de 19 h 30, le club house du Tennis Padel Garden Club de Soufflenheim accueille une soirée moules-frites.\n\nAu menu pour 15 € : moules-frites, dessert et café. Une alternative cordon bleu est proposée.\n\nRéservation par e-mail : president.tpcs@gmail.com.",
+    "image": {
+      "src": "/images/affiche-moules-frites.webp",
+      "width": 768,
+      "height": 1376,
+      "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoIAA4ABABoJZgCdAEegYhDaaAA/sRmhmebQdamFzDyXrP4fBYpwEfB3EhEViEGVWr5rDvsOTUMQrSaOUAAAA=="
+    }
+  },
+  {
     "slug": "tournoi-padel-mixte-1er-novembre",
     "title": "Tournoi de padel Mixte P50 le dimanche 1er novembre",
     "date": "17 octobre 2026",
@@ -47,7 +62,7 @@
   },
   {
     "slug": "pickleball-decouverte",
-    "title": "Le pickleball débarque au TPCS !",
+    "title": "Le pickleball débarque au club !",
     "date": "12 juin 2026",
     "category": "Nouveauté",
     "excerpt": "Proche du tennis de plage, ludique et accessible dès le plus jeune âge : le club vous invite à découvrir le pickleball lors de sessions d'initiation gratuites, matériel fourni.",
@@ -82,6 +97,20 @@
       "width": 480,
       "height": 640,
       "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoGAAgAA4BaJYwCdAD0udJDLgAAzEUM83L9WHjpNxjx8lcWFpGeaq1po9/9QAAA"
+    }
+  },
+  {
+    "slug": "inauguration-halle-padel",
+    "title": "La halle de padel couverte est inaugurée",
+    "date": "Avril 2026",
+    "category": "Padel",
+    "excerpt": "Élus, partenaires, membres et bénévoles se sont retrouvés sous la nouvelle halle pour inaugurer le padel couvert du club. Retour en images.",
+    "content": "Élus, partenaires, membres et bénévoles se sont retrouvés sous la nouvelle halle pour inaugurer le padel couvert du club.\n\nDiscours, découverte des pistes et verre de l'amitié : merci à toutes celles et ceux qui ont rendu ce projet possible.\n\nRetrouvez toutes les photos de la journée dans la galerie du site.",
+    "image": {
+      "src": "/images/inauguration-micro.webp",
+      "width": 640,
+      "height": 485,
+      "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoIAAYABABoJYgC7AD5i2IUZuAA/rX7r+DFRtrqdEdkQcV8xiead7ixoC1U1Ik57rYbkAAA"
     }
   },
   {

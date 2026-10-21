@@ -20,16 +20,6 @@
     "detail": "Assurances"
   },
   {
-    "name": "Burger — Alliance Énergies",
-    "logo": {
-      "src": "/sponsor/burger.png",
-      "width": 265,
-      "height": 265,
-      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAAqElEQVR42nWOyQ6CMBRF+/8fRKJBCIQ4bDAOccCgAdJqLUp5baGUYmTh1pOb3M1ZHGStNcb0fT+MWPvbMCBG6TzwF1EERUHcAM9C7IVVkiJMaLzeONPwfMq2frByJrHrsbxAGS6PF7zc4UN6h6oUADVwrTVSQpEEa9nyx/WV7/uu5YILJREIeStI02rGniWjnelyQss3R0o143fG1CBBqjGSgxg99PnDF35osAzlzHVoAAAAAElFTkSuQmCC"
-    },
-    "detail": "Fioul, chauffage, climatisation & bois"
-  },
-  {
     "name": "Crédit Mutuel",
     "logo": {
       "src": "/sponsor/credit_mutuel.png",
@@ -38,26 +28,6 @@
       "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAAW0lEQVR42pWOSwqAIBQA3/1vFkloT/xgWVZEZ0h95iZoE9Qwu9kMlBfgQyAq9AidCkxODXcH67tWMzmj2/S4g9feoONoF1TItZDOCBuGFXKM1XSTq2eklOD31QW2yrd7i15uPgAAAABJRU5ErkJggg=="
     },
     "detail": "Banque & assurances"
-  },
-  {
-    "name": "Électricité Roche",
-    "logo": {
-      "src": "/sponsor/electricite_roche.png",
-      "width": 265,
-      "height": 265,
-      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAAkElEQVR42nWNzQrCMBCE8/7PJB6LglKlCD007dJs1qpNxUvo5k8jlN76wTBzGT7x3UAwO6W1BJBd17RtC4D0mNmLl/k8R3Otm/3xsjuUHVIDZGcnej1CT2VVF6eqOFe3Wkog54PwPuQazQTQoyZmH0L8O3LyHqY3os5Yaxe5j3Ewk0JUSmU30Z2Zl8dKSmndP2z7syUKAGFOAAAAAElFTkSuQmCC"
-    },
-    "detail": "Électricité générale · ventilation · dépannage"
-  },
-  {
-    "name": "Ergysport",
-    "logo": {
-      "src": "/sponsor/ergysport.png",
-      "width": 265,
-      "height": 265,
-      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAA00lEQVR42gHIADf/APnx68eaetSgfNKdetCcedGZdtqhfvrv6QD48ey7lX/BoIfYqYXdm3DinnLnrIX68esA+O/pzJd1xo9n0ZZu3pts4Zdm46J3+u/oAPXs5rCCZKd3VdOPY5tyVnBWQaV7X/nv6AD27eeXc2RaQj6McVaFa1eDXzSogGD57+kA+O/onnlrbGNRXXlcW19edmNOqY5z+fHrAP38+NTUyra7tLy/ubrBwL2+ts/Qw/z7+QD9/fvm7OPe6Oje5uTU3uLl6Ovp6er8/PyMb4V9J8tIHgAAAABJRU5ErkJggg=="
-    },
-    "detail": "Nutrition du sportif"
   },
   {
     "name": "Haasser",
@@ -79,35 +49,6 @@
     "detail": "Haute coiffure française"
   },
   {
-    "name": "E.Leclerc",
-    "logo": {
-      "src": "/sponsor/leclerc.png",
-      "width": 265,
-      "height": 265,
-      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAAXUlEQVR42p2NKw6AMBAF9/5XQvBJwVQ0FQ0IAkkJlASBA7oty0dhANHJMy8jBo4P4E8QPR+dXza8xWo9r0yuTCL7axGvU5ah28GiF+VQyI4JHfNWNZMeZyKCoPgrJzSCuPDB/PvKAAAAAElFTkSuQmCC"
-    },
-    "detail": "Grande distribution"
-  },
-  {
-    "name": "Réseau Artisans",
-    "logo": {
-      "src": "/sponsor/reseau_artisans.png",
-      "width": 265,
-      "height": 265,
-      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAkklEQVR42q3IzwpBQRSA8XPGHM0Zc0e4YpINNrcm3btRbv6tKEVKsdBd2VhRygtYWHkHT+AdsfAE/OrbfAA/Q0Rg1lwqGGu1CkNjyuIzv7xP0tt5/7zuZsf1oLvIRsm4Uwuqrkja2byCyXS4uhzSR7aJt6dev3Wf+/Yyari4yZWozhaIJL6TOSFAoYKACCRK+J8XlCMP/rjAMKYAAAAASUVORK5CYII="
-    },
-    "detail": "Votre partenaire travaux"
-  },
-  {
-    "name": "Sater",
-    "logo": {
-      "src": "/sponsor/sater.png",
-      "width": 265,
-      "height": 265,
-      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAA00lEQVR42gHIADf/AL+/g5SUiJSVh5ydgJudf5eZgpKTiMPCjwCBgXYnJ4lKSHWXlkSWlUWKiEw0MoOOiocAf350JCOGTEpynJs/fn9TtLEya2leko+BAI2ObFtaZmNhYZWURGJkYaWkPpWUSKmncgCQkm1kZmZpaWRmZ2c3O4BRVXVvb2SlpXYAhIV4OjyRNTePPkCSP0GUREaWSEmQkpGFAJaYfoGEqoWHrHd7p32Aq5GUsY+Sr5mYiwC1tHeXmIWUloSPkIGRkIOcnIaZmIS9u4bJ9l1j/DTSxAAAAABJRU5ErkJggg=="
-    }
-  },
-  {
     "name": "Schroll",
     "logo": {
       "src": "/sponsor/schroll.png",
@@ -126,16 +67,6 @@
       "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAAfklEQVR42n2NuwqDMABF8+XdSjuU/kOHdmiXgls2dRAURAcjRDTg+/0kJpvGD4h3uFzuGQ7YJAFSMK4cpS0uepSXfhOFXWaRRJzAjoM7/N3g9wrfD/X11D4X5W8QDChnYV7oLtIcT7SJMCkrcR6OhbJmmNthrrtJDMr4qVwGdvClsX91f4HDAAAAAElFTkSuQmCC"
     },
     "detail": "Contrôle technique automobile"
-  },
-  {
-    "name": "SK Automobiles",
-    "logo": {
-      "src": "/sponsor/SK_automobiles.png",
-      "width": 265,
-      "height": 265,
-      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAAaElEQVR42nWOTQqAIBSEvUrpw2crxUBp43MVQYuKDtD9T5H2Y7TwWw0MfDOsqcBKai9+BQBIKeHlKVLapnGhwehMb63RhnPOlOqOdd6DjxRjIArknQMBWYWoEPH2JKcQ4hsvsyWw2t0TkGcdpw5Ikc8AAAAASUVORK5CYII="
-    },
-    "detail": "Neuf et occasions toutes marques"
   },
   {
     "name": "Suez",

@@ -55,7 +55,7 @@ export default async function Hero() {
 
           <Reveal delay={200}>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-white/70 sm:mt-6 sm:text-lg">
-              Au cœur du pays des potiers, le TPCS vous accueille sur ses courts
+              Au cœur du pays des potiers, le club vous accueille sur ses courts
               de tennis, sa piste de padel dernière génération et ses terrains
               de découverte. Réservez en ligne, venez jouer, restez pour la
               troisième mi-temps.

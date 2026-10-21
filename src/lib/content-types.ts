@@ -17,14 +17,12 @@ export type SiteSettings = {
   name: string;
   shortName: string;
   baseline: string;
-  address: { street: string; city: string; region: string };
+  address: { street: string; city: string; region: string; directions: string };
   phoneClub: string;
   phonePresident: string;
   president: string;
-  motPresident: string;
-  emails: { president: string; secretariat: string };
+  emails: { president: string };
   links: {
-    inscription: string;
     tenup: string;
     fftPadel: string;
     itineraire: string;

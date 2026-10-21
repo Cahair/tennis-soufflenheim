@@ -76,7 +76,7 @@ export default function TradingCard({
           <span className="holo-frame absolute inset-0 block rounded-[1.4rem] p-[3px] shadow-[0_40px_80px_-30px_rgba(234,51,111,0.85)] [backface-visibility:hidden]">
             <span className="relative flex h-full flex-col overflow-hidden rounded-[calc(1.4rem-3px)] bg-night-900">
               <span className="flex items-center justify-between px-4 pb-2 pt-3 text-[0.6rem] font-bold uppercase tracking-[0.2em] text-rose-200">
-                <span>TPCS · Comité</span>
+                <span>Comité du club</span>
                 <span>
                   {String(index + 1).padStart(2, "0")}/{String(total).padStart(2, "0")}
                 </span>

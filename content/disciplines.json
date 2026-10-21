@@ -3,10 +3,10 @@
     "name": "Tennis",
     "badge": "L'âme du club",
     "image": {
-      "src": "/images/halle-exterieur.webp",
-      "width": 1284,
-      "height": 831,
-      "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoIAAUAA4BaJQBOgCIClYZYAADifOXjPr5pyYei8xZ3uN8yX7noCgsg/mC/yOcBE7AAAA=="
+      "src": "/images/vue-aerienne-club.webp",
+      "width": 640,
+      "height": 428,
+      "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoIAAUABABoJYwC7AEWTWfagAD94cKbW7fgs5QjlGw+uX+0LZge6X/aIAA="
     },
     "description": "Deux courts extérieurs et un court couvert pour jouer toute l'année, en loisir comme en compétition. École de tennis dès 5 ans, encadrement passionné.",
     "features": [
@@ -16,17 +16,17 @@
     ],
     "cta": {
       "label": "Rejoindre l'école de tennis",
-      "href": "https://docs.google.com/forms/d/e/1FAIpQLSdwK46w1MOJwu8j38saJ6d-5iZOLfMvBG6KHmqHr0VKyQy4ww/viewform?usp=pp_url"
+      "href": "https://tenup.fft.fr"
     }
   },
   {
     "name": "Padel",
     "badge": "La sensation du moment",
     "image": {
-      "src": "/images/padel-couvert.webp",
-      "width": 480,
-      "height": 640,
-      "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACwAQCdASoGAAgAA4BaJQBOgCHVW89AAP6yL4z5D7+oz/3asDq68kbTtCWpdFqjJukLlaBY6UAAAA=="
+      "src": "/images/halle-exterieur.webp",
+      "width": 1284,
+      "height": 831,
+      "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoIAAUAA4BaJQBOgCIClYZYAADifOXjPr5pyYei8xZ3uN8yX7noCgsg/mC/yOcBE7AAAA=="
     },
     "description": "Notre piste SLAMCOURT dernière génération vous attend. Facile à prendre en main, terriblement addictif : le padel se joue à 4 et se réserve en quelques clics.",
     "features": [

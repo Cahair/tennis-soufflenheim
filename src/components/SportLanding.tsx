@@ -210,7 +210,7 @@ export default async function SportLanding({ sport }: { sport: SportPage }) {
           <SectionHeader
             kicker="Et aussi au club"
             title="Tennis & pickleball"
-            text="Le padel mène la danse, mais la raquette se joue aussi autrement au TPCS."
+            text="Le padel mène la danse, mais la raquette se joue aussi autrement au club."
           />
           <div className="mt-16 grid gap-8 md:grid-cols-2">
             {others.map((other) => {

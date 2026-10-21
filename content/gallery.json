@@ -163,5 +163,225 @@
     "alt": "La buvette du club et sa grande poêle",
     "category": "Événements",
     "caption": "La buvette du club"
+  },
+  {
+    "src": {
+      "src": "/images/vue-aerienne-club.webp",
+      "width": 640,
+      "height": 428,
+      "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoIAAUABABoJYwC7AEWTWfagAD94cKbW7fgs5QjlGw+uX+0LZge6X/aIAA="
+    },
+    "alt": "Vue aérienne du club : halle de padel, courts de tennis et club house",
+    "category": "Padel",
+    "caption": "Le club vu du ciel"
+  },
+  {
+    "src": {
+      "src": "/images/halle-padel-parking.webp",
+      "width": 640,
+      "height": 428,
+      "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADwAQCdASoIAAUABABoJZQCdEf/gbTusoAA4l0Z3tOYCVGlNSFcf58TQmCAoMcGwY2cTq4HorqYAA=="
+    },
+    "alt": "La halle de padel couverte vue depuis le parking du club",
+    "category": "Padel",
+    "caption": "La halle depuis l'entrée"
+  },
+  {
+    "src": {
+      "src": "/images/padel-nuit-logo.webp",
+      "width": 1282,
+      "height": 931,
+      "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACQAQCdASoIAAYABABoJQAAS4ZvEOwA/t4gsZmeRt+oR9F/Ez9T+PJeV4TovLU8xQAAAA=="
+    },
+    "alt": "La halle de padel éclairée de nuit, logo du club sur la façade",
+    "category": "Padel",
+    "caption": "La halle à la nuit tombée"
+  },
+  {
+    "src": {
+      "src": "/images/padel-nuit.webp",
+      "width": 1284,
+      "height": 896,
+      "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoIAAYABABoJaACdADzes/gAP7CU7yzVqAxmQiq5v0i2ws7qitFhS0I+vgIAAAA"
+    },
+    "alt": "Partie de padel en soirée sous la halle éclairée",
+    "category": "Padel",
+    "caption": "Padel en nocturne"
+  },
+  {
+    "src": {
+      "src": "/images/piste-padel-filet.webp",
+      "width": 480,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoIAAsABABoJbACdAEOuwXvAAD+kbcLsiDn7TKcs20ORPVQlTCAVgP7L5RPvx0DrgAAAA=="
+    },
+    "alt": "Une piste de padel couverte vue depuis le filet",
+    "category": "Padel",
+    "caption": "Au ras du filet"
+  },
+  {
+    "src": {
+      "src": "/images/padel-couvert-gazon.webp",
+      "width": 480,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoIAAsABABoJZACdAEOYUOagAD+xQvGQiMk4voTXzmN3uYZWpXpUAapnotBG9XLYG4mXn6I6AA="
+    },
+    "alt": "Les pistes de padel vitrées sous la halle couverte",
+    "category": "Padel",
+    "caption": "Sous la halle"
+  },
+  {
+    "src": {
+      "src": "/images/pistes-padel-vitrees.webp",
+      "width": 640,
+      "height": 471,
+      "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoIAAYABABoJbACdADx9MAAAMyHuxsFCLA53HsTw/tflXa4qrx1RHr19vgeAAAA"
+    },
+    "alt": "Les pistes de padel vitrées côte à côte",
+    "category": "Padel",
+    "caption": "Les pistes vitrées"
+  },
+  {
+    "src": {
+      "src": "/images/piste-padel-couverte.webp",
+      "width": 640,
+      "height": 483,
+      "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoIAAYABABoJQBOgCHQUSSRYAD8q+binD7kOR7QbTiXcAMfV33IRgAA"
+    },
+    "alt": "Une piste de padel couverte, filet au premier plan",
+    "category": "Padel",
+    "caption": "Prête à jouer"
+  },
+  {
+    "src": {
+      "src": "/images/halle-petanque.webp",
+      "width": 728,
+      "height": 921,
+      "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAQAgCdASoIAAoABABoJbACdGuAAof1ylcAAP7buMfrH62lq9abj0NUmcR/b+N1/wpS4HFY6hAclMHVqC85hgAA"
+    },
+    "alt": "Le terrain de pétanque devant la halle de padel",
+    "category": "Vie du club",
+    "caption": "Pétanque au pied de la halle"
+  },
+  {
+    "src": {
+      "src": "/images/allee-oliviers.webp",
+      "width": 480,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAAAQAgCdASoIAAsABABoJbACdAEfbS6tsswAAP3wNU3v84Yd0nXCe8SHaOlKkS+sF3cHOZ+x5a4y1kCIAAA="
+    },
+    "alt": "L'allée d'oliviers le long de la halle de padel",
+    "category": "Vie du club",
+    "caption": "L'allée des oliviers"
+  },
+  {
+    "src": {
+      "src": "/images/terrasse-oliviers.webp",
+      "width": 480,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAgCdASoIAAsABABoJZgCdAD0Tw1a3MgAAOAz7/S8kbEIZk9JF1q1iRHlitMcxy6ojEANf6f+qTGRY91xNi8q7hNTxhS2AAA="
+    },
+    "alt": "Tables et oliviers sur l'espace vert du club",
+    "category": "Vie du club",
+    "caption": "L'espace vert"
+  },
+  {
+    "src": {
+      "src": "/images/olivier-padel.webp",
+      "width": 480,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACwAQCdASoIAAsABABoJbAC7ADZGyfAAP3bqjHDDaOO5ZyoIbm2WQ4ji6Gol+3cHk8EubH+vSm6qAAA"
+    },
+    "alt": "Un olivier au bord des pistes de padel",
+    "category": "Vie du club",
+    "caption": "Un coin de verdure"
+  },
+  {
+    "src": {
+      "src": "/images/espace-vert-padel.webp",
+      "width": 640,
+      "height": 624,
+      "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoIAAgABABoJbACdADzbD1YAPyqlnDyD5iTErfIaIoFT4Hta1dyZxMAVAAAAA=="
+    },
+    "alt": "L'espace vert aménagé le long de la halle de padel",
+    "category": "Vie du club",
+    "caption": "Au bord des pistes"
+  },
+  {
+    "src": {
+      "src": "/images/inauguration-micro.webp",
+      "width": 640,
+      "height": 485,
+      "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoIAAYABABoJYgC7AD5i2IUZuAA/rX7r+DFRtrqdEdkQcV8xiead7ixoC1U1Ik57rYbkAAA"
+    },
+    "alt": "Discours lors de l'inauguration de la halle de padel",
+    "category": "Événements",
+    "caption": "Inauguration de la halle"
+  },
+  {
+    "src": {
+      "src": "/images/inauguration-discours.webp",
+      "width": 418,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoIAAwABABoJQBdgB6OUJ+IAAD86LH+Jk6AH9e9ZGAMVi/pW81T3XMsSrDYG7yZbCwChPWFYAA="
+    },
+    "alt": "Prise de parole sur la piste de padel le jour de l'inauguration",
+    "category": "Événements",
+    "caption": "Les discours"
+  },
+  {
+    "src": {
+      "src": "/images/inauguration-president.webp",
+      "width": 491,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAAAQAgCdASoIAAoABABoJYgCdH8AGX9vw6OgAP61742wr44zLO4mT/QP++WRaJPI0PObeJCCjuLXYNzJUK/kAA=="
+    },
+    "alt": "Discours au micro sous la halle de padel",
+    "category": "Événements",
+    "caption": "Au micro"
+  },
+  {
+    "src": {
+      "src": "/images/inauguration-duo.webp",
+      "width": 488,
+      "height": 640,
+      "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAQCdASoIAAoABABoJZACdADx/DmIAP6UuvPpmcZvoMXlAqkbhUC8E7A4q6UtLwawqHc5dWhrj9GDnZvNEWU6wAA="
+    },
+    "alt": "Prise de parole à deux pendant l'inauguration",
+    "category": "Événements",
+    "caption": "Inauguration : les remerciements"
+  },
+  {
+    "src": {
+      "src": "/images/inauguration-public.webp",
+      "width": 640,
+      "height": 369,
+      "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoIAAUABABoJZgC7AEO94p2sAD8Ao1BXT7kEavtRCTmD5lVD4xyo0Wl4AA="
+    },
+    "alt": "Le public réuni pour l'inauguration",
+    "category": "Événements",
+    "caption": "Le public de l'inauguration"
+  },
+  {
+    "src": {
+      "src": "/images/inauguration-foule.webp",
+      "width": 640,
+      "height": 324,
+      "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACQAQCdASoIAAQABABoJZwAAp02M1AA/qN/Rkz1C6huL59S6J3DPgXYjCHAAA=="
+    },
+    "alt": "Invités et membres rassemblés au bord des pistes",
+    "category": "Événements",
+    "caption": "Tout le monde est là"
+  },
+  {
+    "src": {
+      "src": "/images/inauguration-invites.webp",
+      "width": 640,
+      "height": 380,
+      "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoIAAUABABoJYwC7AEO1PVE8ADeZqGvXYVNyopQqRE2MpgwABPSC4+CeAA="
+    },
+    "alt": "Les invités écoutent les discours de l'inauguration",
+    "category": "Événements",
+    "caption": "Les invités"
   }
 ]

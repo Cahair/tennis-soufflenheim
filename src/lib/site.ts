@@ -14,9 +14,9 @@ export const SITE_URL = (
 export const UMAMI_WEBSITE_ID = process.env.UMAMI_WEBSITE_ID ?? "";
 export const UMAMI_SCRIPT_URL = "https://cloud.umami.is/script.js";
 
-/* Position du club (entrée rue de Koenigsbruck), pour schema.org.
+/* Position du club (derrière la caserne des pompiers), pour schema.org.
    Même point que le marqueur de la carte de la page Contact. */
-export const CLUB_GEO = { latitude: 48.8323, longitude: 7.9664 };
+export const CLUB_GEO = { latitude: 48.8332, longitude: 7.9606 };
 
 /* Communes d'où viennent nos joueurs, avec un temps de trajet
    indicatif en voiture. Sert au bloc « Venir au club » des pages

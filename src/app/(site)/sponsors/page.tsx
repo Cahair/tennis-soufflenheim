@@ -64,7 +64,7 @@ export default async function SponsorsPage() {
       <PageHero
         kicker="Sponsors"
         title="Ils font gagner le club"
-        text="Commerçants, artisans et entreprises de la région soutiennent le TPCS saison après saison. Sans eux, pas de tournois, pas de piste de padel, pas de fête du club : merci à eux !"
+        text="Commerçants, artisans et entreprises de la région soutiennent le club saison après saison. Sans eux, pas de tournois, pas de piste de padel, pas de fête du club : merci à eux !"
         echo="Merci"
         effect="drop"
         tape={["Merci", "Partenaires", "Alsace du Nord", "Padel", "Saison après saison", "Merci"]}
@@ -186,7 +186,7 @@ export default async function SponsorsPage() {
         <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <span className="kicker kicker-center text-rose-300">Rejoignez-les</span>
           <h2 className="display mt-5 text-[clamp(3rem,8vw,6.5rem)] leading-[0.9]">
-            Devenez sponsor <span className="brand-gradient-text">du TPCS</span>
+            Devenez sponsor <span className="brand-gradient-text">du club</span>
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75">
             Panneau au bord des courts, visibilité lors des tournois et sur le site : contactez le président

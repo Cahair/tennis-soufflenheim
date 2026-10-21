@@ -79,7 +79,7 @@ export default async function CalendrierPage() {
                 </svg>
                 Départs · Departures
               </span>
-              <span className="hidden text-xs font-black uppercase tracking-[0.25em] sm:block">Terminal TPCS</span>
+              <span className="hidden text-xs font-black uppercase tracking-[0.25em] sm:block">Terminal du club</span>
             </div>
 
             {/* En-têtes de colonnes (grand écran) */}

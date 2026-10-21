@@ -41,7 +41,7 @@ export const sportPages: Record<SportSlug, SportPage> = {
       text: "Au Tennis Padel Club Soufflenheim, on joue au padel toute l'année : réservation en ligne 7j/7, tournois réguliers et une ambiance de club de village, entre Haguenau et le Rhin.",
     },
     intro: {
-      kicker: "Le padel au TPCS",
+      kicker: "Le padel au club",
       title: "Jouer au padel à Soufflenheim",
       paragraphs: [
         "Le padel est devenu en quelques saisons l'un des moteurs du club. Sport de raquette qui se joue à quatre sur une piste encadrée de vitres, il se prend en main dès la première partie : pas besoin d'avoir déjà tenu une raquette pour s'amuser.",
@@ -66,7 +66,7 @@ export const sportPages: Record<SportSlug, SportPage> = {
     memberships: /padel/i,
     faqs: [
       {
-        q: "Comment jouer au padel au TPCS ?",
+        q: "Comment jouer au padel au club ?",
         a: "Le plus simple est d'adhérer au club : l'adhésion annuelle tennis + padel (cotisation au club + licence FFT) donne accès à la piste, réservable sur Ten'up 7 jours sur 7. Une formule existe aussi pour les joueurs qui ne prennent pas leur licence au club. Pour une première découverte, contactez-nous : des initiations sont organisées régulièrement.",
       },
       {
@@ -97,10 +97,10 @@ export const sportPages: Record<SportSlug, SportPage> = {
       text: "École de tennis, loisir, compétition : un club à taille humaine en Alsace du Nord, avec un court couvert pour jouer toute l'année.",
     },
     intro: {
-      kicker: "Le tennis au TPCS",
+      kicker: "Le tennis au club",
       title: "Un club de tennis pour tous les âges",
       paragraphs: [
-        "Le tennis est l'âme du club : c'est autour de lui que le TPCS est né en 1979, rue de Koenigsbruck. Plus de quarante-cinq ans plus tard, on y joue toujours en famille, entre amis ou en compétition, dans une ambiance de club de village.",
+        "Le tennis est l'âme du club : c'est autour de lui que le club est né en 1979, rue de Koenigsbruck. Plus de quarante-cinq ans plus tard, on y joue toujours en famille, entre amis ou en compétition, dans une ambiance de club de village.",
         "Les courts extérieurs accueillent les beaux jours et les soirées d'été, le court couvert prend le relais quand la météo alsacienne fait des siennes. L'éclairage est compris dans l'adhésion, et chaque membre réserve son créneau en ligne sur Ten'up.",
         "Côté compétition, le club engage des équipes en championnat et organise chaque année son Open de tennis, avec au moins un tableau senior messieurs et un tableau senior dames.",
       ],
@@ -150,10 +150,10 @@ export const sportPages: Record<SportSlug, SportPage> = {
     hero: {
       kicker: "Pickleball · Soufflenheim, Bas-Rhin",
       title: "Le pickleball débarque en Alsace du Nord",
-      text: "Le sport de raquette qui monte, à découvrir en famille ou entre amis au TPCS : on vous prête le matériel, il ne reste qu'à venir.",
+      text: "Le sport de raquette qui monte, à découvrir en famille ou entre amis au club : on vous prête le matériel, il ne reste qu'à venir.",
     },
     intro: {
-      kicker: "Le pickleball au TPCS",
+      kicker: "Le pickleball au club",
       title: "Qu'est-ce que le pickleball ?",
       paragraphs: [
         "Né aux États-Unis dans les années 1960, le pickleball se joue en simple ou en double, avec une raquette pleine et une balle en plastique perforée, sur un terrain plus petit qu'un court de tennis. Les règles s'apprennent en quelques minutes et les échanges durent.",

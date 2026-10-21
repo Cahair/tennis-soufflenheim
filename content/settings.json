@@ -3,22 +3,20 @@
   "shortName": "TPCS",
   "baseline": "Tennis · Padel · Pickleball — depuis 1979",
   "address": {
-    "street": "1 rue de Koenigsbruck",
+    "street": "1 Rue de Koenigsbruck",
     "city": "67620 Soufflenheim",
-    "region": "Alsace du Nord"
+    "region": "Alsace du Nord",
+    "directions": "Derrière la caserne des pompiers"
   },
   "phoneClub": "03 88 86 79 08",
   "phonePresident": "06 10 14 60 39",
   "president": "Serge Moreau",
   "emails": {
-    "president": "president.tpcs@gmail.com",
-    "secretariat": "secretariat.tpcs@gmail.com"
+    "president": "president.tpcs@gmail.com"
   },
   "links": {
-    "inscription": "https://docs.google.com/forms/d/e/1FAIpQLSdwK46w1MOJwu8j38saJ6d-5iZOLfMvBG6KHmqHr0VKyQy4ww/viewform?usp=pp_url",
     "tenup": "https://tenup.fft.fr",
     "fftPadel": "https://www.fft.fr",
     "itineraire": "https://www.google.com/maps/search/?api=1&query=Rue+de+Koenigsbruck+67620+Soufflenheim"
-  },
-  "motPresident": "Créativité, flexibilité et gestion rigoureuse : c'est notre cap pour faire prospérer le club malgré un contexte économique incertain. Le padel, le pickleball, le projet d'extension… on avance, ensemble, sans jamais perdre l'esprit du club."
+  }
 }

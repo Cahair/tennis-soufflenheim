@@ -7,7 +7,7 @@
 export const reglementMeta = {
   saison: "2023/24",
   preambule:
-    "Le Tennis Padel Club de Soufflenheim, association loi de 1901, est utilisateur de 2 courts de tennis extérieurs, 1 court couvert et 1 court de padel extérieur — 1 rue Koenigsbruck, 67620 Soufflenheim.",
+    "Le Tennis Padel Club de Soufflenheim, association loi de 1901, est utilisateur de 2 courts de tennis extérieurs, 1 court couvert et 1 court de padel couvert — 1 rue de Koenigsbruck, 67620 Soufflenheim.",
   approbation:
     "Approuvé par le Comité de direction en septembre 2023. Pour le comité, le président : Serge Moreau.",
 };

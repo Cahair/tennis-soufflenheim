@@ -107,7 +107,7 @@ export default async function TarifsPage() {
                   </ul>
                   <div className="mt-auto pt-8">
                     <a
-                      href={site.links.inscription}
+                      href={site.links.tenup}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`btn w-full ${m.featured ? "btn-rose" : "btn-outline-light"}`}

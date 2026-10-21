@@ -64,6 +64,8 @@ export default function Footer({
                 {site.address.street}
                 <br />
                 {site.address.city}
+                <br />
+                <span className="text-white/60">{site.address.directions}</span>
               </li>
               <li>
                 <a href={telHref(site.phoneClub)} className="hover:text-rose-300">
@@ -76,14 +78,6 @@ export default function Footer({
                   className="hover:text-rose-300"
                 >
                   {site.emails.president}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${site.emails.secretariat}`}
-                  className="hover:text-rose-300"
-                >
-                  {site.emails.secretariat}
                 </a>
               </li>
             </ul>

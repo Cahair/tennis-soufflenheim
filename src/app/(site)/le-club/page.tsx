@@ -13,9 +13,7 @@ import {
   getFacilities,
   getHistoireChapitres,
   getHistoireInfos,
-  getSettings,
 } from "@/lib/content";
-import { telHref } from "@/lib/format";
 import { logoHistorique } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 
@@ -31,15 +29,14 @@ const EXTRAS = ["Terrain de pétanque", "Espace vert", "Parking gratuit illimit�
 const TILTS = ["-rotate-6", "rotate-3", "-rotate-2", "rotate-6", "-rotate-3"];
 
 /* ------------------------------------------------------------------ */
-/*  Le club : frise néon de l'histoire, mot du président en enseigne, */
-/*  souvenir en polaroïd scotché, mur des bénévoles qui défile en     */
-/*  trois rubans, installations en cartes qui s'empilent au           */
-/*  défilement (position sticky), petits plus en autocollants.        */
+/*  Le club : frise néon de l'histoire, souvenir en polaroïd scotché, */
+/*  mur des bénévoles qui défile en trois rubans, installations en    */
+/*  cartes qui s'empilent au défilement (position sticky), petits     */
+/*  plus en autocollants.                                             */
 /* ------------------------------------------------------------------ */
 export default async function LeClubPage() {
-  const [site, committee, facilities, histoireChapitres, histoireInfos] =
+  const [committee, facilities, histoireChapitres, histoireInfos] =
     await Promise.all([
-      getSettings(),
       getCommittee(),
       getFacilities(),
       getHistoireChapitres(),
@@ -71,34 +68,6 @@ export default async function LeClubPage() {
           />
           <div className="mt-20">
             <HistoireChrono chapitres={histoireChapitres} />
-          </div>
-        </div>
-      </section>
-
-      {/* Le mot du président, en enseigne néon */}
-      <section className="relative overflow-clip bg-night-950 py-28 text-white">
-        <NightFx beams floaters={[]} />
-        <div className="relative mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-          <span aria-hidden="true" className="hero-neon display block text-[10rem] leading-[0.6] text-rose-400">
-            &ldquo;
-          </span>
-          <p className="kicker kicker-center mt-6 text-rose-300">Le mot du président</p>
-          <blockquote className="mt-8 font-display text-[clamp(1.5rem,3.2vw,2.6rem)] font-light leading-snug text-white">
-            {site.motPresident}
-          </blockquote>
-          <div className="mt-10 inline-flex items-center gap-4 rounded-full border border-rose-400/40 bg-rose-500/10 py-2 pl-2 pr-6 text-left backdrop-blur">
-            <span className="display flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-rose-400 to-ultra-500 text-xl text-white">
-              {site.president.charAt(0)}
-            </span>
-            <span>
-              <span className="block font-bold">{site.president}</span>
-              <span className="block text-xs text-white/70">
-                Président ·{" "}
-                <a href={telHref(site.phonePresident)} className="hover:text-rose-300">
-                  {site.phonePresident}
-                </a>
-              </span>
-            </span>
           </div>
         </div>
       </section>
@@ -188,7 +157,7 @@ export default async function LeClubPage() {
           <SectionHeader
             kicker="Les installations"
             title="Tout pour jouer, tout pour rester"
-            text="Courts, piste de padel, club house avec cuisine, pétanque et espace vert : le TPCS est pensé pour les sportifs comme pour les supporters."
+            text="Courts, piste de padel, club house avec cuisine, pétanque et espace vert : le club est pensé pour les sportifs comme pour les supporters."
           />
           <div className="mt-16">
             {facilities.map((facility, i) => (

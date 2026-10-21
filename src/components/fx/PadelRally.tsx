@@ -9,7 +9,7 @@ import { gsap, MQ, ScrollTrigger, SplitText, useGSAP } from "./gsap";
 const STEPS = [
   {
     word: "4",
-    title: "À quatre, dans une cage de verre",
+    title: "À quatre, sur une piste vitrée",
     text: "On joue en double sur une piste de 20 × 10 m fermée par des vitres et du grillage. Raquette pleine, sans cordage, balle proche de celle du tennis.",
   },
   {
@@ -29,7 +29,7 @@ const STEPS = [
   },
   {
     word: "Smash",
-    title: "Le smash qui sort de la cage",
+    title: "Le smash qui sort de la piste",
     text: "Le coup roi : smasher si fort que la balle rebondit et passe par-dessus la vitre. « Por tres » : point gagné, tribune debout.",
   },
   {
@@ -74,7 +74,7 @@ function Player({ team }: { team: "a" | "b" }) {
 /*  « Le padel en six coups » : une piste vitrée en 3D (CSS) et un    */
 /*  rallye joué au défilement. La section s'épingle, la caméra tourne */
 /*  autour de la piste, la balle sert, tape la vitre, se fait volleyer */
-/*  puis smasher hors de la cage ; chaque impact lâche une onde au    */
+/*  puis smasher hors de la piste ; chaque impact lâche une onde au    */
 /*  sol, des étincelles et une secousse, le smash un flash plein      */
 /*  écran. Texte, mot géant et tableau de score suivent l'échange.    */
 /*                                                                    */
@@ -209,7 +209,7 @@ export default function PadelRally() {
         go(3.7, 70, 36, 0.25);
         lift(3.7, 0.42, 0.25);
 
-        // 4. Smash : écrasée sur la piste, la balle file hors de la cage.
+        // 4. Smash : écrasée sur la piste, la balle file hors de la piste.
         go(4.15, 42, 80, 0.18);
         lift(4.15, 0, 0.18, "power3.in");
         hit(4.33, 1.4);
@@ -443,7 +443,7 @@ export default function PadelRally() {
             aria-hidden="true"
             className="absolute right-0 top-0 hidden rotate-2 rounded-xl border border-rose-400/40 bg-night-950/80 px-4 py-2 shadow-[0_0_40px_-10px_rgba(234,51,111,0.9)] backdrop-blur-md motion-safe:block lg:top-[12%]"
           >
-            <p className="text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-white/60">TPCS · Visiteurs</p>
+            <p className="text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-white/60">Club · Visiteurs</p>
             <div className="relative mt-1 h-8 w-32 overflow-hidden">
               {SCORES.map((s) => (
                 <span key={s} className="pr-score display absolute inset-0 text-2xl text-rose-300 [text-shadow:0_0_14px_rgba(234,51,111,0.9)]">

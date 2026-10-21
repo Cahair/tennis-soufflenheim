@@ -113,9 +113,6 @@ export default function Navbar({
               </div>
             );
           })}
-          <Link href="/#reservation" className="btn btn-rose ml-3 !px-5 !py-2.5 text-sm">
-            Réserver un court
-          </Link>
         </nav>
 
         <button
@@ -232,16 +229,9 @@ export default function Navbar({
           })}
           </div>
         </nav>
-        {/* Pied du menu hors de la zone défilante : le CTA reste
-            visible quelle que soit la hauteur d'écran */}
+        {/* Pied du menu hors de la zone défilante : réseaux et
+            coordonnées restent visibles quelle que soit la hauteur d'écran */}
         <div className="px-8 pb-6 pt-2 text-sm text-white/50">
-          <Link
-            href="/#reservation"
-            onClick={closeMenu}
-            className="btn btn-rose w-full"
-          >
-            Réserver un court
-          </Link>
           <div className="mt-5 flex items-center justify-between gap-4">
             <SocialLinks socials={socials} />
             <div className="text-right">

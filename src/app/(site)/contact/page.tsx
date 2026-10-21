@@ -5,7 +5,7 @@ import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import { ArrowUpRight } from "@/components/landing/Arrow";
-import NightFx, { PadelBall } from "@/components/landing/NightFx";
+import NightFx from "@/components/landing/NightFx";
 import { getFaqs, getSettings, getSocials } from "@/lib/content";
 import { socialIconPaths } from "@/lib/nav";
 import { telHref } from "@/lib/format";
@@ -44,8 +44,8 @@ const contactCards = (site: SiteSettings) => [
     ),
   },
   {
-    title: "E-mails",
-    lines: [site.emails.president, site.emails.secretariat],
+    title: "E-mail",
+    lines: [site.emails.president],
     href: `mailto:${site.emails.president}`,
     action: "Écrire un e-mail",
     icon: (
@@ -57,7 +57,7 @@ const contactCards = (site: SiteSettings) => [
   },
   {
     title: "Adresse",
-    lines: [site.address.street, site.address.city],
+    lines: [site.address.street, site.address.city, site.address.directions],
     href: site.links.itineraire,
     action: "Voir l'itinéraire",
     external: true,
@@ -133,7 +133,7 @@ export default async function ContactPage() {
                 <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur sm:col-span-2">
                   <h3 className="font-bold text-white">Suivez la vie du club</h3>
                   <p className="mt-1.5 text-sm text-white/70">
-                    Résultats, événements, coulisses : le TPCS est aussi sur les réseaux.
+                    Résultats, événements, coulisses : le club est aussi sur les réseaux.
                   </p>
                   <div className="mt-4 flex flex-wrap gap-3">
                     {socials.map((social) => (
@@ -163,35 +163,26 @@ export default async function ContactPage() {
         </div>
       </section>
 
-      {/* Carte en mode nuit, balise radar sur le club */}
+      {/* Carte en mode nuit, resserrée sur le club : le marqueur de la
+          carte reste visible (pas de balle par-dessus) */}
       <section className="relative overflow-clip bg-night-950 py-28 text-white">
         <NightFx glow="right" floaters={[]} />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeader
             kicker="Nous trouver"
-            title="Rue de Koenigsbruck, Soufflenheim"
-            text="À deux pas du centre du village des potiers — parking gratuit et illimité sur place."
+            title={`${site.address.street}, Soufflenheim`}
+            text={`${site.address.directions}, à deux pas du centre du village des potiers — parking gratuit et illimité sur place.`}
           />
           <div className="holo-frame relative mt-14 rounded-[2rem] p-[3px] shadow-[0_40px_90px_-30px_rgba(234,51,111,0.8)]">
             <div className="relative overflow-hidden rounded-[calc(2rem-3px)]">
               <iframe
                 title="Carte — Tennis Padel Club Soufflenheim"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=7.9414%2C48.8203%2C7.9914%2C48.8443&layer=mapnik&marker=48.8323%2C7.9664"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=7.9536%2C48.8304%2C7.9676%2C48.8360&layer=mapnik&marker=48.8332%2C7.9606"
                 className="ix-map h-[460px] w-full border-0"
                 loading="lazy"
               />
               {/* Teinte rose/violet par-dessus le plan inversé */}
               <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-br from-rose-600/25 via-transparent to-ultra-600/30 mix-blend-color" />
-              <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 h-0 w-0">
-                {[0, 1, 2].map((i) => (
-                  <span
-                    key={i}
-                    className="ix-ping absolute -left-24 -top-24 h-48 w-48 rounded-full border-2 border-rose-400"
-                    style={{ animationDelay: `${i * 0.8}s` }}
-                  />
-                ))}
-                <PadelBall className="absolute -left-5 -top-5 h-10 w-10 drop-shadow-[0_0_20px_rgba(234,51,111,1)]" />
-              </div>
               <a
                 href={site.links.itineraire}
                 target="_blank"

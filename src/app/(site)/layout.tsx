@@ -51,7 +51,7 @@ export default async function SiteLayout({
           `${SITE_URL}/images/club-house-bar.webp`,
         ],
         telephone: telHref(site.phoneClub).replace("tel:", ""),
-        email: site.emails.secretariat,
+        email: site.emails.president,
         foundingDate: "1979",
         sport: ["Tennis", "Padel", "Pickleball"],
         priceRange: "€",

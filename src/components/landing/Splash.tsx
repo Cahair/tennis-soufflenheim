@@ -1,7 +1,9 @@
 "use client";
 
 import { useRef, useState, useSyncExternalStore } from "react";
+import Image from "next/image";
 import { BallMark } from "@/components/LogoMark";
+import { logo } from "@/lib/images";
 import { gsap, useGSAP } from "./gsap";
 import {
   getLenis,
@@ -163,16 +165,15 @@ export default function Splash({ baseline }: { baseline: string }) {
   return (
     <div ref={root} className="splash fixed inset-0 z-[120]" aria-hidden="true">
       <div className="splash-top absolute inset-x-0 top-0 flex h-1/2 flex-col items-center justify-end bg-night-950 pb-[5.5rem] sm:pb-24">
-        <p
-          data-splash-el
-          className="flex overflow-hidden font-display text-[clamp(4.5rem,17vw,11rem)] font-semibold uppercase leading-[0.88] tracking-tight text-white"
-        >
-          {"TPCS".split("").map((letter, i) => (
-            <span key={i} className={`splash-letter inline-block ${i === 1 ? "text-rose-500" : ""}`}>
-              {letter}
-            </span>
-          ))}
-        </p>
+        <div data-splash-el className="overflow-hidden">
+          <Image
+            src={logo}
+            alt=""
+            priority
+            sizes="(min-width: 640px) 420px, 70vw"
+            className="splash-letter block h-[clamp(8rem,28vh,15rem)] w-auto max-w-[85vw] object-contain"
+          />
+        </div>
       </div>
 
       <div className="splash-bottom absolute inset-x-0 bottom-0 h-1/2 bg-night-950">

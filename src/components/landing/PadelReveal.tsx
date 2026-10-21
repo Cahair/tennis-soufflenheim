@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { padelHalle } from "@/lib/images";
+import { halleLogo } from "@/lib/images";
 import { ArrowRight } from "./Arrow";
 import Magnetic from "./Magnetic";
 import NightFx from "./NightFx";
@@ -183,7 +183,7 @@ export default function PadelReveal() {
         <div className="padel-frame absolute inset-0 overflow-hidden bg-night-950">
           <div className="padel-zoom absolute inset-0">
             <Image
-              src={padelHalle}
+              src={halleLogo}
               alt=""
               fill
               placeholder="blur"

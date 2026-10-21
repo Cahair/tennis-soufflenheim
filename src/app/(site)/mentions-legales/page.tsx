@@ -123,7 +123,7 @@ export default async function MentionsLegalesPage() {
                   <p>
                     L&rsquo;ensemble des contenus présents sur ce site (textes,
                     photographies, logos, éléments graphiques) est la propriété
-                    de l&rsquo;association {site.shortName} ou de leurs auteurs
+                    de l&rsquo;association {site.name} ou de leurs auteurs
                     respectifs, et est protégé par le droit de la propriété
                     intellectuelle.
                   </p>
@@ -155,10 +155,10 @@ export default async function MentionsLegalesPage() {
                     de suppression des données vous concernant. Pour exercer ce
                     droit, contactez-nous à l&rsquo;adresse{" "}
                     <a
-                      href={`mailto:${site.emails.secretariat}`}
+                      href={`mailto:${site.emails.president}`}
                       className="font-medium text-rose-300 hover:underline"
                     >
-                      {site.emails.secretariat}
+                      {site.emails.president}
                     </a>
                     .
                   </p>

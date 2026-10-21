@@ -14,7 +14,7 @@ export default async function Sponsors() {
           <SectionHeader
             kicker="Sponsors"
             title="Ils font gagner le club"
-            text="Commerçants et artisans locaux soutiennent le TPCS saison après saison. Merci à eux !"
+            text="Commerçants et artisans locaux soutiennent le club saison après saison. Merci à eux !"
           />
         </Reveal>
       </div>

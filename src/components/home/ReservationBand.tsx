@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
-import { courtsExterieurs } from "@/lib/images";
+import { halleLogo } from "@/lib/images";
 import { getReservation, getSettings } from "@/lib/content";
 import { telHref } from "@/lib/format";
 
@@ -15,7 +15,7 @@ export default async function ReservationBand() {
       {/* Arrière-plan : photo d'un court, dérive Ken Burns, voile doré */}
       <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
         <Image
-          src={courtsExterieurs}
+          src={halleLogo}
           alt=""
           fill
           placeholder="blur"

@@ -152,15 +152,15 @@ export default async function ReglementPage() {
             Règlement lu <span className="brand-gradient-text">et approuvé</span>&nbsp;?
           </h2>
           <p className="mt-5 text-lg text-white/75">
-            Il ne reste plus qu&rsquo;à choisir votre formule et à remplir le dossier d&rsquo;inscription :
+            Il ne reste plus qu&rsquo;à choisir votre formule et à vous inscrire sur Ten&rsquo;up :
             bienvenue au club !
           </p>
           <div className="mt-10">
             <ApproveCheck />
           </div>
           <div className="relative z-10 mt-10 flex flex-wrap justify-center gap-3">
-            <a href={site.links.inscription} target="_blank" rel="noopener noreferrer" className="btn btn-rose">
-              S&rsquo;inscrire en ligne
+            <a href={site.links.tenup} target="_blank" rel="noopener noreferrer" className="btn btn-rose">
+              S&rsquo;inscrire sur Ten&rsquo;up
               <ArrowUpRight />
             </a>
             <Link href="/tarifs" className="btn btn-outline-light">

@@ -1,7 +1,7 @@
 import padelCourt from "../../public/images/padel-couvert.webp";
 import padelHalle from "../../public/images/halle-padel.webp";
 import terrasseClub from "../../public/images/detente-padel.webp";
-import courtsExterieurs from "../../public/images/halle-exterieur.webp";
+import halleLogo from "../../public/images/halle-exterieur.webp";
 import feteClub from "../../public/images/joueurs-club.webp";
 import clubHouse from "../../public/images/club-house-bar.webp";
 import logo from "../../public/images/logo.webp";
@@ -11,7 +11,7 @@ export {
   padelCourt,
   padelHalle,
   terrasseClub,
-  courtsExterieurs,
+  halleLogo,
   feteClub,
   clubHouse,
   logo,
