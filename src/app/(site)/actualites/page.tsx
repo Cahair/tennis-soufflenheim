@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import FitImage from "@/components/FitImage";
 import PageHero from "@/components/PageHero";
 import { ArrowRight } from "@/components/landing/Arrow";
 import NightFx, { PadelBall } from "@/components/landing/NightFx";
@@ -105,13 +105,11 @@ export default async function ActualitesPage() {
             <article className="grid items-center gap-10 lg:grid-cols-12">
               <div data-tilt className="holo-frame relative rounded-[2rem] p-[3px] shadow-[0_40px_90px_-30px_rgba(234,51,111,0.85)] lg:col-span-7">
                 <div className="relative aspect-[16/11] overflow-hidden rounded-[calc(2rem-3px)]">
-                  <Image
-                    src={featured.image}
+                  <FitImage
+                    image={featured.image}
                     alt={featured.title}
-                    fill
-                    placeholder={featured.image.blurDataURL ? "blur" : "empty"}
                     sizes="(max-width: 1024px) 92vw, 58vw"
-                    className="object-cover transition-transform duration-[1.2s] group-hover:scale-110"
+                    className="transition-transform duration-[1.2s] group-hover:scale-110"
                   />
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-rose-600/50 to-transparent" />
                   <div className="nfx-shine" />
@@ -167,13 +165,11 @@ export default async function ActualitesPage() {
                     <PadelBall className="h-full w-full drop-shadow-[0_6px_8px_rgba(0,0,0,0.6)]" />
                   </span>
                   <div className="relative h-48 overflow-hidden">
-                    <Image
-                      src={item.image}
+                    <FitImage
+                      image={item.image}
                       alt={item.title}
-                      fill
-                      placeholder={item.image.blurDataURL ? "blur" : "empty"}
                       sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
-                      className="object-cover grayscale-[35%] transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0"
+                      className="grayscale-[35%] transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0"
                     />
                     <span className="absolute left-3 top-3 bg-night-950 px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-rose-300">
                       {item.category}

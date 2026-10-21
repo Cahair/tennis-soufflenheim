@@ -2,10 +2,10 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { NewsItem } from "@/lib/content-types";
+import FitImage from "./FitImage";
 import { ArrowRight } from "./landing/Arrow";
 import { gsap, MQ, useGSAP } from "./landing/gsap";
 import { getLenis, onIntro } from "./landing/intro";
@@ -178,15 +178,8 @@ function Flash({ item, href, onClose }: { item: NewsItem; href: string; onClose:
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-y-auto p-4 [perspective:1100px] sm:p-8">
         <div className="nf-card pointer-events-auto relative my-auto w-full max-w-[52rem] rounded-[1.6rem] bg-[linear-gradient(140deg,var(--color-rose-400),var(--color-ultra-500))] p-[3px] shadow-[0_0_80px_-10px_var(--color-rose-500)] will-change-transform">
           <div className="grid overflow-hidden rounded-[calc(1.6rem-3px)] bg-night-950 sm:grid-cols-[0.85fr_1.15fr]">
-            <div className="relative h-44 sm:h-auto sm:min-h-[26rem]">
-              <Image
-                src={item.image}
-                alt=""
-                fill
-                placeholder={item.image.blurDataURL ? "blur" : "empty"}
-                sizes="(min-width: 40rem) 22rem, 100vw"
-                className="object-cover"
-              />
+            <div className="relative h-44 overflow-hidden sm:h-auto sm:min-h-[26rem]">
+              <FitImage image={item.image} alt="" sizes="(min-width: 40rem) 22rem, 100vw" />
               <span className="absolute inset-0 bg-gradient-to-t from-night-950/80 via-transparent to-transparent sm:bg-gradient-to-r sm:from-transparent sm:via-transparent sm:to-night-950/60" />
               <span className="absolute bottom-4 left-4 rounded-full bg-rose-500 px-3 py-1 text-[0.6rem] font-bold uppercase tracking-[0.16em] text-night-950">
                 {item.category}

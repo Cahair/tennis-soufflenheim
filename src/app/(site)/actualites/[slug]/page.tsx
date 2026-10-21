@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import FitImage from "@/components/FitImage";
 import JsonLd from "@/components/JsonLd";
 import PageHero from "@/components/PageHero";
 import CursorList from "@/components/fx/CursorList";
@@ -125,14 +125,11 @@ export default async function ArticlePage({ params }: Props) {
             </div>
             <div data-tilt className="holo-frame relative mt-8 -rotate-1 rounded-[2rem] p-[3px] shadow-[0_40px_90px_-30px_rgba(234,51,111,0.85)]">
               <div className="relative aspect-[4/3] overflow-hidden rounded-[calc(2rem-3px)]">
-                <Image
-                  src={article.image}
+                <FitImage
+                  image={article.image}
                   alt={article.title}
-                  fill
                   preload
-                  placeholder={article.image.blurDataURL ? "blur" : "empty"}
                   sizes="(max-width: 768px) 92vw, 48rem"
-                  className="object-cover"
                 />
                 <div className="nfx-shine" />
               </div>
