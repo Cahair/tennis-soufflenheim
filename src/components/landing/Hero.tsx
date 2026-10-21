@@ -3,7 +3,7 @@
 import { useId, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { padelCourt } from "@/lib/images";
+import { vueAerienne } from "@/lib/images";
 import { ArrowRight } from "./Arrow";
 import BallFx, { type FxApi } from "./BallFx";
 import Magnetic from "./Magnetic";
@@ -378,13 +378,13 @@ export default function Hero() {
                 >
                   <div data-hero-media className="relative h-full w-full overflow-hidden lg:rounded-[calc(2rem-3px)]">
                     <Image
-                      src={padelCourt}
-                      alt="Les pistes de padel couvertes du club de Soufflenheim"
+                      src={vueAerienne}
+                      alt="Vue aérienne du club de Soufflenheim : halle de padel, courts de tennis et club house"
                       fill
                       preload
                       placeholder="blur"
                       sizes="(min-width: 64rem) 28rem, 100vw"
-                      className="object-cover object-center"
+                      className="object-cover object-[38%_center]"
                     />
                     {/* Mobile : la photo passe en fond, voilée de nuit et de rose */}
                     <div className="absolute inset-0 bg-gradient-to-b from-night-950/85 via-night-950/70 to-night-950/95 lg:hidden" />
