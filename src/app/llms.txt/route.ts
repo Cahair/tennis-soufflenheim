@@ -18,6 +18,7 @@ const pages: { path: string; title: string; text: string }[] = [
   { path: "/le-club", title: "Le club", text: "histoire depuis 1979, installations, mot du président" },
   { path: "/calendrier", title: "Calendrier", text: "tournois, initiations et événements à venir" },
   { path: "/actualites", title: "Actualités", text: "vie du club, nouveautés, résultats" },
+  { path: "/video-match", title: "Vidéo de match", text: "tutoriel de l'application Spash pour filmer et revoir ses matchs" },
   { path: "/comite", title: "Comité", text: "membres du comité et commissions" },
   { path: "/reglement-interieur", title: "Règlement intérieur", text: "règles d'accès et de réservation des courts" },
 ];

@@ -29,6 +29,7 @@ const routes: { path: string; priority: number; content: string[] }[] = [
   { path: "/contact", priority: 0.8, content: ["settings", "socials", "faqs"] },
   { path: "/calendrier", priority: 0.7, content: ["events"] },
   { path: "/actualites", priority: 0.7, content: ["news"] },
+  { path: "/video-match", priority: 0.5, content: [] },
   { path: "/galerie", priority: 0.6, content: ["gallery", "histoire-chapitres"] },
   { path: "/comite", priority: 0.6, content: ["committee"] },
   { path: "/sponsors", priority: 0.6, content: ["sponsors", "settings"] },

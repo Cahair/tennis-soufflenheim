@@ -45,6 +45,7 @@ export const navLinks: NavLink[] = [
   { label: "Actualités", href: "/actualites" },
   { label: "Calendrier", href: "/calendrier" },
   { label: "Galerie", href: "/galerie" },
+  { label: "Vidéo de match", href: "/video-match" },
   { label: "Sponsors", href: "/sponsors" },
   { label: "Contact", href: "/contact" },
 ];

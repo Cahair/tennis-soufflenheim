@@ -69,7 +69,8 @@ export default function Navbar({
               link.href === "/"
                 ? pathname === "/"
                 : hrefs.some((h) => pathname.startsWith(h));
-            const itemClass = `rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+            /* Marges resserrées entre lg et xl : neuf entrées doivent tenir sur une ligne dès 1024 px. */
+            const itemClass = `whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium transition-colors xl:px-4 ${
               active
                 ? "bg-white/10 text-rose-300"
                 : "text-white/80 hover:bg-white/5 hover:text-white"
