@@ -20,7 +20,7 @@ Légende : ✅ fait · ⏳ en attente d'éléments du président
 | 10 | « Le padel en six coups » | Section supprimée (`fx/PadelRally.tsx` supprimé) |
 | 11 | Calendrier sans gare | Tableau des départs remplacé par des cartes d'événements (date en grand) |
 | 12 | Menu « Le club » | Histoire & installations · Le mot du président · Le comité · Le club-house · Le tennis · Le padel · Le pickleball (tennis et pickleball pointent vers `/padel#tennis` et `/padel#pickleball`) |
-| 13 | Page « Le club-house » | Nouvelle page `/club-house` : photos du bar, de l'accueil et de la salle, liste des équipements |
+| 13 | Page « Le club-house » | Nouvelle page `/club-house` : photos du bar et de l'accueil (photo « La salle » retirée), liste des équipements |
 | 14 | Mot du président | Nouvelle page `/mot-du-president` (texte intégral, photo de l'inauguration en attendant mieux) + accroche en haut de `/le-club` |
 | 15 | Adresse n° 1 | Lien Google Maps : `query=1+Rue+de+Koenigsbruck…` |
 | 16 | Nom du club | « Tennis Padel Garden Club de Soufflenheim » partout (titres, SEO, textes, réglages). Ancien nom gardé en nom alternatif pour Google. Règlement intérieur (document officiel 2023/24) et histoire 2023 « Le TCS devient TPCS » non modifiés |

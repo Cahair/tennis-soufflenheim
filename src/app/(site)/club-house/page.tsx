@@ -6,7 +6,7 @@ import SectionHeader from "@/components/SectionHeader";
 import CtaBand from "@/components/home/CtaBand";
 import { ArrowRight } from "@/components/landing/Arrow";
 import NightFx from "@/components/landing/NightFx";
-import { clubHouseAccueil, clubHouseMembres, vainqueursPadel } from "@/lib/images";
+import { clubHouseAccueil, clubHouseMembres } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -32,18 +32,12 @@ const photos: { src: StaticImageData; alt: string; caption: string; className: s
     src: clubHouseAccueil,
     alt: "Le bar du club-house, ses étagères et son comptoir en bois",
     caption: "Le bar",
-    className: "col-span-2 aspect-[4/3] sm:aspect-auto",
+    className: "aspect-[4/3] sm:col-span-2 sm:aspect-auto",
   },
   {
     src: clubHouseMembres,
     alt: "Trois membres du club souriants, accoudés au bar du club-house",
     caption: "L'accueil",
-    className: "aspect-[3/4]",
-  },
-  {
-    src: vainqueursPadel,
-    alt: "Remise des trophées d'un tournoi de padel dans la salle du club-house",
-    caption: "La salle",
     className: "aspect-[3/4]",
   },
 ];
@@ -72,7 +66,7 @@ export default function ClubHousePage() {
             title="Bienvenue chez nous"
             text="Le club-house rénové, au cœur du club : on s'y retrouve avant, pendant et après le jeu."
           />
-          <div className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-5">
+          <div className="mt-16 grid gap-5 sm:grid-cols-3">
             {photos.map((photo) => (
               <figure
                 key={photo.caption}
