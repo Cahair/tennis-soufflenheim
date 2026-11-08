@@ -34,7 +34,6 @@ export default function ReglementPage() {
         text={reglementMeta.preambule}
         echo="Fair-play"
         effect="scramble"
-        tape={["Fair-play", "Respect", "Réservations", "Licence FFT", "Bonne humeur", "Règles du jeu"]}
       />
 
       {/* Articles */}

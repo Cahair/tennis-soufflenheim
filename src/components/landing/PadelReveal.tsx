@@ -7,19 +7,11 @@ import { halleLogo } from "@/lib/images";
 import { ArrowRight } from "./Arrow";
 import Magnetic from "./Magnetic";
 import NightFx from "./NightFx";
-import { gsap, MQ, ScrollTrigger, SplitText, useGSAP } from "./gsap";
+import { gsap, MQ, SplitText, useGSAP } from "./gsap";
 
 const VIDEO_URL = "https://www.youtube.com/watch?v=Ds8nB-zO1pQ";
 
 const atouts = ["2 pistes couvertes", "1 piste extérieure", "Éclairage LED", "365 jours par an"];
-const backItems = ["Vibora", "Bandeja", "Smash", "Chiquita", "Bajada", "Par 3"];
-const marqueeItems = [
-  "Padel",
-  "Nouveau au club",
-  "2 pistes couvertes",
-  "Toute l'année",
-  "Jour & nuit",
-];
 
 /* Pastille « Pluie ? On joue ! » — texte circulaire tourné au défilement */
 function RainBadge() {
@@ -55,10 +47,8 @@ function RainBadge() {
 
 /* ------------------------------------------------------------------ */
 /*  Le padel couvert — sur grand écran, la scène s'épingle : la photo */
-/*  grandit d'une carte jusqu'au plein écran, le titre apparaît. Un   */
-/*  ruban défilant réagit à la vitesse du défilement (sens et         */
-/*  inclinaison), croisé en X avec un second ruban en contour. Avant  */
-/*  l'ouverture, la carte flotte dans le décor de nuit du hero        */
+/*  grandit d'une carte jusqu'au plein écran, le titre apparaît.      */
+/*  Avant l'ouverture, la carte flotte dans le décor de nuit du hero */
 /*  (projecteurs, sol de piste, balles). La vidéo du club s'ouvre sur */
 /*  YouTube, à la demande.                                            */
 /* ------------------------------------------------------------------ */
@@ -127,37 +117,6 @@ export default function PadelReveal() {
           stagger: 0.08,
           ease: "power3.out",
           scrollTrigger: { trigger: stage, start: "top 30%" },
-        });
-      });
-
-      // Ruban : boucle infinie accélérée, inversée et inclinée par le scroll.
-      mm.add(MQ.motion, () => {
-        const [band] = q(".padel-marquee");
-        const [track] = q(".padel-marquee-track");
-        gsap.fromTo(q(".padel-back-track"), { xPercent: -50 }, { xPercent: 0, ease: "none", duration: 36, repeat: -1 });
-        const loop = gsap.to(track, { xPercent: -50, ease: "none", duration: 28, repeat: -1 });
-        loop.totalTime(loop.duration() * 200); // marge pour la lecture à rebours
-        const skewTo = gsap.quickTo(track, "skewX", { duration: 0.5, ease: "power3" });
-        let settle: gsap.core.Tween | null = null;
-        ScrollTrigger.create({
-          trigger: band,
-          start: "top bottom",
-          end: "bottom top",
-          onUpdate: (self) => {
-            const velocity = self.getVelocity();
-            const direction = self.direction;
-            gsap.to(loop, {
-              timeScale: direction * gsap.utils.clamp(1, 6, 1 + Math.abs(velocity) / 350),
-              duration: 0.25,
-              overwrite: true,
-              onComplete: () => {
-                gsap.to(loop, { timeScale: direction, duration: 1.2, overwrite: true });
-              },
-            });
-            skewTo(gsap.utils.clamp(-9, 9, velocity / -260));
-            settle?.kill();
-            settle = gsap.delayedCall(0.14, () => skewTo(0));
-          },
         });
       });
     },
@@ -246,48 +205,6 @@ export default function PadelReveal() {
         </div>
 
         <RainBadge />
-      </div>
-
-      {/* Deux rubans croisés en X, comme dans le hero */}
-      <div className="padel-marquee relative overflow-hidden bg-night-950 py-16 sm:py-20">
-        <div aria-hidden="true" className="absolute inset-x-[-5%] top-1/2 -translate-y-1/2 rotate-[3deg] border-y border-rose-500/40 bg-night-900 py-3">
-          <div className="padel-back-track flex w-max">
-            {[0, 1].map((copy) => (
-              <div key={copy} className="flex shrink-0 items-center">
-                {[...backItems, ...backItems].map((t, i) => (
-                  <span key={i} className="hero-outline display flex items-center gap-8 pr-8 text-3xl sm:text-5xl">
-                    {t}
-                    <span className="text-rose-500">✦</span>
-                  </span>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="relative -mx-[5%] -rotate-[2deg] bg-gradient-to-r from-rose-500 via-rose-600 to-ultra-500 py-4 shadow-[0_20px_60px_-15px_rgba(234,51,111,0.8)] sm:py-5">
-        <div className="padel-marquee-track flex w-max items-center">
-          {[0, 1].map((copy) => (
-            <div
-              key={copy}
-              aria-hidden={copy === 1 ? true : undefined}
-              className="flex items-center gap-10 pr-10"
-            >
-              {marqueeItems.map((item, i) => (
-                <span key={item} className="flex items-center gap-10">
-                  <span
-                    className={`display whitespace-nowrap text-4xl sm:text-6xl ${
-                      i % 2 === 0 ? "text-white" : "text-night-950"
-                    }`}
-                  >
-                    {item}
-                  </span>
-                  <span className="text-xl text-night-950">✦</span>
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-        </div>
       </div>
     </section>
   );

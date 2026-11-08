@@ -53,7 +53,6 @@ export default async function LeClubPage() {
         text="Du premier échange rue de Koenigsbruck aux pistes de padel dernière génération : presque un demi-siècle de passion, porté par des bénévoles qui ne lâchent rien."
         echo="1979"
         effect="neon"
-        tape={["Depuis 1979", "Bénévoles", "Famille", "Padel", "Tennis", "Fêtes du club", "Soufflenheim"]}
       />
 
       {/* Le mot du président, en accroche vers sa page */}

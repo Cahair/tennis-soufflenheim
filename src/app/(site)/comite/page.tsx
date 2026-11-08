@@ -62,7 +62,6 @@ export default async function ComitePage() {
         text="Ils donnent de leur temps toute l'année pour que chacun n'ait plus qu'à penser à jouer : voici les bénévoles qui font tourner le club. Collectionnez-les tous !"
         echo="Équipe"
         effect="drop"
-        tape={["Bénévoles", "Bureau", "Commissions", "Collection 2026", "Cartes rares", "Le club"]}
       />
 
       {/* Le bureau */}

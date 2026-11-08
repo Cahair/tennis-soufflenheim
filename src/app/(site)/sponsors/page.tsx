@@ -67,7 +67,6 @@ export default async function SponsorsPage() {
         text="Commerçants, artisans et entreprises de la région soutiennent le club saison après saison. Sans eux, pas de tournois, pas de piste de padel, pas de fête du club : merci à eux !"
         echo="Merci"
         effect="drop"
-        tape={["Merci", "Partenaires", "Alsace du Nord", "Padel", "Saison après saison", "Merci"]}
       />
 
       {/* Panneaux LED de bord de terrain */}

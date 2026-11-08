@@ -61,7 +61,6 @@ export default function ClubHousePage() {
         text="Un bar, une salle, une cuisine, des vestiaires équipés et la terrasse garden : ici, la partie continue bien après le dernier point."
         echo="Club-house"
         effect="drop"
-        tape={["Bar", "Salle", "Cuisine", "Vestiaires", "Terrasse", "Garden"]}
       />
 
       {/* Photos */}

@@ -56,7 +56,6 @@ export default async function SportLanding({ sport }: { sport: SportPage }) {
         text={sport.hero.text}
         echo={sport.label}
         effect={HERO_EFFECT[sport.slug] ?? "drop"}
-        tape={[sport.label, ...(discipline?.features ?? []), "Soufflenheim"]}
       />
 
 

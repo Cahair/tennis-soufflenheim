@@ -90,7 +90,6 @@ export default async function ContactPage() {
         text="Une question sur les adhésions, l'école de tennis ou une réservation ? Appelez, écrivez ou passez directement au club house."
         echo="Allô ?"
         effect="slam"
-        tape={["Allô le club", "On répond vite", "Padel", "Club house", "Soufflenheim", "Écrivez-nous"]}
       />
 
       <section className="relative overflow-clip bg-night-950 py-28 text-white">

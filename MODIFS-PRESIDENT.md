@@ -10,7 +10,7 @@ Légende : ✅ fait · ⏳ en attente d'éléments du président
 |---|-------|-------------------|
 | 1 | Hero : derniers vainqueurs | Photo des vainqueurs dans la carte du hero, légende « Vainqueurs du dernier tournoi de padel » (`public/images/vainqueurs-padel.webp`) ; vignette équivalente sur mobile |
 | 2 | Hero : enlever le truc qui tourne | Badge rond « Padel · Réservable 7j/7 · À 4 » supprimé |
-| 3 | Hero : enlever le bandeau | Les 2 bandeaux défilants croisés en X supprimés |
+| 3 | Enlever les bandeaux croisés | Les 2 bandeaux défilants croisés en X supprimés partout : hero de l'accueil, en-tête de toutes les pages intérieures (PageHero, prop tape retirée) et sous la section padel de l'accueil |
 | 4 | Plus de bouton de réservation | Section « Réserver » retirée de l'accueil, ainsi que l'entrée du menu, le bouton du hero, celui de la section padel de l'accueil, celui de l'appel final, celui du bandeau rose des pages intérieures et les boutons des disciplines. **Ten'up ne reste que dans le pied de page et sous les tarifs** (le bouton du règlement intérieur mène maintenant aux tarifs) |
 | 5 | Balles au clic | Supprimées partout (hero, appel final, bandeau rose, pages intérieures). L'animation d'entrée du hero est conservée |
 | 6 | Ten'up partout | « réservation en ligne » → « réservation Ten'up / sur Ten'up » (textes, chiffres clés, SEO, bandeau final) |

@@ -66,7 +66,6 @@ export default async function ActualitesPage() {
         text="Résultats, nouveautés, coulisses et rendez-vous : suivez tout ce qui se passe rue de Koenigsbruck."
         echo="Flash"
         effect="slam"
-        tape={["Dernière minute", "Tournois", "Résultats", "Coulisses", "Padel", "Exclusif"]}
       />
 
       {/* Flash info */}

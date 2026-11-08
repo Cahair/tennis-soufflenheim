@@ -52,7 +52,6 @@ export default function MotDuPresidentPage() {
         title="Une belle aventure humaine, sportive et collective"
         echo="Bienvenue"
         effect="drop"
-        tape={["Jouez", "Partagez", "Profitez", "Garden Club", "Soufflenheim"]}
       />
 
       <section className="relative overflow-clip bg-night-950 py-28 text-white">

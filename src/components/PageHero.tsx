@@ -7,12 +7,10 @@ import { gsap, MQ, SCRAMBLE_CHARS, SplitText, useGSAP } from "@/components/fx/gs
 
 export type HeroEffect = "drop" | "scramble" | "neon" | "slam";
 
-const DEFAULT_TAPE = ["Padel", "Soufflenheim", "Ça claque", "Tennis", "Padel", "Pickleball", "Depuis 1979"];
-
 /* ------------------------------------------------------------------ */
 /*  En-tête des pages intérieures, en « soirée padel » : décor de     */
 /*  nuit (projecteurs, sol de piste, balles), mot géant en contour    */
-/*  qui file au défilement et deux rubans croisés en X.               */
+/*  qui file au défilement.                                           */
 /*                                                                    */
 /*  Le titre entre de quatre façons selon la page (`effect`) :        */
 /*   - drop     : les lettres tombent du ciel et rebondissent ;       */
@@ -30,7 +28,6 @@ export default function PageHero({
   title,
   text,
   echo,
-  tape = DEFAULT_TAPE,
   effect = "drop",
 }: {
   kicker: string;
@@ -38,7 +35,6 @@ export default function PageHero({
   text?: string;
   /** Mot géant en contour derrière le titre. */
   echo?: string;
-  tape?: string[];
   effect?: HeroEffect;
 }) {
   const root = useRef<HTMLElement>(null);
@@ -119,10 +115,9 @@ export default function PageHero({
             .to(chars, { keyframes: { yPercent: [0, -22, 0] }, duration: 0.5, stagger: { each: 0.015, from: "center" }, ease: "power2.out" }, "<");
         }
 
-        tl.from(q(".ph-fade"), { y: 26, autoAlpha: 0, duration: 0.9, stagger: 0.1, ease: "power3.out" }, 0.5)
-          .from(q(".ph-tape"), { xPercent: (i: number) => (i ? 110 : -110), duration: 1.4, ease: "expo.out" }, 0.4);
+        tl.from(q(".ph-fade"), { y: 26, autoAlpha: 0, duration: 0.9, stagger: 0.1, ease: "power3.out" }, 0.5);
 
-        // Mot géant et rubans qui filent au défilement.
+        // Mot géant qui file au défilement.
         gsap
           .timeline({ scrollTrigger: { trigger: section, start: "top top", end: "bottom top", scrub: true } })
           .to(q(".ph-echo"), { xPercent: -18, ease: "none" }, 0)
@@ -148,12 +143,11 @@ export default function PageHero({
     { scope: root }
   );
 
-  const loop = [...tape, ...tape];
 
   return (
     <section
       ref={root}
-      className="relative overflow-clip bg-night-950 pb-40 pt-36 text-white sm:pt-44 lg:pb-48"
+      className="relative overflow-clip bg-night-950 pb-28 pt-36 text-white sm:pt-44 lg:pb-32"
     >
       <NightFx floor beams />
       <div className="ph-stage relative">
@@ -189,32 +183,6 @@ export default function PageHero({
             className="ph-shock pointer-events-none invisible absolute left-1/3 top-1/2 z-20 -ml-8 -mt-8 h-16 w-16 rounded-full border-2 border-rose-300 shadow-[0_0_30px_rgba(234,51,111,0.8)]"
           />
         ))}
-      </div>
-
-      {/* Rubans croisés en X, comme sur l'accueil */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-[-5%] bottom-14 z-10 rotate-[3deg]">
-        <div className="ph-tape overflow-hidden border-y border-rose-500/40 bg-night-900/90 py-2 backdrop-blur-sm">
-          <div className="marquee-track marquee-reverse flex">
-            {loop.map((t, i) => (
-              <span key={i} className="hero-outline display flex items-center gap-6 pr-6 text-lg sm:text-2xl">
-                {t}
-                <span className="text-rose-500">✦</span>
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-[-5%] bottom-12 z-10 -rotate-[2deg]">
-        <div className="ph-tape overflow-hidden bg-gradient-to-r from-rose-500 via-rose-600 to-ultra-500 py-2.5 shadow-[0_20px_50px_-15px_rgba(234,51,111,0.7)]">
-          <div className="marquee-track flex">
-            {loop.map((t, i) => (
-              <span key={i} className="display flex items-center gap-6 pr-6 text-lg text-white sm:text-2xl">
-                {t}
-                <span className="text-night-950">✦</span>
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
 
       <BallFx apiRef={fx} />

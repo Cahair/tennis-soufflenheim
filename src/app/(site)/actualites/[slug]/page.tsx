@@ -109,7 +109,6 @@ export default async function ArticlePage({ params }: Props) {
         title={article.title}
         text={article.excerpt}
         effect="drop"
-        tape={[article.category, "La Gazette du club", "Soufflenheim", "Padel", "Exclusif"]}
       />
 
       <section className="relative overflow-clip bg-night-950 py-24 text-white">

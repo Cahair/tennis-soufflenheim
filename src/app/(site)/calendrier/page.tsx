@@ -57,7 +57,6 @@ export default async function CalendrierPage() {
         text="Tournois, animations, soirées : notez les dates pour ne rien manquer de la vie du club rue de Koenigsbruck."
         echo="Agenda"
         effect="scramble"
-        tape={["Tournois", "Initiations", "Soirées", "Portes ouvertes", "Padel"]}
       />
 
       {/* Les prochaines dates, en cartes : la date en grand, le reste en dessous */}

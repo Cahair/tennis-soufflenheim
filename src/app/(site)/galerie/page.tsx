@@ -23,7 +23,6 @@ export default async function GaleriePage() {
         text="Piste de padel flambant neuve, courts au cœur du village, terrasse au soleil, fêtes mémorables — et plus de 45 ans d'archives : bienvenue chez nous."
         echo="Clic-clac"
         effect="neon"
-        tape={["Souriez", "Padel", "Archives", "Fêtes du club", "Terrasse", "Clic-clac"]}
       />
 
       <section className="relative bg-night-950 py-24">

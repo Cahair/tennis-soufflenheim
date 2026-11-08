@@ -59,7 +59,6 @@ export default async function TarifsPage() {
         text="Une adhésion annuelle pour jouer au tennis et au padel, en solo, en couple, étudiant ou jeune. Choisissez la formule qui vous ressemble et inscrivez-vous sur Ten'up."
         echo="Tarifs"
         effect="scramble"
-        tape={["Saison 2026 / 27", "Tennis + Padel", "Couple", "Étudiant", "Jeunes", "Inscription Ten'up"]}
       />
 
       {/* Adhésions */}

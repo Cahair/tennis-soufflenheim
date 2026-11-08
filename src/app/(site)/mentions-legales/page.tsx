@@ -22,7 +22,6 @@ export default async function MentionsLegalesPage() {
         title="Mentions légales"
         effect="neon"
         echo="Légal"
-        tape={["Mentions légales", "RGPD", "Sans cookies", "Hébergement", "Éditeur"]}
         text="Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN), voici les informations relatives à l'éditeur et à l'hébergeur de ce site."
       />
 

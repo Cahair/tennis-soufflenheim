@@ -27,7 +27,6 @@ export default function VideoMatchPage() {
         text="Avec l'application Spash, retrouvez la vidéo de vos parties sur votre téléphone : revoyez vos plus beaux points, progressez et partagez-les."
         echo="Replay"
         effect="neon"
-        tape={["Spash", "Replay", "Vos plus beaux points", "Partagez", "Progressez", "Soufflenheim"]}
       />
 
       <SpashTuto />
