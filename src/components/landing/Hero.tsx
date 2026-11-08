@@ -3,7 +3,7 @@
 import { useId, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { vueAerienne } from "@/lib/images";
+import { vainqueursPadel, vueAerienne } from "@/lib/images";
 import { ArrowRight } from "./Arrow";
 import BallFx, { type FxApi } from "./BallFx";
 import Magnetic from "./Magnetic";
@@ -11,8 +11,6 @@ import { gsap, MQ, useGSAP } from "./gsap";
 import { markIntroReady, onIntro } from "./intro";
 
 const WORD = "PADEL".split("");
-const TAPE = ["Padel", "Ça claque", "Padel", "Tennis", "Padel", "Pickleball", "Padel", "Réservez en ligne"];
-const TAPE_BACK = ["Smash", "Vibora", "Bandeja", "Chiquita", "Par 3", "Bajada"];
 
 /* Balles décoratives qui flottent dans le décor, à des profondeurs
    différentes (data-depth = amplitude de la parallaxe au pointeur). */
@@ -56,12 +54,11 @@ function PadelBall({ className = "" }: { className?: string }) {
 /*  grésillant, les lettres de « PADEL » tombent, la balle chute en   */
 /*  laissant une traînée d'étincelles et SMASHE le titre : explosion  */
 /*  de confettis, ondes de choc, flash, secousse d'écran. La photo    */
-/*  arrive en vol plané, les bandeaux se croisent en X.               */
+/*  arrive en vol plané.                                              */
 /*                                                                    */
 /*  Ensuite : ola régulière des lettres, néon qui grésille, balles    */
 /*  qui flottent, halo et parallaxe qui suivent la souris, reflet     */
-/*  holographique sur la photo, lettres en gelée au survol, et un     */
-/*  clic n'importe où lance une balle qui rebondit (BallFx).          */
+/*  holographique sur la photo et lettres en gelée au survol.         */
 /*                                                                    */
 /*  Rien n'est animé en mouvement réduit. Les éléments               */
 /*  data-intro-hide sont masqués en CSS jusqu'à l'entrée              */
@@ -81,7 +78,7 @@ export default function Hero() {
         const letters = q(".hero-letter") as HTMLElement[];
 
         // Sortie au défilement : le titre file vers le haut, la carte
-        // se redresse et recule, les bandeaux accélèrent.
+        // se redresse et recule.
         gsap
           .timeline({
             scrollTrigger: { trigger: section, start: "top top", end: "bottom top", scrub: true },
@@ -89,16 +86,11 @@ export default function Hero() {
           .to(q(".hero-copy"), { yPercent: -25, autoAlpha: 0, ease: "none" }, 0)
           .to(q(".hero-card-scroll"), { yPercent: 12, rotate: 4, scale: 0.92, ease: "none" }, 0)
           .to(q(".hero-glows"), { yPercent: 20, ease: "none" }, 0)
-          .to(q(".hero-tape-track"), { xPercent: -12, ease: "none" }, 0)
-          .to(q(".hero-tape-back-track"), { xPercent: 12, ease: "none" }, 0)
           .to(q(".hero-cue"), { autoAlpha: 0, ease: "none", duration: 0.2 }, 0);
 
         // Boucles d'ambiance.
         gsap.to(q(".hero-glow-a"), { xPercent: 12, yPercent: -8, scale: 1.15, duration: 7, ease: "sine.inOut", yoyo: true, repeat: -1 });
         gsap.to(q(".hero-glow-b"), { xPercent: -10, yPercent: 10, scale: 0.9, duration: 9, ease: "sine.inOut", yoyo: true, repeat: -1 });
-        gsap.to(q(".hero-badge-ring"), { rotate: 360, duration: 16, ease: "none", repeat: -1 });
-        gsap.to(q(".hero-tape-loop"), { xPercent: -50, duration: 28, ease: "none", repeat: -1 });
-        gsap.fromTo(q(".hero-tape-back-loop"), { xPercent: -50 }, { xPercent: 0, duration: 34, ease: "none", repeat: -1 });
         gsap.fromTo(q(".hero-beam-l"), { rotate: -28 }, { rotate: 14, duration: 6.5, ease: "sine.inOut", yoyo: true, repeat: -1 });
         gsap.fromTo(q(".hero-beam-r"), { rotate: 26 }, { rotate: -16, duration: 7.5, ease: "sine.inOut", yoyo: true, repeat: -1 });
         gsap.fromTo(q(".hero-floor"), { backgroundPositionY: "0px" }, { backgroundPositionY: "80px", duration: 2.4, ease: "none", repeat: -1 });
@@ -206,9 +198,6 @@ export default function Hero() {
               0.2
             )
             .fromTo(q(".hero-sheen"), { xPercent: -60 }, { xPercent: 30, duration: 1.6, ease: "power2.inOut" }, 1.2)
-            .fromTo(q(".hero-badge"), { scale: 0, rotate: -120 }, { scale: 1, rotate: 0, duration: 1.2, ease: "back.out(2)" }, 1.05)
-            .fromTo(q(".hero-tape"), { xPercent: -110 }, { xPercent: 0, duration: 1.4 }, 0.6)
-            .fromTo(q(".hero-tape-back"), { xPercent: 110 }, { xPercent: 0, duration: 1.4 }, 0.75)
             .fromTo(q(".hero-floater"), { scale: 0 }, { scale: 1, duration: 1, stagger: 0.08, ease: "back.out(3)" }, 0.9)
             .fromTo(q(".hero-fade"), { y: 28, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1, stagger: 0.1, ease: "power3.out" }, 0.75)
             .add(() => {
@@ -225,13 +214,6 @@ export default function Hero() {
           markIntroReady();
         });
 
-        // Un clic (ou un tap) n'importe où lance une balle qui rebondit.
-        const onClick = (e: MouseEvent) => {
-          if ((e.target as Element).closest("a, button")) return;
-          fx.current?.ball(e.clientX, e.clientY);
-        };
-        section.addEventListener("click", onClick);
-
         const stop = onIntro(() => {
           if (document.fonts.status === "loaded") play();
           else document.fonts.ready.then(() => play());
@@ -239,7 +221,6 @@ export default function Hero() {
         return () => {
           alive = false;
           stop();
-          section.removeEventListener("click", onClick);
         };
       });
 
@@ -367,8 +348,9 @@ export default function Hero() {
 
         {/* ---------- Contenu ---------- */}
         <div className="relative z-10 mx-auto grid h-full max-w-7xl grid-cols-1 items-center gap-8 px-4 pb-28 pt-28 sm:px-6 lg:grid-cols-12 lg:gap-6 lg:px-8 lg:pb-32">
-          {/* Photo de la piste : fond plein écran voilé sur mobile,
-              carte inclinée sur grand écran. */}
+          {/* Vue aérienne du club en fond voilé sur mobile ; sur grand
+              écran, carte inclinée avec les vainqueurs du dernier
+              tournoi de padel. */}
           <div className="hero-card-scroll absolute inset-0 lg:relative lg:inset-auto lg:order-2 lg:col-span-5 lg:mx-auto lg:w-[min(100%,26rem,calc((100svh-15rem)*0.75))]">
             <div data-depth="-18" className="h-full w-full [perspective:1000px]">
               <div className="hero-tilt relative h-full w-full [transform-style:preserve-3d]">
@@ -383,38 +365,33 @@ export default function Hero() {
                       fill
                       preload
                       placeholder="blur"
-                      sizes="(min-width: 64rem) 28rem, 100vw"
-                      className="object-cover object-[38%_center]"
+                      sizes="100vw"
+                      className="object-cover object-[38%_center] lg:hidden"
+                    />
+                    <Image
+                      src={vainqueursPadel}
+                      alt="Les vainqueurs du dernier tournoi de padel, trophées en main, avec le président du club"
+                      fill
+                      placeholder="blur"
+                      sizes="28rem"
+                      className="hidden object-cover lg:block"
                     />
                     {/* Mobile : la photo passe en fond, voilée de nuit et de rose */}
                     <div className="absolute inset-0 bg-gradient-to-b from-night-950/85 via-night-950/70 to-night-950/95 lg:hidden" />
                     <div className="absolute inset-0 bg-gradient-to-tr from-rose-600/45 via-transparent to-ultra-600/40 mix-blend-color lg:hidden" />
                     {/* Grand écran : reflet rose en pied de carte et
                         reflet holographique qui suit l'inclinaison */}
-                    <div className="absolute inset-x-0 bottom-0 hidden h-1/3 bg-gradient-to-t from-rose-600/50 to-transparent lg:block" />
+                    <div className="absolute inset-x-0 bottom-0 hidden h-2/5 bg-gradient-to-t from-night-950/90 via-night-950/40 to-transparent lg:block" />
+                    <p className="absolute inset-x-0 bottom-0 hidden p-6 lg:block">
+                      <span className="kicker text-rose-300">Tournoi de padel</span>
+                      <span className="display mt-2 block text-2xl leading-tight text-white">
+                        Vainqueurs du dernier tournoi de padel
+                      </span>
+                    </p>
                     <div className="hero-sheen pointer-events-none absolute inset-y-0 -left-full hidden w-[300%] lg:block" />
                   </div>
                 </div>
 
-                {/* Badge tournant, à cheval sur la carte */}
-                <div
-                  data-intro-hide
-                  className="hero-badge absolute -left-12 -top-10 hidden h-32 w-32 lg:block xl:h-36 xl:w-36"
-                  aria-hidden="true"
-                >
-                  <div className="absolute inset-0 rounded-full bg-night-950/80 shadow-[0_0_40px_rgba(234,51,111,0.5)] backdrop-blur-sm" />
-                  <svg viewBox="0 0 200 200" className="hero-badge-ring relative h-full w-full">
-                    <defs>
-                      <path id="hero-badge-circle" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0" />
-                    </defs>
-                    <text className="fill-white font-display text-[19px] font-semibold uppercase tracking-[0.2em]">
-                      <textPath href="#hero-badge-circle" textLength="464" lengthAdjust="spacing">
-                        Padel · Réservable 7j/7 · À 4 ·
-                      </textPath>
-                    </text>
-                  </svg>
-                  <PadelBall className="absolute left-1/2 top-1/2 h-11 w-11 -translate-x-1/2 -translate-y-1/2" />
-                </div>
               </div>
             </div>
           </div>
@@ -486,8 +463,8 @@ export default function Hero() {
               data-intro-hide
               className="hero-fade mt-5 max-w-lg text-base leading-relaxed text-white/75 sm:mt-6 sm:text-lg"
             >
-              Notre piste SLAMCOURT dernière génération vous attend&nbsp;: à 4, entre amis, réservée en
-              quelques clics. Et toujours le tennis et le pickleball, depuis 1979.
+              Nos pistes de padel couvertes vous attendent&nbsp;: à 4, entre amis, toute l&apos;année. Et
+              toujours le tennis et le pickleball, depuis 1979.
             </p>
 
             <div
@@ -495,75 +472,30 @@ export default function Hero() {
               className="hero-fade mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4"
             >
               <Magnetic>
-                <a href="#reservation" className="hero-cta btn btn-rose">
-                  Réserver une partie
+                <Link href="/padel" className="hero-cta btn btn-rose">
+                  Découvrir le padel
                   <ArrowRight />
-                </a>
+                </Link>
               </Magnetic>
               <Magnetic>
-                <Link href="/padel" className="btn btn-outline-light">
-                  Découvrir le padel
+                <Link href="/le-club" className="btn btn-outline-light">
+                  Le club
                 </Link>
               </Magnetic>
             </div>
 
-            <p
+            {/* Mobile : la carte des vainqueurs devient une vignette */}
+            <figure
               data-intro-hide
-              aria-hidden="true"
-              className="hero-fade mt-6 hidden text-xs font-semibold uppercase tracking-[0.25em] text-rose-300/70 lg:block"
+              className="hero-fade mt-8 flex items-center gap-4 rounded-2xl border border-white/10 bg-night-950/60 p-3 pr-5 backdrop-blur-sm lg:hidden"
             >
-              ✦ Psst… cliquez n&apos;importe où
-            </p>
-          </div>
-        </div>
-
-        {/* ---------- Bandeaux défilants, croisés en X ---------- */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-[-5%] bottom-12 z-10 rotate-[4deg] sm:bottom-14"
-        >
-          <div data-intro-hide className="hero-tape-back border-y border-rose-500/40 bg-night-900/90 py-2 backdrop-blur-sm">
-            <div className="hero-tape-back-track">
-              <div className="hero-tape-back-loop flex w-max">
-                {[0, 1].map((copy) => (
-                  <div key={copy} className="flex shrink-0 items-center">
-                    {[...TAPE_BACK, ...TAPE_BACK].map((t, i) => (
-                      <span key={i} className="hero-outline display flex items-center gap-6 pr-6 text-lg tracking-wide sm:text-2xl">
-                        {t}
-                        <span className="text-rose-500">✦</span>
-                      </span>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-[-5%] bottom-10 z-20 -rotate-[3deg] sm:bottom-12"
-        >
-          <div data-intro-hide className="hero-tape bg-gradient-to-r from-rose-500 via-rose-600 to-ultra-500 py-2.5 shadow-[0_20px_50px_-15px_rgba(234,51,111,0.7)] sm:py-3">
-            <div className="hero-tape-track">
-              <div className="hero-tape-loop flex w-max">
-                {[0, 1].map((copy) => (
-                  <div key={copy} className="flex shrink-0 items-center">
-                    {TAPE.map((t, i) => (
-                      <span
-                        key={i}
-                        className={`display flex items-center gap-6 pr-6 text-lg tracking-wide sm:text-2xl ${
-                          t === "Padel" ? "text-white" : "text-white/90"
-                        }`}
-                      >
-                        {t}
-                        <span className="text-night-950">✦</span>
-                      </span>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
+              <span className="relative h-16 w-12 shrink-0 overflow-hidden rounded-lg">
+                <Image src={vainqueursPadel} alt="" fill sizes="3rem" className="object-cover" />
+              </span>
+              <figcaption className="text-sm font-semibold leading-snug text-white">
+                Vainqueurs du dernier tournoi de padel
+              </figcaption>
+            </figure>
           </div>
         </div>
 

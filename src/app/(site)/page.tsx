@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Booking from "@/components/landing/Booking";
 import ClubStory from "@/components/landing/ClubStory";
 import Cursor from "@/components/landing/Cursor";
 import FinalCall from "@/components/landing/FinalCall";
@@ -14,7 +13,6 @@ import {
   getCtaBand,
   getDisciplines,
   getHomeIntro,
-  getReservation,
   getSettings,
   getSponsors,
   getStats,
@@ -34,7 +32,6 @@ export default async function Home() {
     intro,
     stats,
     disciplines,
-    reservation,
     testimonials,
     sponsors,
     ctaBand,
@@ -43,7 +40,6 @@ export default async function Home() {
     getHomeIntro(),
     getStats(),
     getDisciplines(),
-    getReservation(),
     getTestimonials(),
     getSponsors(),
     getCtaBand(),
@@ -58,15 +54,9 @@ export default async function Home() {
       <ClubStory intro={intro} stats={stats} />
       <Sports disciplines={disciplines} />
       <PadelReveal />
-      <Booking reservation={reservation} tenup={site.links.tenup} phone={site.phoneClub} />
       <Voices testimonials={testimonials} />
       <Partners sponsors={sponsors} />
-      <FinalCall
-        title={ctaBand.title}
-        text={ctaBand.text}
-        tenup={site.links.tenup}
-        cta={reservation.cta}
-      />
+      <FinalCall title={ctaBand.title} text={ctaBand.text} />
     </>
   );
 }

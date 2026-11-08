@@ -20,7 +20,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Le club : histoire et installations",
   description:
-    "Depuis 1979, le Tennis Padel Club Soufflenheim fait vivre le tennis et le padel en Alsace du Nord (Bas-Rhin) : histoire, comité, courts, padel couvert et club house.",
+    "Depuis 1979, le Tennis Padel Garden Club de Soufflenheim fait vivre le tennis et le padel en Alsace du Nord (Bas-Rhin) : histoire, comité, courts, padel couvert et club house.",
   path: "/le-club",
 });
 
@@ -50,11 +50,28 @@ export default async function LeClubPage() {
       <PageHero
         kicker="Le club"
         title="Une histoire de famille depuis 1979"
-        text="Du premier échange rue de Koenigsbruck à la piste de padel dernière génération : presque un demi-siècle de passion, porté par des bénévoles qui ne lâchent rien."
+        text="Du premier échange rue de Koenigsbruck aux pistes de padel dernière génération : presque un demi-siècle de passion, porté par des bénévoles qui ne lâchent rien."
         echo="1979"
         effect="neon"
         tape={["Depuis 1979", "Bénévoles", "Famille", "Padel", "Tennis", "Fêtes du club", "Soufflenheim"]}
       />
+
+      {/* Le mot du président, en accroche vers sa page */}
+      <section className="relative overflow-clip bg-night-950 pt-28 text-white">
+        <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+          <p className="kicker kicker-center text-rose-300">Le mot du président</p>
+          <blockquote className="mt-8">
+            <p className="display text-[clamp(2rem,5vw,3.6rem)] leading-[1.02] text-white">
+              «&nbsp;Nous ne construisons pas simplement un club sportif, nous construisons un lieu de vie.&nbsp;»
+            </p>
+            <footer className="mt-6 text-sm uppercase tracking-[0.2em] text-white/60">Serge Moreau, président</footer>
+          </blockquote>
+          <Link href="/mot-du-president" className="link-arrow mt-10 text-rose-300 hover:text-white">
+            Lire le mot du président
+            <ArrowRight />
+          </Link>
+        </div>
+      </section>
 
       {/* Histoire du club, en ordre chronologique */}
       <section className="relative overflow-clip bg-night-950 py-28 text-white">
@@ -157,7 +174,7 @@ export default async function LeClubPage() {
           <SectionHeader
             kicker="Les installations"
             title="Tout pour jouer, tout pour rester"
-            text="Courts, piste de padel, club house avec cuisine, pétanque et espace vert : le club est pensé pour les sportifs comme pour les supporters."
+            text="Court de tennis, pistes de padel, club house avec cuisine, pétanque et espace vert : le club est pensé pour les sportifs comme pour les supporters."
           />
           <div className="mt-16">
             {facilities.map((facility, i) => (

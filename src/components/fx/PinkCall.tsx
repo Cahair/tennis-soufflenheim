@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import Link from "next/link";
-import BallFx, { SPARKS_ON_ROSE, type FxApi } from "@/components/landing/BallFx";
 import Magnetic from "@/components/landing/Magnetic";
 import { ArrowRight } from "@/components/landing/Arrow";
 import { frenchSpacing, gsap, MQ, SplitText, useGSAP } from "./gsap";
@@ -11,11 +10,10 @@ import { frenchSpacing, gsap, MQ, SplitText, useGSAP } from "./gsap";
 /*  Bandeau d'appel rose, la cassure de couleur des pages intérieures */
 /*  (comme la réservation sur l'accueil) : rayures de piste qui       */
 /*  défilent, mot géant en contour nuit qui traverse, titre qui fait  */
-/*  la ola en continu, et chaque clic fait tomber une balle nuit.     */
+/*  la ola en continu.                                                */
 /* ------------------------------------------------------------------ */
 export default function PinkCall({ title, text }: { title: string; text: string }) {
   const root = useRef<HTMLElement>(null);
-  const fx = useRef<FxApi | null>(null);
 
   useGSAP(
     () => {
@@ -41,15 +39,7 @@ export default function PinkCall({ title, text }: { title: string; text: string 
         });
         gsap.fromTo(q(".pc-ghost"), { xPercent: 0 }, { xPercent: -30, ease: "none", scrollTrigger: { trigger: section, start: "top bottom", end: "bottom top", scrub: true } });
 
-        const onClick = (e: MouseEvent) => {
-          if ((e.target as Element).closest("a, button")) return;
-          fx.current?.ball(e.clientX, e.clientY);
-        };
-        section.addEventListener("click", onClick);
-        return () => {
-          section.removeEventListener("click", onClick);
-          split.revert();
-        };
+        return () => split.revert();
       });
     },
     { scope: root }
@@ -64,7 +54,6 @@ export default function PinkCall({ title, text }: { title: string; text: string 
       >
         On joue ? ✦ On joue ? ✦ On joue ?
       </p>
-      <BallFx apiRef={fx} sparks={SPARKS_ON_ROSE} ball="night" className="z-0" />
       <div className="relative z-10 mx-auto max-w-5xl px-4 text-center sm:px-6">
         <h2 className="pc-title display text-[clamp(3rem,8vw,6.5rem)] leading-[0.9] text-night-950">
           {frenchSpacing(title)}
@@ -72,8 +61,8 @@ export default function PinkCall({ title, text }: { title: string; text: string 
         <p className="mx-auto mt-6 max-w-xl text-lg font-medium text-night-950/90">{text}</p>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <Magnetic>
-            <Link href="/#reservation" className="booking-cta-glow btn btn-night">
-              Réserver un court
+            <Link href="/tarifs" className="booking-cta-glow btn btn-night">
+              Rejoindre le club
               <ArrowRight />
             </Link>
           </Magnetic>
@@ -83,9 +72,6 @@ export default function PinkCall({ title, text }: { title: string; text: string 
             </Link>
           </Magnetic>
         </div>
-        <p aria-hidden="true" className="mt-8 hidden text-xs font-bold uppercase tracking-[0.25em] text-night-950/90 lg:block">
-          ✦ Cliquez dans le rose pour servir
-        </p>
       </div>
     </section>
   );

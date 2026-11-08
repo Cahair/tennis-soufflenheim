@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Mentions légales",
   description:
-    "Mentions légales du site du Tennis Padel Club Soufflenheim : éditeur, hébergement, propriété intellectuelle et données personnelles.",
+    "Mentions légales du site du Tennis Padel Garden Club de Soufflenheim : éditeur, hébergement, propriété intellectuelle et données personnelles.",
   path: "/mentions-legales",
 });
 

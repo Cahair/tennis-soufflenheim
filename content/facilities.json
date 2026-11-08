@@ -1,8 +1,8 @@
 [
   {
-    "title": "Courts extérieurs",
-    "detail": "Deux courts en plein air au cœur du village, éclairés pour les fins de journée d'été.",
-    "tag": "2 courts",
+    "title": "Court de tennis",
+    "detail": "Là où tout a commencé en 1979 : le court de tennis du club, éclairé et réservable sur Ten'up.",
+    "tag": "1 court",
     "image": {
       "src": "/images/halle-exterieur.webp",
       "width": 1284,
@@ -11,20 +11,9 @@
     }
   },
   {
-    "title": "Court couvert",
-    "detail": "Un court sous halle pour jouer toute l'année, réservable comme les courts extérieurs.",
-    "tag": "Ouvert à l'année",
-    "image": {
-      "src": "/images/halle-padel.webp",
-      "width": 1180,
-      "height": 614,
-      "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoIAAQAA4BaJYgCdAEO/gOOAAD+ih3gQutiAqI8wqeb17nWgkjJKxO4dhKwAA=="
-    }
-  },
-  {
-    "title": "Piste de padel",
-    "detail": "Structure SLAMCOURT panoramique dernière génération, éclairée, réservable en ligne 7j/7.",
-    "tag": "Nouveau",
+    "title": "Pistes de padel",
+    "detail": "Deux pistes panoramiques couvertes et éclairées, plus une piste extérieure, réservables sur Ten'up 7j/7.",
+    "tag": "3 pistes",
     "image": {
       "src": "/images/padel-couvert.webp",
       "width": 480,

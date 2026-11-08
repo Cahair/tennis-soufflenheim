@@ -40,8 +40,8 @@ export const FLOATERS: Floater[] = [
 /*  sombres de l'accueil : halos rose et violet qui respirent, sol de */
 /*  piste en perspective, projecteurs qui balaient, balles qui        */
 /*  flottent (et filent en parallaxe au défilement), halo qui suit la */
-/*  souris, grain. Avec `fx`, un clic dans la section lance une balle */
-/*  qui rebondit et les éléments [data-tilt] s'inclinent en 3D.       */
+/*  souris, grain. Avec `fx`, les éléments [data-tilt] s'inclinent    */
+/*  en 3D.                                                            */
 /*                                                                    */
 /*  À placer en premier enfant d'une section `relative`. Les bords    */
 /*  haut et bas sont fondus : deux sections sombres se raccordent     */
@@ -109,13 +109,6 @@ export default function NightFx({
           scrollTrigger: { trigger: section, start: "top 80%" },
         });
 
-        if (!fx) return;
-        const onClick = (e: MouseEvent) => {
-          if ((e.target as Element).closest("a, button, input, textarea, select, label, iframe")) return;
-          fxApi.current?.ball(e.clientX, e.clientY);
-        };
-        section.addEventListener("click", onClick);
-        return () => section.removeEventListener("click", onClick);
       });
 
       // Souris : halo qui suit le curseur, cartes [data-tilt] en 3D.

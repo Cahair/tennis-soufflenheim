@@ -32,6 +32,8 @@ const routes: { path: string; priority: number; content: string[] }[] = [
   { path: "/video-match", priority: 0.5, content: [] },
   { path: "/galerie", priority: 0.6, content: ["gallery", "histoire-chapitres"] },
   { path: "/comite", priority: 0.6, content: ["committee"] },
+  { path: "/club-house", priority: 0.6, content: [] },
+  { path: "/mot-du-president", priority: 0.5, content: [] },
   { path: "/sponsors", priority: 0.6, content: ["sponsors", "settings"] },
   { path: "/reglement-interieur", priority: 0.4, content: ["settings"] },
   { path: "/mentions-legales", priority: 0.2, content: ["settings"] },

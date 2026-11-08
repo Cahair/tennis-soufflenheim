@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { halleLogo } from "@/lib/images";
 import { ArrowRight } from "./Arrow";
 import Magnetic from "./Magnetic";
@@ -10,12 +11,12 @@ import { gsap, MQ, ScrollTrigger, SplitText, useGSAP } from "./gsap";
 
 const VIDEO_URL = "https://www.youtube.com/watch?v=Ds8nB-zO1pQ";
 
-const atouts = ["100 % couvert", "Éclairage LED", "365 jours par an"];
+const atouts = ["2 pistes couvertes", "1 piste extérieure", "Éclairage LED", "365 jours par an"];
 const backItems = ["Vibora", "Bandeja", "Smash", "Chiquita", "Bajada", "Par 3"];
 const marqueeItems = [
   "Padel",
   "Nouveau au club",
-  "100 % couvert",
+  "2 pistes couvertes",
   "Toute l'année",
   "Jour & nuit",
 ];
@@ -209,7 +210,7 @@ export default function PadelReveal() {
             </span>
           </h2>
           <p className="padel-fade mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
-            Une piste SLAMCOURT dernière génération, à l&apos;abri&nbsp;: ici, la
+            Des pistes de padel couvertes, à l&apos;abri&nbsp;: ici, la
             pluie n&apos;annule jamais un match.
           </p>
           <ul className="mt-9 flex flex-wrap justify-center gap-x-9 gap-y-3">
@@ -225,10 +226,10 @@ export default function PadelReveal() {
           </ul>
           <div className="padel-fade mt-10 flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
             <Magnetic>
-              <a href="#reservation" className="btn btn-rose">
-                Réserver la piste
+              <Link href="/padel" className="btn btn-rose">
+                Découvrir le padel
                 <ArrowRight />
-              </a>
+              </Link>
             </Magnetic>
             <a
               href={VIDEO_URL}

@@ -21,7 +21,7 @@ const oswald = Oswald({
    « padel Alsace du Nord »… d'où les mots-clés géographiques. */
 const defaultTitle = `${SITE_NAME} · Tennis & padel dans le Bas-Rhin (67)`;
 const defaultDescription =
-  "Club de tennis, padel et pickleball à Soufflenheim (Bas-Rhin), à 20 min de Haguenau : padel couvert, école de tennis dès 5 ans, réservation en ligne 7j/7.";
+  "Club de tennis, padel et pickleball à Soufflenheim (Bas-Rhin), à 20 min de Haguenau : padel couvert, école de tennis dès 5 ans, réservation sur Ten'up 7j/7.";
 
 /* Codes de validation Search Console / Bing Webmaster Tools, fournis
    par variables d'environnement (inutile si la validation se fait

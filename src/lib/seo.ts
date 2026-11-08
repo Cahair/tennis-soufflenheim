@@ -8,13 +8,13 @@ import { SITE_URL } from "./site";
 /*  repart donc toujours des valeurs communes ci-dessous.             */
 /* ------------------------------------------------------------------ */
 
-export const SITE_NAME = "Tennis Padel Club Soufflenheim";
+export const SITE_NAME = "Tennis Padel Garden Club de Soufflenheim";
 
 export const OG_IMAGE = {
   url: "/images/og-image.jpg",
   width: 1200,
   height: 630,
-  alt: "Tennis Padel Club Soufflenheim — la piste de padel du club",
+  alt: "Tennis Padel Garden Club de Soufflenheim — les pistes de padel du club",
 };
 
 export const openGraphDefaults = {

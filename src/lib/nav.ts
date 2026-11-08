@@ -18,7 +18,6 @@ export const navLinks: NavLink[] = [
       { label: "Le club en bref", href: "/#club" },
       { label: "Nos disciplines", href: "/#disciplines" },
       { label: "Nouveau : le padel", href: "/#nouveau-padel" },
-      { label: "Réserver un court", href: "/#reservation" },
       { label: "FAQ", href: "/contact#faq" },
     ],
   },
@@ -27,11 +26,16 @@ export const navLinks: NavLink[] = [
     href: "/le-club",
     /* La page sports est dans le menu (et donc dans le pied de
        page) : c'est ce maillage qui la signale à Google. Le tennis
-       et le pickleball y sont présentés sous le padel. */
+       et le pickleball y sont présentés sous le padel, d'où leurs
+       liens vers les ancres #tennis et #pickleball. */
     children: [
       { label: "Histoire & installations", href: "/le-club" },
+      { label: "Le mot du président", href: "/mot-du-president" },
       { label: "Le comité", href: "/comite" },
+      { label: "Le club-house", href: "/club-house" },
+      { label: "Le tennis", href: "/padel#tennis" },
       { label: "Le padel", href: "/padel" },
+      { label: "Le pickleball", href: "/padel#pickleball" },
     ],
   },
   {

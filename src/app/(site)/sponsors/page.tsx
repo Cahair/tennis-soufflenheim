@@ -12,14 +12,14 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Sponsors et partenaires",
   description:
-    "Commerçants, artisans et entreprises d'Alsace du Nord soutiennent le Tennis Padel Club Soufflenheim saison après saison. Découvrez nos sponsors et rejoignez-les.",
+    "Commerçants, artisans et entreprises d'Alsace du Nord soutiennent le Tennis Padel Garden Club de Soufflenheim saison après saison. Découvrez nos sponsors et rejoignez-les.",
   path: "/sponsors",
 });
 
 const benefits = [
   {
     title: "Visibilité au bord des courts",
-    text: "Votre panneau installé face aux courts et à la piste de padel, vu par les joueurs et les visiteurs toute l'année.",
+    text: "Votre panneau installé face au court de tennis et aux pistes de padel, vu par les joueurs et les visiteurs toute l'année.",
     icon: (
       <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="5" width="18" height="12" rx="2" />

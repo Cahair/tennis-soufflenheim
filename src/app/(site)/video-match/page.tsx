@@ -8,7 +8,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Vidéo de votre match avec Spash",
   description:
-    "Filmez et revoyez vos matchs au Tennis Padel Club Soufflenheim avec l'application Spash : le tutoriel vidéo en quatre étapes.",
+    "Filmez et revoyez vos matchs au Tennis Padel Garden Club de Soufflenheim avec l'application Spash : le tutoriel vidéo en quatre étapes.",
   path: "/video-match",
 });
 

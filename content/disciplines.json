@@ -8,15 +8,15 @@
       "height": 428,
       "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoIAAUABABoJYwC7AEWTWfagAD94cKbW7fgs5QjlGw+uX+0LZge6X/aIAA="
     },
-    "description": "Deux courts extérieurs et un court couvert pour jouer toute l'année, en loisir comme en compétition. École de tennis dès 5 ans, encadrement passionné.",
+    "description": "Un court de tennis pour jouer en loisir comme en compétition. École de tennis dès 5 ans, encadrement passionné.",
     "features": [
-      "2 courts extérieurs + 1 court couvert",
+      "1 court de tennis",
       "École de tennis dès 5 ans",
       "Équipes engagées en championnat"
     ],
     "cta": {
       "label": "Rejoindre l'école de tennis",
-      "href": "https://tenup.fft.fr"
+      "href": "/tarifs"
     }
   },
   {
@@ -28,15 +28,14 @@
       "height": 831,
       "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoIAAUAA4BaJQBOgCIClYZYAADifOXjPr5pyYei8xZ3uN8yX7noCgsg/mC/yOcBE7AAAA=="
     },
-    "description": "Notre piste SLAMCOURT dernière génération vous attend. Facile à prendre en main, terriblement addictif : le padel se joue à 4 et se réserve en quelques clics.",
+    "description": "Nos pistes de padel couvertes vous attendent. Facile à prendre en main, terriblement addictif : le padel se joue à 4 et se réserve sur Ten'up.",
     "features": [
-      "Piste panoramique dernière génération",
-      "Tutoriels vidéo officiels FFT",
-      "Projet d'extension en cours (maquette 3D)"
+      "Pistes panoramiques dernière génération",
+      "2 pistes couvertes et 1 piste extérieure"
     ],
     "cta": {
-      "label": "Réserver une piste",
-      "href": "/#reservation"
+      "label": "Rejoindre le club",
+      "href": "/tarifs"
     }
   },
   {

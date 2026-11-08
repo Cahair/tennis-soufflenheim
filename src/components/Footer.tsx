@@ -88,7 +88,7 @@ export default function Footer({
               Réserver un court
             </h3>
             <p className="mt-5 text-sm leading-relaxed">
-              Plateforme officielle Ten&rsquo;up, réservation en ligne 7j/7.
+              Plateforme officielle Ten&rsquo;up, réservation 7j/7.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
               <a

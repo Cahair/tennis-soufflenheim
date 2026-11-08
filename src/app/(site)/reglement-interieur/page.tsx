@@ -4,16 +4,15 @@ import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import ApproveCheck from "@/components/fx/ApproveCheck";
 import ReadProgress from "@/components/fx/ReadProgress";
-import { ArrowUpRight } from "@/components/landing/Arrow";
+import { ArrowRight } from "@/components/landing/Arrow";
 import NightFx from "@/components/landing/NightFx";
-import { getSettings } from "@/lib/content";
 import { bureau, reglementArticles, reglementMeta } from "@/lib/reglement";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Règlement intérieur",
   description:
-    "Membres, cotisations, licence FFT, réservations, discipline : le règlement intérieur du Tennis Padel Club Soufflenheim.",
+    "Membres, cotisations, licence FFT, réservations, discipline : le règlement intérieur du Tennis Padel Garden Club de Soufflenheim.",
   path: "/reglement-interieur",
 });
 
@@ -25,8 +24,7 @@ const anchor = (i: number) => `article-${i + 1}`;
 /*  cartes de verre, et une case « Lu et approuvé » qui déclenche un  */
 /*  feu d'artifice et une pluie de balles.                            */
 /* ------------------------------------------------------------------ */
-export default async function ReglementPage() {
-  const site = await getSettings();
+export default function ReglementPage() {
   return (
     <>
       <ReadProgress />
@@ -159,12 +157,9 @@ export default async function ReglementPage() {
             <ApproveCheck />
           </div>
           <div className="relative z-10 mt-10 flex flex-wrap justify-center gap-3">
-            <a href={site.links.tenup} target="_blank" rel="noopener noreferrer" className="btn btn-rose">
-              S&rsquo;inscrire sur Ten&rsquo;up
-              <ArrowUpRight />
-            </a>
-            <Link href="/tarifs" className="btn btn-outline-light">
-              Voir les tarifs
+            <Link href="/tarifs" className="btn btn-rose">
+              Choisir ma formule
+              <ArrowRight />
             </Link>
           </div>
         </div>

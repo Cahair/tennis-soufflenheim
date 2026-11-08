@@ -12,7 +12,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Actualités",
   description:
-    "Tournois, nouveautés padel et pickleball, résultats et coulisses : toute la vie du Tennis Padel Club Soufflenheim, en Alsace du Nord.",
+    "Tournois, nouveautés padel et pickleball, résultats et coulisses : toute la vie du Tennis Padel Garden Club de Soufflenheim, en Alsace du Nord.",
   path: "/actualites",
 });
 

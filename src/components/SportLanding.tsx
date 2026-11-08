@@ -5,7 +5,6 @@ import JsonLd from "@/components/JsonLd";
 import PageHero, { type HeroEffect } from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import CourtDrop from "@/components/fx/CourtDrop";
-import PadelRally from "@/components/fx/PadelRally";
 import SplitFlap from "@/components/fx/SplitFlap";
 import TownRadar from "@/components/fx/TownRadar";
 import VelocityBands from "@/components/fx/VelocityBands";
@@ -60,7 +59,6 @@ export default async function SportLanding({ sport }: { sport: SportPage }) {
         tape={[sport.label, ...(discipline?.features ?? []), "Soufflenheim"]}
       />
 
-      <PadelRally />
 
       {/* Présentation */}
       <section className="relative overflow-clip bg-night-950 py-28 text-white lg:py-36">
@@ -112,7 +110,7 @@ export default async function SportLanding({ sport }: { sport: SportPage }) {
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[calc(2rem-3px)]">
                   <Image
                     src={discipline.image}
-                    alt={`${sport.label} au Tennis Padel Club Soufflenheim`}
+                    alt={`${sport.label} au Tennis Padel Garden Club de Soufflenheim`}
                     fill
                     placeholder={discipline.image.blurDataURL ? "blur" : "empty"}
                     sizes="(max-width: 1024px) 92vw, 40vw"
@@ -135,7 +133,7 @@ export default async function SportLanding({ sport }: { sport: SportPage }) {
 
       <VelocityBands
         top={["Padel", "À quatre", "Vitres", "Bandeja", "Víbora", "Smash", "Por tres"]}
-        bottom={["Piste couverte", "Réservation 7j/7", "Un tournoi par mois", "Entraîneur padel", "Raquettes prêtées"]}
+        bottom={["2 pistes couvertes", "1 piste extérieure", "Réservation Ten'up 7j/7", "Un tournoi par mois", "Entraîneur padel", "Raquettes prêtées"]}
       />
 
       {/* Atouts : tombent sur la piste */}
@@ -157,7 +155,7 @@ export default async function SportLanding({ sport }: { sport: SportPage }) {
             <SectionHeader
               kicker="Adhésions"
               title={`Votre billet ${sport.label.toLowerCase()}`}
-              text="Une adhésion annuelle, valable du 1er septembre au 31 août : accès aux installations et réservation en ligne 7j/7."
+              text="Une adhésion annuelle, valable du 1er septembre au 31 août : accès aux installations et réservation sur Ten'up 7j/7."
             />
             <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {formulas.map((m, i) => (
@@ -226,7 +224,7 @@ export default async function SportLanding({ sport }: { sport: SportPage }) {
                     <div className="relative aspect-[16/9] overflow-hidden">
                       <Image
                         src={d.image}
-                        alt={`${other.label} au Tennis Padel Club Soufflenheim`}
+                        alt={`${other.label} au Tennis Padel Garden Club de Soufflenheim`}
                         fill
                         placeholder={d.image.blurDataURL ? "blur" : "empty"}
                         sizes="(max-width: 768px) 92vw, 45vw"

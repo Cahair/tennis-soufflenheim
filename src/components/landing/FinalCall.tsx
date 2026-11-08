@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import CourtLines from "@/components/CourtLines";
-import { ArrowUpRight } from "./Arrow";
+import { ArrowRight } from "./Arrow";
 import BallFx, { type FxApi } from "./BallFx";
 import Magnetic from "./Magnetic";
 import NightFx from "./NightFx";
@@ -27,19 +27,16 @@ function KeepLastWord({ text }: { text: string }) {
 /*  Final — « Prêt à jouer ? » en très grand, lettres qui basculent,  */
 /*  tracé d'un court qui se dessine en fond. Se fond dans le footer.  */
 /*  Le bouquet final : une pluie de balles tombe derrière le titre à  */
-/*  l'arrivée, et chaque clic dans la section en relance une. Décor   */
-/*  de nuit du hero : projecteurs, sol de piste, balles qui flottent. */
+/*  l'arrivée. Décor de nuit du hero : projecteurs, sol de piste,     */
+/*  balles qui flottent. Le bouton mène aux tarifs : les liens Ten'up */
+/*  ne vivent que dans les tarifs et le pied de page.                 */
 /* ------------------------------------------------------------------ */
 export default function FinalCall({
   title,
   text,
-  tenup,
-  cta,
 }: {
   title: string;
   text: string;
-  tenup: string;
-  cta: string;
 }) {
   const root = useRef<HTMLElement>(null);
   const fx = useRef<FxApi | null>(null);
@@ -75,7 +72,7 @@ export default function FinalCall({
           scrollTrigger: { trigger: root.current, start: "top 70%" },
         });
 
-        // Pluie de balles à l'arrivée, puis une balle par clic.
+        // Pluie de balles à l'arrivée.
         const section = root.current!;
         ScrollTrigger.create({
           trigger: section,
@@ -83,12 +80,6 @@ export default function FinalCall({
           once: true,
           onEnter: () => fx.current?.rain(window.innerWidth < 640 ? 9 : 16),
         });
-        const onClick = (e: MouseEvent) => {
-          if ((e.target as Element).closest("a, button")) return;
-          fx.current?.ball(e.clientX, e.clientY);
-        };
-        section.addEventListener("click", onClick);
-        return () => section.removeEventListener("click", onClick);
       });
     },
     { scope: root }
@@ -109,7 +100,7 @@ export default function FinalCall({
 
       <div className="relative z-10 mx-auto max-w-7xl text-center">
         <p className="final-fade kicker kicker-center text-[0.65rem] text-rose-400 sm:text-xs">
-          Tennis Padel Club Soufflenheim
+          Tennis Padel Garden Club de Soufflenheim
         </p>
         <h2 className="final-title display mt-8 text-[clamp(3.4rem,13vw,13rem)] leading-[0.86] text-rose-400">
           <KeepLastWord text={frenchSpacing(title)} />
@@ -119,17 +110,10 @@ export default function FinalCall({
         </p>
         <div className="final-fade mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
           <Magnetic>
-            <a
-              href={tenup}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-umami-event="reservation-tenup"
-              data-umami-event-emplacement="appel-final"
-              className="btn btn-rose"
-            >
-              {cta}
-              <ArrowUpRight />
-            </a>
+            <Link href="/tarifs" className="btn btn-rose">
+              Rejoindre le club
+              <ArrowRight />
+            </Link>
           </Magnetic>
           <Magnetic>
             <Link href="/contact" className="btn btn-outline-light">

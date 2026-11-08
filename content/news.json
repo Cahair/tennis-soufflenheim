@@ -1,5 +1,20 @@
 [
   {
+    "slug": "tournoi-p1000-hommes-mai-2027",
+    "title": "Tournoi P1000 Hommes du 6 au 9 mai 2027",
+    "date": "8 novembre 2026",
+    "eventDate": "2027-05-06",
+    "category": "Tournoi",
+    "excerpt": "Le premier P1000 du Tennis Padel Garden Club de Soufflenheim : quatre jours de grand padel sur nos pistes couvertes, du jeudi 6 au dimanche 9 mai 2027.",
+    "content": "Le Tennis Padel Garden Club de Soufflenheim organise son tout premier tournoi P1000 Hommes, du jeudi 6 au dimanche 9 mai 2027.\n\nJeudi 6 mai : préqualifications.\nVendredi 7 mai : qualifications pour le tableau final.\nSamedi 8 mai : tableau final.\nDimanche 9 mai : tableau final et phases finales.\n\nUn week-end prolongé avec deux jours fériés : du grand padel et du spectacle sur nos pistes couvertes, des soirées animées et festives, et une ambiance garden unique dans le nord de l'Alsace.\n\nRendez-vous à Soufflenheim !",
+    "image": {
+      "src": "/images/affiche-p1000-hommes.webp",
+      "width": 1024,
+      "height": 1536,
+      "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwAgCdASoIAAwAA4BaJZgCdEf/gbjSCyaeoAD+5FppEXXQJbJItV7t0XOAbCUC+9NnNRyYS/Y4rnGrpL5WSD94QJVv4EeDNgLGR9Ft1tIZMmJZuEycAA=="
+    }
+  },
+  {
     "slug": "soiree-moules-frites-28-novembre",
     "title": "Soirée moules-frites le samedi 28 novembre",
     "date": "21 octobre 2026",

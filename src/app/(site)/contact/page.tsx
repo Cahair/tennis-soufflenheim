@@ -15,7 +15,7 @@ import { faqJsonLd, pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Contact et accès",
   description:
-    "Téléphone, e-mail, formulaire et plan d'accès du Tennis Padel Club Soufflenheim, 1 rue de Koenigsbruck à Soufflenheim (Bas-Rhin), à 20 min de Haguenau.",
+    "Téléphone, e-mail, formulaire et plan d'accès du Tennis Padel Garden Club de Soufflenheim, 1 rue de Koenigsbruck à Soufflenheim (Bas-Rhin), à 20 min de Haguenau.",
   path: "/contact",
 });
 
@@ -176,7 +176,7 @@ export default async function ContactPage() {
           <div className="holo-frame relative mt-14 rounded-[2rem] p-[3px] shadow-[0_40px_90px_-30px_rgba(234,51,111,0.8)]">
             <div className="relative overflow-hidden rounded-[calc(2rem-3px)]">
               <iframe
-                title="Carte — Tennis Padel Club Soufflenheim"
+                title="Carte — Tennis Padel Garden Club de Soufflenheim"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=7.9536%2C48.8304%2C7.9676%2C48.8360&layer=mapnik&marker=48.8332%2C7.9606"
                 className="ix-map h-[460px] w-full border-0"
                 loading="lazy"

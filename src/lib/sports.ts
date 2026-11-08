@@ -34,25 +34,25 @@ export const sportPages: Record<SportSlug, SportPage> = {
     label: "Padel",
     metaTitle: "Padel à Soufflenheim, près de Haguenau (Bas-Rhin)",
     metaDescription:
-      "Padel couvert en Alsace du Nord, à 20 min de Haguenau : tournois, cours et réservation en ligne 7j/7. Tennis et pickleball aussi au Tennis Padel Club Soufflenheim.",
+      "Padel couvert en Alsace du Nord, à 20 min de Haguenau : tournois, cours et réservation sur Ten'up 7j/7. Tennis et pickleball aussi au Tennis Padel Garden Club de Soufflenheim.",
     hero: {
       kicker: "Padel · Soufflenheim, Bas-Rhin",
       title: "Le padel en Alsace du Nord, à l'abri de la pluie",
-      text: "Au Tennis Padel Club Soufflenheim, on joue au padel toute l'année : réservation en ligne 7j/7, tournois réguliers et une ambiance de club de village, entre Haguenau et le Rhin.",
+      text: "Au Tennis Padel Garden Club de Soufflenheim, on joue au padel toute l'année : réservation Ten'up 7j/7 et une ambiance garden, pour tout le nord de l'Alsace, en passant par Haguenau, Lauterbourg et Wissembourg.",
     },
     intro: {
       kicker: "Le padel au club",
       title: "Jouer au padel à Soufflenheim",
       paragraphs: [
         "Le padel est devenu en quelques saisons l'un des moteurs du club. Sport de raquette qui se joue à quatre sur une piste encadrée de vitres, il se prend en main dès la première partie : pas besoin d'avoir déjà tenu une raquette pour s'amuser.",
-        "Piste couverte et éclairée : on joue par tous les temps, de jour comme en soirée. Les membres réservent leur créneau sur Ten'up, l'application de la Fédération Française de Tennis, 7 jours sur 7.",
+        "Deux pistes couvertes et éclairées, plus une piste extérieure : on joue par tous les temps, de jour comme en soirée. Les membres réservent leur créneau sur Ten'up, l'application de la Fédération Française de Tennis, 7 jours sur 7.",
         "Débutant curieux, joueur de tennis en quête de nouveauté ou compétiteur : le club organise des tournois de padel toute l'année, des initiations et des cours avec son entraîneur padel. Les nouveaux membres peuvent emprunter des raquettes pour se lancer.",
       ],
     },
     highlights: [
       {
         title: "Par tous les temps",
-        text: "Piste couverte et éclairée : la pluie n'annule jamais un match, l'hiver non plus.",
+        text: "Deux pistes couvertes et éclairées : la pluie n'annule jamais un match, l'hiver non plus.",
       },
       {
         title: "Un tournoi chaque mois",
@@ -67,7 +67,7 @@ export const sportPages: Record<SportSlug, SportPage> = {
     faqs: [
       {
         q: "Comment jouer au padel au club ?",
-        a: "Le plus simple est d'adhérer au club : l'adhésion annuelle tennis + padel (cotisation au club + licence FFT) donne accès à la piste, réservable sur Ten'up 7 jours sur 7. Une formule existe aussi pour les joueurs qui ne prennent pas leur licence au club. Pour une première découverte, contactez-nous : des initiations sont organisées régulièrement.",
+        a: "Le plus simple est d'adhérer au club : l'adhésion annuelle tennis + padel (cotisation au club + licence FFT) donne accès aux pistes, réservables sur Ten'up 7 jours sur 7. Une formule existe aussi pour les joueurs qui ne prennent pas leur licence au club. Pour une première découverte, contactez-nous : des initiations sont organisées régulièrement.",
       },
       {
         q: "Faut-il savoir jouer au tennis pour se mettre au padel ?",
@@ -90,18 +90,18 @@ export const sportPages: Record<SportSlug, SportPage> = {
     label: "Tennis",
     metaTitle: "Club de tennis à Soufflenheim, près de Haguenau (Bas-Rhin)",
     metaDescription:
-      "Courts extérieurs et court couvert, école de tennis dès 5 ans, équipes en championnat et Open annuel : le tennis en Alsace du Nord, à 20 min de Haguenau.",
+      "Un court de tennis réservable sur Ten'up, école de tennis dès 5 ans, équipes en championnat et Open annuel : le tennis en Alsace du Nord, à 20 min de Haguenau.",
     hero: {
       kicker: "Tennis · Soufflenheim, Bas-Rhin",
       title: "Le tennis à Soufflenheim, depuis 1979",
-      text: "École de tennis, loisir, compétition : un club à taille humaine en Alsace du Nord, avec un court couvert pour jouer toute l'année.",
+      text: "École de tennis, loisir, compétition : un club à taille humaine en Alsace du Nord, où le tennis se joue depuis 1979.",
     },
     intro: {
       kicker: "Le tennis au club",
       title: "Un club de tennis pour tous les âges",
       paragraphs: [
         "Le tennis est l'âme du club : c'est autour de lui que le club est né en 1979, rue de Koenigsbruck. Plus de quarante-cinq ans plus tard, on y joue toujours en famille, entre amis ou en compétition, dans une ambiance de club de village.",
-        "Les courts extérieurs accueillent les beaux jours et les soirées d'été, le court couvert prend le relais quand la météo alsacienne fait des siennes. L'éclairage est compris dans l'adhésion, et chaque membre réserve son créneau en ligne sur Ten'up.",
+        "Le court de tennis est ouvert à tous les membres : l'éclairage est compris dans l'adhésion, et chaque membre réserve son créneau sur Ten'up. Après la partie, le club-house et la terrasse garden ne sont qu'à quelques pas.",
         "Côté compétition, le club engage des équipes en championnat et organise chaque année son Open de tennis, avec au moins un tableau senior messieurs et un tableau senior dames.",
       ],
     },
@@ -111,8 +111,8 @@ export const sportPages: Record<SportSlug, SportPage> = {
         text: "30 séances d'une heure dans la saison pour les 5 à 17 ans, encadrées par notre entraîneur jeunes.",
       },
       {
-        title: "Un court couvert",
-        text: "Pour continuer à jouer l'hiver, quand il pleut ou quand la nuit tombe tôt.",
+        title: "Le club-house à deux pas",
+        text: "Bar, terrasse et espace garden juste à côté du court, pour prolonger la partie.",
       },
       {
         title: "Licence FFT",
@@ -131,7 +131,7 @@ export const sportPages: Record<SportSlug, SportPage> = {
       },
       {
         q: "Comment réserver un court de tennis ?",
-        a: "Les membres réservent sur Ten'up, l'application ou le site de la Fédération Française de Tennis, 7 jours sur 7. L'accès aux courts se fait ensuite avec un badge, remis contre une caution de 5 €.",
+        a: "Les membres réservent sur Ten'up, l'application ou le site de la Fédération Française de Tennis, 7 jours sur 7. L'accès au court se fait ensuite avec un badge, remis contre une caution de 5 €.",
       },
       {
         q: "Le club participe-t-il à des compétitions ?",
@@ -146,7 +146,7 @@ export const sportPages: Record<SportSlug, SportPage> = {
     label: "Pickleball",
     metaTitle: "Pickleball en Alsace : initiation à Soufflenheim (Bas-Rhin)",
     metaDescription:
-      "Découvrez le pickleball au Tennis Padel Club Soufflenheim : sessions d'initiation gratuites, matériel prêté, idéal en famille. En Alsace du Nord, à 20 min de Haguenau.",
+      "Découvrez le pickleball au Tennis Padel Garden Club de Soufflenheim : sessions d'initiation gratuites, matériel prêté, idéal en famille. En Alsace du Nord, à 20 min de Haguenau.",
     hero: {
       kicker: "Pickleball · Soufflenheim, Bas-Rhin",
       title: "Le pickleball débarque en Alsace du Nord",

@@ -11,7 +11,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Le comité",
   description:
-    "Bureau, commissions sportive, entretien, animation et sponsoring : découvrez les bénévoles qui font vivre le Tennis Padel Club Soufflenheim.",
+    "Bureau, commissions sportive, entretien, animation et sponsoring : découvrez les bénévoles qui font vivre le Tennis Padel Garden Club de Soufflenheim.",
   path: "/comite",
 });
 
@@ -26,7 +26,7 @@ const commissionsMeta = [
   {
     name: "Commission Entretien",
     icon: "wrench",
-    text: "Courts, piste de padel, club house : des installations toujours impeccables.",
+    text: "Court de tennis, pistes de padel, club house : des installations toujours impeccables.",
   },
   {
     name: "Commission Animation",

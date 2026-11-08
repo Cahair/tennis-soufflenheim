@@ -19,7 +19,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Tarifs et adhésions tennis & padel",
   description:
-    "Adhésions tennis + padel 2026 / 27 : adulte, couple, étudiant, jeunes, joueurs non licenciés au club et entraînements padel. Tous les tarifs du Tennis Padel Club Soufflenheim (Bas-Rhin).",
+    "Adhésions tennis + padel 2026 / 27 : adulte, couple, étudiant, jeunes, joueurs non licenciés au club et entraînements padel. Tous les tarifs du Tennis Padel Garden Club de Soufflenheim (Bas-Rhin).",
   path: "/tarifs",
 });
 

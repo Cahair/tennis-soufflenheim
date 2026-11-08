@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Galerie photos",
   description:
-    "Le Tennis Padel Club Soufflenheim en images : piste de padel, courts de tennis, club house, fêtes du club et jeunes en action, en Alsace du Nord.",
+    "Le Tennis Padel Garden Club de Soufflenheim en images : pistes de padel, court de tennis, club house, fêtes du club et jeunes en action, en Alsace du Nord.",
   path: "/galerie",
 });
 
