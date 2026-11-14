@@ -88,12 +88,15 @@ export default function Hero() {
           .to(q(".hero-glows"), { yPercent: 20, ease: "none" }, 0)
           .to(q(".hero-cue"), { autoAlpha: 0, ease: "none", duration: 0.2 }, 0);
 
-        // Boucles d'ambiance.
-        gsap.to(q(".hero-glow-a"), { xPercent: 12, yPercent: -8, scale: 1.15, duration: 7, ease: "sine.inOut", yoyo: true, repeat: -1 });
-        gsap.to(q(".hero-glow-b"), { xPercent: -10, yPercent: 10, scale: 0.9, duration: 9, ease: "sine.inOut", yoyo: true, repeat: -1 });
-        gsap.fromTo(q(".hero-beam-l"), { rotate: -28 }, { rotate: 14, duration: 6.5, ease: "sine.inOut", yoyo: true, repeat: -1 });
-        gsap.fromTo(q(".hero-beam-r"), { rotate: 26 }, { rotate: -16, duration: 7.5, ease: "sine.inOut", yoyo: true, repeat: -1 });
-        gsap.fromTo(q(".hero-floor"), { backgroundPositionY: "0px" }, { backgroundPositionY: "80px", duration: 2.4, ease: "none", repeat: -1 });
+        // Boucles d'ambiance (halos, projecteurs, sol : grand écran
+        // seulement, trop lourdes pour Safari iOS).
+        if (window.matchMedia(MQ.desktop).matches) {
+          gsap.to(q(".hero-glow-a"), { xPercent: 12, yPercent: -8, scale: 1.15, duration: 7, ease: "sine.inOut", yoyo: true, repeat: -1 });
+          gsap.to(q(".hero-glow-b"), { xPercent: -10, yPercent: 10, scale: 0.9, duration: 9, ease: "sine.inOut", yoyo: true, repeat: -1 });
+          gsap.fromTo(q(".hero-beam-l"), { rotate: -28 }, { rotate: 14, duration: 6.5, ease: "sine.inOut", yoyo: true, repeat: -1 });
+          gsap.fromTo(q(".hero-beam-r"), { rotate: 26 }, { rotate: -16, duration: 7.5, ease: "sine.inOut", yoyo: true, repeat: -1 });
+          gsap.fromTo(q(".hero-floor"), { backgroundPositionY: "0px" }, { backgroundPositionY: "80px", duration: 2.4, ease: "none", repeat: -1 });
+        }
         (q(".hero-floater") as HTMLElement[]).forEach((el) => {
           gsap.to(el, {
             x: "random(-30, 30)",

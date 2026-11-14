@@ -71,12 +71,6 @@ export default function NightFx({
         const layer = root.current!;
         const section = layer.parentElement!;
 
-        gsap.to(q(".nfx-glow-a"), { xPercent: 14, yPercent: -10, scale: 1.2, duration: 8, ease: "sine.inOut", yoyo: true, repeat: -1 });
-        gsap.to(q(".nfx-glow-b"), { xPercent: -12, yPercent: 12, scale: 0.85, duration: 10, ease: "sine.inOut", yoyo: true, repeat: -1 });
-        gsap.fromTo(q(".nfx-floor"), { backgroundPositionY: "0px" }, { backgroundPositionY: "80px", duration: 2.4, ease: "none", repeat: -1 });
-        gsap.fromTo(q(".nfx-beam-l"), { rotate: -26 }, { rotate: 12, duration: 7, ease: "sine.inOut", yoyo: true, repeat: -1 });
-        gsap.fromTo(q(".nfx-beam-r"), { rotate: 24 }, { rotate: -14, duration: 8, ease: "sine.inOut", yoyo: true, repeat: -1 });
-
         (q(".nfx-floater") as HTMLElement[]).forEach((el) => {
           gsap.to(el, {
             x: "random(-35, 35)",
@@ -107,6 +101,18 @@ export default function NightFx({
           scrollTrigger: { trigger: section, start: "top 80%" },
         });
 
+      });
+
+      /* Boucles d'ambiance réservées au grand écran : sur mobile, ces
+         grands calques animés en continu, multipliés par le nombre de
+         sections, saturent la mémoire de Safari iOS au défilement rapide.
+         Ils restent affichés, simplement immobiles. */
+      mm.add(MQ.desktop, () => {
+        gsap.to(q(".nfx-glow-a"), { xPercent: 14, yPercent: -10, scale: 1.2, duration: 8, ease: "sine.inOut", yoyo: true, repeat: -1 });
+        gsap.to(q(".nfx-glow-b"), { xPercent: -12, yPercent: 12, scale: 0.85, duration: 10, ease: "sine.inOut", yoyo: true, repeat: -1 });
+        gsap.fromTo(q(".nfx-floor"), { backgroundPositionY: "0px" }, { backgroundPositionY: "80px", duration: 2.4, ease: "none", repeat: -1 });
+        gsap.fromTo(q(".nfx-beam-l"), { rotate: -26 }, { rotate: 12, duration: 7, ease: "sine.inOut", yoyo: true, repeat: -1 });
+        gsap.fromTo(q(".nfx-beam-r"), { rotate: 24 }, { rotate: -14, duration: 8, ease: "sine.inOut", yoyo: true, repeat: -1 });
       });
 
       // Souris : halo qui suit le curseur, cartes [data-tilt] en 3D.
