@@ -124,6 +124,10 @@ export default function BallFx({
     let raf = 0;
     let last = 0;
 
+    /* La mémoire du canvas n'est réservée que pendant l'animation, puis
+       libérée : plusieurs grands calques au repos suffisaient à faire
+       planter Safari iOS (« un problème récurrent est survenu »). */
+    let sized = false;
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       w = canvas.clientWidth;
@@ -131,9 +135,17 @@ export default function BallFx({
       canvas.width = Math.round(w * dpr);
       canvas.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      sized = true;
     };
-    resize();
-    const ro = new ResizeObserver(resize);
+    const release = () => {
+      canvas.width = 0;
+      canvas.height = 0;
+      sized = false;
+    };
+    release();
+    const ro = new ResizeObserver(() => {
+      if (raf) resize();
+    });
     ro.observe(canvas);
 
     const local = (x: number, y: number) => {
@@ -223,10 +235,12 @@ export default function BallFx({
       else {
         raf = 0;
         last = 0;
+        release();
       }
     };
 
     const wake = () => {
+      if (!sized) resize();
       if (!raf) raf = requestAnimationFrame(step);
     };
 

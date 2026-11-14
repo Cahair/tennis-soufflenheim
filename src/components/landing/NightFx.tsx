@@ -1,7 +1,6 @@
 "use client";
 
 import { useId, useRef } from "react";
-import BallFx, { type FxApi } from "./BallFx";
 import { gsap, MQ, useGSAP } from "./gsap";
 
 /* Balle de padel aux couleurs du logo (rose, couture blanche). */
@@ -62,7 +61,6 @@ export default function NightFx({
   fx?: boolean;
 }) {
   const root = useRef<HTMLDivElement>(null);
-  const fxApi = useRef<FxApi | null>(null);
 
   useGSAP(
     () => {
@@ -172,45 +170,42 @@ export default function NightFx({
   const violet = glow === "left" ? "-right-[25%] bottom-[-20%]" : "-left-[25%] bottom-[-20%]";
 
   return (
-    <>
-      <div
-        ref={root}
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,#000_10%,#000_90%,transparent)]"
-      >
-        <div className={`nfx-glow-a absolute h-[70vmax] w-[70vmax] rounded-full bg-[radial-gradient(circle,rgba(234,51,111,0.42)_0%,rgba(234,51,111,0)_62%)] ${rose}`} />
-        <div className={`nfx-glow-b absolute h-[75vmax] w-[75vmax] rounded-full bg-[radial-gradient(circle,rgba(138,43,226,0.42)_0%,rgba(138,43,226,0)_62%)] ${violet}`} />
+    <div
+      ref={root}
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,#000_10%,#000_90%,transparent)]"
+    >
+      <div className={`nfx-glow-a absolute h-[70vmax] w-[70vmax] rounded-full bg-[radial-gradient(circle,rgba(234,51,111,0.42)_0%,rgba(234,51,111,0)_62%)] ${rose}`} />
+      <div className={`nfx-glow-b absolute h-[75vmax] w-[75vmax] rounded-full bg-[radial-gradient(circle,rgba(138,43,226,0.42)_0%,rgba(138,43,226,0)_62%)] ${violet}`} />
 
-        {beams ? (
-          <>
-            <div className="hero-beam nfx-beam-l absolute -top-[8%] left-[10%] h-[125%] w-[34vw] origin-top" />
-            <div className="hero-beam hero-beam-r nfx-beam-r absolute -top-[8%] right-[6%] h-[125%] w-[30vw] origin-top" />
-          </>
-        ) : null}
+      {beams ? (
+        <>
+          <div className="hero-beam nfx-beam-l absolute -top-[8%] left-[10%] h-[125%] w-[34vw] origin-top" />
+          <div className="hero-beam hero-beam-r nfx-beam-r absolute -top-[8%] right-[6%] h-[125%] w-[30vw] origin-top" />
+        </>
+      ) : null}
 
-        {floor ? (
-          <div className="absolute inset-x-0 bottom-0 h-[50%] [perspective:600px]">
-            <div className="hero-floor nfx-floor absolute inset-x-[-50%] bottom-[-20%] top-0 origin-bottom [transform:rotateX(62deg)]" />
+      {floor ? (
+        <div className="absolute inset-x-0 bottom-0 h-[50%] [perspective:600px]">
+          <div className="hero-floor nfx-floor absolute inset-x-[-50%] bottom-[-20%] top-0 origin-bottom [transform:rotateX(62deg)]" />
+        </div>
+      ) : null}
+
+      {floaters.map((f, i) => (
+        <div
+          key={i}
+          data-scroll-depth={f.depth}
+          className="absolute"
+          style={{ left: f.left, top: f.top, width: f.size, height: f.size }}
+        >
+          <div className={`nfx-floater h-full w-full ${f.blur ? "opacity-70 blur-[2px]" : "opacity-90"}`}>
+            <PadelBall className="h-full w-full drop-shadow-[0_8px_20px_rgba(234,51,111,0.55)]" />
           </div>
-        ) : null}
+        </div>
+      ))}
 
-        {floaters.map((f, i) => (
-          <div
-            key={i}
-            data-scroll-depth={f.depth}
-            className="absolute"
-            style={{ left: f.left, top: f.top, width: f.size, height: f.size }}
-          >
-            <div className={`nfx-floater h-full w-full ${f.blur ? "opacity-70 blur-[2px]" : "opacity-90"}`}>
-              <PadelBall className="h-full w-full drop-shadow-[0_8px_20px_rgba(234,51,111,0.55)]" />
-            </div>
-          </div>
-        ))}
-
-        <div className="nfx-spot invisible absolute left-0 top-0 -ml-[22rem] -mt-[22rem] h-[44rem] w-[44rem] rounded-full bg-[radial-gradient(circle,rgba(252,104,152,0.2)_0%,rgba(163,92,255,0.08)_40%,transparent_65%)] mix-blend-screen" />
-        <div className="grain absolute inset-0" />
-      </div>
-      {fx ? <BallFx apiRef={fxApi} className="z-30" /> : null}
-    </>
+      <div className="nfx-spot invisible absolute left-0 top-0 -ml-[22rem] -mt-[22rem] h-[44rem] w-[44rem] rounded-full bg-[radial-gradient(circle,rgba(252,104,152,0.2)_0%,rgba(163,92,255,0.08)_40%,transparent_65%)] mix-blend-screen" />
+      <div className="grain absolute inset-0" />
+    </div>
   );
 }

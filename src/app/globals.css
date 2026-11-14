@@ -565,6 +565,13 @@ html.lenis {
   filter: blur(4px);
 }
 
+/* Mobile : un flou animé en continu coûte trop cher en mémoire GPU */
+@media (max-width: 63.99rem) {
+  .hero-beam {
+    filter: none;
+  }
+}
+
 .hero-beam-r {
   background: linear-gradient(
     to bottom,
