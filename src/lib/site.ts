@@ -11,7 +11,7 @@ export const SITE_URL = (
    d'environnement UMAMI_WEBSITE_ID (AVANT le build, comme SITE_URL).
    Tant qu'il est vide, aucun script n'est chargé et les mentions
    légales n'en parlent pas. */
-export const UMAMI_WEBSITE_ID = process.env.UMAMI_WEBSITE_ID ?? "";
+export const UMAMI_WEBSITE_ID = process.env.UMAMI_WEBSITE_ID ?? "0a64cbe6-0a18-455d-b297-2bba97ab8783";
 export const UMAMI_SCRIPT_URL = "https://cloud.umami.is/script.js";
 
 /* Position du club (derrière la caserne des pompiers), pour schema.org.

@@ -14,6 +14,13 @@ import {
   UMAMI_WEBSITE_ID,
 } from "@/lib/site";
 
+/* Domaine de production avec et sans « www. », séparés par une virgule
+   comme l'attend data-domains d'Umami. */
+function umamiDomains(siteUrl: string): string {
+  const bare = new URL(siteUrl).hostname.replace(/^www\./, "");
+  return `${bare},www.${bare}`;
+}
+
 /* Habillage du site public : navigation + pied de page, alimentés
    par le contenu géré dans l'administration. */
 export default async function SiteLayout({
@@ -108,12 +115,13 @@ export default async function SiteLayout({
       <NewsFlash item={news.find((n) => n.popup) ?? null} />
       {/* Statistiques Umami, posées ici et non dans le layout racine pour
           ne pas compter l'administration. data-domains limite le suivi au
-          domaine de production : rien n'est remonté depuis localhost. */}
+          domaine de production (avec et sans www) : rien n'est remonté
+          depuis localhost. */}
       {UMAMI_WEBSITE_ID && (
         <Script
           src={UMAMI_SCRIPT_URL}
           data-website-id={UMAMI_WEBSITE_ID}
-          data-domains={new URL(SITE_URL).hostname}
+          data-domains={umamiDomains(SITE_URL)}
           strategy="afterInteractive"
         />
       )}
