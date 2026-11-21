@@ -31,14 +31,12 @@ Strasbourgeois par ses tournois et son padel couvert.
 
 ## 0. Bloquant : le nom de domaine
 
-**`tpc-soufflenheim.fr` n'existe pas** (aucune réponse DNS, vérifié le
-12/10/2026). Tant que le site n'est pas en ligne sur son domaine définitif,
-rien ne peut être indexé.
+**Domaine retenu : `tennis-padel-soufflenheim.fr`** (21/11/2026), valeur par défaut de `SITE_URL` dans `src/lib/site.ts`. Ancien domaine envisagé : `tpc-soufflenheim.fr` (abandonné).
 
 - [ ] Réserver le domaine (Infomaniak) et le rattacher à l'hébergement Node.js, en HTTPS.
 - [ ] Définir `SITE_URL` dans `.env.local` **avant** `npm run build` (canonical, sitemap, robots.txt et JSON-LD en dépendent).
-- [ ] Choisir une seule version (`https://tpc-soufflenheim.fr` **ou** `https://www.…`) et rediriger l'autre en 301 chez l'hébergeur.
-- [ ] Retirer la mention « Maquette de démonstration — contenus et tarifs indicatifs » du pied de page (`src/components/Footer.tsx`).
+- [ ] Choisir une seule version (`https://tennis-padel-soufflenheim.fr` **ou** `https://www.…`) et rediriger l'autre en 301 chez l'hébergeur.
+- [x] Retirer la mention « Maquette de démonstration — contenus et tarifs indicatifs » du pied de page (`src/components/Footer.tsx`).
 - [ ] Ne jamais laisser une copie de test publique indexable sur un autre domaine.
 
 ---
@@ -127,7 +125,7 @@ Les sources externes récentes (sport-padel.fr, avril 2026) indiquent **3
 pistes de padel : 1 extérieure et 2 couvertes ouvertes le 2 avril 2026**,
 environ 170 membres. Le site dit encore autre chose :
 
-- [ ] Admin › Disciplines › Padel : « Projet d'extension en cours (maquette 3D) » → à remplacer (ex. « 2 pistes couvertes + 1 extérieure »).
+- [x] Admin › Disciplines › Padel : « Projet d'extension en cours (maquette 3D) » → à remplacer (ex. « 2 pistes couvertes + 1 extérieure »).
 - [ ] Admin › Installations : une seule « Piste de padel » ; Admin › Chiffres clés : « 4 courts & pistes ».
 - [ ] Code : `src/app/(site)/tarifs/page.tsx` (« fin de la construction des pistes de padel couvertes », sur-titre « 2024 / 25 ») et `src/components/landing/PadelReveal.tsx` (« Une piste SLAMCOURT »).
 - [ ] Année d'arrivée du padel : 2023 dans l'histoire du club, 2021 selon sport-padel.fr.

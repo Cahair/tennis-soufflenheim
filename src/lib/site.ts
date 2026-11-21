@@ -3,7 +3,7 @@
    Surchargeable via la variable d'environnement SITE_URL (à définir
    AVANT le build : les pages sont pré-rendues avec cette valeur). */
 export const SITE_URL = (
-  process.env.SITE_URL ?? "https://tpc-soufflenheim.fr"
+  process.env.SITE_URL ?? "https://tennis-padel-soufflenheim.fr"
 ).replace(/\/+$/, "");
 
 /* Mesure d'audience Umami (sans cookies). Website ID fourni par Umami

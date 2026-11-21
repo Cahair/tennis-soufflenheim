@@ -126,8 +126,6 @@ export default function Footer({
             © 2026 {site.name} — Tous droits réservés · Club fondé en 1979
           </p>
           <p className="flex flex-wrap items-center justify-center gap-x-2">
-            <span>Maquette de démonstration — contenus et tarifs indicatifs</span>
-            <span aria-hidden="true">·</span>
             <Link
               href="/mentions-legales"
               className="transition-colors hover:text-rose-300"

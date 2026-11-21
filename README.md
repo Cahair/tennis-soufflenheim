@@ -1,6 +1,6 @@
-# Site du Tennis Padel Club Soufflenheim (maquette)
+# Site du Tennis Padel Club Soufflenheim
 
-Maquette de site vitrine pour le TPCS — Tennis, Padel & Pickleball à Soufflenheim, depuis 1979.
+Site vitrine pour le TPCS — Tennis, Padel & Pickleball à Soufflenheim, depuis 1979.
 
 Construit avec **Next.js 16** (App Router), **React 19**, **Tailwind CSS 4** et **sharp** (photos). Les animations de la page d'accueil reposent sur **GSAP** (ScrollTrigger, SplitText, DrawSVG) et **Lenis** (défilement lissé) ; tout le reste est fait maison : galerie lightbox, accordéon FAQ… et le mini-CMS intégré (`/admin`).
 
@@ -58,7 +58,7 @@ Configuration (fichier `.env.local`, voir `.env.example`) :
 | `ADMIN_PASSWORD` | mot de passe de l'administration |
 | `SESSION_SECRET` | clé de signature des sessions (hex aléatoire) |
 | `TPCS_DATA_DIR` | dossier persistant du contenu (défaut : `./data`) |
-| `SITE_URL` | URL publique du site, sans `/` final (défaut : `https://tpc-soufflenheim.fr`) — canonical, sitemap, robots.txt, JSON-LD. **À définir avant `npm run build`** |
+| `SITE_URL` | URL publique du site, sans `/` final (défaut : `https://tennis-padel-soufflenheim.fr`) — canonical, sitemap, robots.txt, JSON-LD. **À définir avant `npm run build`** |
 | `GOOGLE_SITE_VERIFICATION` | facultatif : code de la balise de validation Google Search Console (inutile si validation DNS) |
 | `BING_SITE_VERIFICATION` | facultatif : code `msvalidate.01` de Bing Webmaster Tools |
 
