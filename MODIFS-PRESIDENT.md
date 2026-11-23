@@ -27,16 +27,25 @@ Légende : ✅ fait · ⏳ en attente d'éléments du président
 | 17 | Terrains | 3 pistes de padel (2 couvertes + 1 extérieure) et 1 court de tennis : installations (les 2 fiches tennis fusionnées en « Court de tennis »), page padel/tennis, accueil, comité, sponsors ; chiffre clé « courts & pistes » = 4 ; « Projet d'extension en cours » retiré |
 | + | Tournoi P1000 | Actualité avec l'affiche (`/actualites/tournoi-p1000-hommes-mai-2027`) + date au calendrier (6 mai 2027) |
 
+## Fait (23 nov. 2026)
+
+| # | Modif | Ce qui a été fait |
+|---|-------|-------------------|
+| 18 | Calendrier | Toutes les dates retirées sauf le tournoi P1000 Hommes (`content/events.json`) : page Calendrier et agenda de l'accueil |
+| 19 | Actualité d'avril 2026 | Titre : « Les pistes de padel couvertes ont été inaugurées » (adresse de la page inchangée : `/actualites/inauguration-halle-padel`) |
+| 20 | Comité | Quentin Brucker, François Cau et Michael Keiflin retirés (`content/committee.json`) |
+
 ## En attente d'éléments du président
 
 | # | Modif | Ce qu'il faut |
 |---|-------|---------------|
 | A | « Le club en bref » : changer les photos | Les photos (`landing/ClubStory.tsx`, aujourd'hui `terrasseClub` et `feteClub`) |
 | B | Histoire : photos 2023 et 2025 | Les photos (`content/histoire-chapitres.json`, chapitres 2023 « Le padel entre en piste » et 2025 « Place au pickleball ») |
-| C | Comité | Liste à jour. Retirer Quentin Brucker et François Cau. Nouvelle structure : Comité de direction (4) · Bureau · Commission sportive · Commission entretien · Commission animation (`content/committee.json` + `comite/page.tsx`) |
+| C | Comité | Liste à jour (Quentin Brucker, François Cau et Michael Keiflin déjà retirés). Nouvelle structure : Comité de direction (4) · Bureau · Commission sportive · Commission entretien · Commission animation (`content/committee.json` + `comite/page.tsx`) |
 | D | Sponsors | Liste à jour : les 7 logos non affichés de `public/sponsor/` sont obsolètes (`content/sponsors.json`) |
 | E | Club-house | Autres photos (vestiaires, terrasse…) |
 | F | Mot du président | Photo du président (remplace `inauguration-president.webp`) |
+| G | Actualité à la une (P1000) | La nouvelle photo voulue par le président (aujourd'hui l'affiche `affiche-p1000-hommes.webp`, dans `content/news.json`) |
 
 ## Points à vérifier
 

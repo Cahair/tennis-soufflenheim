@@ -48,15 +48,15 @@ function shownDate(item: NewsItem) {
 const PIN_TILTS = ["-rotate-2", "rotate-1", "rotate-3", "-rotate-1", "rotate-2", "-rotate-3"];
 
 /* ------------------------------------------------------------------ */
-/*  Actualités en « Gazette du club » : bandeau Flash info qui        */
-/*  défile, manchette de journal, article à la une avec tampon        */
-/*  tournant, et les autres articles en coupures de presse punaisées  */
+/*  Actualités en « Gazette du club » : manchette de journal, article */
+/*  à la une, et les autres articles en coupures de presse punaisées  */
 /*  par des balles de padel sur un tableau d'affichage de nuit.       */
+/*  Pas de tampon/pastille tournant(e) ni de bandeau « Flash info »   */
+/*  défilant : refusés par le club.                                   */
 /* ------------------------------------------------------------------ */
 export default async function ActualitesPage() {
   const news = await getNews();
   const [featured, ...rest] = news;
-  const flash = [...news, ...news];
 
   return (
     <>
@@ -67,24 +67,6 @@ export default async function ActualitesPage() {
         echo="Flash"
         effect="slam"
       />
-
-      {/* Flash info */}
-      <div className="relative z-10 flex overflow-hidden border-y-2 border-night-950 bg-rose-500 text-night-950">
-        <span className="ix-blink display relative z-10 flex shrink-0 items-center gap-2 bg-night-950 px-5 py-3 text-lg text-rose-400 sm:text-xl">
-          <span className="h-2.5 w-2.5 rounded-full bg-rose-500" />
-          Flash info
-        </span>
-        <div className="marquee flex-1 overflow-hidden py-3">
-          <div className="marquee-track flex" style={{ animationDuration: "60s" }}>
-            {flash.map((item, i) => (
-              <span key={i} className="display flex items-center gap-6 whitespace-nowrap pr-6 text-lg sm:text-xl">
-                {item.title}
-                <span aria-hidden="true">✦</span>
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
 
       <section className="relative overflow-clip bg-night-950 pb-32 pt-20 text-white">
         <NightFx glow="right" floaters={[]} />
@@ -113,21 +95,6 @@ export default async function ActualitesPage() {
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-rose-600/50 to-transparent" />
                   <div className="nfx-shine" />
                 </div>
-                {/* Tampon « À la une » qui tourne */}
-                <span aria-hidden="true" className="absolute -right-6 -top-8 flex h-28 w-28 items-center justify-center sm:-right-10 sm:h-32 sm:w-32">
-                  <svg viewBox="0 0 200 200" className="spin-text absolute inset-0 h-full w-full">
-                    <defs>
-                      <path id="une-circle" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0" />
-                    </defs>
-                    <circle cx="100" cy="100" r="98" className="fill-rose-500" />
-                    <text className="fill-night-950 font-display text-[22px] font-semibold uppercase">
-                      <textPath href="#une-circle" textLength="452" lengthAdjust="spacing">
-                        À la une ✦ À la une ✦ À la une ✦
-                      </textPath>
-                    </text>
-                  </svg>
-                  <PadelBall className="relative h-10 w-10" />
-                </span>
               </div>
               <div className="lg:col-span-5">
                 <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em]">

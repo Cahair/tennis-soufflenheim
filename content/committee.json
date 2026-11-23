@@ -43,18 +43,6 @@
     "commissions": ["Commission Animation"]
   },
   {
-    "role": "Assesseur",
-    "name": "Quentin Brucker",
-    "icon": "shield",
-    "commissions": []
-  },
-  {
-    "role": "Assesseur",
-    "name": "François Cau",
-    "icon": "shield",
-    "commissions": []
-  },
-  {
     "role": "Commission Sportive",
     "name": "Maxime Moreau",
     "icon": "trophy",
@@ -101,11 +89,5 @@
     "name": "Eric Kauffmann",
     "icon": "spark",
     "commissions": ["Commission Animation", "Commission Entretien"]
-  },
-  {
-    "role": "Commission Animation",
-    "name": "Michael Keiflin",
-    "icon": "spark",
-    "commissions": ["Commission Animation"]
   }
 ]
