@@ -5,6 +5,7 @@ import halleLogo from "../../public/images/halle-exterieur.webp";
 import feteClub from "../../public/images/joueurs-club.webp";
 import clubHouse from "../../public/images/club-house-bar.webp";
 import vainqueursPadel from "../../public/images/vainqueurs-padel.webp";
+import afficheP1000 from "../../public/images/affiche-p1000-hommes.webp";
 import clubHouseAccueil from "../../public/images/club-house-accueil.webp";
 import clubHouseMembres from "../../public/images/club-house-membres.webp";
 import presidentMicro from "../../public/images/inauguration-president.webp";
@@ -21,6 +22,7 @@ export {
   clubHouse,
   vueAerienne,
   vainqueursPadel,
+  afficheP1000,
   clubHouseAccueil,
   clubHouseMembres,
   presidentMicro,

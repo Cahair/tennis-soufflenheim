@@ -3,7 +3,10 @@
 import { useId, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { vainqueursPadel, vueAerienne } from "@/lib/images";
+import { afficheP1000, vueAerienne } from "@/lib/images";
+
+/* L'affiche mise en avant dans le hero renvoie vers son actualité. */
+const P1000_HREF = "/actualites/tournoi-p1000-hommes-mai-2027";
 import { ArrowRight } from "./Arrow";
 import BallFx, { type FxApi } from "./BallFx";
 import Magnetic from "./Magnetic";
@@ -352,14 +355,14 @@ export default function Hero() {
         {/* ---------- Contenu ---------- */}
         <div className="relative z-10 mx-auto grid h-full max-w-7xl grid-cols-1 items-center gap-8 px-4 pb-28 pt-28 sm:px-6 lg:grid-cols-12 lg:gap-6 lg:px-8 lg:pb-32">
           {/* Vue aérienne du club en fond voilé sur mobile ; sur grand
-              écran, carte inclinée avec les vainqueurs du dernier
-              tournoi de padel. */}
-          <div className="hero-card-scroll absolute inset-0 lg:relative lg:inset-auto lg:order-2 lg:col-span-5 lg:mx-auto lg:w-[min(100%,26rem,calc((100svh-15rem)*0.75))]">
+              écran, carte inclinée avec l'affiche du P1000 Hommes
+              (format 2:3, comme l'affiche, pour ne rien rogner). */}
+          <div className="hero-card-scroll absolute inset-0 lg:relative lg:inset-auto lg:order-2 lg:col-span-5 lg:mx-auto lg:w-[min(100%,26rem,calc((100svh-15rem)*0.6667))]">
             <div data-depth="-18" className="h-full w-full [perspective:1000px]">
               <div className="hero-tilt relative h-full w-full [transform-style:preserve-3d]">
                 <div
                   data-intro-hide
-                  className="hero-card relative h-full w-full overflow-hidden lg:aspect-[3/4] lg:h-auto lg:rounded-[2rem] lg:p-[3px] lg:shadow-[0_40px_90px_-30px_rgba(234,51,111,0.65)] lg:[background:linear-gradient(140deg,var(--color-rose-400),var(--color-ultra-500))]"
+                  className="hero-card relative h-full w-full overflow-hidden lg:aspect-[2/3] lg:h-auto lg:rounded-[2rem] lg:p-[3px] lg:shadow-[0_40px_90px_-30px_rgba(234,51,111,0.65)] lg:[background:linear-gradient(140deg,var(--color-rose-400),var(--color-ultra-500))]"
                 >
                   <div data-hero-media className="relative h-full w-full overflow-hidden lg:rounded-[calc(2rem-3px)]">
                     <Image
@@ -372,25 +375,23 @@ export default function Hero() {
                       className="object-cover object-[38%_center] lg:hidden"
                     />
                     <Image
-                      src={vainqueursPadel}
-                      alt="Les vainqueurs du dernier tournoi de padel, trophées en main, avec le président du club"
+                      src={afficheP1000}
+                      alt="Affiche du 1er P1000 Hommes du Tennis Padel Garden Club de Soufflenheim, du 6 au 9 mai 2027, dotation 3 000 €"
                       fill
                       placeholder="blur"
-                      sizes="28rem"
+                      sizes="26rem"
                       className="hidden object-cover lg:block"
                     />
                     {/* Mobile : la photo passe en fond, voilée de nuit et de rose */}
                     <div className="absolute inset-0 bg-gradient-to-b from-night-950/85 via-night-950/70 to-night-950/95 lg:hidden" />
                     <div className="absolute inset-0 bg-gradient-to-tr from-rose-600/45 via-transparent to-ultra-600/40 mix-blend-color lg:hidden" />
-                    {/* Grand écran : reflet rose en pied de carte et
+                    {/* Grand écran : l'affiche mène à son actualité, avec un
                         reflet holographique qui suit l'inclinaison */}
-                    <div className="absolute inset-x-0 bottom-0 hidden h-2/5 bg-gradient-to-t from-night-950/90 via-night-950/40 to-transparent lg:block" />
-                    <p className="absolute inset-x-0 bottom-0 hidden p-6 lg:block">
-                      <span className="kicker text-rose-300">Tournoi de padel</span>
-                      <span className="display mt-2 block text-2xl leading-tight text-white">
-                        Vainqueurs du dernier tournoi de padel
-                      </span>
-                    </p>
+                    <Link
+                      href={P1000_HREF}
+                      aria-label="Tournoi P1000 Hommes du 6 au 9 mai 2027 : voir l'actualité"
+                      className="absolute inset-0 hidden focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-rose-400 lg:block"
+                    />
                     <div className="hero-sheen pointer-events-none absolute inset-y-0 -left-full hidden w-[300%] lg:block" />
                   </div>
                 </div>
@@ -487,18 +488,20 @@ export default function Hero() {
               </Magnetic>
             </div>
 
-            {/* Mobile : la carte des vainqueurs devient une vignette */}
-            <figure
+            {/* Mobile : l'affiche du P1000 devient une vignette cliquable */}
+            <Link
+              href={P1000_HREF}
               data-intro-hide
-              className="hero-fade mt-8 flex items-center gap-4 rounded-2xl border border-white/10 bg-night-950/60 p-3 pr-5 backdrop-blur-sm lg:hidden"
+              className="hero-fade mt-8 flex items-center gap-4 rounded-2xl border border-white/10 bg-night-950/60 p-3 pr-5 backdrop-blur-sm transition-colors hover:border-rose-400/60 lg:hidden"
             >
-              <span className="relative h-16 w-12 shrink-0 overflow-hidden rounded-lg">
-                <Image src={vainqueursPadel} alt="" fill sizes="3rem" className="object-cover" />
+              <span className="relative h-[4.5rem] w-12 shrink-0 overflow-hidden rounded-lg">
+                <Image src={afficheP1000} alt="" fill sizes="3rem" className="object-cover" />
               </span>
-              <figcaption className="text-sm font-semibold leading-snug text-white">
-                Vainqueurs du dernier tournoi de padel
-              </figcaption>
-            </figure>
+              <span className="text-sm font-semibold leading-snug text-white">
+                <span className="kicker block text-rose-300">6 – 9 mai 2027</span>
+                1er P1000 Hommes au club
+              </span>
+            </Link>
           </div>
         </div>
 
