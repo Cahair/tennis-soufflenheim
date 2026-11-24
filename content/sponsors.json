@@ -49,6 +49,26 @@
     "detail": "Haute coiffure française"
   },
   {
+    "name": "Le Merle",
+    "logo": {
+      "src": "/sponsor/le_merle.png",
+      "width": 265,
+      "height": 265,
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAAfElEQVR42mWOMQ7CMAAD7ZAOkVq2zHkB/38CH2AH1KpMCJoCKYLGDBEM9FbbJ1OSAOIfA4CAlsFlSsNzKgtJykUBY8jtqT/GobuNJGlIEoCtzKq/jy9p06x3+8M1xqauQwiUdE7pMb+9rbq2nXN2znnvWYxLLL6XCPxKJD8x4D3Yx9zo/AAAAABJRU5ErkJggg=="
+    },
+    "detail": "Mobilier pour l'entreprise & les collectivités"
+  },
+  {
+    "name": "Modern Graphic",
+    "logo": {
+      "src": "/sponsor/modern_graphic.png",
+      "width": 265,
+      "height": 265,
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAAxklEQVR42gXBvU4CQRQG0Dt3LrOzLIkSsDAxKiG6FRbwPMa3ouFBKAwNj6AhFCYmNhZS8LMLO7szO5/nqDyfAmRtBIiIAKp8bRLDj/fV87hqGlKKAGhR09HT0CcyeylvhtaFSS9zbWTDNH99WyzX2mNWuomIM0mapWmE2hSFvu2L1l46ocsWRJ65OReX3e/XdiOs2Ga9a982MTqh012+6j7U3+9SlOftx6cHtNYdxD2nl6t9FmsJIRyOJ0UEAKSEDoO/n1bMPyv7XBwSvHByAAAAAElFTkSuQmCC"
+    },
+    "detail": "Imprimerie · Soufflenheim"
+  },
+  {
     "name": "Schroll",
     "logo": {
       "src": "/sponsor/schroll.png",

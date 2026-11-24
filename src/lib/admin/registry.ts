@@ -85,6 +85,10 @@ export const sections: Section[] = [
       { path: "title", label: "Titre", type: "text", required: true },
       { path: "meta", label: "Lieu et horaire", type: "text", required: true, help: "Exemple : Courts extérieurs · dès 9h" },
       { path: "date", label: "Date complète (facultatif)", type: "date", help: "Avec l'année : permet à Google et aux assistants IA d'annoncer l'événement. Le jour et le mois affichés restent ceux saisis plus haut." },
+      { path: "endDate", label: "Date de fin (facultatif)", type: "date", help: "Pour un événement sur plusieurs jours (tournoi…). Laissez vide si l'événement tient sur une journée." },
+      { path: "image", label: "Affiche (facultatif)", type: "image", help: "Montrée par Google à côté de l'événement. Sans affiche, la photo de partage du site est utilisée." },
+      { path: "price", label: "Tarif d'inscription en € (facultatif)", type: "text", help: "Un nombre, ex. 25 ou 12,50. Mettez 0 si c'est gratuit. Laissez vide si le tarif n'est pas encore connu." },
+      { path: "performer", label: "Participants (facultatif)", type: "text", help: "Joueurs, groupe, animateur… Laissez vide : le club est indiqué par défaut." },
     ],
   },
   {

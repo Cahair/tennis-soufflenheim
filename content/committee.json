@@ -4,6 +4,12 @@
     "name": "Serge Moreau",
     "contact": "06 10 14 60 39",
     "icon": "crown",
+    "photo": {
+      "src": "/images/comite/serge-moreau.webp",
+      "width": 438,
+      "height": 548,
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAA/UlEQVR42gXBS07CUBQAUN7t7ecVQUPVplgJYYRx6grcmTOH7oOQOCBuQAcGNaEKEoyBGALVVlvt9/XvOeTq8gJ5UaBU4HiJ0ixLCZCqrJADRA6FsuwcaQfHvSAOlvMXHhHrMv1evYukwiLiGo3e6ZljbaMgAA5I/udiGFrrD/fNKFl8qHVrQJAlsZ8kC8tuUirQpr5c7GtdR1GhqhGpLhdpqipqwdLQXD9NXoFwKMhSS++4nm//OiDyw3vj5mF60teRQG233fZ+nJ0wYnl5N51NjPH48RaxhOfZfDAYnff11p6y+TQhj3kgmDB/eD0KwmhrOxsv+7JMQD7J2D8Z2no3VhbTgAAAAABJRU5ErkJggg=="
+    },
     "commissions": ["Commission Sponsoring"]
   },
   {

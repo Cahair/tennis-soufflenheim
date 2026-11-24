@@ -42,7 +42,7 @@ const commissionsMeta = [
 
 /* ------------------------------------------------------------------ */
 /*  Le comité en cartes à collectionner : pellicule holographique qui */
-/*  suit la souris, carte rare pour le président, retournement au     */
+/*  suit la souris, retournement au                                   */
 /*  clic pour lire le contact. Les commissions en maillots d'équipe   */
 /*  avec numéro géant.                                                */
 /* ------------------------------------------------------------------ */

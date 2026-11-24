@@ -19,7 +19,7 @@ function initials(name: string): string {
 /* ------------------------------------------------------------------ */
 /*  Carte à collectionner d'un bénévole du comité : pellicule         */
 /*  holographique irisée qui suit le pointeur (variables CSS), numéro */
-/*  de série, « rareté » selon le rôle. Un clic (ou Entrée) retourne  */
+/*  de série. Un clic (ou Entrée) retourne                            */
 /*  la carte : au dos, le rôle, les commissions et le contact.        */
 /* ------------------------------------------------------------------ */
 export default function TradingCard({
@@ -33,7 +33,6 @@ export default function TradingCard({
 }) {
   const [flipped, setFlipped] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const rare = /président/i.test(member.role) && !/vice/i.test(member.role);
 
   const onMove = (e: React.PointerEvent) => {
     const el = ref.current;
@@ -99,11 +98,6 @@ export default function TradingCard({
                     <CommitteeIcon icon={member.icon} className="h-7 w-7 text-rose-300" />
                   </span>
                 )}
-                {rare ? (
-                  <span className="absolute right-2 top-2 rounded-full bg-rose-500 px-2.5 py-1 text-[0.55rem] font-black uppercase tracking-[0.18em] text-night-950">
-                    ★ Carte rare
-                  </span>
-                ) : null}
               </span>
               <span className="block px-4 pb-4 pt-3">
                 <span className="display block truncate text-2xl leading-tight text-white">{member.name}</span>

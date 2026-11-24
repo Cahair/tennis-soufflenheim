@@ -5,7 +5,7 @@ import SectionHeader from "@/components/SectionHeader";
 import CtaBand from "@/components/home/CtaBand";
 import NightFx from "@/components/landing/NightFx";
 import { getEvents, getSettings } from "@/lib/content";
-import { pageMetadata } from "@/lib/seo";
+import { OG_IMAGE, pageMetadata } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -23,30 +23,50 @@ export default async function CalendrierPage() {
      peuvent alors les annoncer. Sans année, pas de données. */
   const [postalCode, ...cityParts] = site.address.city.split(" ");
   const club = { "@type": "SportsOrganization", "@id": `${SITE_URL}/#club`, name: site.name, url: SITE_URL };
+  const absolute = (src: string) => (src.startsWith("/") ? `${SITE_URL}${src}` : src);
   const eventsJsonLd = events
     .filter((event) => event.date)
-    .map((event) => ({
-      "@context": "https://schema.org",
-      "@type": "Event",
-      name: event.title,
-      description: event.meta,
-      startDate: event.date,
-      eventStatus: "https://schema.org/EventScheduled",
-      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-      location: {
-        "@type": "Place",
-        name: site.name,
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: site.address.street,
-          postalCode,
-          addressLocality: cityParts.join(" ") || site.address.city,
-          addressCountry: "FR",
+    .map((event) => {
+      const price = event.price?.trim().replace(",", ".").replace(/\s*€$/, "");
+      const offers =
+        price && !Number.isNaN(Number(price))
+          ? {
+              "@type": "Offer",
+              price: Number(price),
+              priceCurrency: "EUR",
+              availability: "https://schema.org/InStock",
+              url: `${SITE_URL}/calendrier`,
+            }
+          : undefined;
+      return {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        name: event.title,
+        description: event.meta,
+        startDate: event.date,
+        endDate: event.endDate || event.date,
+        image: [absolute(event.image?.src ?? OG_IMAGE.url)],
+        performer: event.performer?.trim()
+          ? { "@type": "PerformingGroup", name: event.performer.trim() }
+          : club,
+        ...(offers ? { offers } : {}),
+        eventStatus: "https://schema.org/EventScheduled",
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        location: {
+          "@type": "Place",
+          name: site.name,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: site.address.street,
+            postalCode,
+            addressLocality: cityParts.join(" ") || site.address.city,
+            addressCountry: "FR",
+          },
         },
-      },
-      organizer: club,
-      url: `${SITE_URL}/calendrier`,
-    }));
+        organizer: club,
+        url: `${SITE_URL}/calendrier`,
+      };
+    });
 
   return (
     <>

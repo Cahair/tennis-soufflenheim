@@ -64,6 +64,10 @@ export type ClubEvent = {
   title: string;
   meta: string;
   date?: string; // AAAA-MM-JJ, pour schema.org (le jour et le mois affichés restent day/month)
+  endDate?: string; // AAAA-MM-JJ, dernier jour (sinon = date)
+  image?: ImageRef; // affiche, pour schema.org (sinon l'image de partage du site)
+  price?: string; // tarif d'inscription en euros (« 0 » = gratuit), pour schema.org
+  performer?: string; // joueurs, artiste… (sinon le club)
 };
 
 export type PriceCard = {

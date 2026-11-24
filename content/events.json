@@ -4,6 +4,13 @@
     "month": "Mai",
     "title": "Tournoi P1000 Hommes",
     "meta": "Pistes de padel couvertes · du 6 au 9 mai 2027",
-    "date": "2027-05-06"
+    "date": "2027-05-06",
+    "endDate": "2027-05-09",
+    "image": {
+      "src": "/images/affiche-p1000-hommes.webp",
+      "width": 1024,
+      "height": 1536,
+      "blurDataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAMCAIAAADQ/GvKAAABN0lEQVR42gEsAdP+AcK43jUA/P4/HLy1ux7VCixtO6KDzcKq3gIVcLYF9v3x9fIO/gbzGAHt8fP1DQQkbeMBpZTS1t6t9t/jIUMwCwMJAQD+v9fqATNQBPYuEtmbxQTg8g3e+/8HDOQE+fs/LBQHCwGKjHgLCRMWByIMDhIfIRkJHBq6wKrx6t8E4d7rAgL/Ik4zCO73+e/u7/DgB+zn+OLnBN7a/fj2xwPz4Bv7AAMWBwwZC/v49wID7wQt+u8nERwb8hULGCkSBxP7/AvV5vLH6KAE+AXp/+Uvu/nm8erx7vTw9wzy9QD66fTgA9Lt9uf78RwQFA4ICgwDBhQVF+Lj5e7f6wT+APb6Cfj/Ggzs//f6AP7r6uz87Pot/iIEIfsS9QMDyfXf+fb49/b3AwQC9Qrw+PkQM6WfkiNcI9oAAAAASUVORK5CYII="
+    }
   }
 ]
